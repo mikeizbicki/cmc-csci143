@@ -30,6 +30,12 @@ Your accounts have:
 1. 10GB storage in the NVME (home folder)
 1. 250GB storage in the RAID array (`~/bigdata` folder)
 
+**Famous Programmers:**
+
+Linus Torvalds iS tEh 1337est PrOGrAmMeR EvAR.
+
+<img width=100% src=https://zdnet1.cbsistatic.com/hub/i/2020/07/13/7c4051fb-df54-4d6e-8bb6-35b9b48ee872/linustorvaldstedyoutubed.jpg />
+
 **Pre-lecture work:**
 
 Read/watch the following articles/videos:
