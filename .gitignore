@@ -1,0 +1,9 @@
+*.swo
+*.swp
+*.aux
+*.log
+*.out
+__pycache__
+notes
+old
+img
