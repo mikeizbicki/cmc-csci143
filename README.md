@@ -256,12 +256,12 @@ Indexes - 2 weeks
 | 6    | W, 10 Mar   | **Spring Break**                                     |
 | 7    | M, 15 Mar   | SQL: ACID/MVCC/Transactions                          |
 | 7    | W, 17 Mar   | SQL: ACID/MVCC/Transactions                          |
-| 8    | M, 22 Mar   | Search: b-tree                                       |
-| 8    | W, 24 Mar   | Search: b-tree                                       |
-| 9    | M, 29 Mar   | Search: Multilingual Full Text Search                |
-| 9    | W, 31 Mar   | Search: Multilingual Full Text Search                | <!-- Cesar chavez day, observed on Friday -->
-| 10   | M, 05 Apr   | Search: Multilingual Full Text Search                |
-| 10   | W, 07 Apr   | Search: Multilingual Full Text Search                |
+| 8    | M, 22 Mar   | Indexing: b-tree                                     |
+| 8    | W, 24 Mar   | Indexing: b-tree                                     |
+| 9    | M, 29 Mar   | Indexing: Multilingual Full Text Search              |
+| 9    | W, 31 Mar   | Indexing: Multilingual Full Text Search              | <!-- Cesar chavez day, observed on Friday -->
+| 10   | M, 05 Apr   | Indexing: Multilingual Full Text Search              |
+| 10   | W, 07 Apr   | Indexing: Multilingual Full Text Search              |
 | 11   | M, 12 Apr   | Counting: Triggers                                   |
 | 11   | W, 14 Apr   | Counting: Triggers                                   |
 | 12   | M, 19 Apr   | Counting: Probabilistic Data Structures              |
