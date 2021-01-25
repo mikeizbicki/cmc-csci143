@@ -19,6 +19,17 @@ This includes:
 1. processes
 1. git
 
+The lambda server has:
+1. 80 processors
+1. 8 GPU
+1. 256 GB RAM
+1. 2 TB NVME
+1. 50 TB RAID array of 16 HDDs
+
+Your accounts have:
+1. 10GB storage in the NVME (home folder)
+1. 250GB storage in the RAID array (`~/bigdata` folder)
+
 **Pre-lecture work:**
 
 Read/watch the following articles/videos:

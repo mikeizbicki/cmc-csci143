@@ -33,8 +33,10 @@ Fun facts:
 **What is big data?**
 
 Depends entirely on the person who is talking
-1. Most non-computer scientists think anything bigger than 1G is big data
+1. Most non-computer scientists (muggles) think anything bigger than 1G is big data
 1. Facebook considers ["tens of petabytes" to be a "SMALL data problem"](https://research.fb.com/blog/2014/10/facebook-s-top-open-data-problems/)
+1. One of the biggest problems in industry is people apply tools for "Facebook big data" to "muggle big data",
+   and a major goal of this course is to teach you why this is bad and how to avoid it
 1. For us, "big data" means:
     1. managing a cluster of computers to solve a computational problem; if it can be solved on a single computer, it's SMALL data
     1. all the interesting/applied parts of upper division computer science compressed into a single course
@@ -48,7 +50,7 @@ We will work with the following three datasets:
 By the end of this course, you will build your own "google" search engine.
 You will manage a cluster of machines that work together to:
 1. download all the data from the internet
-1. analyzing it
+1. extract key information from the HTML
 1. store it in a format suitable for [sub 200ms queries](https://developers.google.com/speed/docs/insights/Server)
 1. and serve the data in a webpage
 
@@ -56,18 +58,19 @@ In order to make your search engine scalable, we will use the following technolo
 
 1. Docker containers
     1. used to easily deploy code to thousands of computers
-    1. requires concepts from operating systems, networks, architecture
+    1. requires concepts from operating systems, networks, architecture; closely related to "virtual machines"
     1. widely used in industry, see https://stackshare.io/docker
 
 1. Databases
     1. stores and accesses the data efficiently
-        1. application and database on same computer (sqlite)
-        1. application and database on different computers (postgres), **our focus**
-        1. database on a cluster of computers in the same datacenter (postgres + extensions postgres-xl and citus)
+        1. application and database on same computer (SQLite)
+        1. application and database on different computers (Postgres), **our focus**
+        1. database on a cluster of computers in the same datacenter (Postgres + extensions Postgres-xl and Citus)
         1. database on a cluster of computers spread throughout the world ([YugabyteDB](https://docs.yugabyte.com/), [CocroachDB](https://www.cockroachlabs.com/docs/stable/))
-    1. sql to manipulate data, python to build applications
-    1. postgres implements full text search in 70+ languages using custom libraries I've written
-    1. postgres widely used in industry, see https://stackshare.io/postgresql
+    1. SQL to manipulate data, python to build applications
+    1. NoSQL (e.g. MongoDB, CouchDB) sucks and you should probably never use it (strongly held personal opinion)
+    1. Postgres implements full text search in 70+ languages using custom libraries I've written
+    1. Postgres widely used in industry, see https://stackshare.io/postgresql
 
 1. With these technologies, you can create a fully functioning, highly scalable web business
     1. former CMC student Biniyam Asnake created the business [NextDorm](https://www.nextdorm.college/cmc/browse?search=politics) as his senior thesis (slightly different tech stack, but same ideas)
@@ -146,11 +149,20 @@ Therefore, there is a lot of material in this course that is covered in other up
         1. SQL
         1. ACID/MVCC/transactions
         1. indexing techniques
+    1. A lot of the concepts we'll be covering "should" be covered in other CS courses,
+       but because CS professors are often more theory minded than practice minded,
+       they don't get covered.
+       In that sense, this course is similar to the [Missing Semester of Your CS Education](https://missing.csail.mit.edu/) course taught at MIT.
 
 1. Concepts we don't cover from CSCI133 Databases
     1. relational algebra
     1. technical implementation details / C programming
     1. relationship between the database and operating system
+
+1. BigData concepts from a CS perspective that we will not talk about:
+    1. Frameworks for distributed computation (e.g. Apache Hadoop, Apache Spark)
+    1. Distributed Filesystems (e.g. HDFS, IPFS); we will talk about S3
+    1. Geo-distributed databases
 
 **Textbook:**
 
@@ -177,7 +189,7 @@ You will have:
 
 1. Occasional labs (worth 2pts each)
 1. Weekly homeworks (worth 10-25 points each)
-1. Twitter MapReduce project (worth 20 points)
+1. Twitter MapReduce project (worth 20 points -- only students who did not take CS46 with me)
 1. One open notes midterm (20 points, week after spring break)
 1. One open notes final (30 points, during finals week)
 1. In total, there will be about 250 points in the class.
