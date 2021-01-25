@@ -32,9 +32,9 @@ Fun facts:
 
 **What is big data?**
 
-1. Depends entirely on the person who is talking
-    1. Most non-computer scientists think anything bigger than 1G is big data
-    1. Facebook considers ["tens of petabytes" to be a "SMALL data problem"](https://research.fb.com/blog/2014/10/facebook-s-top-open-data-problems/)
+Depends entirely on the person who is talking
+1. Most non-computer scientists think anything bigger than 1G is big data
+1. Facebook considers ["tens of petabytes" to be a "SMALL data problem"](https://research.fb.com/blog/2014/10/facebook-s-top-open-data-problems/)
 1. For us, "big data" means:
     1. managing a cluster of computers to solve a computational problem; if it can be solved on a single computer, it's SMALL data
     1. all the interesting/applied parts of upper division computer science compressed into a single course
@@ -59,17 +59,18 @@ In order to make your search engine scalable, we will use the following technolo
     1. requires concepts from operating systems, networks, architecture
     1. widely used in industry, see https://stackshare.io/docker
 
-1. Postgresql / sqlite3 databases
+1. Databases
     1. stores and accesses the data efficiently
-        1. on 1 computer
-        1. on >1 computers in the same data center
-        1. on >1 data centers spread throughout the world
-    1. SQL to manipulate data, Python to build applications
-    1. implements full text search in 70+ languages using custom libraries I've written
-    1. widely used in industry, see https://stackshare.io/postgresql
+        1. application and database on same computer (sqlite)
+        1. application and database on different computers (postgres), **our focus**
+        1. database on a cluster of computers in the same datacenter (postgres + extensions postgres-xl and citus)
+        1. database on a cluster of computers spread throughout the world ([YugabyteDB](https://docs.yugabyte.com/), [CocroachDB](https://www.cockroachlabs.com/docs/stable/))
+    1. sql to manipulate data, python to build applications
+    1. postgres implements full text search in 70+ languages using custom libraries I've written
+    1. postgres widely used in industry, see https://stackshare.io/postgresql
 
 1. With these technologies, you can create a fully functioning, highly scalable web business
-    1. former CMC student Biniyam Asnake created the business [NextDorm](https://www.nextdorm.college/cmc/browse?search=politics) as his senior thesis
+    1. former CMC student Biniyam Asnake created the business [NextDorm](https://www.nextdorm.college/cmc/browse?search=politics) as his senior thesis (slightly different tech stack, but same ideas)
 
 <!--
 Example search engines:
