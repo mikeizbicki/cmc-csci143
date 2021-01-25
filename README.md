@@ -4,6 +4,14 @@
 <img width='100%' src=bigdata-knows-everything.jpg />
 </center>
 
+Salary information:
+
+1. https://www.levels.fyi/
+    1. [devops](https://www.levels.fyi/Salaries/Software-Engineer/DevOps/)
+    1. [distributed systems engineer](https://www.levels.fyi/Salaries/Software-Engineer/Distributed-Systems/)
+    1. [data scientist](https://www.levels.fyi/comp.html?track=Data%20Scientist)
+1. [employers illegally collude to reduce salaries](https://en.wikipedia.org/wiki/High-Tech_Employee_Antitrust_Litigation)
+
 ## About the Instructor
 
 |||
