@@ -45,7 +45,7 @@ Print each of these cheatsheets, and have them handy for lecture:
 
 **Due Date:**
 
-Labs are always due at midnight on the Sunday that they are assigned (i.e. January 31 for this lab).
+Labs are always due on midnight of the Sunday of the week that they are assigned (i.e. January 31 for this lab).
 If you either attend the class lab session or collaborate with another student by completing the lab together over zoom, then you get a 48 hour extension until the following Tuesday at midnight (i.e. February 2 for this lab).
 
 Weekly homeworks have the same due dates and extension policies.
