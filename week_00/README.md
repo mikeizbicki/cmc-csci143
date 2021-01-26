@@ -88,6 +88,7 @@ Weekly homeworks have the same due dates and extension policies.
    to test your unix typing skills.
    Programmers spend lots of time at the keyboard,
    and so it pays to actually be able to type well.
+   Anyone who beats my high score will have my undying admiration :)
 
 1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/lambda-server.md) to update your lambda server account's settings
 
