@@ -35,18 +35,15 @@ Your accounts have:
 Read/watch the following articles/videos:
 
 1. [Ken Thompson and Dennis Ritchie Explain UNIX](https://www.youtube.com/watch?v=JoVQTPbD6UY)
-
 1. (optional) [Where GREP Came From - Computerphile](https://www.youtube.com/watch?v=NTfOnGZUZDk)
-
 1. (optional) [vim vs emacs: the oldest rivalry in computing](https://slate.com/technology/2014/05/oldest-software-rivalry-emacs-and-vi-two-text-editors-used-by-programmers.html)
 
 Print each of these cheatsheets, and have them handy for lecture:
 
 1. [bash](https://files.fosswire.com/2007/08/fwunixref.pdf)
-
 1. [vim](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf)
-
 1. [git](https://education.github.com/git-cheat-sheet-education.pdf)
+1. [github pull requests](pull_request.png)
 
 **References:**
 
