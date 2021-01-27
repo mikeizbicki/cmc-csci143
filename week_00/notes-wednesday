@@ -1,0 +1,27 @@
+
+
+dotfiles start with  dot
+
+lambda server shell uses bash programming language
+
+access a variable , put a $ in front of the variable
+
+creating a commit: 2 steps:
+1) git add
+2) git commit
+
+standard for git commit messages is that they should be in the 2nd person
+
+
+when the upstream repo is "ahead" of origin aka downstream repo;
+how do you update it?
+
+1) git remote add upstream
+2) git pull upstream branchname
+3) git push origin branchname
+
+git blame tells you who wrote what line in a file
+
+
+man page is the standard way to get help about a tool
+
