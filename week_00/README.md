@@ -18,6 +18,7 @@ This includes:
 1. signals
 1. processes
 1. git
+1. github
 
 The lambda server has:
 1. 80 processors
