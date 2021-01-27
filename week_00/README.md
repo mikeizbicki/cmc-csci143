@@ -91,6 +91,7 @@ Weekly homeworks have the same due dates and extension policies.
 
 1. If you did not take CS46 with me:
     1. Complete the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/git.md)
+    1. Complete the [github tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/github.md)
     1. Complete the [unix processes tutorial](processes.md)
     1. Neither of these require you to turn anything in.
        They are simply for you to practice the commands.
