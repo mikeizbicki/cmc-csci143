@@ -18,6 +18,7 @@ This includes:
 1. signals
 1. processes
 1. git
+1. github
 
 The lambda server has:
 1. 80 processors
@@ -32,7 +33,7 @@ Your accounts have:
 
 **Famous Programmers:**
 
-Linus Torvalds iS tEh 1337est PrOGrAmMeR EvAR.
+Linus Torvalds is the 1337est programmer ever.
 
 <img width=100% src=https://zdnet1.cbsistatic.com/hub/i/2020/07/13/7c4051fb-df54-4d6e-8bb6-35b9b48ee872/linustorvaldstedyoutubed.jpg />
 
