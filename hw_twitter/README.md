@@ -34,6 +34,14 @@ JSON is a popular format for storing data that is closely related to python dict
 Vim is able to open compressed zip files,
 and I encourage you to use vim to explore the dataset.
 
+You will follow the MapReduce procedure to analyze these tweets.
+This is a 3 step procedure summarized in the following image:
+
+<img src=mapreduce.png width=100% />
+
+I have already done the partition step for you (by splitting up the tweets into one file per day).
+You will have to do the map and reduce steps.
+
 ## Background Tasks
 
 Complete the following tasks to familiarize yourself with the sample code:
