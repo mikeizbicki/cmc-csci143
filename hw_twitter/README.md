@@ -39,8 +39,6 @@ and I encourage you to use vim to explore the dataset.
 Complete the following tasks to familiarize yourself with the sample code:
 
 1. Fork the [twitter\_coronavirus](https://github.com/mikeizbicki/twitter_coronavirus) repo and clone it onto the lambda server.
-   Notice that this repo does not use CI.
-   It does not make sense to use CI when performing a one-off analysis of a large dataset because we would have to transfer the entire dataset to the CI servers.
 
 1. **Mapping:**
    The `map.py` file processes the zip file for an individual day.
@@ -99,7 +97,7 @@ Complete the following tasks:
    and one that ends in `.country` for the country dictionary.
 
    **HINT:**
-   Most tweets contain a 'place' key,
+   Most tweets contain a `place` key,
    which contains a dictionary with the `country_code` key.
    This is how you should lookup the country that a tweet was sent from.
    Some tweets, however, do not have a `country_code` key.
@@ -108,7 +106,7 @@ Complete the following tasks:
 
 1. Once your `map.py` file has been modified to track results for each country,
    you should run the map file on all the tweets in the `/data/tweets_corona` folder.
-   In order to do this, you should create a shell script that loops over each file in the dataset and runs `map.py` on that file.
+   In order to do this, you should create a shell script `run_maps.sh` that loops over each file in the dataset and runs `map.py` on that file.
    Each call to `map.py` can take up to several days to finish, so you should use the `nohup` command to ensure the program continues to run after you disconnect and the `&` operator to ensure that all `map.py` commands run in parallel.
 
 1. After your modified `map.py` has run on all the files,
@@ -132,3 +130,9 @@ Complete the following tasks:
 
 Upload a link to you github repository on sakai.
 I will look at your code and visualization to determine your grade.
+
+Notice that we are not using CI to grade this assignment.
+That's because you can get slightly different numbers depending on some of the design choices you make in your code.
+For example, should the term `corona` count tweets that contain `coronavirus` as well as tweets that contain just `corona`?
+These are relatively insignificant decisions.
+I'm more concerned with your ability to write a shell script and use `nohup`, `&`, and other process control tools effectively.

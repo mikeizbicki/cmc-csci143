@@ -8,7 +8,21 @@
 
 ## Lecture
 
-1. MapReduce
+1. Parallel programming
+    1. All of the hardest parts of an OS course compressed down into 5 minutes
+    1. Two techniques: Threads vs Processes
+        1. Threads are "lightweight"
+            1. minimal overhead
+            1. each thread shares the same memory, so communication is easy
+            1. slighly less safe because a bug in one thread will cause bad behavior in every program
+            1. Python's [global interpretter lock (GIL)](https://realpython.com/python-gil/) means you cannot use threads in python for parallel programming
+        1. Processes are "heavyweight"
+            1. about 10MB of unavoidable overhead per process in the system kernel
+            1. additionally, each child process duplicates the memory of its parent process
+            1. processes can communicate only by reading/writing to files
+            1. processes are the only way to do parallel programming in python
+            1. python is not great for manipulating processes; bash is much better; so I always do the parallel programming parts in bash
+    1. MapReduce paradigm
 
 1. Docker containers
 
