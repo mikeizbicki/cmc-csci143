@@ -21,8 +21,13 @@
             1. additionally, each child process duplicates the memory of its parent process
             1. processes can communicate only by reading/writing to files
             1. processes are the only way to do parallel programming in python
-            1. python is not great for manipulating processes; bash is much better; so I always do the parallel programming parts in bash
-    1. MapReduce paradigm
+            1. processes created by "forking"
+    1. Programming with threads/processes is HARD
+        1. easy to create "memory leaks"
+        1. easy to accidentally create [fork bombs](https://en.wikipedia.org/wiki/Fork_bomb), which were the original form of [cracking](http://www.catb.org/jargon/html/C/cracker.html)
+        1. code is non-deterministic (everytime you run it, you get different results), resulting in lots of [heisenbugs](https://en.wikipedia.org/wiki/Heisenbug)
+        1. python is not great for manipulating processes (it's very easy to create very bad bugs); bash is much better; so I always do the parallel programming parts in bash
+        1. MapReduce paradigm simplifies parallel data analysis
 
 1. Docker containers
 
