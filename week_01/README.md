@@ -33,14 +33,56 @@
         1. python is not great for manipulating processes (it's very easy to create very bad bugs); bash is much better; so I always do the parallel programming parts in bash
         1. MapReduce paradigm simplifies parallel data analysis
 
-1. Docker containers
-
 1. Basic networking
-    1. IP addresses
-    1. port numbers
-    1. port forwarding ([optional reference](https://www.ssh.com/ssh/tunneling/example))
+    1. Internet Protocol (IP) addresses
+        1. (Almost) every device on the internet has a unique IPv4 address.  IPv4 uses 32bit addresses (looks like 134.173.191.241), which supports up to 4 billion unique addresses.
+        1. The internet is slowly moving to the IPv6 standard.  IPv6 uses 64bit addresses (looks like `fe80::3efd:feff:fedd:feec`).
+        1. The IPv4 address `127.0.0.1` is called a "loopback" address because it always refers to the computer you are working on.
+    1. We often work with hostnames instead of IP addresses
+        1. Hostnames can be defined locally in the file `/etc/hosts`
+            1. My hosts file is set to https://github.com/StevenBlack/hosts/blob/master/data/StevenBlack/hosts to block requests to ad/malware servers.
+               (This blocks more requests than just an adblock extension for your browser.)
+        1. Hostnames can be defined globally using DNS servers
+        1. The hostname `localhost` always resolves to the IPv4 address `127.0.0.1`.
+    1. TCP port numbers
+        1. ports are numbers between 1 and 2^16-1 (65535)
+        1. different services listen on different ports
+        1. the standard ports are:
+            1. ssh is 22
+            1. http is port 80
+            1. https is port 443
+        1. notice that the lambda server is running ssh on a non-standard port, and that is why you must specify the `-p` flag when connecting
+        1. only root can listen on ports < 1024; therefore, you cannot use the standard ports for your web services running on the lambda server
+    1. port forwarding lets you redirect connections from one computer to another ([optional reference](https://www.ssh.com/ssh/tunneling/example))
 
+1. Docker containers
+    1. `docker ps`: lists currently running containers
+    1. `docker run`: creates and runs a new container
+        1. `--name`: provide a name for the container that will be displayed with the `docker ps` command
+        1. `-it`: use this flag whenever you are running an interactive command (such as `bash`); the `i` stands for interactive and the `t` stands for tty
+        1. `--rm`: delete the container after running, useful for preserving disk space
+        1. `-p X:Y`: expose port `Y` in the docker image to lambda server port `X`
+        1. `-d` run as a daemon
+    1. `docker exec`: runs a command in a container without creating a new container
+    1. `docker build`: creates a new "container image"
+        1. `-t`: name the image
+    1. `Dockerfile`: the instructions for creating a new image
+
+1. More unix shell
+    1. for loops
+    1. glob (`*`)
+    1. file permissions ([optional reference](https://linuxhandbook.com/linux-file-permissions/))
+    1. `PATH` environment variable
+    1. exit codes and the `$?` variable ([optional reference](https://shapeshed.com/unix-exit-codes/))
+        1. 0 = success
+        1. 1-127 = failure
+    1. the commands `true`, `false`, `test`, `[`
+    1. if statements
+    1. connecting programs with `|`, `&`, `||`, `&&`, `;` ([optional reference](https://unix.stackexchange.com/questions/24684/confusing-use-of-and-operators))
+
+<!--
 1. Flask webpages
+-->
 
 **Pre-lecture work:**
 
@@ -66,7 +108,39 @@ This is a "hello world" assignment for flask/docker that just ensures you have a
 1. Connect to the webpage
 -->
 
-1. Follow the instructions for installing rootless docker: https://docs.docker.com/engine/security/rootless/#install
+1. First, we'll practice using ssh port forwarding.
+   A sample of the final search engine you'll be creating in this class is currently running on the lambda server's port 5000.
+   For this task, you will log on to the lambda server with "local port forwarding" in order to get access to this webpage.
+
+   1. **Mac/linux**: log on to the lambda server with the following command
+      (changing `username` to your username):
+      ```
+      $ ssh username@134.173.191.241 -p 5055 -L 8080:localhost:5000
+      ```
+      This tells ssh to forward all requests to port 8080 on your computer (`localhost`) to port 5000 on the lambda server.
+
+      **Windows**:
+      You will have to select the appropriate checkboxes in putty to get local port forwarding enabled.
+      You can follow [these instructions](https://blog.devolutions.net/2017/4/how-to-configure-an-ssh-tunnel-on-putty) to get pictures of where the checkboxes are located.
+
+   1. After you've logged on to the lambda server, visit the url
+      https://localhost:8080
+      in your web browser (I use firefox with the uBlock origin extension for all my internet browsing).
+      You should now have access to the search engine.
+
+1. Install rootless docker
+
+    1. The instructions are here: https://docs.docker.com/engine/security/rootless/#install
+
+    1. Ensure that you:
+        1. move the contents of the `bin` folder into `.local/bin`
+        1. add the `DOCKER_HOST` environment variable to your `.bashrc` file
+    
+    1. Whenever the lambda server restarts, you must run the command
+       ```
+       $ systemctl --user start docker
+       ```
+       to restart the docker daemon.
 
 1. Follow these instructions to create a simple flask app running in a docker container: https://runnable.com/docker/python/dockerize-your-flask-application
 
@@ -86,6 +160,11 @@ This is a "hello world" assignment for flask/docker that just ensures you have a
        $ ssh username@134.173.191.241 -p 5055 -L 8080:localhost:DOCKER_PORT
        ```
        where `DOCKER_PORT` is whatever port you specified.
+    
+    Finally, the python file in the webpage has a few python syntax errors that you'll have to fix.
+
+
+1. After completing the steps above, upload the sentence `I've completed the lab` to sakai to get credit for the lab.
 
 ## Homework
 
