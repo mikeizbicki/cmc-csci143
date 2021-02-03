@@ -66,6 +66,8 @@
     1. `docker exec`: runs a command in a container without creating a new container
     1. `docker build`: creates a new "container image"
         1. `-t`: name the image
+    1. `docker logs`: shows the output of the container
+        1. `-f` follow mode
     1. `Dockerfile`: the instructions for creating a new image
 
 1. More unix shell
