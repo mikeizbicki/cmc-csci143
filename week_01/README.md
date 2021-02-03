@@ -63,11 +63,14 @@
         1. `--rm`: delete the container after running, useful for preserving disk space
         1. `-p X:Y`: expose port `Y` in the docker image to lambda server port `X`
         1. `-d` run as a daemon
+    1. `docker logs`: shows the output of a container started with the `-d` flag
+        1. `-f`: follow mode
+    1. `docker stop`: stop a container started with the `-d` flag
+    1. `docker rm`: delete a stopped container that was not created with the `--rm` flag
     1. `docker exec`: runs a command in a container without creating a new container
+        1. `-it`: same as for `run`
     1. `docker build`: creates a new "container image"
         1. `-t`: name the image
-    1. `docker logs`: shows the output of the container
-        1. `-f` follow mode
     1. `Dockerfile`: the instructions for creating a new image
 
 1. More unix shell
