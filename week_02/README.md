@@ -3,7 +3,9 @@
 <center>
 <a href=https://dilbert.com/strip/2017-01-02><img width=100% src=dt170102.gif /></a>
 
-<a href=https://xkcd.com/1988/><img width=100% src=containers_2x.png /></a>
+<br/>
+<br/>
+<a href=https://xkcd.com/1988/><img width=80% src=containers_2x.png /></a>
 </center>
 
 ## Lecture
