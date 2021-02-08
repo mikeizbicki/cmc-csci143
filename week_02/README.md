@@ -11,19 +11,78 @@
 ## Lecture
 
 1. The elements of a standard web service deployment
-    1. Everyone uses Linux (or another unix flavor)
-        1. [Even on Microsoft Azure, over 50% of all servers run Linux](https://www.zdnet.com/article/microsoft-developer-reveals-linux-is-now-more-used-on-azure-than-windows-server/)
     1. [12 factor webapp](https://12factor.net/)
         1. one of the most influential guides for high scalability
         1. written at a fairly high level, so sometimes a bit too vague for beginners
+    1. [LAMP tech stack](https://en.wikipedia.org/wiki/LAMP_%28software_bundle%29)
+        1. services
+            1. Linux
+            1. Apache
+            1. MySQL
+                1. MySQL and PostgreSQL are the 2 main databases
+                1. MySQL uses threads; Postgres uses processes
+                1. MySQL has less overhead, more bugs, lots of data integrity issues
+                1. For most "weby" websites (e.g. Facebook), speed >> data integrity
+                1. Postgres has become the "standard" database now because faster machines mean the increased overhead is minimal
+            1. PHP
+        1. popular in the 1990s, early 2000s
+        1. Facebook (used to) run this
+            1. [2009 article and slashdot discussion](https://linux.slashdot.org/story/09/04/11/1142246/how-facebook-runs-its-lamp-stack)
+            1. still use LAP, but much more complicated database system than MySQL
+    1. WIMP tech stack
+        1. services
+            1. Windows
+            1. IIS <- name of Microsoft's web server
+            1. MySQL
+            1. PHP
+        1. No one uses Windows anymore
+            1. [Even on Microsoft Azure, over 50% of all servers run Linux](https://www.zdnet.com/article/microsoft-developer-reveals-linux-is-now-more-used-on-azure-than-windows-server/)
+            1. The "only" major website that uses Windows is https://stackoverflow.com
+            1. Even [bing has dependencies on Linux](https://www.neowin.net/forum/topic/867244-bing-running-on-linux/) and [outlook.com has dependencies on a unix called FreeBSD](https://en.wikipedia.org/wiki/Outlook.com#MSN_Hotmail)
+        1. Security vulnerabilities responsible for the entire internet shutting down multiple times in 2001
+            1. [Code Red](https://en.wikipedia.org/wiki/Code_Red_(computer_worm))
+            1. [Code Red II](https://en.wikipedia.org/wiki/Code_Red_II)
+            1. [Nimda](https://en.wikipedia.org/wiki/Nimda)
     1. Instagram's tech stack 
         1. We will closely follow instagram's tech stack
-        1. <img width=100% src=webapp.png />
         1. detailed writeup from 2011: https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad
             1. 3 nginx
             1. 25 django
             1. 1 pg\_bouncer
             1. 12 postgres
+        1. <img width=100% src=webapp.png />
+        1. services
+            1. nginx
+                1. load balancer
+                1. manage TCP/IP state
+                1. encrypt/decrypt HTTPS requests
+            1. The web development framework defines the web page's "application logic"
+                1. django
+                    1. this is what instagram uses
+                    1. the "first" python web framework
+                    1. "heavyweight" and "highly opinionated"
+                1. flask
+                    1. this is what we'll be using
+                    1. currently the most popular python web framework
+                    1. "lightweight" and "unopinionated"
+                        1. easier to get started
+                        1. less boilerplate code
+                        1. usually faster
+                    1. didn't exist when instagram first started
+                1. WSGI (pronounced like "whiskey")
+                    1. A standard interfance for python web frameworks
+                    1. Ensures that the rest of the tech stack doesn't care which framework you use for you application logic
+                    1. Internal to the framework libraries -> doesn't affect application developers
+            1. [gunicorn webserver](https://gunicorn.org/)
+                1. Converts a WSGI application into an actual web service that people can connect to
+                1. Handles multiple requests simultaneously and in parallel (using the `fork` syscall)
+                1. Much more efficient than flask's built-in webserver
+            1. pg_bouncer + postgresql database
+                1. Extremely complicated
+                1. Most of this class will be focused on the database
+                1. Instagram also uses other databases for parts of their website (memcached, redis, solr)
+                    1. We'll talk about the differences between postgresql and each of these throughout the course
+                1. sqlalchemy python library for interacting with the database from the webapp
         1. more users => consume more resources => slower responses ; increase the numbers of each service above for faster responses
         1. hosted on AWS => "easy" to add more services
         1. does not use docker (it didn't exist)
@@ -33,37 +92,6 @@
             1. major companies like netflix use docker: https://netflixtechblog.com/the-evolution-of-container-usage-at-netflix-3abfc096781b
             1. fundamental sys-admin principles you learn working with docker will transfer to whatever deployment solution your future employers use
             1. <img src=galaxy-brain.jpg width=50% />
-    1. nginx
-        1. load balancer
-        1. manage TCP/IP state
-        1. encrypt/decrypt HTTPS requests
-    1. The web development framework defines the web page's "application logic"
-        1. django
-            1. this is what instagram uses
-            1. the "first" python web framework
-            1. "heavyweight" and "highly opinionated"
-        1. flask
-            1. this is what we'll be using
-            1. currently the most popular python web framework
-            1. "lightweight" and "unopinionated"
-                1. easier to get started
-                1. less boilerplate code
-                1. usually faster
-            1. didn't exist when instagram first started
-        1. WSGI (pronounced like "whiskey")
-            1. A standard interfance for python web frameworks
-            1. Ensures that the rest of the tech stack doesn't care which framework you use for you application logic
-            1. Internal to the framework libraries -> doesn't affect application developers
-    1. [gunicorn webserver](https://gunicorn.org/)
-        1. Converts a WSGI application into an actual web service that people can connect to
-        1. Handles multiple requests simultaneously and in parallel (using the `fork` syscall)
-        1. Much more efficient than flask's built-in webserver
-    1. pg_bouncer + postgresql database
-        1. Extremely complicated
-        1. Most of this class will be focused on the database
-        1. Instagram also uses other databases for parts of their website (memcached, redis, solr)
-            1. We'll talk about the differences between postgresql and each of these throughout the course
-        1. sqlalchemy python library for interacting with the database from the webapp
 
 1. More docker containers
     1. docker volumes
