@@ -21,7 +21,7 @@
             1. MySQL
                 1. MySQL and PostgreSQL are the 2 main databases
                 1. MySQL uses threads; Postgres uses processes
-                1. MySQL has less overhead, more bugs, lots of data integrity issues
+                1. MySQL has less overhead, more bugs, lots of data integrity issues, less standards compliant
                 1. For most "weby" websites (e.g. Facebook), speed >> data integrity
                 1. Postgres has become the "standard" database now because faster machines mean the increased overhead is minimal
             1. PHP
