@@ -38,12 +38,6 @@
         1. (Almost) every device on the internet has a unique IPv4 address.  IPv4 uses 32bit addresses (looks like 134.173.191.241), which supports up to 4 billion unique addresses.
         1. The internet is slowly moving to the IPv6 standard.  IPv6 uses 64bit addresses (looks like `fe80::3efd:feff:fedd:feec`).
         1. The IPv4 address `127.0.0.1` is called a "loopback" address because it always refers to the computer you are working on.
-    1. We often work with hostnames instead of IP addresses
-        1. Hostnames can be defined locally in the file `/etc/hosts`
-            1. My hosts file is set to https://github.com/StevenBlack/hosts/blob/master/data/StevenBlack/hosts to block requests to ad/malware servers.
-               (This blocks more requests than just an adblock extension for your browser.)
-        1. Hostnames can be defined globally using DNS servers
-        1. The hostname `localhost` always resolves to the IPv4 address `127.0.0.1`.
     1. TCP port numbers
         1. ports are numbers between 1 and 2^16-1 (65535)
         1. different services listen on different ports
@@ -78,16 +72,6 @@
     1. glob (`*`)
     1. file permissions ([optional reference](https://linuxhandbook.com/linux-file-permissions/))
     1. `PATH` environment variable
-    1. exit codes and the `$?` variable ([optional reference](https://shapeshed.com/unix-exit-codes/))
-        1. 0 = success
-        1. 1-127 = failure
-    1. the commands `true`, `false`, `test`, `[`
-    1. if statements
-    1. connecting programs with `|`, `&`, `||`, `&&`, `;` ([optional reference](https://unix.stackexchange.com/questions/24684/confusing-use-of-and-operators))
-
-<!--
-1. Flask webpages
--->
 
 **Pre-lecture work:**
 
