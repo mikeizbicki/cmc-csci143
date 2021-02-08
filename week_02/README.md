@@ -94,9 +94,6 @@
             1. <img src=galaxy-brain.jpg width=50% />
 
 1. More docker containers
-    1. docker volumes
-    1. managing your space on the server
-        1. Dockerfile and [overlay filesystems](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/)
     1. docker-compose
         1. get it by running
            ```
@@ -106,6 +103,21 @@
            $ pip3 install docker-compose
            ```
         1. credentials and git
+        1. how to change your code:
+            1. dev (default) environment:
+                1. just change it
+                1. docker volumes ensure that the change is instant
+            1. production:
+                1. run the commands
+                   ```
+                   $ docker-compose -f docker-compose.prod.yml down
+                   $ docker-compose -f docker-compose.prod.yml build
+                   $ docker-compose -f docker-compose.prod.yml up 
+                   ```
+                   takes a little while, but generates a much faster/more secure image
+    1. docker volumes
+        1. managing your space on the server
+        1. Dockerfile and [overlay filesystems](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/)
     1. dependency management
         1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
     1. [Dockerfile best practices](https://github.com/docker/docker.github.io/blob/master/develop/develop-images/dockerfile_best-practices.md)
