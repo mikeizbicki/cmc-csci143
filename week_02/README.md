@@ -70,6 +70,13 @@
     1. managing your space on the server
         1. Dockerfile and [overlay filesystems](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/)
     1. docker-compose
+        1. get it by running
+           ```
+           $ which pip3
+           $ pip3 install pip --upgrade
+           $ which pip3
+           $ pip3 install docker-compose
+           ```
         1. credentials and git
     1. dependency management
         1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
