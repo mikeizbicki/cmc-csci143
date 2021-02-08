@@ -53,7 +53,7 @@
             1. A standard interfance for python web frameworks
             1. Ensures that the rest of the tech stack doesn't care which framework you use for you application logic
             1. Internal to the framework libraries -> doesn't affect application developers
-    1. gunicorn webserver
+    1. [gunicorn webserver](https://gunicorn.org/)
         1. Converts a WSGI application into an actual web service that people can connect to
         1. Handles multiple requests simultaneously and in parallel (using the `fork` syscall)
         1. Much more efficient than flask's built-in webserver
@@ -70,7 +70,6 @@
         1. Dockerfile and [overlay filesystems](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/)
     1. docker-compose
         1. credentials and git
-
     1. dependency management
         1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
     1. [Dockerfile best practices](https://github.com/docker/docker.github.io/blob/master/develop/develop-images/dockerfile_best-practices.md)
