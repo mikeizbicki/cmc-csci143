@@ -11,6 +11,8 @@
 ## Lecture
 
 1. The elements of a standard web service deployment
+    1. Everyone uses Linux (or another unix flavor)
+        1. [Even on Microsoft Azure, over 50% of all servers run Linux](https://www.zdnet.com/article/microsoft-developer-reveals-linux-is-now-more-used-on-azure-than-windows-server/)
     1. [12 factor webapp](https://12factor.net/)
         1. one of the most influential guides for high scalability
         1. written at a fairly high level, so sometimes a bit too vague for beginners
@@ -82,6 +84,11 @@
         1. Hostnames can be defined globally using DNS servers
         1. The hostname `localhost` always resolves to the IPv4 address `127.0.0.1`.
     1. Load balancing
+    1. [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
+        1. 200: success
+        1. 404: file not found
+        1. 503: internal server error (problem in your python code)
+            1. syntax errors cause the server to shutdown and it needs to be restarted
 
 1. More unix shell
     1. exit codes and the `$?` variable ([optional reference](https://shapeshed.com/unix-exit-codes/))
