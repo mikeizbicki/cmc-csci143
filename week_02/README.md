@@ -32,6 +32,7 @@
             1. docker usage is seeing huge adoption right now: https://www.datadoghq.com/docker-adoption/
             1. major companies like netflix use docker: https://netflixtechblog.com/the-evolution-of-container-usage-at-netflix-3abfc096781b
             1. fundamental sys-admin principles you learn working with docker will transfer to whatever deployment solution your future employers use
+            1. <img src=galaxy-brain.jpg width=50% />
     1. nginx
         1. load balancer
         1. manage TCP/IP state
@@ -99,6 +100,8 @@
 
 ## Lab / Homework
 
+<img src='Strip-Le-déploiement-english650-final.jpg' width=80% />
+
 Your lab and homework assignment this week are combined together.
 The goal is for you to get a fully working web service using our modified instagram tech stack.
 This is a slightly more complicated "hello world" than you did last week that includes (almost) all of the services we'll be using in this class.
@@ -123,3 +126,5 @@ This is a slightly more complicated "hello world" than you did last week that in
    There are no specific test cases that you need to pass,
    just by uploading the files, you'll get full credit.
    Next week we'll be introducing test cases that combine docker with the github actions continuous integration.
+
+
