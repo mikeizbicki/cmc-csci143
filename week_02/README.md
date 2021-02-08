@@ -1,11 +1,11 @@
 # Docker, docker-compose, the Instagram tech stack
 
 <center>
-<a href=https://dilbert.com/strip/2017-01-02><img width=100% src=dt170102.gif /></a>
+<a href=https://dilbert.com/strip/2017-01-02><img width=80% src=dt170102.gif /></a>
 
 <br/>
 <br/>
-<a href=https://xkcd.com/1988/><img width=80% src=containers_2x.png /></a>
+<a href=https://xkcd.com/1988/><img width=70% src=containers_2x.png /></a>
 </center>
 
 ## Lecture
@@ -18,7 +18,7 @@
         1. written at a fairly high level, so sometimes a bit too vague for beginners
     1. Instagram's tech stack 
         1. We will closely follow instagram's tech stack
-        1. <img width=80% src=webapp.png />
+        1. <img width=100% src=webapp.png />
         1. detailed writeup from 2011: https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad
             1. 3 nginx
             1. 25 django
@@ -100,7 +100,7 @@
 
 ## Lab / Homework
 
-<img src='Strip-Le-déploiement-english650-final.jpg' width=80% />
+<img src='Strip-Le-déploiement-english650-final.jpg' width=60% />
 
 Your lab and homework assignment this week are combined together.
 The goal is for you to get a fully working web service using our modified instagram tech stack.
