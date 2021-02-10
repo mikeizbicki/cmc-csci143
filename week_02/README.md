@@ -134,6 +134,19 @@
            ```
            $ docker-compose rm
            ```
+           1. the command
+              ```
+              $ docker-compose down
+              ```
+              is a shortcut for the following two commands
+              ```
+              $ docker-compose stop
+              $ docker-compose rm
+              ```
+           1. if you choose to just run the `stop` command, then you can restart the non-deleted content by running
+              ```
+              $ docker-compose start
+              ```
     1. More Dockerfile 
         1. [overlay filesystems](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/)
         1. [Dockerfile best practices](https://github.com/docker/docker.github.io/blob/master/develop/develop-images/dockerfile_best-practices.md)
