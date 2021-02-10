@@ -102,7 +102,6 @@
            $ which pip3
            $ pip3 install docker-compose
            ```
-        1. credentials and git
         1. how to change your code:
             1. dev (default) environment:
                 1. just change it
@@ -115,15 +114,15 @@
                    $ docker-compose -f docker-compose.prod.yml up 
                    ```
                    takes a little while, but generates a much faster/more secure image
-    1. docker volumes
-        1. managing your space on the server
-        1. Dockerfile and [overlay filesystems](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/)
+        1. credentials and git
+    1. More Dockerfile 
+        1. [overlay filesystems](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/)
+        1. [Dockerfile best practices](https://github.com/docker/docker.github.io/blob/master/develop/develop-images/dockerfile_best-practices.md)
+        1. [Best simple docker reference](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5)
     1. dependency management
         1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
         1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
         1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
-    1. [Dockerfile best practices](https://github.com/docker/docker.github.io/blob/master/develop/develop-images/dockerfile_best-practices.md)
-    1. [Best simple docker reference](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5)
 
 1. More networking
     1. We often work with hostnames instead of IP addresses
