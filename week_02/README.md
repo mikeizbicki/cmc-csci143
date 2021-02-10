@@ -114,12 +114,32 @@
                    $ docker-compose -f docker-compose.prod.yml up 
                    ```
                    takes a little while, but generates a much faster/more secure image
-        1. credentials and git
+        1. to start the containers in daemon mode, but still view the logs, use
+           ```
+           $ docker-compose up -d
+           $ docker-compose logs [-f] [container]
+           ```
+    1. differences between docker image and docker container
+        1. image:
+            1. defined by a docker file
+            1. blueprint for starting a container
+            1. changes to a container never affect the image
+        1. container:
+            1. defined by the `docker run IMAGE` command, where `IMAGE` is the base image
+            1. an actual running "virtual machine"
+            1. changes to the container are "locally persistent"
+                1. you can stop and restart the container and changes will stay
+                1. changes do not affect the base image, or any other containers created from the image
+        1. remove stopped containers with the command
+           ```
+           $ docker-compose rm
+           ```
     1. More Dockerfile 
         1. [overlay filesystems](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/)
         1. [Dockerfile best practices](https://github.com/docker/docker.github.io/blob/master/develop/develop-images/dockerfile_best-practices.md)
         1. [Best simple docker reference](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5)
-    1. dependency management
+    1. security issues with docker
+        1. credentials and git (see [this post for examples](https://news.ycombinator.com/item?id=25013756).)
         1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
         1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
         1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
@@ -138,6 +158,7 @@
         1. 503: internal server error (problem in your python code)
             1. syntax errors cause the server to shutdown and it needs to be restarted
 
+<!--
 1. More unix shell
     1. exit codes and the `$?` variable ([optional reference](https://shapeshed.com/unix-exit-codes/))
         1. 0 = success
@@ -145,6 +166,7 @@
     1. the commands `true`, `false`, `test`, `[`
     1. if statements
     1. connecting programs with `|`, `&`, `||`, `&&`, `;` ([optional reference](https://unix.stackexchange.com/questions/24684/confusing-use-of-and-operators))
+-->
 
 ## Lab / Homework
 
