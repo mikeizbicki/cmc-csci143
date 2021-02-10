@@ -108,7 +108,7 @@
                 1. just change it
                 1. docker volumes ensure that the change is instant
             1. production:
-                1. run the commands
+                1. to update the contents of your image, run the commands
                    ```
                    $ docker-compose -f docker-compose.prod.yml down
                    $ docker-compose -f docker-compose.prod.yml build
