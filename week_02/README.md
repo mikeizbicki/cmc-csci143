@@ -120,6 +120,8 @@
         1. Dockerfile and [overlay filesystems](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/)
     1. dependency management
         1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
+        1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
+        1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
     1. [Dockerfile best practices](https://github.com/docker/docker.github.io/blob/master/develop/develop-images/dockerfile_best-practices.md)
     1. [Best simple docker reference](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5)
 
