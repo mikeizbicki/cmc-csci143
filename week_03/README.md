@@ -4,7 +4,7 @@ Relational DataBase Management Systems (RDBMSs):
 
 1. It doesn't matter what the problem is, a database is the solution
 
-   <img src=dilbert2.jpg width=80% />
+   <img src=dilbert2.jpeg width=80% />
 
 1. Structured Query Language (SQL) is the language for accessing the database
     1. don't pronounce it es-cue-el; that's a shiboleth for not knowing much about databases
