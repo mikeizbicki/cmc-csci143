@@ -11,7 +11,7 @@ Relational DataBase Management Systems (RDBMSs):
 
        <img src=dilbert.gif width=80% />
 
-    1. SQL was originally SEQUAL, but shortened due to trademark reasons
+    1. SQL was originally SEQUEL, but shortened due to trademark reasons
     1. You can find the official ANSI SQL standards and history at https://blog.ansi.org/2018/10/sql-standard-iso-iec-9075-2016-ansi-x3-135/
 
 1. Comparison of main database systems:
