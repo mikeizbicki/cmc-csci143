@@ -87,6 +87,12 @@
         1. hosted on AWS => "easy" to add more services
         1. does not use docker (it didn't exist)
             1. docker => even easier to add more services
+            1. docker makes it easy to transfer from one hosting provider to another
+                1. ensures that you can use the cheapest provider
+                1. cloud providers can cancel your business contracts for any reason
+                    1. parler https://www.nbcnews.com/tech/tech-news/amazon-suspends-hosting-parler-its-servers-citing-violent-content-n1253648
+                    1. pirate bay https://www.vice.com/en/article/3an7pn/pirate-bay-founder-thinks-parlers-inability-to-stay-online-is-embarrassing
+                    1. sci-hub https://www.reddit.com/r/scihub/comments/fzpjjk/so_why_can_i_still_access_scihub/
             1. without docker, it's difficult to ensure that all instances are running the same code
             1. docker usage is seeing huge adoption right now: https://www.datadoghq.com/docker-adoption/
             1. major companies like netflix use docker: https://netflixtechblog.com/the-evolution-of-container-usage-at-netflix-3abfc096781b
@@ -156,6 +162,7 @@
         1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
         1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
         1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
+        1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
 
 1. More networking
     1. We often work with hostnames instead of IP addresses
@@ -211,3 +218,56 @@ This is a slightly more complicated "hello world" than you did last week that in
    Next week we'll be introducing test cases that combine docker with the github actions continuous integration.
 
 
+<!--
+1. Since we're working on a remote server, you need to enable port forwarding in ssh, and everyone can't be using the same lambda server port
+
+    python3 flask run -p 3400
+
+    ssh -L 8080:localhost:3400
+
+    see: https://www.ssh.com/ssh/tunneling/example
+
+    docker-compose.yml ports needs to change to 3400:5000 instead of 5000:5000
+
+    nginx ports should be 3400:80 NOT 1337:80
+
+1. there are bugs in the `Dockerfile.prod` file; specifically, change the following lines:
+
+    `RUN addgroup -S app && adduser -S app -G app` to `RUN adduser app`
+    `RUN chown -R app $APP_HOME` to `RUN chown -R app:app $APP_HOME`
+
+1. Students need to understand the `venv` library: activating, deactivating, deleting
+
+1. What do these files mean in python projects: `requirements.txt`, `__init__.py`; 
+
+    1. why do we specify the version numbers in `requirements.txt`?
+    1. the `Dockerfile` for flask contains the command `RUN pip install --upgrade pip`.
+       why is this bad?
+
+1. vim copy/paste doesn't work because your clipboard is different from the server's clipboard;
+   need to use the terminal's pasting features;
+   in vim `:set paste`
+   (linux systems have 2 clipboards, the `*` and `+`)
+
+1. docker compose version numbers are wrong in the tutorial; change 3.7 -> 3.3
+
+    EDIT: instead, pip3 install docker-compose
+
+1. sqlalchemy managed vs raw mode
+
+1. for debugging, run `docker-compose up` without the `-d` flag or `docker-compose logs`
+
+1. psql commands `\l`, `\c`, `\dt`, `\q`
+
+1. `docker volume inspect flask-on-docker_postgres_data` command shouldn't have the `-`s
+
+1. must understand: `netcat -z` = `nc -z`
+
+1. instructions never use the `docker-compose down` command
+
+1. the volumes in the docker-compose.yml file lets us modify the source code locally without rebuilding the docker images
+
+1. postgres docker container must have usernames/passwords specified
+
+1. docker multistage builds
+-->
