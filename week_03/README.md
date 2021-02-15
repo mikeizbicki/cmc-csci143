@@ -59,7 +59,10 @@ What you must know for the homework/midterm
     1. sections 9 of https://www.postgresqltutorial.com/
 1. `SELECT`
     1. sections 1-4 of https://www.postgresqltutorial.com/
-    1. <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg /></a>
+    1. aggregate functions `count`, `max`, `min`, `sum`, `avg`
+    1. never use the `BETWEEN` keyword: https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_BETWEEN_.28especially_with_timestamps.29
+    1. joins meme
+       <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg /></a>
 
 1. weird syntax
     1. whitespace doesn't matter, every command must end in a semicolon
