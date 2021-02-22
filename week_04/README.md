@@ -12,6 +12,8 @@ What you must know for the homework/midterm
 
        <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg /></a>
 
+       <img src=cmcqtycmbmg51.jpg width=60% />
+
 1. subqueries
     1. sections 7-8 of https://www.postgresqltutorial.com/
     1. alternative reference on subqueries vs joins: https://learnsql.com/blog/subquery-vs-join/
