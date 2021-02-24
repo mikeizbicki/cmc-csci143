@@ -17,6 +17,10 @@ What you must know for the homework/midterm
 
 1. subqueries
     1. sections 7-8 of https://www.postgresqltutorial.com/
+    1. compared to joins:
+        1. every join can be written as a cross join + subquery
+        1. some subqueries can be written as joins
+        1. a subquery cannot be written as a join if it contains an aggregate function
     1. alternative reference on subqueries vs joins: https://learnsql.com/blog/subquery-vs-join/
 
 <!--
