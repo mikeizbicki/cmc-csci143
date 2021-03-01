@@ -11,7 +11,7 @@ CREATE VIEW payment_denormalized AS (
         rating,
         length,
         name AS language,
-        STRING_AGG(actor.first_name || ' ' || actor.last_name, ',')
+        STRING_AGG(actor.first_name || ' ' || actor.last_name, ',') as actors
     FROM payment
     INNER JOIN rental USING (rental_id)
     INNER JOIN inventory USING (inventory_id)
