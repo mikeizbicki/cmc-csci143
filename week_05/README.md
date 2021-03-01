@@ -51,6 +51,7 @@
         1. postgres devs are aware of this "code smell"/"wart", and are working to fix it... but it's super complicated for lots of abnoxious technical reasons: https://wiki.postgresql.org/index.php?title=Alter_column_position&oldid=23469
 
 1. database normalization:
+
    <img src=1swabl.jpg />
 
     1. denormalization: combining information into a single relation
