@@ -1,19 +1,28 @@
-# Week 05: Database Normalization
+# Week 05: Designing the database layout (disk usage+normalization)
 
-1. `CREATE TABLE`
-    1. TOAST
-        1. The Oversized Attribue Storate Technique
-        1. "the best thing since sliced bread"
-        1. allows storage of arbitrarily large variable length columns (most commonly text)
-        1. one of the major advantages of postgres vs other dbs (other dbs do not support arbitrarily large columns)
-        1. https://www.postgresql.org/docs/13/storage-toast.html
-    1. disk usage
-        1. summary:
-            1. every tuple requires 23 bytes of overhead, plus alignment bytes
-            1. do not order columns "logically"
-            1. order columns fixed length (largest to smallest), then variable length
+1. `CREATE TABLE` disk usage
+    1. every tuple requires 24 bytes of overhead
+    1. every column requires either a fixed or variable number of bytes
+        1. misalignment results in padding bytes added
+        1. to find information about a type, use the query
+           ```
+           select typname,typalign,typlen from pg_type;
+           ```
+        1. pg_type table documentation: https://www.postgresql.org/docs/13/catalog-pg-type.html
+    1. you are responsible for being able to calculate the number of bytes used by a row of data with only fixed sized columns
         1. basic tutorial: https://www.2ndquadrant.com/en/blog/on-rocks-and-sand/
         1. detailed tutorial: https://rjuju.github.io/postgresql/2016/09/16/minimizing-tuple-overhead.html
+    1. TOAST used for variable sized columns
+        1. the format is significantly more complicated
+        1. TOAST = The Oversized Attribue Storate Technique
+        1. "the best thing since sliced bread"
+        1. allows storage of arbitrarily large variable length columns (most commonly text)
+        1. automatically/transparently compresses "large" (typically >2kb) data
+        1. one of the major advantages of postgres vs other rdbms, since they don't support arbitrarily large columns
+        1. reference: https://www.postgresql.org/docs/13/storage-toast.html
+    1. "column tetris" is ordering table columns optimally:
+        1. do not order columns "logically"
+        1. order columns fixed length (largest to smallest), then variable length
         1. gitlab policy: https://docs.gitlab.com/ee/development/ordering_table_columns.html#real-example
         1. postgres devs are aware of this "code smell"/"wart", and are working to fix it... but it's super complicated for lots of abnoxious technical reasons: https://wiki.postgresql.org/index.php?title=Alter_column_position&oldid=23469
 
@@ -89,3 +98,40 @@
     1. address/city/country and film/language are probably excessive normalization (especially since the language/country don't use ISO codes)
 
 ## Lab
+
+For each table below,
+reorder the table columns to use the minimal number of bytes.
+Submit your reordered tables to sakai.
+
+```
+CREATE TABLE network_connection (
+    id SERIAL,
+    source macaddr NOT NULL,
+    dest macaddr NOT NULL,
+    starttime timestamptz NOT NULL,
+    bytes_sent int8 NOT NULL
+);
+```
+
+```
+CREATE TABLE event (
+    id BIGSERIAL,
+    name TEXT,
+    public BOOLEAN,
+    max_guests SMALLINT,
+    location_id INTEGER NOT NULL,
+    starttime timestamp with time zone NOT NULL,
+    endtime timestamp with time zone
+);
+```
+
+```
+CREATE TABLE example (
+    id SMALLSERIAL NOT NULL,
+    a SMALLINT,
+    b CHAR,
+    c int2,
+    d line,
+    e JSONB
+);
+```
