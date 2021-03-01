@@ -8,6 +8,7 @@ What you must know for the homework/midterm
 
 1. joins
     1. sections 3 of https://www.postgresqltutorial.com/
+    1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/
     1. joins meme
 
        <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg /></a>
@@ -16,8 +17,13 @@ What you must know for the homework/midterm
 
 1. subqueries
     1. sections 7-8 of https://www.postgresqltutorial.com/
+    1. compared to joins:
+        1. every join can be written as a cross join + subquery
+        1. some subqueries can be written as joins
+        1. a subquery cannot be written as a join if it contains an aggregate function
     1. alternative reference on subqueries vs joins: https://learnsql.com/blog/subquery-vs-join/
 
+<!--
 1. `CREATE TABLE`
     1. https://www.postgresqltutorial.com/postgresql-create-table/
     1. https://www.postgresqltutorial.com/postgresql-data-types/
@@ -28,4 +34,4 @@ What you must know for the homework/midterm
 1. `INSERT` / `UPDATE` / `DELETE`
     1. <img src=Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg width=60%/>
     1. sections 9 of https://www.postgresqltutorial.com/
-
+-->
