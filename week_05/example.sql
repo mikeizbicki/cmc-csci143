@@ -3,13 +3,30 @@
  *
  * Question: calculate the disk usage of each row when the text values are null.
  */
+--release_date timestamp with time zone DEFAULT now() NOT NULL,
+--release_date timestamptz DEFAULT '2020-01-01 01:01:00+05:00' NOT NULL,
+-- timestamptz contains both date and time information
+-- timestamp does not contain timezone information; basically not used in postgres
+
+-- formula: 24 bytes of overhead per row
 CREATE TABLE film (
     film_id SERIAL NOT NULL,
-    release_date timestamp with time zone DEFAULT now() NOT NULL,
+    -- serial behaves the same as an integer for disk usage;
+    -- the only difference is that it has a DEFAULT value that autoincrements
+    -- BIGSERIAL which is the same as BIGINT int8
+    -- SMALLSERIAL which is the same as SMALLINT int2 2^(2*8)=32000 bits to store information
+    -- int4 2^(4*8)=3.2billion
+    -- int8 2^(8*8)=?
+    release_date timestamptz DEFAULT now() NOT NULL,   -- typelen = 8, typalign = d
     title text,
-    description text,
-    length INTEGER NOT NULL
-);
+    description text,          -- typelen = -1, typealign = i
+    length INTEGER NOT NULL    -- typelen = 4, typealign = i
+    /*
+     * INTEGER = int4
+     * BIGINTEGER = int8
+     * SMALLINT = int2
+     */
+); -- 24 overhead + 20 data bytes / row = 44 bytes/row
 
 CREATE TABLE film2 (
     release_date timestamp with time zone DEFAULT now() NOT NULL,
@@ -17,7 +34,17 @@ CREATE TABLE film2 (
     length INTEGER NOT NULL,
     description text,
     title text
-);
+);-- 24 overhead + 16 data bytes / row = 40 bytes/row
+
+/*
+ * general rule for aligning tables is to order columns from largest to smallest,
+ * with variable length at the end
+ */
+
+/*
+ * the order of columns matters when calculating how much space the table (or a row in the table) uses;
+ * when creating tables, do it in the optimal order that minimizes space usage
+ */
 
 INSERT INTO film (title, description, length) VALUES
     (NULL, NULL, 5),
