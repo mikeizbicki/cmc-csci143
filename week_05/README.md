@@ -92,9 +92,15 @@
         1. reference: https://www.postgresqltutorial.com/postgresql-foreign-key/
  
 1. Entity-Relationship (ER) diagram
-    1. https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning
-    1. <img src=ERD-Notation.PNG />
-    1. WARNING: Many of the ERD symbols in the pagila diagram are wrong
+    1. example: the diagram from the pagila hw
+    1. `*` represents primary key
+    1. lines represent foreign keys
+    1. the ending of the lines represents the type of relation
+        1. <img src=ERD-Notation.PNG />
+        1. reference: https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning
+        1. WARNING: Many of the ERD symbols in the pagila diagram are wrong
+        1. these endings are often wrong and I don't personally find them useful; good table/column names should make the relationship "obvious"
+    1. Typical real world database: https://anna.voelkl.at/wp-content/uploads/2016/12/ce2.1.3.png
 
 1. common table structures
     1. 1-1
@@ -131,7 +137,6 @@
     1. Good overview https://relinx.io/2020/09/14/old-good-database-design/
     1. Database Modelization Anti-Patterns: https://tapoueh.org/blog/2018/03/database-modelization-anti-patterns/
     1. Building a scalable e-commerce data model: https://news.ycombinator.com/item?id=25353148
-    1. Typical real world database: https://anna.voelkl.at/wp-content/uploads/2016/12/ce2.1.3.png
 
 1. pagila anti-patterns
     1. don't store people's names as `first_name` and `last_name`: https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/
