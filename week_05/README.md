@@ -1,4 +1,8 @@
 # Week 05: Designing the database layout
+<!--
+FUTURE NOTE:
+Implementing the word_ladder game in SQL would be a fantastic assignment!!!
+-->
 ### (disk usage + normalization)
 
 1. `CREATE TABLE` disk usage
@@ -331,3 +335,4 @@ CREATE TABLE example (
     e JSONB
 );
 ```
+
