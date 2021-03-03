@@ -104,51 +104,155 @@
 
 1. common table structures
     1. 1-1 relationships
-        1. method: different columns in the same table
+        1. denormalized representation: different columns in the same table
             1. every film has exactly 1 title, and every title corresponds to exactly 1 film
             1. every customer has exactly 1 name, and every name corresponds to exactly one customer (`first_name || ' ' || last_name` is unique)
                 1. aside: don't store people's names as `first_name` and `last_name`: https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/
             1. every payment has either 1 or 0 payment dates (nullable column)
-        1. method: create a new table with a foreign key and unique constraint
+        1. normalized representation: create a new table with a foreign key and unique constraint
             1. rental-payment tables
-            1. used when you have multiple connected columns (and so nullable on each of them independently doesn't work)
+
+               ```
+               CREATE TABLE rental (
+                   rental_id SERIAL PRIMARY KEY,
+                   ...
+               );
+
+               CREATE TABLE payment (
+                   payment_id SERIAL PRIMARY KEY,
+                   rental_id UNIQUE REFERENCES rental(rental_id),
+                   amount numeric(5,2) NOT NULL,
+                   payment_date timestamptz NOT NULL
+               );
+
+               ```
+
+               notice that every payment must have a rental,
+               but not every rental must have a payment
+        1. when to use each:
+            1. always prefer the denormalized representation when possible
+            1. the normalized representation is slightly more powerful in that it can force us to have two columns inserted `null`/`not null` together
+
+               if we implemented the rental/payment tables as:
+               ```
+               CREATE TABLE rental (
+                   rental_id SERIAL PRIMARY KEY,
+                   ...
+                   amount numeric(5,2),         -- notice these collumns are NULLable
+                   payment_date timestamptz
+               );
+               ```
+               then everything that can be represented using the rental/payment tables could be represented using this modified table,
+               but we might get some rows that have an `amount` without a `payment_date` or vice versa
+
+               It's possible to create a `CHECK` constraint that enforces that `amount` and `payment_date` are linked:
+               ```
+               ALTER TABLE rental
+               ADD CONSTRAINT rental_check
+               CHECK ( (amount is null and payment_date is null) or (amount is not null and payment_date is not null));
+               ```
+               This is the best representation of this data for 99% of use cases since it uses significantly less disk space.
+               The overhead of the `payment` table is:
+               ```
+               24 bytes standard overhead + 4 bytes for rental_id + 4 bytes for rental_id
+               ```
+               The denormalized representation + `CHECK` constraint has none of this overhead.
+        1. IMNSHO, the pagila table is excessively normalized
+            1. rental-payment should be combined
+            1. film-language
+                1. make `language` a `TEXT` column in `film`
+            1. country-city-address-customer
+                1. combine all of these into a single `address` field inside the `customer` table
 
     1. 1-many
-        1. method: create a new table with a foreign key
+        1. normalized representation: arrays
+            1. film-special_features
+
+               ```
+               CREATE TABLE film (
+                   ...
+                   special_features TEXT[],
+                   ...
+               );
+               ```
+        1. normalized representation: create a new table with a foreign key
+            1. film-inventory
+               
+               ```
+               CREATE TABLE film (
+                   film_id SERIAL PRIMARY KEY,
+                   ...
+               );
+
+               CREATE TABLE inventory (
+                   inventory_id SERIAL PRIMARY KEY,
+                   film_id INTEGER REFERENCES film(film_id),
+                   store_id INTEGER,
+                   last_update TIMESTAMPTZ
+               );
+               ```
+            1. customer-rental
             1. store-staff
-            1. address-customer (modeling assumption; other reasonable assumptions could be 1-1 if each customer is a "household" or many-many if like amazon customers can have multiple addresses )
-            1. city-address
-            1. country-city
-            1. language-film
-            1. Normalization Note:
-                1. the store-staff split seems good to me, since there are many distinct attributes in bothe the store and staff tables
-                1. the other splits seem like excessive normalization to me since there is only 1 "thing" in each of the "many" tables;
-                   this normalization actually causes increased disk usage
+        1. disadvantages of the denormalized representation:
+            1. arrays not a sql standard feature
+                1. arrays not supported in MySQL/MSSQL, are supported in Oracle
+                1. many people believe you should never use arrays for this reason
+            1. can only have a single column as the many
+                1. the film-special_features split could be normalized,
+                1. no easy way to denormalize film-inventory, customer-rental, or store-staff
+            1. confusing to work with
+                1. you should always use the `unnest` function with arrays,
+                   as this is guaranteed to give asymptotically optimal performance
+                1. it is possible to index directly into an array like in standard python,
+                   but this is sometimes an O(1) operation and sometimes an O(n) operation,
+                   and it is very difficult to predict which situation you're in
+                1. see: https://heap.io/blog/engineering/dont-iterate-over-a-postgres-array-with-a-loop
+        1. advantages of the denormalized representation:
+            1. disk usage of the denormalized representation is significantly less:
+               ```
+               24 bytes overhead + (len array) * (bytes for the type)
+               ```
+               and this data can be TOASTed (i.e. compressed) when large
+
+               disk usage of the normalized representation is
+               ```
+               (number of rows)*(24 bytes overhead per row + bytes for type)
+               ```
+               this data cannot be TOASTed
+        <!--
         1. method: enums
             1. film-rating (the rating column is restricted to be of the `mpaa_enum` type)
             1. supported in postgres, but strongly discouraged; see e.g. https://tapoueh.org/blog/2018/05/postgresql-data-types-enum/
-        1. method: arrays
-            1. example: film-special_features
-            1. not a sql standard feature
-            1. arrays not supported in MySQL/MSSQL, are supported in Oracle
-            1. disk usage is (approximately) 24 bytes overhead + (bytes for type)*(len array)
-            1. advantage over the table solution:
-                1. less disk usage in some scenarios
-                1. large arrays get TOASTed (i.e. compressed) for further disk usage reduction
-                1. better cache efficiency
-                    1. each table is stored on a separate location on the harddrive
-                    1. by putting the data in multiple tables, you put the data in multiple locations, which requires (potentially expensive) disk seeks to access, especially on an HDD
-                    1. by putting the data in the same table, you eliminate disk seeks
+        -->
 
     1. many-many
         1. think bipartite graph
-        1. technique: create "connector tables" that represent the edges of the bipartite graph
+        1. no good denormalized representations
+        1. normalized representation: create "connector tables" that represent the edges of the bipartite graph
             1. actor-film
+               ```
+               CREATE TABLE film (
+                   film_ID SERIAL PRIMARY KEY,
+                   ...
+               );
+
+               CREATE TABLE film_actor (
+                   film_id INTEGER REFERENCES film(film_id),
+                   actor_id INTEGER REFERENCES actor(actor_id),
+                   PRIMARY KEY (film_id, actor_id),
+               );
+
+               CREATE TABLE actor (
+                   actor_id SERIAL PRIMARY KEY,
+                   ...
+               );
+               ```
             1. customer-film (the join of rental and inventory acts as the connector table)
             1. anti-pattern: category-film are given a many-many table structure, but they actually have a 1-1 relationship
 
-    1. hierarchical
-        1. method: foreign key that references its own table
+    1. general graph structures
+        1. no good denormalized representations
+        1. normalized representation: foreign key that references its own table
             1. no examples in the pagila database
             1. employee table
                ```
@@ -157,7 +261,11 @@
                    manager INTEGER REFERENCES employee(employee_id)
                );
                ```
-            1. no easy way to enforce acyclical references
+            1. no easy way to enforce acyclical references (i.e. make the graph a tree)
+        1. all graph algorithms (DFS, BFS, Dijkstra, Prim, Kruskal, A*, etc.) can be implemented with optimal asymptotic efficiency using recursive sql queries
+            1. we're not covering how to do this
+            1. https://www.postgresqltutorial.com/postgresql-recursive-view/
+            1. https://www.postgresqltutorial.com/postgresql-recursive-query/
 
 1. references on good database design:
     1. Good overview https://relinx.io/2020/09/14/old-good-database-design/
