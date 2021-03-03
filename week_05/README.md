@@ -120,7 +120,7 @@
 
                CREATE TABLE payment (
                    payment_id SERIAL PRIMARY KEY,
-                   rental_id UNIQUE REFERENCES rental(rental_id),
+                   rental_id UNIQUE REFERENCES rental(rental_id), -- NOTICE: UNIQUE + FOREIGN KEY
                    amount numeric(5,2) NOT NULL,
                    payment_date timestamptz NOT NULL
                );
@@ -186,7 +186,7 @@
 
                CREATE TABLE inventory (
                    inventory_id SERIAL PRIMARY KEY,
-                   film_id INTEGER REFERENCES film(film_id),
+                   film_id INTEGER REFERENCES film(film_id), -- NOTICE: FOREIGN KEY ONLY, NO UNIQUE
                    store_id INTEGER,
                    last_update TIMESTAMPTZ
                );
@@ -219,6 +219,10 @@
                (number of rows)*(24 bytes overhead per row + bytes for type)
                ```
                this data cannot be TOASTed
+        1. personally, I use arrays (denormalization) if the following conditions are met:
+            1. only 1 column in the many (i.e. it's possible to use the denormalized form)
+            1. joins on the array will be rare
+            1. updates/deletes to entries in the array are rare
         <!--
         1. method: enums
             1. film-rating (the rating column is restricted to be of the `mpaa_enum` type)
@@ -271,6 +275,15 @@
     1. Good overview https://relinx.io/2020/09/14/old-good-database-design/
     1. Database Modelization Anti-Patterns: https://tapoueh.org/blog/2018/03/database-modelization-anti-patterns/
     1. Building a scalable e-commerce data model: https://news.ycombinator.com/item?id=25353148
+
+**Format of the midterm:**
+1. 4 SQL questions
+    1. at least 1 from each week (probably 2 from this week)
+1. 1 question to calculate the disk usage of a table/rearrange a table (same as lab)
+1. I'll give the midterm at the end of class on Tuesday, you'll have until Sunday to complete it
+    1. Tuesday will be a "review day" where you can ask questions
+    1. no extensions because no working together
+    1. midterm will take the place of homework next week
 
 ## Lab
 
