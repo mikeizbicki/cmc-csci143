@@ -103,46 +103,66 @@
     1. Typical real world database: https://anna.voelkl.at/wp-content/uploads/2016/12/ce2.1.3.png
 
 1. common table structures
-    1. 1-1
-        1. different columns in the same table
-        1. example:
-            1. every film has exactly 1 title (and every title corresponds to exactly 1 film)
-            1. every customer has exactly 1 first name
+    1. 1-1 relationships
+        1. method: different columns in the same table
+            1. every film has exactly 1 title, and every title corresponds to exactly 1 film
+            1. every customer has exactly 1 name, and every name corresponds to exactly one customer (`first_name || ' ' || last_name` is unique)
+                1. aside: don't store people's names as `first_name` and `last_name`: https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/
             1. every payment has either 1 or 0 payment dates (nullable column)
+        1. method: create a new table with a foreign key and unique constraint
+            1. rental-payment tables
+            1. used when you have multiple connected columns (and so nullable on each of them independently doesn't work)
 
     1. 1-many
-        1. create a new table
-        1. "list/array" column
-        1. example:
-            1. film-language (film's have just one language, but there are many films for each language)
-            1. film-rating
-            1. staff-store
-            1. customer-address (modeling assumption; other reasonable assumptions could be 1-1 if each customer is a "household" or many-many if like amazon customers can have multiple addresses )
-
-    1. 1-1 (insert only)
-        1. the insert-only table pattern is used with the rental-payment tables
-        1. duplication in the customer_id/staff_id columns
-        1. follows the 1-many pattern, so there could be many payments for 1 rental, and no way to enforce that there is exactly 1 payment
+        1. method: create a new table with a foreign key
+            1. store-staff
+            1. address-customer (modeling assumption; other reasonable assumptions could be 1-1 if each customer is a "household" or many-many if like amazon customers can have multiple addresses )
+            1. city-address
+            1. country-city
+            1. language-film
+            1. Normalization Note:
+                1. the store-staff split seems good to me, since there are many distinct attributes in bothe the store and staff tables
+                1. the other splits seem like excessive normalization to me since there is only 1 "thing" in each of the "many" tables;
+                   this normalization actually causes increased disk usage
+        1. method: enums
+            1. film-rating (the rating column is restricted to be of the `mpaa_enum` type)
+            1. supported in postgres, but strongly discouraged; see e.g. https://tapoueh.org/blog/2018/05/postgresql-data-types-enum/
+        1. method: arrays
+            1. example: film-special_features
+            1. not a sql standard feature
+            1. arrays not supported in MySQL/MSSQL, are supported in Oracle
+            1. disk usage is (approximately) 24 bytes overhead + (bytes for type)*(len array)
+            1. advantage over the table solution:
+                1. less disk usage in some scenarios
+                1. large arrays get TOASTed (i.e. compressed) for further disk usage reduction
+                1. better cache efficiency
+                    1. each table is stored on a separate location on the harddrive
+                    1. by putting the data in multiple tables, you put the data in multiple locations, which requires (potentially expensive) disk seeks to access, especially on an HDD
+                    1. by putting the data in the same table, you eliminate disk seeks
 
     1. many-many
-        1. example:
+        1. think bipartite graph
+        1. technique: create "connector tables" that represent the edges of the bipartite graph
             1. actor-film
-            1. customer-film (passes through both the rental and inventory table)
+            1. customer-film (the join of rental and inventory acts as the connector table)
+            1. anti-pattern: category-film are given a many-many table structure, but they actually have a 1-1 relationship
+
     1. hierarchical
-        1. example:
+        1. method: foreign key that references its own table
             1. no examples in the pagila database
             1. employee table
+               ```
+               CREATE TABLE employee (
+                   employee_id SERIAL PRIMARY KEY,
+                   manager INTEGER REFERENCES employee(employee_id)
+               );
+               ```
+            1. no easy way to enforce acyclical references
 
 1. references on good database design:
     1. Good overview https://relinx.io/2020/09/14/old-good-database-design/
     1. Database Modelization Anti-Patterns: https://tapoueh.org/blog/2018/03/database-modelization-anti-patterns/
     1. Building a scalable e-commerce data model: https://news.ycombinator.com/item?id=25353148
-
-1. pagila anti-patterns
-    1. don't store people's names as `first_name` and `last_name`: https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/
-    1. category and film are given a many-many table structure, but they actually have a 1-1 relationship
-    1. enum type for rating / `mpaa_rating`
-    1. address/city/country and film/language are probably excessive normalization (especially since the language/country don't use ISO codes)
 
 ## Lab
 
