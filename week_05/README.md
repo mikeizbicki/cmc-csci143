@@ -82,6 +82,9 @@
     1. `UNIQUE` constraints
         1. enforces no duplicates in the column
         1. reference: https://www.postgresqltutorial.com/postgresql-unique-constraint/
+    1. `CHECK` constraints
+        1. enforces complicated conditions
+        1. reference: https://www.postgresqltutorial.com/postgresql-check-constraint/
     1. `PRIMARY KEY` 
         1. equivalent to `UNIQUE NOT NULL`
         1. has semantic meaning of "the most important column(s) in the table", and what you should use as the "id"
