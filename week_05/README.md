@@ -227,9 +227,12 @@
 
     1. many-many
         1. think bipartite graph
+
+           <img src=bipartite.png width=500px />
         1. no good denormalized representations
         1. normalized representation: create "connector tables" that represent the edges of the bipartite graph
             1. actor-film
+
                ```
                CREATE TABLE film (
                    film_ID SERIAL PRIMARY KEY,
