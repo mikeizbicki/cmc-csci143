@@ -45,7 +45,7 @@
 
       Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
 
-      <img src=nosql.jpeg />
+      <img src=nosql.jpeg width=300px />
 
 1. MVCC is how Postgres implements **isolation** within **transactions**
 
