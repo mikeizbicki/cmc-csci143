@@ -45,6 +45,8 @@
 
       Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
 
+      <img src=nosql.jpeg width=300px />
+
 1. MVCC is how Postgres implements **isolation** within **transactions**
 
     1. Transactions interface:
@@ -89,6 +91,8 @@
            A background process called `autovacuum` runs regularly on each table in order to remove these dead rows and free up disk space.
 
            Reference: https://www.percona.com/blog/2018/08/06/basic-understanding-bloat-vacuum-postgresql-mvcc/
+
+           <img src=autovacuum.jpeg />
 
     1. Other oddities:
        The values in a `SERIAL` column need not be sequential.
