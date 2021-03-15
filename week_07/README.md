@@ -1,12 +1,17 @@
 # Week 07: Review / Multi-version Concurrency Control (MVCC)
 
+1. What we've covered:
+    1. Twitter MapReduce
+    1. Docker/devops
+    1. SQL queries
+
+1. What's next:
+    1. Use SQL to answer the Twitter queries is milliseconds
+    1. Need to talk about how data is actually inserted/stored in postgres
+    1. Indexes
+
 1. Midterm details:
-    1. 4 SQL questions
-    1. 1 question to rearrange a table to minimize disk usage
     1. I'll give the midterm at the end of class; you'll have until Sunday to complete it
-        1. no working together (honor system)
-        1. no extensions because no working together
-        1. midterm will take the place of homework
 
 ---
 
@@ -89,6 +94,9 @@
            VACUUM tablename;
            ```
            A background process called `autovacuum` runs regularly on each table in order to remove these dead rows and free up disk space.
+           Tuning autovacuum is important for database loads with lots of deletes/updates,
+           and is a relatively difficult task that requires a fairly deep understanding of db implementation details.
+           For most workloads, however, the defaults work well enough.
 
            Reference: https://www.percona.com/blog/2018/08/06/basic-understanding-bloat-vacuum-postgresql-mvcc/
 
