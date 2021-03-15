@@ -79,7 +79,9 @@
               It is possible for this column to be nonzero in a visible row version.
               That usually indicates that the deleting transaction hasn't committed yet, or that an attempted deletion was rolled back.
 
-        1. A row is visible if `xmin` <= `xid` < `xmax`.
+        1. A row is visible if `xmin <= xid AND (xmax != 0 OR xid < xmax)`.
+           NOTE:
+           `xmax` cannot be `NULL`, and that is why `0` has the special meaning of not deleted.
 
         1. Deleting a row does not actually delete data from the harddrive.
            Instead, it simply sets the `xmax` variable for the row to the current `xid`.
