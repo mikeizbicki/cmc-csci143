@@ -18,3 +18,6 @@
 [submodule "week_05/pagila-hw3"]
 	path = week_05/pagila-hw3
 	url = https://github.com/mikeizbicki/pagila-hw3
+[submodule "week_07/pagila-midterm"]
+	path = week_07/pagila-midterm
+	url = https://github.com/mikeizbicki/pagila-midterm
