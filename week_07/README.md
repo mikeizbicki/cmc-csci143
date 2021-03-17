@@ -79,42 +79,105 @@
               It is possible for this column to be nonzero in a visible row version.
               That usually indicates that the deleting transaction hasn't committed yet, or that an attempted deletion was rolled back.
 
-        1. A row is visible if `xmin <= xid AND (xmax != 0 OR xid < xmax)`.
-           NOTE:
-           `xmax` cannot be `NULL`, and that is why `0` has the special meaning of not deleted.
-
         1. Deleting a row does not actually delete data from the harddrive.
            Instead, it simply sets the `xmax` variable for the row to the current `xid`.
-           If no currently running transactions are able to access the row, then the row is called "dead".
+           This is necessary so that other transactions can still see the row.
 
-        1. Updating a row does not actually update the information on the harddrive.
+           Similarly, updating a row does not actually update the information on the harddrive.
            Instead, it deletes the old row and inserts a new one.
 
-        1. The `vacuum` procedure scans a table and actually deletes the dead rows.
+        1. Determining whether a row is "visible" or "invisible" is a complex formula involving the `xmin` and `xmax` system columns (and several other pieces of information).
+           See http://www.interdb.jp/pg/pgsql05.html for a detailed description.
+
+           If a row is not visible to any currently running transactions,
+           then the row is called "dead".
+           Dead tuples waste disk space.
+
+        1. The `vacuum` procedure scans a table and actually deletes the dead tuples from a page file.
            You can call it manually via
            ```
            VACUUM tablename;
            ```
-           A background process called `autovacuum` runs regularly on each table in order to remove these dead rows and free up disk space.
+           A background process called `autovacuum` runs regularly on each table, automatically vacuuming the table for you. 
+
+           Vacuuming a table is an expensive procedure.
+           For large tables (>1gb),
+           vacuuming can easily take days.
+           While a table is being vacuumed,
+           most SQL operations can be performed (e.g. `SELECT`/`UPDATE`/`DELETE` are okay),
+           but certain operations like creating an index are blocked.
+
            Tuning autovacuum is important for database loads with lots of deletes/updates,
            and is a relatively difficult task that requires a fairly deep understanding of db implementation details.
            For most workloads, however, the defaults work well enough.
+
+           Many database designers try to avoid creating a database that will require `UPDATE`/`DELETE` commands in order to avoid the difficulties associated with vacuuming,
+           although it's not always possible to completely avoid these commands.
 
            Reference: https://www.percona.com/blog/2018/08/06/basic-understanding-bloat-vacuum-postgresql-mvcc/
 
            <img src=autovacuum.jpeg />
 
+        1. Because of vacuuming,
+           there is often free space in the table file that is not at the end of the table.
+           New tuples will get inserted into this free space.
+           The physical order of rows in the database therefore has no semantic meaning,
+           it is 100% arbitrary.
+
+           Finding information in a table therefore requires a full "sequential scan" of the entire table file.
+           Indexes can be used to speed up this process.
+
+
+        1. Even though vacuuming a table deletes dead tuples,
+           it does not "defragment" the tuples or delete "pages".
+           Therefore, it cannot actually remove any disk space.
+           The "full vacuum" is required to actually free up the disk space,
+           and it can be run via
+           ```
+           VACUUM FULL tablename;
+           ```
+           The downside of this command is that no other process can modify the table during a full vacuum.
+
+           Reference: http://www.interdb.jp/pg/pgsql06.html
+
+        1. For workloads that involve updates/deletes,
+           it is essentially impossible to predict how much disk space the database will use.
+           This will depend on a complex interaction between the amount of data, and the orders of updates/deletes.
+           Typical overhead factors are between 2-4x,
+           but could easily be more.
+
     1. Other oddities:
        The values in a `SERIAL` column need not be sequential.
 
+       If you add a row to a table within a transaction,
+       new numbers will be generated for any serial columns.
+       If the transaction is aborted,
+       these numbers will remain unused,
+       and future inserts will continue as if the transaction occurred.
+
+1. Practical tip:
+   Whenever you delete/update information, perform 2 steps:
+   
+   1. Do a select statement first to ensure that you're where clause is correct.
+   1. Do it in an explicit transaction.
+      This ensures that if you make a mistake,
+      it is easy to undo the mistake. 
+
+   Postgres will happily delete everything in the database if you have a typo in your delete/update statements,
+   and these tips will ensure that you don't accidentally have this happen to you.
+
+   <img src=Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg />
+
 1. Problem:
-   What if two transactions try to delete the same row?
-   How do we adjust the `xmax`?
+   What if two transactions try to update the same row?
 
    1. Answer:
       You can't do it.
-      Locks prevent two transactions from adjusting the `xmax` of a single row.
+      Locks prevent two transactions from modifying the same row at the same time.
 
       Reference: https://www.citusdata.com/blog/2018/02/15/when-postgresql-blocks/
 
    1. Deadlocks are what happens when two transactions cannot simultaneously finish.
+      One of the transactions will be automatically aborted,
+      and the calling code will have to re-issue the commands.
+
