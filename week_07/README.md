@@ -58,7 +58,9 @@
         1. `BEGIN` starts a transaction
         1. `COMMIT` saves changes
         1. `ROLLBACK`/`ABORT` undo all changes made during the transaction
-        1. Reference: https://www.postgresqltutorial.com/postgresql-transaction/
+        1. References: 
+            1. https://www.postgresqltutorial.com/postgresql-transaction/
+            1. https://www.postgresql.org/docs/current/mvcc-intro.html
 
     1. Implementation details:
         1. Every transaction has a transaction id (`xid`).
