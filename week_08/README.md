@@ -220,7 +220,7 @@ Common midterm mistakes:
 
        https://twitter.com/RachelTrue/status/1365461618977476610
 
-       <img src=su7tsddd0fl61.jpg />
+       <img src=su7tsddd0fl61.jpg width=400px />
 
        SQL injection is when those weird inputs perform malicious behavior.
 
