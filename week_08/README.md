@@ -218,6 +218,8 @@ Common midterm mistakes:
        Users naturally create weird inputs.
        This woman has problems with icloud because her last name is "True".
 
+       https://twitter.com/RachelTrue/status/1365461618977476610
+
        <img src=su7tsddd0fl61.jpg />
 
        SQL injection is when those weird inputs perform malicious behavior.
@@ -226,13 +228,13 @@ Common midterm mistakes:
 
        Examples:
 
-           1. UK company named `; DROP TABLE "COMPANIES";-- LTD`
-           
-              https://find-and-update.company-information.service.gov.uk/company/10542519
+       1. UK company named `; DROP TABLE "COMPANIES";-- LTD`
+       
+          https://find-and-update.company-information.service.gov.uk/company/10542519
 
-           1. Company named `"><SCRIPT SRC=HTTPS://MJT.XSS.HT> LTD` forced to change its name by the Companies House
-           
-              https://www.reddit.com/r/programming/comments/jpdo21/company_named_script_srchttpsmjtxssht_ltd_forced/
+       1. Company named `"><SCRIPT SRC=HTTPS://MJT.XSS.HT> LTD` forced to change its name by the Companies House
+       
+          https://www.reddit.com/r/programming/comments/jpdo21/company_named_script_srchttpsmjtxssht_ltd_forced/
 
 1. Special insert syntax
 
