@@ -136,6 +136,7 @@ Common midterm mistakes:
             1. `->'key'` returns the value of `'key'` as a `JSONB` type
             1. `->>'key'` returns the value of `'key'`, but resolves the type 
             1. typical to chain them like `data->'key1'->'key2'->>'key3'`
+            1. the `COALESCE` function is useful for providing default values
 
         1. every row can have a different schema, just like every JSON object can have different keys;
             1. postgres can't do as many optimizations, so selects a bit slower and rows take up more disk space
