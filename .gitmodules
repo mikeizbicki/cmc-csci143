@@ -21,3 +21,6 @@
 [submodule "week_07/pagila-midterm"]
 	path = week_07/pagila-midterm
 	url = https://github.com/mikeizbicki/pagila-midterm
+[submodule "week_08/twitter_postgres"]
+	path = week_08/twitter_postgres
+	url = https://github.com/mikeizbicki/twitter_postgres

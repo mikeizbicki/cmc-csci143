@@ -157,19 +157,6 @@
        these numbers will remain unused,
        and future inserts will continue as if the transaction occurred.
 
-1. Practical tip:
-   Whenever you delete/update information, perform 2 steps:
-   
-   1. Do a select statement first to ensure that you're where clause is correct.
-   1. Do it in an explicit transaction.
-      This ensures that if you make a mistake,
-      it is easy to undo the mistake. 
-
-   Postgres will happily delete everything in the database if you have a typo in your delete/update statements,
-   and these tips will ensure that you don't accidentally have this happen to you.
-
-   <img src=Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg />
-
 1. Problem:
    What if two transactions try to update the same row?
 
