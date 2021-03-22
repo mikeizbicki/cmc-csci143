@@ -118,14 +118,27 @@ Common midterm mistakes:
 
 1. Working with denormalized data
 
-    1. insert data using the SQL `INSERT` command or `COPY` command;
-       `COPY` is much faster and easier to use
+    1. Insert data using the SQL `INSERT` command or `COPY` command.
+       `COPY` is much faster and supports directly importing CSV and JSON data (and a few other formats I've never used before).
+       The downside is that it only works for denormalized data;
+       if you need to normalize the data somehow,
+       then you'll have to write some python.
 
        The `COPY` syntax for copying from a json file into a table is
        ```
        cat <JSONFILE> | sed 's/\\u0000//g' | psql <POSTGRES_DB_URL> -c "COPY <TABLENAME> (<COLUMNNAME>) FROM STDIN csv quote e'\x01' delimiter e'\x02';"
        ```
        where everything in `<...>` needs to be replaced with approriate values.
+
+       Reference: http://adpgtech.blogspot.com/2014/09/importing-json-data.html
+
+       **WARNING**:
+       The `sed 's/\\u0000//g'` command above removes the `\0` character from strings before passing them to postgres.
+       This means we are not storing exactly the same information that is being stored in the input file.
+       This is required because postgres cannot store the `\0` character directly.
+       This is a rarely used character (it is reserved to mean "end of string" in C-like languages),
+       but this is an annoying thing about postgres.
+       The problem is known, but fixing the problem is too hard and will probably never happen (similar to fixing column tetris).
 
     1. store data in `JSONB` columns
 
