@@ -170,3 +170,6 @@
       One of the transactions will be automatically aborted,
       and the calling code will have to re-issue the commands.
 
+1. MVCC in Postgres Reference: https://habr.com/en/company/postgrespro/blog/467437/
+1. Locks in Postgres Reference: https://habr.com/en/company/postgrespro/blog/500714/
+1. WAL in Postgres Reference: https://habr.com/en/company/postgrespro/blog/491730/

@@ -336,4 +336,7 @@ diabolical queries:
 
 select count(*) tablename     vs     select count(*) from tablename
 
+NOTES:
+
+JOIN keys to join on; (customer_id can link customer to both payment and rentals)
 -->
