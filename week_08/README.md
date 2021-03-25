@@ -181,7 +181,7 @@ Common midterm mistakes:
        ```
        URL format is
        ```
-       postgresql://password:username@host:port/database
+       postgresql://username:password@host:port/database
        ```
        but the "scheme" part of the format could be any other database name (e.g. `mysql`, `sqlite3`, `oracle`, etc.).
 
