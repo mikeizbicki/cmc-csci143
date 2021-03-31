@@ -36,11 +36,14 @@ Vocabulary:
 
 1. A "high fan-out" balanced search tree
     1. optimized for on-disk data storage
-        1. common runtimes: http://norvig.com/21-days.html#answers
-
         1. HDD internals:
 
            <img src=hdd.png />
+
+           <img src=tm112_1_ol_s5_f1_5.tif.png />
+
+        1. common runtimes: http://norvig.com/21-days.html#answers
+
     1. used for:
         1. conditions involving equality and less/greater than
         1. sorting
