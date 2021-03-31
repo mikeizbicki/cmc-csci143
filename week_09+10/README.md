@@ -165,7 +165,7 @@ Join Strategies
 1. Shows which algorithms postgres will use for any query
 1. Used to debug all performance problems in postgres
 
-   <img src=explain-analyze.jpg />
+   <img src=explain_analyze.jpg />
 
 ## Other Indexes
 
