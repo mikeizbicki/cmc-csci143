@@ -36,7 +36,7 @@ Vocabulary:
 
 1. A "high fan-out" balanced search tree
     1. optimized for on-disk data storage
-        1. common runtimes: https://gist.github.com/jboner/2841832
+        1. common runtimes: http://norvig.com/21-days.html#answers
 
         1. HDD internals:
 
