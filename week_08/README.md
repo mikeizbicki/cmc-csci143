@@ -96,7 +96,7 @@ Common midterm mistakes:
 1. Practical tip:
    Whenever you delete/update information, perform 2 steps:
    
-   1. Do a select statement first to ensure that you're where clause is correct.
+   1. Do a select statement first to ensure that your where clause is correct.
       If you plan on running 
       ```
       DELETE FROM xxx WHERE yyy;
@@ -181,7 +181,7 @@ Common midterm mistakes:
        ```
        URL format is
        ```
-       postgresql://password:username@host:port/database
+       postgresql://username:password@host:port/database
        ```
        but the "scheme" part of the format could be any other database name (e.g. `mysql`, `sqlite3`, `oracle`, etc.).
 
