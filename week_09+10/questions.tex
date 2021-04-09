@@ -166,7 +166,7 @@ and the remaining 1/5 you'll have to refer to the postgres documentation / suppl
 
 \question\TFQuestion{F}{If the transaction log (clog/xact) grows very large, it is safe to delete it in order to free up disk space.}
 
-\question\TFQuestion{T}{Given the choice between (A) having indexes on an SSD and tables on an HDD, and (B) having tables on an HDD and indexes on an SDD, option (A) will generally be faster.}
+\question\TFQuestion{T}{Given the choice between (A) having tables on an SSD and indexes on an HDD, and (B) having tables on an HDD and indexes on an SDD, option (A) will generally be faster.}
 \question\TFQuestion{T}{If the database cluster is being stored on an SSD, then the \lstinline{random_page_cost} system parameter should should be reduced from its default value of 4.}
 \question\TFQuestion{T}{The default \lstinline{fillfactor} for tables is 100, and for btree indexes is 90.}
 \question\TFQuestion{T}{Tables that have INSERTs but no UPDATEs should use a \lstinline{fillfactor} of 100, but for tables with many updates, it may make sense to decrease the \lstinline{fillfactor}.}
