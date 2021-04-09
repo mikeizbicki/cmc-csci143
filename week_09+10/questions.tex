@@ -323,24 +323,24 @@ The questions below all refer specifically to Postgres version 13.
 
 Consider the following simplified normalized twitter schema.
 \begin{lstlisting}
-CREATE TABLE tweets AS (
+CREATE TABLE users (
+    id_users BIGINT PRIMARY KEY,
+    created_at TIMESTAMPTZ,
+    username TEXT
+);
+
+CREATE TABLE tweets (
 	id_tweets BIGINT PRIMARY KEY,
-	id_user BIGINT REFERENCES users(id_users),
+	id_users BIGINT REFERENCES users(id_users),
 	in_reply_to_user_id BIGINT REFERENCES users(id_users),
 	created_at TIMESTAMPTZ,
 	text TEXT
 );
 
-CREATE TABLE users AS (
-	id_users BIGINT PRIMARY KEY,
-	created_at TIMESTAMPTZ,
-	username TEXT
-);
-
-CREATE TABLE tweets_mentions AS (
+CREATE TABLE tweets_mentions (
 	id_tweets BIGINT REFERENCES tweets(id_tweets),
 	id_users BIGINT REFERENCES users(id_users),
-	PRIMARY KEY (id_tweet, id_users)
+	PRIMARY KEY (id_tweets, id_users)
 );
 \end{lstlisting}
 
