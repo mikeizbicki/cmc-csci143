@@ -1,15 +1,135 @@
 # Week 11: More Indexes, Full Text Search
 
+## Hash Index
+
+1. reference: https://habr.com/ru/company/postgrespro/blog/442776/
+1. btree index (this class) is to balanced binary search tree (data structures)
+
+   as hash index (this class) is to hash tables (data structures)
+
+    1. trees have O(log n) worst case lookup/insert/delete operations
+    1. hash tables have O(1) amortized average case lookup/insert/delete operations
+    1. Python dictionaries use hash tables for their implementation
+
+1. used for:
+    1. very rarely
+    1. it can sometimes be marginally faster than a btree for equality search, but it supports much fewer operations, and so btree tends to be more practical
+1. limitations:
+    1. only support equality search
+    1. does not sort results
+    1. cannot decrease in size when items deleted
+    1. no support for index only scans (only hash values are stored in the index, and so the table must always be checked for hash collisions)
+    1. does not support multicolumn indexes
+    1. older versions of postgresql have significantly more limitations
+1. runtime (index scan and bitmap index scan):
+    1. table pages accessed = `O(k)`, same as b-tree
+    1. index pages accessed = `O(k/b)`, negligibly (why?) less than b-tree
+        1. the buffer cache optimization causes b-tree index pages accessed to be effectively `O(k/b)` instead of `O(k/b + log_b n)`
+        1. buffer cache reference: https://habr.com/en/company/postgrespro/blog/491730/
+    1. comparison operations = `O(k)` less than b-tree
+    1. must consider the runtime of hashing,
+       which can be large for large datatypes
+1. The syntax for creating a hash index is
+   ```
+   CREATE INDEX tweet_tags_idx_hash ON tweet_tag USING hash (tag);
+   ```
+
 ## Joining Tables
 
 Join Strategies
 
-1. Algorithms for computing the join in a SQL query
+1. Algorithms for computing the join of two tables
+   ```
+   SELECT [columns]
+   FROM A
+   [LEFT/RIGHT/FULL] JOIN B ON join_condition
+   ```
+1. Reference: https://www.cybertec-postgresql.com/en/join-strategies-and-performance-in-postgresql/
+
 1. Three types of join strategies:
     1. Nested loop join
+       1. works in all scenarios
+       1. without an index
+          1. pseudocode looks like
+             ```
+             for each row a in A:
+                 for each row b in B:
+                     if a,b satisfy join condition:
+                         output a,b
+             ```
+          1. runtime is `O(mn)`, where `m` is size of `A` and `n` is size of `B`
+       1. with an index
+          1. replace the inner for loop with an index only/index/bitmap scan:
+          1. pseudocode looks like
+             ```
+             for each row a in A:
+                 find rows b in B satisfying join condition:
+                     output a,b
+             ```
+          1. runtime is `O(m log n)`
+       1. Recall that joins are commutative
+          1. That is,
+             ```
+             SELECT [columns]
+             FROM A
+             [LEFT/RIGHT/FULL] JOIN B USING join_condition
+             ```
+             is equivalent to 
+             ```
+             SELECT [columns]
+             FROM B
+             [LEFT/RIGHT/FULL] JOIN A USING join_condition
+             ```
+          1. So we can also do
+             ```
+             for each row b in B:
+                 find rows a in A satisfying join condition:
+                     output a,b
+             ```
+          1. runtime is `O(n log m)`
     1. Hash join
+       1. requires:
+          1. equality join condition
+          1. hash table must fit inside `work_mem` parameter
+          1. large initial overhead to build the hash table before we can start outputing tuples
+       1. pseudocode looks like
+          ```
+          Build hash table for join column on B
+          for each row a in A:
+              if join column in hash table:
+                  output a,b
+          ```
+       1. runtime is `O(m + n)`, with a large overhead
+           1. if we have a `LIMIT k` clause, then the runtime is `O(n + k)` because the for loop will stop early, but we still must build the hash table
+
     1. Merge join
-1. Reference: https://www.cybertec-postgresql.com/en/join-strategies-and-performance-in-postgresql/
+       1. like the merge step in merge sort
+       1. requires:
+          1. sorted inputs
+          1. equality join condition
+       1. advantages:
+          1. if the data is already sorted, there's no 
+       1. pseudocode looks like
+          ```
+          i,j = 0
+          while i<m and j<n:
+              a = A[i]
+              b = B[j]
+              if a,b satisfy join condition:
+                  output a,b
+              if join column of a < join column of b:
+                  i += 1
+              else:
+                  j += 1
+          ```
+       1. runtime is `O(m + n)` with a small overhead
+           1. if we have a `LIMIT k` clause, then the runtime is `O(k)` because while loop will stop early
+
+    1. Conclusions:
+       1. merge/hash join faster than nested loop join whenever tables are reasonably large
+       1. asymptotically, indexes don't give us much benefit unless you have a `LIMIT k` clause in your query
+       1. they can remove the need for the sort step, allowing for faster merge joins
+
 
 Join Order
 
@@ -24,31 +144,6 @@ Join Order
     1. The important thing is to ensure that your table statistics are accurate by running the `ANALYZE` command.
 1. Reference: https://www.cockroachlabs.com/blog/join-ordering-pt1/
 
-## Other Indexes
-
-Hash index
-1. reference: https://habr.com/ru/company/postgrespro/blog/442776/
-1. used for:
-    1. very rarely
-    1. it can sometimes be marginally faster than a btree for equality search, but it supports much fewer operations, and so btree tends to be more practical
-1. limitations:
-    1. only support equality search
-    1. does not sort results
-    1. cannot decrease in size when items deleted
-    1. no support for index only scans
-    1. cannot support multicolumn indexes
-    1. older versions of postgresql have significantly more limitations
-1. runtime (index scan and bitmap index scan):
-    1. table pages accessed = `O(k)`, same as b-tree
-    1. index pages accessed = `O(k/b)`, negligibly (why?) less than b-tree
-    1. comparison operations = `O(k)` less than b-tree
-    1. must consider the runtime of hashing,
-       which can be large for large datatypes
-1. The syntax for creating a hash index is
-   ```
-   CREATE INDEX tweet_tags_idx_hash ON tweet_tag USING hash (tag);
-   ```
-
 ## (Some) Difficulties of Full Text Search
 
 Consider the following query that finds tweets containing the word `corona`:
@@ -59,7 +154,7 @@ WHERE text LIKE '%corona%';
 ```
 1. Recall that the `%` in a `LIKE`/`ILIKE` clause is a wildcard character that matches any string, much like the glob `*` in the shell.
 
-1. A btree index cannot speed up this query.
+1. Neither btree nor hash index cannot speed up this query.
 
 1. If we only had a single wildcard,
    then we could use a btree index.
@@ -71,6 +166,8 @@ WHERE text LIKE '%corona%';
    ```
    WHERE text >= 'corona' AND text < 'coronb'
    ```
+   and btree indexes support inequality search efficiently.
+
    **NOTE:**
    A hash index would not be able to speed up this query because it only supports exact equality search.
 
@@ -78,7 +175,7 @@ WHERE text LIKE '%corona%';
    If we replace `LIKE` with `ILIKE` in the above queries,
    how does that affect the performance of a btree index?
 
-1. These "one-sided" queries are not useful for full text search,
+1. These "one-sided" wildcard queries are not useful for full text search,
    but they are useful when finding hashtags about coronavirus.
    For example, the following query finds all tweets with hashtags that start with `#corona`,
    and a btree index can be used to speed it up.
@@ -92,7 +189,7 @@ WHERE text LIKE '%corona%';
 
 1. There is no SQL standard for FTS
 
-1. Most FTS systems are not SQL-based
+1. Most FTS systems are not SQL-based (i.e. NoSQL)
 
     1. No ACID transactions 
         1. possibility of data loss
@@ -101,7 +198,7 @@ WHERE text LIKE '%corona%';
     1. Lots of debate about how these tools compare to postgres: https://news.ycombinator.com/item?id=12621950
         1. No one would think it's weird if you used any of these dedicated FTS engines for a project
         1. People who don't know postgres might think it's weird to use postgres, but most people who know postgres would think it's smart, especially if you're already using postgres
-        1. We'll (eventually) talk about an extension to postgres called pspacy (that I'm currently developing) that makes postgres more powerful than these NoSQL alternatives
+        1. We'll (eventually) talk about an extension to postgres called pspacy (that I'm currently developing) that makes postgres FTS even more powerful
 
     1. Examples:
 
@@ -152,14 +249,14 @@ WHERE text LIKE '%corona%';
 
     1. The GIN/RUM indexes can be used to speed up queries that use the `@@` operator, most prominently FTS.
        ```
-       CREATE INDEX tweets_idx_fts on tweets using gin(to_tsvector('english', text));
+       CREATE INDEX tweets_idx_fts on tweets USING gin(to_tsvector('english', text));
        ```
 
     1. Reference: 
         1. https://www.postgresql.org/docs/13/textsearch-intro.html
         1. https://www.postgresql.org/docs/13/datatype-textsearch.html
 
-## Full Text Search Indexes
+## FTS Indexes
 
 GIN index (Generalized Inverted iNdex)
 1. reference: https://habr.com/ru/company/postgrespro/blog/448746/
