@@ -222,7 +222,9 @@ WHERE text LIKE '%corona%';
             1. Most popular FTS engine
             1. Requires installing a full service with similar complexity of postgres => difficult to configure
                <img src=one-does-not-ao1pfo.jpg />
-            1. No longer open source, see: https://opensourceconnections.com/blog/2021/01/15/is-elasticsearch-no-longer-open-source-software/
+            1. No longer open source, see: 
+                1. https://opensourceconnections.com/blog/2021/01/15/is-elasticsearch-no-longer-open-source-software/
+                1. https://news.ycombinator.com/item?id=26780848
             1. Reasonably powerful FTS, but cannot be combined with SQL`
             1. Can be embedded in postgres via [zombodb extension](https://github.com/zombodb/zombodb)
         1. Lucene / Solr
