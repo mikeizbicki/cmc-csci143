@@ -160,15 +160,6 @@ Aggregate Strategies
     1. https://www.slideshare.net/AlexeyBashtanov/pgday-uk-2016-performace-for-queries-with-grouping
     1. https://www.cybertec-postgresql.com/en/postgresql-speeding-up-group-by-and-joins/
 
-Join Strategies
-
-1. Algorithms for computing the join in a SQL query
-1. Three types of join strategies:
-    1. Nested loop join
-    1. Hash join
-    1. Merge join
-1. Reference: https://www.cybertec-postgresql.com/en/join-strategies-and-performance-in-postgresql/
-
 Parallelism
 1. Most query plans in postgres can be parallelized
     1. For those that cannot, lots of engineering work is going into enabling parallelism
@@ -186,45 +177,6 @@ Parallelism
 
    <img src=explain_analyze.jpg />
 
-## Other Indexes
-
-Hash index
-1. reference: https://habr.com/ru/company/postgrespro/blog/442776/
-1. limitations:
-    1. only support equality search
-    1. cannot decrease in size
-    1. no support for index only scans
-    1. cannot support multicolumn indexes
-1. runtime (index scan and bitmap index scan):
-    1. table pages accessed = `O(k)`, same as b-tree
-    1. index pages accessed = `O(k/b)`, negligibly (why?) less than b-tree
-    1. comparison operations = `O(k)` less than b-tree
-    1. must consider the runtime of hashing,
-       which can be large for large datatypes
-
-GIN index
-1. reference: https://habr.com/ru/company/postgrespro/blog/448746/
-1. internally uses b-trees to arrange lexemes and for posting lists
-1. used for:
-    1. full text search
-    1. indexing arrays
-    1. indexing `JSONB`
-1. limitations:
-    1. elements never deleted
-    1. slow to modify
-    1. does not store auxiliary information (fixed in rum index)
-        1. position of lexemes in the document
-        1. timestamp/pagerank of the document
-    1. does not support index scan / index only scan;
-       only supports bitmap scans;
-
-       this implies that the `LIMIT` operation is not efficient
-
-       `gin_fuzzy_search_limit` is an alternative
-
-RUM Index
-1. Reference: https://habr.com/ru/company/postgrespro/blog/452116/
-1. Like the GIN index, but also let's you store "metainformation" (e.g. pagerank, timestamp) in the index, and return results sorted by the metainfo
 
 <!--
 ## Other Topics
