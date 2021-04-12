@@ -25,6 +25,15 @@
     1. table pages accessed = `O(k)`, same as b-tree
     1. index pages accessed = `O(k/b)`, negligibly (why?) less than b-tree
         1. the buffer cache optimization causes b-tree index pages accessed to be effectively `O(k/b)` instead of `O(k/b + log_b n)`
+            1. store the most recently accessed pages in memory
+            1. top levels of a btree are accessed frequently, so they'll be in the buffer cache
+            1. `shared_buffer_size` controls how many pages will be stored in memory
+            1. these pages are shared by all indexes/tables
+            1. makes lookups MUCH faster by avoiding disk access,
+               makes insert/update/delete MUCH more complicated to implement with ACID guarantees
+            1. famous joke:
+               > There are 2 hard problems in computer science: cache invalidation, naming things, and off by one errors
+            1. there's actually dozens of caches like this that postgres uses, and how caches work is typically covered in operating systems and computer architecture class
         1. buffer cache reference: https://habr.com/en/company/postgrespro/blog/491730/
     1. comparison operations = `O(k)` less than b-tree
     1. must consider the runtime of hashing,
