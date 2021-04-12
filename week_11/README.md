@@ -1,5 +1,10 @@
 # Week 11: More Indexes, Full Text Search
 
+**Homework:**
+
+1. Week 9/10 homework was extended until this Sunday.
+1. I'll post a new homework later this week.
+
 ## Hash Index
 
 1. reference: https://habr.com/ru/company/postgrespro/blog/442776/
@@ -106,10 +111,12 @@ Join Strategies
           Build hash table for join column on B
           for each row a in A:
               if join column in hash table:
-                  output a,b
+                  recheck row b in B for a hash collision
+                  if no collision:
+                      output a,b
           ```
        1. runtime is `O(m + n)`, with a large overhead
-           1. if we have a `LIMIT k` clause, then the runtime is `O(n + k)` because the for loop will stop early, but we still must build the hash table
+           1. if we have a `LIMIT k` clause, and every row in A has a corresponding row in B, then the runtime is `O(n + k)` because the for loop will stop early, but we still must build the hash table
 
     1. Merge join
        1. like the merge step in merge sort
