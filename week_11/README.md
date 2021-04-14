@@ -277,7 +277,7 @@ WHERE text LIKE '%corona%';
 
        1. https://www.postgresql.org/docs/13/datatype-textsearch.html
 
-       1. https://www.postgresql.org/docs/10/functions-textsearch.html
+       1. https://www.postgresql.org/docs/13/functions-textsearch.html
 
     1. `tsvector` and `tsquery` represent fully normalized text documents and queries;
        they should typically be constructed with the `to_tsvector` and `to_tsquery` functions.
@@ -302,10 +302,6 @@ WHERE text LIKE '%corona%';
        CREATE INDEX tweets_idx_fts on tweets USING gin(to_tsvector('english', text));
        ```
 
-    1. Reference: 
-        1. https://www.postgresql.org/docs/13/textsearch-intro.html
-        1. https://www.postgresql.org/docs/13/datatype-textsearch.html
-
 ## FTS Indexes
 
 GIN index (Generalized Inverted iNdex)
@@ -314,7 +310,7 @@ GIN index (Generalized Inverted iNdex)
     1. full text search
     1. indexing `JSONB`
     1. indexing arrays
-    1. basically, anything that uses the `@@` operator
+    1. basically, anything that uses the `@@`, `@>`, or `<@` operators
 1. limitations:
     1. elements (i.e. lexemes) never deleted
     1. slow to modify (fast mode vs slow mode)
@@ -345,6 +341,7 @@ RUM Index
 1. limitations:
     1. slower than the GIN index for insert/update
     1. uses more space than the GIN index (due to metainfo)
+    1. not built-in to postgres, and must compile/install a separate extension
 
 GIST Index
 1. Reference: https://habr.com/ru/company/postgrespro/blog/444742/
