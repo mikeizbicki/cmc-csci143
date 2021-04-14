@@ -208,36 +208,72 @@ WHERE text LIKE '%corona%';
 1. Most FTS systems are not SQL-based (i.e. NoSQL)
 
     1. No ACID transactions 
-        1. possibility of data loss
-        1. at scale, a guarantee of data loss
+        1. data loss when servers crash
+        1. at scale, server crashes are guaranteed => data loss guaranteed
+        1. for most applications, no one will notice if you're missing a few documents in your search results, so small data loss is acceptable
 
-    1. Lots of debate about how these tools compare to postgres: https://news.ycombinator.com/item?id=12621950
-        1. No one would think it's weird if you used any of these dedicated FTS engines for a project
-        1. People who don't know postgres might think it's weird to use postgres, but most people who know postgres would think it's smart, especially if you're already using postgres
-        1. We'll (eventually) talk about an extension to postgres called pspacy (that I'm currently developing) that makes postgres FTS even more powerful
-
-        1. The main disadvantage of postgres is that it must store tables/indexes separately
-            1. use about 2x the disk space... sort of... when using a NoSQL solution, you still have to store your original raw data somewhere
-            1. be a bit slower for inserts/update/delete and reads that have to touch table pages
+           this is in contrast with other applications where data loss would be unacceptable
 
     1. Examples:
 
         1. ElasticSearch
             1. Most popular FTS engine
+            1. Reasonably powerful FTS, but cannot be combined with SQL
             1. Requires installing a full service with similar complexity of postgres => difficult to configure
                <img src=one-does-not-ao1pfo.jpg />
-            1. No longer open source, see: 
-                1. https://opensourceconnections.com/blog/2021/01/15/is-elasticsearch-no-longer-open-source-software/
-                1. https://news.ycombinator.com/item?id=26780848
-            1. Reasonably powerful FTS, but cannot be combined with SQL
-            1. Can be embedded in postgres via [zombodb extension](https://github.com/zombodb/zombodb)
+            1. Can be embedded in postgres via [zombodb extension](https://github.com/zombodb/zombodb),
+               but that's even more complicated
+            1. No longer open source
+                1. Originally licensed using Apache 2
+                1. Elastic (the company) made money by offering their own hosted ElasticSearch solutions ($2 billion market cap)
+                1. Amazon started offering ElasticSearch as a service on AWS
+                1. In response, Elastic has relicensed the ElasticSearch library as SSPL
+                    1. Created by MongoDB
+                    1. Doesn't allow 3rd parties to offer paid hosting
+                    1. Not an "open source license" officially approved by the Open Source Initiative (OSI)
+                1. In response, Amazon has forked ElasticSearch, and will continue development of their forked version and offering it on AWS
+                1. See:
+                    1. https://opensourceconnections.com/blog/2021/01/15/is-elasticsearch-no-longer-open-source-software/
+                    1. https://news.ycombinator.com/item?id=26780848
         1. Lucene / Solr
             1. Similar to Elastic, but came before, and no longer as popular
         1. Groonga
-            1. "Embedded" FTS engine => FTS library => easy to include in other projects 
+            1. Embedded FTS engine => FTS library => "easy" to include in other projects 
+            1. Good Asian language support
             1. Can be embedded in postgres via [pgroonga extension](https://github.com/pgroonga/pgroonga)
+                1. Easy to do
+                1. No ACID guarantees on the FTS indexes => crash means you must rebuild the index (hours/days for large datasets)
+                1. Doesn't respect some postgres settings about memory/disk usage
 
-    1. Postgres FTS generally considered superior to all other RDBMs FTS (MySQL, SQL Server, Oracle, etc.)
+    1. Advantages of postgres:
+        1. Can use full SQL capabilites (i.e. joins)
+        1. Postgres FTS generally considered superior to all other RDBMs FTS (MySQL, SQL Server, Oracle, etc.)
+
+    1. Disadvantages of postgres:
+        1. must store tables/indexes separately
+            1. use about 2x the disk space... sort of... when using a NoSQL solution, you still have to store your original raw data somewhere
+            1. be a bit slower for inserts/update/delete and reads that have to touch table pages
+            1. there's active development around removing this restriction, and it'll probably land in postgres 14 or 15
+        1. doesn't support as many ranking algorithms for search
+            1. again, active development to fix this issue
+            1. currently (with pspacy library), postgres supports more languages than any of the NoSQL FTS solutions
+        1. recall:
+            1. Postgres didn't use to support `JSONB`, and so MongoDB/CassandraDB/other NoSql solutions developed around this need
+            1. Postgres implemented the first JSON+SQL engine (and is still by far the best JSON support in an RDBMS, see https://www.youtube.com/watch?v=tF3Lb2BvGpk&list=PLuJmmKtsV1dP8IGGH6Z_sYQKxfDqtoSLj&index=10)
+            1. Now, Postgres is "better at being Mongo than Mongo"
+                1. fully supports JSON
+                1. it won't lose your data
+                1. it can be much faster due to good indexing
+                1. you can turn off ACID guarantees to get even faster
+            1. Expect the same thing to happen to FTS NoSql engines over the next few years
+
+    1. Lots of debate about how postgres compares to NoSQL solutions: 
+        1. Reference:
+            1. FTS in Postgres is good enough: http://rachbelaid.com/postgres-full-text-search-is-good-enough/
+            1. discussion thread: https://news.ycombinator.com/item?id=12621950
+        1. No one would think it's weird if you used any of these dedicated FTS engines for a project
+        1. People who don't know postgres might think it's weird to use postgres, but most people who know postgres would think it's smart, especially if you're already using postgres
+        1. We'll (eventually) talk about an extension to postgres called pspacy (that I'm currently developing) that makes postgres FTS even more powerful
 
 ## FTS in postgres
 
@@ -249,7 +285,15 @@ WHERE text LIKE '%corona%';
 
     1. We'll only cover a basic survey here, more details in the documentation
 
-       <img src=a5skfy5y88x11.jpg />
+       <img src=a5skfy5y88x11.jpg width=300px />
+
+       Refrences:
+
+       1. http://rachbelaid.com/postgres-full-text-search-is-good-enough/
+
+       1. https://www.postgresql.org/docs/13/datatype-textsearch.html
+
+       1. https://www.postgresql.org/docs/13/functions-textsearch.html
 
     1. `tsvector` and `tsquery` represent fully normalized text documents and queries;
        they should typically be constructed with the `to_tsvector` and `to_tsquery` functions.
@@ -274,19 +318,15 @@ WHERE text LIKE '%corona%';
        CREATE INDEX tweets_idx_fts on tweets USING gin(to_tsvector('english', text));
        ```
 
-    1. Reference: 
-        1. https://www.postgresql.org/docs/13/textsearch-intro.html
-        1. https://www.postgresql.org/docs/13/datatype-textsearch.html
-
 ## FTS Indexes
 
 GIN index (Generalized Inverted iNdex)
 1. reference: https://habr.com/ru/company/postgrespro/blog/448746/
 1. used for:
     1. full text search
-    1. indexing arrays
     1. indexing `JSONB`
-    1. basically, anything that uses the `@@` operator
+    1. indexing arrays
+    1. basically, anything that uses the `@@`, `@>`, or `<@` operators
 1. limitations:
     1. elements (i.e. lexemes) never deleted
     1. slow to modify (fast mode vs slow mode)
@@ -317,6 +357,7 @@ RUM Index
 1. limitations:
     1. slower than the GIN index for insert/update
     1. uses more space than the GIN index (due to metainfo)
+    1. not built-in to postgres, and must compile/install a separate extension
 
 GIST Index
 1. Reference: https://habr.com/ru/company/postgrespro/blog/444742/

@@ -336,7 +336,10 @@ diabolical queries:
 
 select count(*) tablename     vs     select count(*) from tablename
 
+
 NOTES:
+
+Next midterm should include a COUNT (DISTINCT customer_id) trick question.
 
 JOIN keys to join on; (customer_id can link customer to both payment and rentals)
 -->
