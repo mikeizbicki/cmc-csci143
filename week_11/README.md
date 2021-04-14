@@ -271,6 +271,14 @@ WHERE text LIKE '%corona%';
 
        <img src=a5skfy5y88x11.jpg width=300px />
 
+       Refrences:
+
+       1. http://rachbelaid.com/postgres-full-text-search-is-good-enough/
+
+       1. https://www.postgresql.org/docs/13/datatype-textsearch.html
+
+       1. https://www.postgresql.org/docs/10/functions-textsearch.html
+
     1. `tsvector` and `tsquery` represent fully normalized text documents and queries;
        they should typically be constructed with the `to_tsvector` and `to_tsquery` functions.
 
