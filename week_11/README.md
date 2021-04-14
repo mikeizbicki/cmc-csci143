@@ -208,26 +208,42 @@ WHERE text LIKE '%corona%';
 1. Most FTS systems are not SQL-based (i.e. NoSQL)
 
     1. No ACID transactions 
-        1. possibility of data loss
-        1. at scale, a guarantee of data loss
+        1. data loss when servers crash
+        1. at scale, server crashes are guaranteed => data loss guaranteed
+        1. for most applications, no one will notice if you're missing a few documents in your search results, so small data loss is acceptable
 
+           this is in contrast with other applications where data loss would be unacceptable
 
     1. Examples:
 
         1. ElasticSearch
             1. Most popular FTS engine
+            1. Reasonably powerful FTS, but cannot be combined with SQL
             1. Requires installing a full service with similar complexity of postgres => difficult to configure
                <img src=one-does-not-ao1pfo.jpg />
-            1. No longer open source, see: 
-                1. https://opensourceconnections.com/blog/2021/01/15/is-elasticsearch-no-longer-open-source-software/
-                1. https://news.ycombinator.com/item?id=26780848
-            1. Reasonably powerful FTS, but cannot be combined with SQL
-            1. Can be embedded in postgres via [zombodb extension](https://github.com/zombodb/zombodb)
+            1. Can be embedded in postgres via [zombodb extension](https://github.com/zombodb/zombodb),
+               but that's even more complicated
+            1. No longer open source
+                1. Originally licensed using Apache 2
+                1. Elastic (the company) made money by offering their own hosted ElasticSearch solutions ($2 billion market cap)
+                1. Amazon started offering ElasticSearch as a service on AWS
+                1. In response, Elastic has relicensed the ElasticSearch library as SSPL
+                    1. Created by MongoDB
+                    1. Doesn't allow 3rd parties to offer paid hosting
+                    1. Not an "open source license" officially approved by the Open Source Initiative (OSI)
+                1. In response, Amazon has forked ElasticSearch, and will continue development of their forked version and offering it on AWS
+                1. See:
+                    1. https://opensourceconnections.com/blog/2021/01/15/is-elasticsearch-no-longer-open-source-software/
+                    1. https://news.ycombinator.com/item?id=26780848
         1. Lucene / Solr
             1. Similar to Elastic, but came before, and no longer as popular
         1. Groonga
-            1. "Embedded" FTS engine => FTS library => easy to include in other projects 
+            1. Embedded FTS engine => FTS library => "easy" to include in other projects 
+            1. Good Asian language support
             1. Can be embedded in postgres via [pgroonga extension](https://github.com/pgroonga/pgroonga)
+                1. Easy to do
+                1. No ACID guarantees on the FTS indexes => crash means you must rebuild the index (hours/days for large datasets)
+                1. Doesn't respect some postgres settings about memory/disk usage
 
     1. Advantages of postgres:
         1. Can use full SQL capabilites (i.e. joins)
