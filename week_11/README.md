@@ -211,7 +211,10 @@ WHERE text LIKE '%corona%';
         1. possibility of data loss
         1. at scale, a guarantee of data loss
 
-    1. Lots of debate about how these tools compare to postgres: https://news.ycombinator.com/item?id=12621950
+    1. Lots of debate about how these tools compare to postgres: 
+        1. Reference:
+            1. FTS in Postgres is good enough: http://rachbelaid.com/postgres-full-text-search-is-good-enough/
+            1. discussion thread: https://news.ycombinator.com/item?id=12621950
         1. No one would think it's weird if you used any of these dedicated FTS engines for a project
         1. People who don't know postgres might think it's weird to use postgres, but most people who know postgres would think it's smart, especially if you're already using postgres
         1. We'll (eventually) talk about an extension to postgres called pspacy (that I'm currently developing) that makes postgres FTS even more powerful
