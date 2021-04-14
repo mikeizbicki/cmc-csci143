@@ -442,7 +442,7 @@ assuming a merge join is used.
 Do not create any unneeded indexes; if no new indexes are needed, say so.
 
 \begin{lstlisting}
-SELECT id_users
+SELECT *
 FROM tweets_mentions
 JOIN tweets USING (id_tweets);
 \end{lstlisting}
