@@ -336,4 +336,6 @@ diabolical queries:
 
 select count(*) tablename     vs     select count(*) from tablename
 
+
+Next midterm should include a COUNT (DISTINCT customer_id) trick question.
 -->
