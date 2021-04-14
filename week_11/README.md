@@ -2,8 +2,8 @@
 
 **Homework:**
 
-1. Week 9/10 homework was extended until this Sunday.
-1. I'll post a new homework later this week.
+1. Week 9/10 homework was extended until this Sunday
+1. twitter\_postgres2 assignment due next Sunday, 25 April
 
 ## Hash Index
 
@@ -216,6 +216,10 @@ WHERE text LIKE '%corona%';
         1. People who don't know postgres might think it's weird to use postgres, but most people who know postgres would think it's smart, especially if you're already using postgres
         1. We'll (eventually) talk about an extension to postgres called pspacy (that I'm currently developing) that makes postgres FTS even more powerful
 
+        1. The main disadvantage of postgres is that it must store tables/indexes separately
+            1. use about 2x the disk space... sort of... when using a NoSQL solution, you still have to store your original raw data somewhere
+            1. be a bit slower for inserts/update/delete and reads that have to touch table pages
+
     1. Examples:
 
         1. ElasticSearch
@@ -225,7 +229,7 @@ WHERE text LIKE '%corona%';
             1. No longer open source, see: 
                 1. https://opensourceconnections.com/blog/2021/01/15/is-elasticsearch-no-longer-open-source-software/
                 1. https://news.ycombinator.com/item?id=26780848
-            1. Reasonably powerful FTS, but cannot be combined with SQL`
+            1. Reasonably powerful FTS, but cannot be combined with SQL
             1. Can be embedded in postgres via [zombodb extension](https://github.com/zombodb/zombodb)
         1. Lucene / Solr
             1. Similar to Elastic, but came before, and no longer as popular
@@ -243,7 +247,7 @@ WHERE text LIKE '%corona%';
 
 1. Two important types: `tsvector` and `tsquery`
 
-    1. We'll only cover a basic survey here, more details in the documentatil
+    1. We'll only cover a basic survey here, more details in the documentation
 
        <img src=a5skfy5y88x11.jpg />
 
@@ -282,12 +286,14 @@ GIN index (Generalized Inverted iNdex)
     1. full text search
     1. indexing arrays
     1. indexing `JSONB`
+    1. basically, anything that uses the `@@` operator
 1. limitations:
-    1. elements never deleted
-    1. slow to modify
+    1. elements (i.e. lexemes) never deleted
+    1. slow to modify (fast mode vs slow mode)
     1. does not store auxiliary information (fixed in rum index)
         1. position of lexemes in the document
         1. timestamp/pagerank of the document
+        1. must recheck the table pages
     1. does not support index scan / index only scan;
        only supports bitmap scans;
 
@@ -295,11 +301,22 @@ GIN index (Generalized Inverted iNdex)
 
        `gin_fuzzy_search_limit` is an alternative
 
+       (fixed in RUM index)
+
+    1. does not sort the results (fixed in RUM index)
+    1. does not support `CLUSTER`
+
 RUM Index
 1. Reference: https://habr.com/ru/company/postgrespro/blog/452116/
-1. Like the GIN index, but also let's you store "metainformation" (e.g. pagerank, timestamp) in the index, and return results sorted by the metainfo
+1. Like the GIN index, but:
+    1. also let's you store "metainformation" (e.g. pagerank, timestamp) in the index
+    1. results can be returned sorted according to the metainformation
+    1. can perform index only scan on the metainformation
+        1. speedup from fewer pages accessed
+        1. speedup from LIMIT clauses
 1. limitations:
     1. slower than the GIN index for insert/update
+    1. uses more space than the GIN index (due to metainfo)
 
 GIST Index
 1. Reference: https://habr.com/ru/company/postgrespro/blog/444742/
