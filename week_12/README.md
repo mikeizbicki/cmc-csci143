@@ -25,10 +25,20 @@ Unicode
       which helped drive its initial popularity.
 
    1. The split between python 2 and 3 is basically over how to handle unicode.
-      
-      1. Python 3 chooses what's best for pure-python developers.
 
-      1. Pytohn 2 chooses what's best for people who combine python with other languages (especially C).
+      1. Python2 chooses what's best for people who combine python with other languages (especially C).
+         This is confusing to new programmers who don't know C, and will only ever learn python.
+      
+      1. Python3 chooses what's best for pure-python developers and won't interact with C programs.
+         
+         1. Actually, no one falls into this category, since anytime you use a filename, you use the operating system's built-in C library. 
+            Python3 can create some really difficult to understand bugs here.
+         1. Don't use non-ascii characters for filenames, urls, and any function in the `sys` module, and you'll probably be fine
+
+      1. Flask web framework author Armin Ronacher is one of the more famous people explaining the shortcomings of Python3's unicode support.
+         
+         See, for example: https://lucumr.pocoo.org/2014/1/5/unicode-in-2-and-3/
+
 1. Key definitions:
 
     1. code point: a number associated with a particular character

@@ -197,6 +197,10 @@ and the remaining 1/5 you'll have to refer to the postgres documentation / suppl
 \question\TFQuestion{F}{Postgresql's built-in \lstinline{pg_trgm} allows searching Chinese text.}
 \question\TFQuestion{T}{A GIN index built using bigrams generated from the \lstinline{pg_bigm} extension will be crash-safe (i.e. the index will be valid if postgres crashes during an INSERT/UPDATE/DELETE operation).}
 \question\TFQuestion{F}{A pgroonga index will be crash safe (i.e. the index will be valid if postgres crashes during an INSERT/UPDATE/DELETE operation).}
+\question\TFQuestion{T}{A GIN index created with the \lstinline{gin_trgm_ops} operator class supports faster searches using the LIKE operator.}
+\question\TFQuestion{F}{A GIN index created with the \lstinline{gin_trgm_ops} operator class supports faster searches using the \lstinline{@@} operator.}
+\question\TFQuestion{F}{A GIN index created with the \lstinline{tsvector_ops} operator class supports faster searches using the LIKE operator.}
+\question\TFQuestion{T}{A GIN index created with the \lstinline{tsvector_ops} operator class supports faster searches using the \lstinline{@@} operator.}
 
 
 \end{questions}
