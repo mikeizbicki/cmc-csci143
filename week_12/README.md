@@ -49,9 +49,11 @@ Unicode
                
                <img src="600px-Utf8webgrowth.svg.png" />
 
-    1. font: a mapping from a code point to an image
-        1. missing fonts are the classic cause of weird symbols on a webpage
+        1. using the wrong encoding is the classic problem resulting in garbled text
+
            <img src=w0v8ozgabyi61.jpg width=400px />
+
+    1. font: a mapping from a code point to an image
 
         1. fonts are chosen by the device, and can completely change the meaning of the underlying string
 
@@ -64,6 +66,17 @@ Unicode
         1. normal form composed (NFC): remove as many combining characters as possible
 
         1. normal form decomposed (NFD): use as many combining characters as possible
+
+1. **takeaway:**
+   whenever you have a string, in any programming language, you MUST know the encoding and the normalization of the string in order to use it
+
+    1. the encoding cannot be reliably determined from just the raw bytes; the normalization form can, but it is expensive to do so
+
+    1. anytime you get input from a user (e.g. keyboard, read from a file, load a web form):
+        1. the input system *should* handle encoding issues for you, but it will not handle normalization issues
+        1. you must normalize the input manually
+
+    1. the default that "everyone" uses is UTF8 encoded NFC normalized text
 
 1. References:
 
