@@ -1,6 +1,6 @@
 # Putting it all together: web search
 
-<img src='tech-stack.png' />
+<img src='tech-stack.png' width=600px />
 
 ## Scaling
 
