@@ -112,6 +112,20 @@ Ngram searching
 
     1. provides an "operator class", which lets standard GIN/RUM indexes use trigrams as their lexemes
 
+       the string `this is a test` gets "tokenized" into 
+       ```
+       'thi' 'his' 'is ' ' i ' ' is' 'is ' 's a' ' a ' 'a t' ' te' 'tes' 'est'
+       ```
+       recall that the string "should" be tokenized into
+       ```
+       psql> select spacy_tsvector('en','this is a test');
+        spacy_tsvector 
+        ----------------
+         'test':4
+       ```
+
+       we no longer search for exact matches of all tokens, but find documents with the most matching tokens
+
     1. advantages:
 
         1. allows "fuzzy" searches involving misspellings
@@ -131,6 +145,19 @@ Ngram searching
     1. not built-in to postgres
 
        project homepage: https://pgbigm.osdn.jp/index_en.html
+
+    1. the string `这是一个测试` gets "tokenized" into
+       ```
+       '这是' '是一' '一个' '个测' '测试'
+       ```
+
+       the string "should" be tokenized into
+       ```
+       psql> select spacy_tsvector('zh','这是一个测试');
+         spacy_tsvector   
+         -------------------
+          '测试':3 '这是':1
+       ```
 
     1. like `pg_trgm`, but creates bigrams instead of trigrams
 
@@ -167,6 +194,12 @@ Ngram searching
 1. What is the performance difference between pspacy and these alternative libraries?
     1. In theory, pspacy should be both faster and more accurate for more languages
     1. In practice, there's likely some language-specific bugs that need to be worked out
+1. How should we handle search in the presence of synonyms? 
+    1. Examples: `COVID-19` and `coronavirus`, `Beijing` and `Peking`, `Claremont McKenna` and `CMC`
+    1. What modern search engines do (Google/Bing/Baidu/etc.) is they use the word2vec algorithm to find synonyms for your queries and search for those synonyms as well
+        1. ElasticSearch/Solr/Lucene support this too somewhat
+    1. Not clear what the best way to do this in practice is
+    1. The interface isn't exposed to users, so it's difficult to interpret search results in some settings
 
 **My current recommendation:**
 1. If your language is natively supported by postgres: use `tsvector`s
