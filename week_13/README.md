@@ -39,7 +39,7 @@
 Where to get data:
 
 1. The [internet archive](https://archive.org/web/petabox.php)
-    1. >50 petabytes as of 2014, data goes back into the 90s
+    1. more than 50 petabytes as of 2014, data goes back into the 90s
     1. the best source of data for what the web looked like in the past
     1. average 40GB/sec (= 13PB/month) data transfer: http://blog.archive.org/2020/05/11/thank-you-for-helping-us-increase-our-bandwidth/
     1. the wayback machine is open source
@@ -47,7 +47,7 @@ Where to get data:
         1. lots of custom java programs
     1. <img src=AcientAliens-Archive.png />
 1. The [common crawl](https://commoncrawl.org/)
-    1. >1 petabyte, data goes back to 2008, but significantly more data for recent years
+    1. more than 1 petabyte, data goes back to 2008, but significantly more data for recent years
     1. standard archive for scientific research about how the web looks "now"
     1. hosted on Amazon S3
         1. standard method for storing/distributing large static files
