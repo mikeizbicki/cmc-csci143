@@ -60,11 +60,15 @@ Where to get data:
         1. map discussion of congressional bills: https://github.com/awavering/CC-Bill-Tracker
         1. prevalence of RSS feeds: https://draft.li/blog/2016/03/21/rss-usage-on-the-web/
 1. write a scraper manually
-    1. not recommended unless you REALLY need to
-    1. control which websites you get access to
+    1. not recommended unless you REALLY need fine-grained to control which web pages you get access to
+        1. it's hard to do correctly
+        1. history: Larry Page (Google co-founder) asking for coding help on a mailing list in 1996: https://groups.google.com/g/comp.lang.java/c/aSPAJO05LIU/m/ushhUIQQ-ogJ
     1. every domain has a robots.txt , which describes how a well-behaved spider will interact with the domain
         1. see: https://developers.google.com/search/docs/advanced/robots/intro
-        1. most domains favor googlebot
+        1. if you don't obey robots.txt, you'll get banned from the website
+        1. most domains favor facebook/googlebot
+        1. even these major web companies make mistakes: 
+            1. see: [A Facebook crawler was making 7M requests per day to my stupid website](https://news.ycombinator.com/item?id=23490367)
     1. in the US, it is legal to scrape anything that a browser can access normally
         1. see: https://parsers.me/us-court-fully-legalized-website-scraping-and-technically-prohibited-it/
         1. websites are free to block your scraper and not allow you to access data
