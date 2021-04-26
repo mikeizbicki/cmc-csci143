@@ -132,3 +132,6 @@ Extract information out of html
     1. Existing solutions "somewhat" work for English, but basically don't work for any other language
         1. not clear if this is because of lack of research, some languages are just harder, or different web standards/design patterns are used in different languages
 
+## Homework
+
+Your final homework assignment is posted at https://github.com/mikeizbicki/search_engine
