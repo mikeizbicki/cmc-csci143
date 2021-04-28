@@ -1,4 +1,4 @@
-# Probabilistic Data Structures: HyperLogLog
+# Rollup Tables + Probabilistic Data Structures
 
 We'll look at 3 problems and how to fix them.
 
