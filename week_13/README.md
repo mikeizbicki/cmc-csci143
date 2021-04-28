@@ -138,6 +138,9 @@ Extract information out of html
             1. this issue is technical and not ideological, because Google does index other newspapers hosted in the DPRK, like Pyongyang Times:
 
                see: https://www.google.com/search?q=site%3Apyongyangtimes.com.kp+united+states
+            1. specialized search engine https://kcnawatch.org exists for searching KCNA
+                1. requires a subscription payment
+                1. not as advanced as google search
         1. google has no incentive to fix this issue because advertisers don't care about these webpages
             1. therefore these webpages effectively don't exist for most people
             1. structural censorship
