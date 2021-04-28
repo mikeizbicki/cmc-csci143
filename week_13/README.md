@@ -98,15 +98,23 @@ Crawl data stored in WARC (= Web ARChive) files
            not included in the actual HTML file itself => we need to remember this as metadata
 
 Extract information out of html
+1. for our search engine, we need to extract
+    1. the publication date
+    1. title
+    1. description
+    1. text
 1. semantic web
     1. google/microsoft/yahoo/yandex/w3c's schema.org: https://schema.org/docs/documents.html
     1. facebook's open graph protocol: https://ogp.me/
     1. twitter card markup: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
     1. dublin core metadata (dcterms): https://www.dublincore.org/specifications/dublin-core/dcmi-terms/
     1. json-ld: https://json-ld.org/spec/latest/json-ld/
-    1. ... and many more ...
-
-       ... and most webpages implement them wrong ...
+    1. ... and most webpages implement them wrong ...
+       1. all standards for publication date say the format should be `YYYY-MM-DD`,
+          but many American websites insist on using `YYYY-DD-MM`
+       
+       ... and many websites decide to implement their own standard ...
+       1. *cough* BBC,FoxNews *cough*
 
        <img src=standards.png />
 1. metahtml: https://github.com/mikeizbicki/metahtml
@@ -118,14 +126,19 @@ Extract information out of html
         1. Google search results won't get archived (we'll never know what results were getting returned for "coronavirus" in January 2020)
         1. Amazon doesn't get archived (dynamically change prices of items, but how can we track that?)
     1. less obvious:
-        1. The Korean Central News Agency (KCNA) is the main newspaper of the DPRK (North Korea),
-           but it uses dynamic webpages, and so google doesn't index it at all
+        1. Korean Central News Agency (KCNA) 
+            1. the main newspaper of the DPRK (North Korea)
+            1. website is http://kcna.kp
+            1. it uses dynamic webpages, and so google doesn't index it at all
 
-           https://www.google.com/search?hl=en&q=site%3Akcna.kp%20united%20states
+               see: https://www.google.com/search?hl=en&q=site%3Akcna.kp%20united%20states
 
-           We can prove this issue is technical and not ideological, because Google does index other newspapers hosted in the DPRK, like Pyongyang Times:
+            1. this issue is technical and not ideological, because Google does index other newspapers hosted in the DPRK, like Pyongyang Times:
 
-           https://www.google.com/search?q=site%3Apyongyangtimes.com.kp+united+states
+               see: https://www.google.com/search?q=site%3Apyongyangtimes.com.kp+united+states
+        1. google has no incentive to fix this issue because advertisers don't care about these webpages
+            1. therefore these webpages effectively don't exist for most people
+            1. structural censorship
 1. Given an HTML webpage, how can we extract the "article text" from the webpage?
     1. This is a hard problem because there are millions of domains, and each domain does it differently
     1. Not even Google has a good solution to this
