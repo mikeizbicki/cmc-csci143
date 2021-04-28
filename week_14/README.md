@@ -36,9 +36,11 @@ Cache the results.
 
 1. Implemented natively in postgres with "materialized views".
 
-1. Materialized views didn't exist in postgres when Instagram first launched.
+1. Materialized views didn't exist in postgres when Instagram first launched (2010).
+   (Materialized views added to postgres in version 9.3 in 2013.)
    
    So they chose an alternative solution called memcache.
+   (Memcache first released in 2003.)
 
    Maintaining both solutions significantly complicates you system architecture.
 
