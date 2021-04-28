@@ -42,7 +42,7 @@ Cache the results.
 
    Maintaining both solutions significantly complicates you system architecture.
 
-   <img src=instagram_count_star.png />
+   <img src=instagram_memcache.png />
 
 ## Problem 2
 
