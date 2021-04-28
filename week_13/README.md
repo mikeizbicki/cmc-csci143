@@ -111,10 +111,12 @@ Extract information out of html
     1. json-ld: https://json-ld.org/spec/latest/json-ld/
     1. ... and most webpages implement them wrong ...
        1. all standards for publication date say the format should be `YYYY-MM-DD`,
+
           but many American websites insist on using `YYYY-DD-MM`
        
        ... and many websites decide to implement their own standard ...
-       1. *cough* BBC,FoxNews *cough*
+
+       1. BBC, FoxNews
 
        <img src=standards.png />
 1. metahtml: https://github.com/mikeizbicki/metahtml
