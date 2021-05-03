@@ -111,7 +111,15 @@ The HyperLogLog data structure is a monoid that closely approximates the `count 
 
 1. Original paper from 2007: http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf
 
+1. Postgres implementation: https://github.com/citusdata/postgresql-hll
+
 1. Applications to both rollup tables and MapReduce
+
+1. Example final questions:
+
+   1. How much disk space does an HLL with `m=2**11` and `regwidth=5` consume?
+
+   1. How much space is needed for an HLL that has <1% standard error and can count at least 1 billion distinct items?
 
 **Note:**
 Basically every useful statistic that is not a monoid homomorphism has a probabalistic data structure that does have monoid structure.
