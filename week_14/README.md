@@ -91,11 +91,43 @@ Rollup tables are a technique for "incrementally" updating materialized views.
    The search engine homework assignment internally uses the `pgrollup` extension in order to cache the counts in the graph.
 
    1. Requirements:
-      1. Every aggregate function must be a monoid homomorphism
+      1. Every aggregate function must be a [monoid homomorphism](https://en.wikipedia.org/wiki/Monoid#Monoid_homomorphisms)
+         
+         1. A monoid is a set `X` with an associative binary operation `op`.
+            That is,
+            ```
+            op(x1, op(x2, x3))  =  op(op(x1, x2), x3)
+            ```
 
-      1. `count`/`min`/`max`/`avg` are all examples
+            For example:
+            | `X` | `op` | 
+            | --- | ---- |
+            | sets | union |
+            | sql tables | union |
+            | integers | addition |
+            | integers | max |
 
-      1. Monoid homomorphisms are also a requirement for MapReduce
+         1. A homomorphism is a function from two monoids that preserves the binary operation.
+
+            We're particularly interested in homomorphisms from sets/sql tables:
+            ```
+            f( X1 ∪ X2 )  =  op( f(X1) , f(X2) )
+            ```
+            
+            For example:
+            | `f`     | `op`  |
+            | ------- | ----- |
+            | `count` | `+`   |
+            | `min`   | `min` |
+            | `max`   | `max` |
+            | `avg`   | (avg(X1)*n1 + avg(X2)*n2)/(n1+n2) |
+            | `stddev`| weighted stddev formula |
+
+      1. MapReduce only works when:
+         1. Reduce is a monoid operation
+         1. Map is a monoid homomorphism from sets -> the reduce operation
+
+      1. Twitter has a famous MapReduce library for Scala called [SummingBird](https://github.com/twitter/summingbird)
 
    1. The oracle database has limited built-in support for rollup tables
 
@@ -111,7 +143,15 @@ The HyperLogLog data structure is a monoid that closely approximates the `count 
 
 1. Original paper from 2007: http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf
 
+1. Postgres implementation: https://github.com/citusdata/postgresql-hll
+
 1. Applications to both rollup tables and MapReduce
+
+1. Example final questions:
+
+   1. How much disk space does an HLL with `m=2**11` and `regwidth=5` consume?
+
+   1. How much space is needed for an HLL that has <1% standard error and can count at least 1 billion distinct items?
 
 **Note:**
 Basically every useful statistic that is not a monoid homomorphism has a probabalistic data structure that does have monoid structure.
