@@ -201,3 +201,13 @@ Where to go from here?
     1. [Large Databases, Lots of Servers, on Premises, in the Cloud - Get Them All! (AdTech use of postgres)](https://www.youtube.com/watch?v=4GB7EDxGr_c)
 
     1. [Breaking Postgres at Scale (how to configure postgres for scaling from 1GB up to many TB)](https://www.youtube.com/watch?v=eZhSUXxfEu0)
+
+## Course evals
+
+Please complete:
+
+1. the CMC course eval
+
+1. google forms eval: https://docs.google.com/forms/d/1Fw-jDmq6B2eiSNGMqA6MGSFsWT4iOEuS4SyYpN-6agY
+
+I read all the answers, and will use the feedback to help make future versions of this course better
