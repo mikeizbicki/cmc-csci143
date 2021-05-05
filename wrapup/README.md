@@ -8,7 +8,7 @@
 
            https://www.zdnet.com/article/microsoft-developer-reveals-linux-is-now-more-used-on-azure-than-windows-server/
 
-        1. <img src=y9nmw0smgxd61.png />
+        1. <img src=y9nmw0smgxd61.png width=400px/>
     1. Use containers:
         1. Why?
             1. Infrastructure in a config file
@@ -30,10 +30,10 @@
            1. big datasets make it harder
            1. create smaller datasets and test on those
 
-           <img src=Strips-Test-audimetre-600-finalenglish.jpg />
+           <img src=Strips-Test-audimetre-600-finalenglish.jpg width=500px />
     1. Takeaway: devops is a hard, thankless task
 
-       <img src=r_387549_W7fYM.jpg >
+       <img src=r_387549_W7fYM.jpg width=500px>
 
 1. MapReduce
 
@@ -64,7 +64,7 @@
 
        Basically, use for everything
 
-       <img src=imgdatabase-overloads.jpg />
+       <img src=database-overloads.jpg />
     1. We used: PostgreSQL
         1. Correctness matters, and postgresql's #1 priority is correctness.
 
@@ -98,7 +98,7 @@
 
         1. Run `DELETE`/`UPDATE`/`DROP` SQL commands outside of a transaction
 
-           <img src=ri96s0xu1ryz.jpg />
+           <img src=ri96s0xu1ryz.jpg width=400px/>
 
 1. Notice:
     1. all these techs are open source
