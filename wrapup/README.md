@@ -80,6 +80,34 @@
             1. Even Microsoft uses Postgres when they need to processes multi-petabyte datasets
 
                https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/architecting-petabyte-scale-analytics-by-scaling-out-postgres-on/ba-p/969685
+        1. | Normalized data | Denormalized data |
+           | --------------- | ----------------- |
+           | hard to insert  | easy to insert    |
+           | less disk space | more disk space   |
+           | easy to select  | hard to select    |
+
+           Normalization is a spectrum
+
+        1. Use indexes
+            1. Make SELECT much faster
+
+               Lack of indexes brought down Auth0: https://www.reddit.com/r/SQL/comments/n1z3o7/a_hardwon_lesson_in_indexing/
+            1. Make INSERT slightly slower
+            1. Many types of indexes
+                1. We covered: BTree, Hash, GIN, RUM
+                    1. Takeaways:
+                        1. Full text search: use GIN/RUM
+                        1. Everything else: BTree
+                        1. Don't use Hash
+                1. Did not cover: BRIN, GIST, SP-GIST
+                1. Other DBs have different names for these indexes,
+
+                   and minor implementation details change,
+
+                   there's really no other major categories of indexes
+            1. General procedure:
+                1. First design your SELECT statements to be correct
+                1. Then, create indexes that make them fast
     1. Other technologies
         1. Other RDBMS: MySQL, Microsoft SQL Server, Oracle, etc.
         1. NoSQL
@@ -104,6 +132,16 @@
     1. all these techs are open source
     1. the technology is not what differentiates companies
     1. it's the data / how the tech is deployed
+
+Academic vs. Industry big data
+1. We focused on industry in this class
+1. Academic big data is much more math heavy, less implementation
+    1. "monoid homomorphisms" needed for MapReduce
+    1. probabilistic data structures like HyperLogLog
+1. Open research problems:
+    1. Non-English FTS
+    1. Better web scraping for dynamic pages
+    1. Efficiently updating materialized views
 
 Where to go from here?
 1. Learn more technologies?
