@@ -120,18 +120,20 @@
 
         <img src=junior-dev-postgres-intermediate-de-postgres-redis-mongodb-senior-dev-36100154.png />
 
-    1. Don't do these things:
-        1. Use MapReduce when a database is more appropriate
-           (almost always)
-
-        1. Run `DELETE`/`UPDATE`/`DROP` SQL commands outside of a transaction
-
-           <img src=ri96s0xu1ryz.jpg width=400px/>
-
 1. Notice:
     1. all these techs are open source
     1. the technology is not what differentiates companies
     1. it's the data / how the tech is deployed
+
+1. Don't do these things:
+    1. Use MapReduce when a database is more appropriate
+       (almost always)
+
+    1. Upload production credentials to github
+
+    1. Run `DELETE`/`UPDATE`/`DROP` SQL commands outside of a transaction
+
+       <img src=ri96s0xu1ryz.jpg width=400px/>
 
 Academic vs. Industry big data
 1. We focused on industry in this class
