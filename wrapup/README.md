@@ -188,11 +188,13 @@ Where to go from here?
 
 1. Extra credit
 
-   Watch a video below, write a 5 things that you learned
+   Watch a video below, write a 5 things that you learned.
+
+   You'll get 1 point each.
 
     1. [Scaling Instagram Infrastructure](https://www.youtube.com/watch?v=hnpzNAPiC0E)
 
-    1. [The Evolution of Reddit.com's Architecture](The Evolution of Reddit.com's Architecture)
+    1. [The Evolution of Reddit.com's Architecture](https://www.youtube.com/watch?v=nUcO7n4hek4)
 
     1. [PostgreSQL at 20TB and Beyond: Analytics at a Massive Scale (AdTech use of postgres)](https://www.youtube.com/watch?v=BgcJnurVFag&t=1650s)
 
