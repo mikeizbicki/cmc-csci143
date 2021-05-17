@@ -1,0 +1,493 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}
+
+\usepackage[normalem]{ulem}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor    = blue  %Colour of citations
+}
+
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage[table]{xcolor}
+\usepackage{color}
+\usepackage{colortbl}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{gray}{rgb}{0.7,0.7,0.7}
+
+\usepackage{listings}
+\lstset {
+	basicstyle=\ttfamily,
+    ,language=SQL
+    ,showstringspaces=false
+    ,keepspaces=true
+}
+
+\usepackage {tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\definecolor {processblue}{cmyk}{0.96,0,0,0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% question definitions
+
+\printanswers
+
+\newcommand*{\hl}[1]{\colorbox{yellow}{#1}}
+
+\newcommand*{\answerLong}[2]{
+    \ifprintanswers{\hl{#1}}
+\else{#2}
+\fi
+}
+
+\newcommand*{\answer}[1]{\answerLong{#1}{~}}
+
+\newcommand*{\TrueFalse}[1]{%
+\ifprintanswers
+    \ifthenelse{\equal{#1}{T}}{%
+        \hl{\textbf{TRUE}}\hspace*{14pt}False
+    }{
+        True\hspace*{14pt}\hl{\textbf{FALSE}}
+    }
+\else
+    {True}\hspace*{20pt}False
+\fi
+} 
+%% The following code is based on an answer by Gonzalo Medina
+%% https://tex.stackexchange.com/a/13106/39194
+\newlength\TFlengthA
+\newlength\TFlengthB
+\settowidth\TFlengthA{\hspace*{1.3in}}
+\newcommand\TFQuestion[2]{%
+    \setlength\TFlengthB{\linewidth}
+    \addtolength\TFlengthB{-\TFlengthA}
+    \parbox[t]{\TFlengthA}{\TrueFalse{#1}}\parbox[t]{\TFlengthB}{#2}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\trans}[1]{{#1}^{T}}
+\newcommand{\loss}{\ell}
+\newcommand{\w}{\mathbf w}
+\newcommand{\x}{\mathbf x}
+\newcommand{\y}{\mathbf y}
+\newcommand{\ltwo}[1]{\lVert {#1} \rVert}
+
+\newcommand{\ignore}[1]{}
+
+\usepackage{listings}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            % 
+stepnumber=1,
+numbers=left
+}}
+
+\lstnewenvironment{python}[1][]
+{
+    \pythonstyle
+    \lstset{#1}
+}
+{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+    {
+\Large
+    CSCI143 Final, Spring 2021
+}
+
+    \vspace{0.1in}
+\end{center}
+
+\noindent
+\textbf{Collaboration policy:} 
+
+\vspace{0.1in}
+\noindent
+You may not:
+\begin{enumerate}
+    \item discuss the exam with any human other than Mike; this includes:
+        \begin{enumerate}
+            \item asking your friend for clarification about what a problem is asking
+            \item asking your friend if they've completed the exam
+        \end{enumerate}
+\end{enumerate}
+
+\noindent
+You may:
+\begin{enumerate}
+    \item take as much time as needed
+    \item use any written notes / electronic resources you would like
+    \item ask Mike to clarify questions via email
+\end{enumerate}
+
+
+\vspace{0.15in}
+
+\vspace{0.25in}
+\noindent
+Name: 
+
+\noindent
+\rule{\textwidth}{0.1pt}
+\vspace{0.15in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{True/False Questions}
+
+For each question below, circle either True or False.
+Each correct answer will result in +1 point,
+each incorrect answer will result in -1 point,
+and each blank answer in 0 points.
+
+\begin{questions}
+\question\TFQuestion{T}{A table that takes up 432KB on disk has 54 pages.}
+\question\TFQuestion{T}{Postgres automatically compresses large TEXT values.}
+\question\TFQuestion{F}{You should disable autovacuum to improve the performance of your database.}
+\question\TFQuestion{T}{Decreasing the \lstinline{fillfactor} for a table from the default value of 100 will make HOT tuple updates more likely.}
+\question\TFQuestion{T}{A btree index created on an INTEGER column will have higher fanout than the same index created on a BIGINT column.}
+
+\question\TFQuestion{F}{Postgres's btree indexes contain XID metainfo in order to determine tuple visibility for index only scans.}
+\question\TFQuestion{F}{For very small tables, the postgres query planner is likely to choose a bitmap scan instead of a sequential scan.}
+
+\question\TFQuestion{T}{A database stored using HDDs should have a higher value for the \lstinline{random_page_cost} system parameter than a database stored using SSDs.}
+\question\TFQuestion{F}{A denormalized representation of data tends to take up less disk space than a normalized representation.}
+    %\question\TFQuestion{F}{Increasing the value of \lstinline{work_mem} is recommen}
+\question\TFQuestion{T}{The nested loop join strategy can be used to join tables on an equality constraint.}
+\question\TFQuestion{T}{The hash join strategy can be used for self joins.}
+
+\question\TFQuestion{T}{A hash index can be used to speed up a nested loop join.}
+\question\TFQuestion{F}{A btree index can be used to speed up a CHECK constraint.}
+\question\TFQuestion{T}{One advantage of the RUM index over the GIN index is that the former supports index scans and the latter does not.  This implies that the RUM index can be used to speed up queries using the \lstinline{LIMIT} clause, but the GIN index cannot.}
+\question\TFQuestion{F}{If postgres crashes while a DELETE/INSERT/UPDATE statement is modifying a RUM index, the index becomes corrupted and must be regenerated from scratch.}
+\question\TFQuestion{T}{The ANALYZE command collects statistics on the values in the table which the query planner uses when selecting which scan algorithm to use for a query.}
+%\question\TFQuestion{T}{It's always possible to use a nested loop join.}
+%\question\TFQuestion{F}{A hash index can return columns in sorted order.}
+\question\TFQuestion{T}{Given the string ``C\'esar Ch\'avez'', an NFD-normalized UTF-8 encoding will require more bytes than a NFKC-normalized UTF-8 encoding.}
+\question\TFQuestion{F}{The UTF-16 encoding cannot represent NFKD-normalized text.}
+\question\TFQuestion{F}{The TSVECTOR type can be created on NFC normalized TEXT fields, but cannot be created on NFD normalized TEXT fields.}
+\question\TFQuestion{T}{Given any string in NFKC form, normalizing to NFC and back to NFKC is guaranteed to be an idempotent operation (i.e. you will get the same string back.)}
+
+\end{questions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Integrated Questions}
+
+The questions below relate to the following simplified normalized twitter schema.
+Each question (or sub-question) is worth 2 points, for a total of 20 points in this section.
+
+\begin{lstlisting}
+CREATE TABLE users (
+    id_users BIGINT PRIMARY KEY,
+    created_at TIMESTAMPTZ,
+    username TEXT
+);
+
+CREATE TABLE tweets (
+    id_tweets BIGINT PRIMARY KEY,
+    id_users BIGINT REFERENCES users(id_users),
+    in_reply_to_user_id BIGINT REFERENCES users(id_users),
+    created_at TIMESTAMPTZ,
+    text TEXT
+);
+
+CREATE TABLE tweet_tags (
+    id_tweets BIGINT REFERENCES tweets(id_tweets),
+    tag TEXT,
+    PRIMARY KEY(id_tweets, tag)
+);
+\end{lstlisting}
+
+\begin{questions}
+\question{
+List all the tables/columns that have indexes created on them.
+}
+
+\begin{solution}
+
+    {\lstinline{users (id_users)}}
+
+    {\lstinline{tweets (id_tweets)}}
+
+    {\lstinline{tweets_tags (id_tweets, tag)}}
+\end{solution}
+
+\newpage
+\question{
+List the scan methods applicable for the following SQL query.
+
+\lstinline{SELECT count(*) FROM tweet_tags WHERE id_tweets=:id_tweets;}
+
+}
+\begin{solution}
+seq scan, index only scan, index scan, bitmap scan
+\end{solution}
+    \vspace{3in}
+
+%\question{
+%List the scan methods applicable for the following SQL query.
+%\lstinline{SELECT username FROM users WHERE username=:username;}
+%}
+%\begin{solution}
+    %seq scan
+%\end{solution}
+
+%\question{
+%Explain why the following SQL query is likely to be inefficient,
+%and create an index that will speed up the query.
+%
+%\begin{lstlisting}
+%SELECT id_tweets
+%FROM tweets_mentions
+%WHERE id_users=:id_users;
+%\end{lstlisting}
+%}
+%
+    %\begin{solution}
+%Explanation: We have an index on the column \lstinline{id_users}, but \lstinline{id_users} is the second column in the index, it is therefore only used in ordering to break ties on the first column \lstinline{id_tweets}.  This implies that the btree will not be ordered by \lstinline{id_users}, and so there is no efficient algorithm for finding entries in the index satisfying \lstinline{id_users=:id_users}.
+
+%An index that fixes this problem and allows index only scans is
+%\begin{lstlisting}
+%CREATE INDEX idx ON tweets_mentions(id_users,id_tweets);
+%\end{lstlisting}
+    %\end{solution}
+
+\question{
+Create index(es) so that the following query can use an index only scan.
+
+Do not create any unneeded indexes; if no new indexes are needed, say so.
+
+\begin{lstlisting}
+SELECT count(*)
+FROM users
+WHERE lower(username)=:username; 
+\end{lstlisting}
+
+}
+\begin{solution}
+\begin{lstlisting}
+CREATE INDEX ON users(lower(username));
+\end{lstlisting}
+\end{solution}
+
+\newpage
+\question{
+Create index(es) so that the following query can use an index only scan, avoid an explicit sort, and take advantage of the LIMIT clause for faster processing.
+
+Do not create any unneeded indexes; if no new indexes are needed, say so.
+
+\begin{lstlisting}
+SELECT id_users
+FROM users
+WHERE created_at<=:created_at
+ORDER BY created_at DESC
+LIMIT 10;
+\end{lstlisting}
+}
+\begin{solution}
+\begin{lstlisting}
+CREATE INDEX ON users(created_at, id_users);
+\end{lstlisting}
+\end{solution}
+\vspace{2in}
+
+\question{
+Construct index(es) so that the following query will run as efficiently as possible.
+
+Do not create any unneeded indexes; if no new indexes are needed, say so.
+
+\begin{lstlisting}
+SELECT id_users,count(*)
+FROM users
+JOIN tweets USING (id_users)
+JOIN tweet_tags ON (id_tweets)
+WHERE tag = :tag
+GROUP BY id_users;
+\end{lstlisting}
+}
+\begin{solution}
+\begin{lstlisting}
+CREATE INDEX ON tweet_tags(tag, id_tweets);
+CREATE INDEX ON tweets(id_users);
+\end{lstlisting}
+
+    The existing indexes on \lstinline{tweets(id_tweets)} and \lstinline{users(id_users)} can also be used to enable merge joins and group aggregate.
+
+\end{solution}
+\newpage
+
+\question{
+Create index(es) so that the following query can use an index scan, avoid an explicit sort, and take advantage of the LIMIT clause for faster processing.
+
+Do not create any unneeded indexes; if no new indexes are needed, say so.
+
+\begin{lstlisting}
+SELECT id_tweets
+FROM tweets
+WHERE to_tsvector(text) @@ to_tsquery(:tsquery)
+ORDER BY created_at <=> '2020-01-01'
+LIMIT 10;
+\end{lstlisting}
+}
+\begin{solution}
+\begin{lstlisting}
+CREATE INDEX ON tweets USING rum 
+    ( RUM_TSVECTOR_ADDON_OPS
+    , created_at
+    )
+    WITH (ATTACH='created_at', TO='totsvector(text)');
+\end{lstlisting}
+\end{solution}
+
+
+\newpage
+\question{
+Consider the following SQL query.
+\begin{lstlisting}
+SELECT *
+FROM (
+    SELECT
+        id_tweets,
+        unnest(tsvector_to_array(to_tsvector(text))) as lexeme
+    FROM tweets
+) t
+WHERE lexeme = :lexeme;
+\end{lstlisting}
+\begin{enumerate}[a)]
+    \item
+The query above cannot be sped up using an index.
+Why?
+\begin{solution}
+    The \lstinline{unnest} function is set-returning, and indexes cannot be created on set-returning functions.
+\end{solution}
+        \vspace{2in}
+\item
+Rewrite the query from the previous question into an equivalent query that can be sped up using an index.
+Also provide the index that would speed up the query.
+\end{enumerate}
+}
+\begin{solution}
+The query is:
+\begin{lstlisting}
+SELECT
+    id_tweets,
+    lexeme
+FROM tweets
+WHERE to_tsvector(text) @@ to_tsquery(:lexeme);
+\end{lstlisting}
+There are many possible indexes to speed up this query, for example:
+\begin{lstlisting}
+CREATE INDEX ON tweets USING gin(to_tsvector(text));
+\end{lstlisting}
+\end{solution}
+
+\newpage
+\question{
+Consider the following SQL query that uses a cross join.
+\begin{lstlisting}
+SELECT id_tweets
+FROM users, tweets
+WHERE to_tsvector(text) @@ to_tsquery(username)
+  AND users.id_users = :id_users;
+\end{lstlisting}
+\begin{enumerate}[a)]
+    \item Which join methods can be used to implement this query?
+        \begin{solution}
+            Nested loop join.
+        \end{solution}
+        \vspace{3in}
+    \item If it is possible to construct an index that will speed up this query, do so.
+        Otherwise, state that it is impossible and explain why.
+        \begin{solution}
+            The index postgres created on \lstinline{users(id_users)} and a text search index like
+\begin{lstlisting}
+CREATE INDEX ON tweets USING gin(to_tsvector(text));
+\end{lstlisting}
+        \end{solution}
+\end{enumerate}
+}
+
+\end{questions}
+
+\newpage
+\section{Extra Credit}
+
+For each video listed below, you can earn up to 1 point of extra credit by:
+watching the complete video,
+and listing 5 facts from the video that you learned.
+These questions are entirely optional,
+and you will not be penalized should you choose not to complete them.
+
+\begin{enumerate}
+    \item Scaling Instagram Infrastructure
+
+   \url{https://www.youtube.com/watch?v=hnpzNAPiC0E}
+
+   \vspace{4in}
+\item The Evolution of Reddit.com's Architecture
+
+   \url{https://www.youtube.com/watch?v=nUcO7n4hek4}
+
+   \newpage
+\item PostgreSQL at 20TB and Beyond: Analytics at a Massive Scale (AdTech use of postgres)
+
+   \url{https://www.youtube.com/watch?v=BgcJnurVFag}
+   \vspace{4in}
+
+\item Large Databases, Lots of Servers, on Premises, in the Cloud - Get Them All! (AdTech use of postgres)
+
+   \url{https://www.youtube.com/watch?v=4GB7EDxGr_c}
+
+   \newpage
+\item Breaking Postgres at Scale (how to configure postgres for scaling from 1GB up to many TB)
+
+   \url{https://www.youtube.com/watch?v=eZhSUXxfEu0}
+\end{enumerate}
+
+\end{document}
