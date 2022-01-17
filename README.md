@@ -25,6 +25,7 @@ Career information:
 | Email | mizbicki@cmc.edu |
 | Office | Adams 216 |
 | Office Hours | TBD |
+| Zoom Link |  https://cmc-its.zoom.us/j/644800111 |
 | Webpage | [izbicki.me](https://izbicki.me) |
 | Research | Machine Learning (see [izbicki.me/research.html](https://izbicki.me/research.html) for some past projects) |
 
