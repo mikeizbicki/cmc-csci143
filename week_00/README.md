@@ -23,6 +23,8 @@ This includes:
 > **WARNING:**
 > We will go over this material VERY fast, so if you don't already feel comfortable with this material, see the references/pre-lecture reading below.
 
+All of our work in this class will be done on the "lambda server."
+(You should have received an email with login credentials.)
 The lambda server has:
 1. 80 processors
 1. 8 GPU
