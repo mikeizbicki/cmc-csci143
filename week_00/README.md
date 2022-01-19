@@ -20,6 +20,9 @@ This includes:
 1. git
 1. github
 
+> **WARNING:**
+> We will go over this material VERY fast, so if you don't already feel comfortable with this material, see the references/pre-lecture reading below.
+
 The lambda server has:
 1. 80 processors
 1. 8 GPU
