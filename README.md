@@ -347,8 +347,7 @@ We'll be ahead of schedule before the baby comes,
 and behind schedule after the baby comes,
 but we should be able to cover everything by the end of the semester.
 
-> *WARNING:*
->
+> **WARNING:**
 > We will be running this course about 25% faster than a normal course during the non-paternity leave weeks.
 > Therefore, you should anticipate putting in about 25% more work during most weeks.
 
@@ -386,13 +385,11 @@ subject to the following constraints:
 
 You may use any online resources you like as references.
 
-> *IMPORTANT:*
->
+> **IMPORTANT:**
 > If you collaborate in person with any human (besides Mike) outside of classtime,
 > then you will get a 2 day extension on all take home assignments.
 
-> *WARNING:*
->
+> **WARNING:**
 > All material in this class is cumulative.
 > If you work "too closely" with another student on an assignment,
 > you won't understand how to complete subsequent assignments,
