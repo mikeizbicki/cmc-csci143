@@ -142,6 +142,7 @@ I'm happy to have CS majors in this course (and I think you'll find this course 
 1. Takeaway:
     1. I am expecting that you have basic familiarity with the Linux terminal, git, and SQL joins
     1. If you haven't seen those concepts before, expect to spend extra time those weeks catching up
+    1. There are extra assignments that certain people will have to complete
 
 **Relation to other CS courses:**
 
@@ -382,6 +383,11 @@ subject to the following constraints:
 1. you must not copy another student's code.
 
 You may use any online resources you like as references.
+
+> *IMPORTANT:*
+>
+> If you collaborate in person with any human (besides Mike) outside of classtime,
+> then you will get a 2 day extension on all take home assignments.
 
 > *WARNING:*
 >

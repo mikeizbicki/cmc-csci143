@@ -1,15 +1,16 @@
-# Required Task: typespeed
+# Caveat Task: typespeed
 
 **Background:**
-Programmers spend a lot of time typing.
-Therefore, [becoming a good typist will make you a better programmer](https://dev.to/davidsanwald/touch-typing-the-most-important-skill-for-developers-nobody-talks-about-3352).
-In particular, it will help you get your ideas into the computer faster,
-so you can spend more time coming up with good ideas.
-The `typespeed` game is a standard linux program for improving your typing skills.
+[Touch typing](https://en.wikipedia.org/wiki/Touch_typing) is the ability to type on a computer without looking at the keys.
+[It is an important, but under-practiced skill for programmers](https://dev.to/davidsanwald/touch-typing-the-most-important-skill-for-developers-nobody-talks-about-3352).
 
-**Task:**
-You must get a score of at least 400 on the `typespeed` game in order to complete this task.
-See the <#grading> section below for details on how I will determine whether you pass this task.
+This task gives you practice touch typing using the `typespeed` game,
+which is specifically designed for improving your ability to touch type programming idioms.
+Programming idioms are often much harder to type than standard English words because they involve weird character combinations (e.g. `fsck` and `tcpdchk`).
+The `typespeed` game will train your eyes to read these idioms faster and your fingers to type them correctly.
+
+**Summary:**
+You must get a score of at least 400 on the `typespeed` game.
 
 **Extra Credit:**
 You can earn extra credit by getting a score of at least 9999.
@@ -110,3 +111,4 @@ Modify the command below to output your best score instead of mine.
 $ cat /var/games/typespeed.score | grep 'Mike Izbicki' | cut -f1 | sort -nr | head -n1
 ```
 Upload the resulting command and its output to sakai.
+If the output is at least `400`, then you will pass this task.
