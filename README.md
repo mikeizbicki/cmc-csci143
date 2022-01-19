@@ -13,9 +13,11 @@ Career information:
 
 1. [employers illegally collude to reduce salaries](https://en.wikipedia.org/wiki/High-Tech_Employee_Antitrust_Litigation)
 
+1. [the "great resignation"](https://news.ycombinator.com/item?id=27687617)
+
 1. [parental leaves](https://www.vox.com/2018/1/31/16944976/new-parents-tech-companies-google-hp-facebook-twitter-netflix)
 
-1. [the "great resignation"](https://news.ycombinator.com/item?id=27687617)
+1. If you want help with salary negotiation strategies in your job search, let me know!
 
 ## About the Instructor
 
@@ -138,7 +140,7 @@ I'm happy to have CS majors in this course (and I think you'll find this course 
         1. Web scraping with the `requests` and `bs4` libraries
 
 1. Takeaway:
-    1. I am expecting that you have basic familiarity with the Linux terminal and SQL joins
+    1. I am expecting that you have basic familiarity with the Linux terminal, git, and SQL joins
     1. If you haven't seen those concepts before, expect to spend extra time those weeks catching up
 
 **Relation to other CS courses:**
@@ -236,7 +238,7 @@ and subsequent pull requests will earn slightly less.
 **Grade Schedule:**
 
 Your final grade will be computed according to the following standard table,
-with the caveat described below.
+with the caveats described below.
 
 | If your grade satisfies          | then you earn |
 | -------------------------------- | ------------- |
@@ -253,18 +255,17 @@ with the caveat described below.
 | 60 &le; grade < 63               | D-            |
 | 60 > grade                       | F             |
 
-**Caveat:**
+**Caveats:**
 
-There are 3 "caveat tasks" in this course.
+There are 2 "caveat tasks" in this course.
 These tasks should be easy, and everyone will get full credit on the task just for completing the task.
 If you don't complete one of the tasks, however, your grade (from the table above) will be docked 10%.
 (For example, an A- grade would become a B- grade.) 
 You have the entire semester (until I submit grades) to complete these tasks.
 
 You can find the details about the caveat tasks at:
-1. <caveat_tasks/typespeed.md>
-1. <caveat_tasks/culture.md>
-1. <caveat_tasks/>
+1. </caveat_tasks/typespeed.md>
+1. </caveat_tasks/culture.md>
 
 ## Schedule
 
@@ -427,4 +428,29 @@ NOTES:
 Next midterm should include a COUNT (DISTINCT customer_id) trick question.
 
 JOIN keys to join on; (customer_id can link customer to both payment and rentals)
+
+INDEX PROBLEM:
+
+Find all the coupons that are expired (90 day expiration):
+
+    SELECT * FROM coupon
+    WHERE created_at + INTERVAL '90 DAY' < now()
+
+This will not use the index on the "created_at" column and will be slow.
+
+You should rewrite the inequality to:
+
+    SELECT * FROM coupon
+    WHERE created_at < now() - INTERVAL '90 DAY'
+
+and now the query will be much faster. There are a lot of cases in postgres where simple equivalent algebraic manipulations can completely change the query plan
+
+ They are not equivalent since `created_at + INTERVAL '90 DAY'` can overflow for every single row whereas `now() - INTERVAL '90 DAY'` is a constant for the purpose of the query execution.
+
+ reply
+    
+        
+        CWuestefeld 2 hours ago | root | parent | next [–]
+
+        Yes - this is a common restriction in any DB I've used, certainly in MS SQL Server. The idea is that your queries need to be "SARGable": https://en.wikipedia.org/wiki/Sargable
 -->
