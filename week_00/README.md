@@ -95,9 +95,10 @@ Weekly homeworks have the same due dates and extension policies.
         1. the [github tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/github.md)
         1. the [unix processes tutorial](processes.md)
 
-        None of these tutorials require you to turn anything in.
-        They are simply for you to practice the commands.
-        If you're confident that you already know the concepts, then feel free to skim/skip.
+        > **NOTE:**
+        >
+        > Subsequent lectures will assume you are 100% comfortable with all of the material in these tutorials,
+        > so it would behoove you to spend a few hours working on these tutorials even though there is nothing that you must explicitly turn in.
 
     1. Log in to the lambda server, and run the command
        ```
@@ -125,34 +126,35 @@ Weekly homeworks have the same due dates and extension policies.
 
     1. Write a 1-line command that counts the number of zip files contained in the directory `/data/Twitter dataset`.
 
-       HINT:
-       Not every file in the directory is a zip file.
-       Use the `ls` command to list all the files,
-       `grep` to select only the zip files,
-       and `wc` to count them.
+       > **HINT:**
+       > Not every file in the directory is a zip file.
+       > Use the `ls` command to list all the files,
+       > `grep` to select only the zip files,
+       > and `wc` to count them.
 
     1. Count the number of geolocated tweets sent on 2020-12-25 that contain the word "coronavirus".
-       The file `/data-fast/twitter2020/geoTwitter20-12-25.zip` contains all geolocated tweets sent on that day.
+       The file `/data/Twitter dataset/geoTwitter20-12-25.zip` contains all geolocated tweets sent on that day.
 
        My command took 51 seconds to run, and I got 3143 tweets.
        
-       HINT:
-       Use the `unzip` command to extract the contents of the zip archive;
-       you will have to read the man page in order to figure out the correct option to get the output printed on stdout.
-       Use the `tr 'A-Z' 'a-z'` command to translate all characters into lowercase.
-       Use `grep` to extract only the lines containing `coronavirus`.
-       Use `wc` to count the number of lines.
-
-       NOTE:
-       The only difference between the file `/data-fast/twitter2020/geoTwitter20-12-25.zip` and `/data/Twitter dataset/geoTwitter20-12-25.zip` is that the former is stored on an NVME drive, whereas the later is stored on an HDD.
+       > **HINT:**
+       > 
+       > Use the `unzip` command to extract the contents of the zip archive;
+       > you will have to read the man page in order to figure out the correct option to get the output printed on stdout.
+       > Use the `tr 'A-Z' 'a-z'` command to translate all characters into lowercase.
+       > Use `grep` to extract only the lines containing `coronavirus`.
+       > Use `wc` to count the number of lines.
 
 ## Homework
 
 Homeworks will generally be posted into the `homework` [git submodule](https://www.atlassian.com/git/tutorials/git-submodule) for each week.
+Like labs, homeworks are always due on midnight of the Sunday of the week that they are assigned (i.e. Jan 23 for this homework, or Jan 25 with the 2 day collaboration extension).
 
 This week's homework assignment is a review assignment from CS46.
 Therefore:
-1. Only those students who did not take CS46 with me should complete this assignment.
-1. You will have 2 weeks to complete this assignment instead of the normal 1 week.
-   (The due date is Jan 30 instead of Jan 23, with the possibility of a 2 day extension if you collaborate with someone else.)
 
+1. Only those students who did not take CS46 with me should complete this assignment.
+   If you took CS46 with me, you are welcome to complete the assignment as review, but it will not count towards your grade.
+
+1. **There will be no late penalty for this assignment if you miss the due date.**
+   This is an important assignment, and I want to ensure that everyone has sufficient time to master it.
