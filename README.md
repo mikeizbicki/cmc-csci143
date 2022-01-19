@@ -264,8 +264,8 @@ If you don't complete one of the tasks, however, your grade (from the table abov
 You have the entire semester (until I submit grades) to complete these tasks.
 
 You can find the details about the caveat tasks at:
-1. </caveat_tasks/typespeed.md>
-1. </caveat_tasks/culture.md>
+1. <https://github.com/mikeizbicki/cmc-csci143/blob/2022spring/caveat_tasks/typespeed.md>
+1. <https://github.com/mikeizbicki/cmc-csci143/blob/2022spring/caveat_tasks/culture.md>
 
 ## Schedule
 
