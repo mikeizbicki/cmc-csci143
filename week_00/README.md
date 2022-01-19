@@ -39,6 +39,14 @@ Read/watch the following articles/videos:
 1. (optional) [Where GREP Came From - Computerphile](https://www.youtube.com/watch?v=NTfOnGZUZDk)
 1. (optional) [vim vs emacs: the oldest rivalry in computing](https://slate.com/technology/2014/05/oldest-software-rivalry-emacs-and-vi-two-text-editors-used-by-programmers.html)
 
+1. If you don't feel comfortable using git/the command line yet, then try to work through one of the following tutorials.
+   You don't have to do both, I've just provided two since some people prefer video and some prefer text.
+
+    1. (video) Corey Schafer's [Git Tutorial for Beginners: Command-Line Fundamentals](https://www.youtube.com/watch?v=HVsySz-h9r4).
+       Corey is a really famous youtuber for programming tutorials, and you can watch his other videos too if you need more background.
+       
+    1. (text) [An Intro to Git and GitHub for Beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
+
 Print each of these cheatsheets, and have them handy for lecture:
 
 1. [bash](https://files.fosswire.com/2007/08/fwunixref.pdf)
