@@ -21,6 +21,8 @@ Career information:
 
 1. CS employees also get great benefits: [parental leaves](https://www.vox.com/2018/1/31/16944976/new-parents-tech-companies-google-hp-facebook-twitter-netflix)
 
+1. Good forum for CS career advice: <https://www.reddit.com/r/cscareerquestions/top/>
+
 1. If you want help with salary negotiation strategies in your job search, let me know!
 
 ## About the Instructor
@@ -30,8 +32,8 @@ Career information:
 | Name | Mike Izbicki (call me Mike) |
 | Email | mizbicki@cmc.edu |
 | Office | Adams 216 |
-| Office Hours | TBD |
-| Zoom Link |  https://cmc-its.zoom.us/j/644800111 |
+| Office Hours | See [#86](https://github.com/mikeizbicki/cmc-csci143/issues/86) |
+| Zoom Link | <https://cmc-its.zoom.us/j/644800111> |
 | Webpage | [izbicki.me](https://izbicki.me) |
 | Research | Machine Learning (see [izbicki.me/research.html](https://izbicki.me/research.html) for some past projects) |
 
@@ -144,9 +146,9 @@ I'm happy to have CS majors in this course (and I think you'll find this course 
         1. Web scraping with the `requests` and `bs4` libraries
 
 1. Takeaway:
-    1. I am expecting that you have basic familiarity with the Linux terminal, git, and SQL joins
-    1. If you haven't seen those concepts before, expect to spend extra time those weeks catching up
-    1. There are extra assignments that certain people will have to complete
+    1. I am expecting that you have basic familiarity with the Linux terminal, git, and SQL joins.
+    1. If you haven't seen those concepts before, expect to spend extra time those weeks catching up.
+    1. There are also extra assignments that certain people will have to complete depending on your background.
 
 **Relation to other CS courses:**
 
@@ -214,31 +216,26 @@ but I will provide more specific links each week.
 
 **Assignments:**
 
-1. Occasional labs (worth <5 points each)
+1. Occasional labs (worth 1-5 points each)
 1. Occasional quizzes (worth 10-30 points each)
 1. Weekly homeworks (worth 10-30 points each)
-    1. Twitter MapReduce project (worth 20 points -- only students who did not take CS46 with me)
+    1. First 2 homeworks only for students who did not take CS46 with me
 1. One open notes midterm (80 points)
 1. One open notes final (120 points)
 1. Non-seniors will have a final project (50 points)
+1. Extra credit, as posted in [#85](https://github.com/mikeizbicki/cmc-csci143/issues/85)
 1. In total, there will be between 400-500 points in the class.
 
-> *NOTE:*
->
+> **NOTE:**
 > All of my assignments are explicitly designed to help you get a good job after graduation.
 > They will help build your github "portfolio" and give you cool things to talk about during interviews.
+> These assignments are all very practical, and not "leetcode".
+> For mastering leetcode-style questions, you'll want to take CSCI148: Graph Algorithms with Prof Cannon.
 
 **Late Work Policy:**
 
 You lose 20% on all assignments for each day late.
 If you have extenuating circumstances, contact me in advance of the due date and I may extend the due date for you.
-
-**Extra Credit:**
-
-All of our coursework will be posted to github.
-If you see a mistake anywhere, submit a pull request with the correction.
-You will get 1 point of extra credit for the first accepted pull request,
-and subsequent pull requests will earn slightly less.
 
 **Grade Schedule:**
 
