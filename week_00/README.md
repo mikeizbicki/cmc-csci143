@@ -84,9 +84,15 @@ Weekly homeworks have the same due dates and extension policies.
        > I recommend working through the tutorials at <https://thevaluable.dev/vim-commands-beginner/>,
        > but you can use whatever resource you'd like.
 
-       (Optional)
-       Play the https://vim-adventures.com game to learn vim while playing a game.
-       The first 3 levels are free, but you have to pay to continue playing the game.
+       > **NOTE:**
+       >
+       > There are a number of games designed to help you get better at using vim.
+       > The most polished is <https://vim-adventures.com>, which is a vim RPG. 
+       > The first 3 levels are free, but you have to pay to continue playing the game.
+       > One of my former students also created the [PacVim](https://github.com/jmoon018/PacVim) game,
+       > which is an open source pacman clone using vim controls.
+       > You're not required to play any of these games,
+       > but many people find them more fun than working through standard tutorials.
 
     1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/lambda-server.md) to update your lambda server account's settings with a nicer looking prompt.
 
