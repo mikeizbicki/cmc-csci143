@@ -69,20 +69,28 @@ Weekly homeworks have the same due dates and extension policies.
 
 1. Complete the following "review tasks" from CS46.
 
-    1. Log in to the lambda server.
-       Run the command
+    There is nothing to turn in for these review tasks,
+    but subsequent lectures will assume you are 100% comfortable with all of the material.
+    So it would behoove you to spend a few hours working through the material to ensure that you fully understand it all.
+
+    1. In this first task, you will practice using the vim terminal-based text editor.
+
+       > **RECALL:**
+       > In this class, you must use vim for all assignments.
+       > Emacs (in evil mode) is okay if you're one of *those* people,
+       > but you cannot use an IDE environment like VSCode, PyCharm, or IDLE.
+
+       If you've never used vim before, then log in to the lambda server and run the command
        ```
        $ vimtutor
        ```
-       Complete all instructions in order to learn vim.
+       Complete all the on-screen instructions in order to learn vim.
        This should take 30-60 minutes.
 
-       > **NOTE:**
-       > If you've previously completed the `vimtutor` command,
-       > then you do not have to redo the tutorial.
-       > Instead, you should spend at least 30 minutes reviewing other vim tips that you will find helpful.
-       > I recommend working through the tutorials at <https://thevaluable.dev/vim-commands-beginner/>,
-       > but you can use whatever resource you'd like.
+       If you're already comfortable using vim,
+       then you should instead spend at least 30 minutes reviewing and practicing new vim techniques.
+       I recommend working through the tutorials at <https://thevaluable.dev/vim-commands-beginner/>,
+       but you can use whatever resource you'd like.
 
        > **NOTE:**
        > There are a number of games designed to help you get better at using vim.
@@ -93,22 +101,24 @@ Weekly homeworks have the same due dates and extension policies.
        > You're not required to play any of these games,
        > but many people find them more fun than working through standard tutorials.
 
-    1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/lambda-server.md) to update your lambda server account's settings with a nicer looking prompt.
+    1. In this second task, you will update your lambda server account settings to match mine and be a bit more user friendly.
+       Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/lambda-server.md) to make the changes.
 
-    1. Work through the following tutorials:
+    1. Next, you should work through the following tutorials that review important unix shell concepts:
+
         1. the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/git.md)
         1. the [github tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/github.md)
         1. the [unix processes tutorial](processes.md)
 
-        There is nothing to turn in for these tutorials,
-        but subsequent lectures will assume you are 100% comfortable with all of the material.
-        So it would behoove you to spend a few hours working through the material to ensure that you fully understand it all.
-
-    1. Log in to the lambda server, and run the command
+    1. Finally, you will begin the `typespeed` "caveat task.
+       
+       Log in to the lambda server, and run the command
        ```
        $ typespeed
        ```
-       to test your unix typing skills.
+       Follow the command prompts to test your typing speed on the "Unix commands" task.
+       (Press `1` then `Enter` in the menu to enter the task.)
+
        Programmers spend lots of time at the keyboard,
        and so it pays to actually be able to type well.
        Anyone who beats my high score will have my undying admiration :)
