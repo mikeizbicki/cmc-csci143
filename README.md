@@ -7,6 +7,7 @@
 Career information:
 
 1. It's a *great* time to be a mid/senior-level programmer, *good*/*okay* time to be entry level.
+   Data science jobs are generally following the trend of programming jobs (maybe a bit less pay on average).
    I expect conditions to only improve over the next 5 years.
 
 1. <https://www.levels.fyi/>
