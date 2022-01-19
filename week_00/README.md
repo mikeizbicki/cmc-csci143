@@ -53,12 +53,15 @@ Print each of these cheatsheets, and have them handy for lecture:
 ## Lab
 
 **Due Date:**
-
-Labs are always due on midnight of the Sunday of the week that they are assigned (i.e. January 23 for this lab).
+Labs (and homeworks) are always due on midnight of the Sunday of the week that they are assigned (i.e. January 23 for this lab).
 If you collaborate with either a student or TA,
 then you get a 48 hour extension until the following Tuesday at midnight (i.e. January 25 for this lab).
 
-Weekly homeworks have the same due dates and extension policies.
+**For this lab only:**
+There will be no late penalty if you miss the due date,
+but please be reasonable.
+This is all important background material,
+and I want to ensure that everyone has sufficient time to complete it based on their background experience.
 
 **Instructions:**
 
@@ -75,8 +78,8 @@ Weekly homeworks have the same due dates and extension policies.
 
     1. In this first task, you will practice using the vim terminal-based text editor.
 
-       > **RECALL:**
-       > In this class, you must use vim for all assignments.
+       > **IMPORTANT:**
+       > Recall that in this class, you must use vim for all assignments.
        > Emacs (in evil mode) is okay if you're one of *those* people,
        > but you cannot use an IDE environment like VSCode, PyCharm, or IDLE.
 
