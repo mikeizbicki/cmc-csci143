@@ -78,7 +78,6 @@ Weekly homeworks have the same due dates and extension policies.
        This should take 30-60 minutes.
 
        > **NOTE:**
-       > 
        > If you've previously completed the `vimtutor` command,
        > then you do not have to redo the tutorial.
        > Instead, you should spend at least 30 minutes reviewing other vim tips that you will find helpful.
@@ -86,7 +85,6 @@ Weekly homeworks have the same due dates and extension policies.
        > but you can use whatever resource you'd like.
 
        > **NOTE:**
-       >
        > There are a number of games designed to help you get better at using vim.
        > The most polished is <https://vim-adventures.com>, which is a vim RPG. 
        > The first 3 levels are free, but you have to pay to continue playing the game.
@@ -127,7 +125,6 @@ Weekly homeworks have the same due dates and extension policies.
        The command should print only a single number and nothing else.
 
        > **HINT:**
-       >
        > Use the `finger`, `grep`, and `wc` commands piped together.
        > Use the command `man wc` to figure out how to limit `wc`'s output to only the number of lines.
 
@@ -145,7 +142,6 @@ Weekly homeworks have the same due dates and extension policies.
        My command took 51 seconds to run, and I got 3143 tweets.
        
        > **HINT:**
-       > 
        > Use the `unzip` command to extract the contents of the zip archive;
        > you will have to read the man page in order to figure out the correct option to get the output printed on stdout.
        > Use the `tr 'A-Z' 'a-z'` command to translate all characters into lowercase.
