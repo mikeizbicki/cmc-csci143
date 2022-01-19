@@ -64,6 +64,7 @@ Weekly homeworks have the same due dates and extension policies.
 
 1. Create a GitHub account if you do not already have one.
    Log in, and press the "watch" button at the top of this page.
+   This will ensure you get email notifications whenever I post new issues to github.
    Read and follow the instructions in [the meet and greet issue](https://github.com/mikeizbicki/cmc-csci143/issues/83).
 
 1. Complete the following "review tasks" from CS46.
