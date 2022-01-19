@@ -102,10 +102,9 @@ Weekly homeworks have the same due dates and extension policies.
         1. the [github tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/github.md)
         1. the [unix processes tutorial](processes.md)
 
-        > **NOTE:**
-        >
-        > Subsequent lectures will assume you are 100% comfortable with all of the material in these tutorials,
-        > so it would behoove you to spend a few hours working on these tutorials even though there is nothing that you must explicitly turn in.
+        There is nothing to turn in for these tutorials,
+        but subsequent lectures will assume you are 100% comfortable with all of the material.
+        So it would behoove you to spend a few hours working through the material to ensure that you fully understand it all.
 
     1. Log in to the lambda server, and run the command
        ```
