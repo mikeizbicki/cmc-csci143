@@ -119,16 +119,17 @@ Weekly homeworks have the same due dates and extension policies.
        You should [work through the task instructions](https://github.com/mikeizbicki/cmc-csci143/blob/2022spring/caveat_tasks/typespeed.md),
        which will also help you review basic terminal commands.
 
-1. Complete each of the following exercises.
-   Enter your completed answers into sakai.
-   (Enter the commands, not the output of the commands.)
+1. Each of the following problems asks you to write a bash command to complete some task.
+   You should submit the commands (not the output of the commands, but the actual commands) to sakai.
+   **This is the only lab task that requires that you turn anything in.**
 
     1. Write a 1-line command that counts the number of times the user `mizbicki` is logged in.
        The command should print only a single number and nothing else.
 
-       HINT:
-       Use the `finger`, `grep`, and `wc` commands piped together.
-       Use the command `man wc` to figure out how to limit `wc`'s output to only the number of lines.
+       > **HINT:**
+       >
+       > Use the `finger`, `grep`, and `wc` commands piped together.
+       > Use the command `man wc` to figure out how to limit `wc`'s output to only the number of lines.
 
     1. Write a 1-line command that counts the number of zip files contained in the directory `/data/Twitter dataset`.
 
