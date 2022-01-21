@@ -1,5 +1,7 @@
 # Week 00: The Unix Shell
 
+I've made a change :)
+
 <center>
 <a href="https://www.reddit.com/r/linuxmasterrace/comments/3las1l/dilbert_had_it_right_back_in_1995/">
 <img width='80%' src=dilbert.gif />
