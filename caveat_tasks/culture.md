@@ -70,7 +70,6 @@ Each point takes approximately 2 hours to each, so you must spend about 10 hours
 
 Reply to [this github issue](https://github.com/mikeizbicki/cmc-csci143/issues/84) with a list of the tasks that you completed.
 For each task, you'll need to write a 1-2 sentence summary of what you learned/liked/disliked about the task.
-You should make only 1 reply with all of the information inside of it.
 
 > **NOTE:**
 >
