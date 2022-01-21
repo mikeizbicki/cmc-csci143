@@ -154,7 +154,7 @@ and I want to ensure that everyone has sufficient time to complete it based on t
        > Use the `finger`, `grep`, and `wc` commands piped together.
        > Use the command `man wc` to figure out how to limit `wc`'s output to only the number of lines.
 
-    1. Write a 1-line command that counts the number of zip files contained in the directory `/data/Twitter dataset`.
+    1. Write a 1-line command that counts the number of zip files contained in the directory `/data/'Twitter dataset'`.
 
        > **HINT:**
        > Not every file in the directory is a zip file.
@@ -163,7 +163,7 @@ and I want to ensure that everyone has sufficient time to complete it based on t
        > and `wc` to count them.
 
     1. Count the number of geolocated tweets sent on 2020-12-25 that contain the word "coronavirus".
-       The file `/data/Twitter dataset/geoTwitter20-12-25.zip` contains all geolocated tweets sent on that day.
+       The file `/data/'Twitter dataset'/geoTwitter20-12-25.zip` contains all geolocated tweets sent on that day.
 
        My command took 51 seconds to run, and I got 3143 tweets.
        
