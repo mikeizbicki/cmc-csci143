@@ -4,7 +4,7 @@
 <img width='100%' src=bigdata-knows-everything.jpg />
 </center>
 
-[Career information](career_information.md)
+[Career information](career.md)
 
 ## About the Instructor
 
