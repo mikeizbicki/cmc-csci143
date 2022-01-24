@@ -54,6 +54,9 @@
 
            Bash is the GNU project's shell
 
+           It is by far the most popular (interactive) shell,
+           and therefore people often (incorrectly) say they are writing a "bash" script when they are writing a generic "POSIX" script
+
            <img src=gnu+linux.jpg width=600px />
 
            See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
@@ -62,6 +65,7 @@
     1. POSIX
         1. All the shells above have slightly different behaviors
         1. POSIX defines the a universal standard of minimal features that all shells must have
+        1. It's best to try to write POSIX-compliant scripts to ensure portability (and speed, since you can use `dash` to run the script)
         1. Lots of weird behaviors that result from needing backwards compatibilty
             1. These make programming seem easy, but actually super #?*!ing hard
                <img src=bash-meme.jpg width=600px />
