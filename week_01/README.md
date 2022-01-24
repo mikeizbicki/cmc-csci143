@@ -50,7 +50,7 @@
         1. Almquist shell (`ash`) written by Kenneth Almquist in 1980; BSD-licensed
         1. The Bourne-Again shell (`bash`) written by Brian Fox in 1989; GPL-licensed
 
-           <img src=gnu-linux.webp />
+           <img src=gnu+linux.jpg />
 
            See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
         1. The Debian-Almquist shell (`dash`) written by Herbert Xu ini 1997; GPL-licensed
