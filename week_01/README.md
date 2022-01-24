@@ -28,7 +28,7 @@
 
 **Lecture:**
 
-<img src=LinuxAdmin.jpg />
+<img src=LinuxAdmin.jpg width=600px />
 
 1. Definitions:
     1. **Terminal** the graphical program that you type in
@@ -50,7 +50,7 @@
         1. Almquist shell (`ash`) written by Kenneth Almquist in 1980; BSD-licensed
         1. The Bourne-Again shell (`bash`) written by Brian Fox in 1989; GPL-licensed
 
-           <img src=gnu+linux.jpg />
+           <img src=gnu+linux.jpg width=600px />
 
            See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
         1. The Debian-Almquist shell (`dash`) written by Herbert Xu ini 1997; GPL-licensed
@@ -60,7 +60,7 @@
         1. POSIX defines the a universal standard of minimal features that all shells must have
         1. Lots of weird behaviors that result from needing backwards compatibilty
             1. These make programming seem easy, but actually super #?*!ing hard
-               <img src=bash-meme.jpg />
+               <img src=bash-meme.jpg width=600px />
             1. Your quiz will scratch the surface of these hard edge cases
             1. (optional) for detailed examples, see https://dwheeler.com/essays/fixing-unix-linux-filenames.html
     1. Non-POSIX shells 
