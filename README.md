@@ -282,7 +282,7 @@ You can find the details about the caveat tasks at:
 | 7    | F, 11 Mar   | Indexing: b-tree                                     | <!-- 10 March is last day to add/drop -->
 | 8    | M, 14 Mar   | **Spring Break**                                     |
 | 8    | W, 16 Mar   | **Spring Break**                                     |
-| 8    | F, 16 Mar   | **Spring Break**                                     |
+| 8    | F, 18 Mar   | **Spring Break**                                     |
 | 9    | M, 21 Mar   | Indexing: Multilingual Full Text Search              |
 | 9    | W, 23 Mar   | Indexing: Multilingual Full Text Search              |
 | 9    | F, 25 Mar   | **César Chávez Holiday**                             |
