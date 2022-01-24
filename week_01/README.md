@@ -52,6 +52,8 @@
         1. Almquist shell (`ash`) written by Kenneth Almquist in 1980; BSD-licensed
         1. The Bourne-Again shell (`bash`) written by Brian Fox in 1989; GPL-licensed
 
+           Bash is the GNU project's shell
+
            <img src=gnu+linux.jpg width=600px />
 
            See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
