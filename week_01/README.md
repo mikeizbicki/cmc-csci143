@@ -1,14 +1,77 @@
-# Docker
+# More Unix + Docker Intro
 
-<center>
-<a href=https://www.commitstrip.com/en/2016/06/24/how-to-host-a-coder-dinner-party/>
-<img src=Strip-Discussion-Docker-english650final-1.jpg />
-</a>
-</center>
+## More Unix
 
-## Lecture
+**Monday Announcements:**
+
+1. 10/26 students have completed last weeks lab
+    1. you're not behind if you haven't done it yet
+    1. if you don't finish it this week, you will be behind
+
+1. Great use of github issues to ask questions!
+    1. All questions should go through github issues
+        1. Faster response from me than email
+        1. Other people (TAs/students) can respond if I'm slow
+        1. Recruiters will run stats on your github profile, and this will improve your stats
+        1. Everyone has access to the answers
+    1. Email only for grade related questions
+    1. Make sure to "watch" the repo!
+        1. Otherwise, you won't get class announcements
+
+1. Quiz next Monday
+    1. You will have the first 10 minutes of class to complete the quiz
+    1. I will arrive to class >20 minutes before the start of class; if you arrive early, you may start the quiz early
+
+       (so basically, you can have up to 30 minutes on the quiz if you'd like; time shouldn't be an issue for anyone)
+
+    1. the `quiz` folder contains a sample
+
+**Lecture:**
+
+<img src=LinuxAdmin.jpg />
+
+1. Definitions:
+    1. **Terminal** the graphical program that you type in
+        1. technically, this is a **terminal emulator**
+        1. handles things like copy/paste, colorscheme, etc.
+        1. runs on your computer, not the lambda server
+    1. **Shell** the non-graphical program that actually runs the commands
+        1. it is a "thin wrapper" over the operating system
+        1. runs on the lambda server, not your computer
+
+1. [Types of unix shells](https://www.multicians.org/shell.html)
+    1. Ken Thompson wrote the first Unix shell called `sh` in 1971
+    1. `sh` was inspired by the RUNCOM shell (`rc`), which was written in 1963
+        1. `.*rc` config files were originally designed for the RUNCOM shell
+        1. `.vimrc` and `.bashrc` are examples
+    1. Many shells replaced the Thompson shell in the original Unix
+        1. the most famous is Stephen Bourne wrote the Bourne shell in 1979
+    1. Open Source shells:
+        1. Almquist shell (`ash`) written by Kenneth Almquist in 1980; BSD-licensed
+        1. The Bourne-Again shell (`bash`) written by Brian Fox in 1989; GPL-licensed
+
+           <img src=gnu-linux.webp />
+
+           See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
+        1. The Debian-Almquist shell (`dash`) written by Herbert Xu ini 1997; GPL-licensed
+        1. Z shell (`zsh`) is the default on Mac; BSD-licensed
+    1. POSIX
+        1. All the shells above have slightly different behaviors
+        1. POSIX defines the a universal standard of minimal features that all shells must have
+        1. Lots of weird behaviors that result from needing backwards compatibilty
+            1. These make programming seem easy, but actually super #?*!ing hard
+               <img src=bash-meme.jpg />
+            1. Your quiz will scratch the surface of these hard edge cases
+            1. (optional) for detailed examples, see https://dwheeler.com/essays/fixing-unix-linux-filenames.html
+    1. Non-POSIX shells 
+        1. Fix POSIX problems, but not backwards compatible, so not popular
+        1. The [friendly interactive shell](https://github.com/fish-shell/fish-shell) (`fish`)
+
 
 1. Parallel programming
+    1. "Trivial" to do in POSIX-compliant shells
+
+        (mod the weird #?*!ing edge cases)
     1. All of the hardest parts of an OS course compressed down into 5 minutes
 
        > **NOTE:**
@@ -36,6 +99,46 @@
             1. complicated example: [I can't send email more than 500 miles](http://www.ibiblio.org/harris/500milemail.html)
         1. python is not great for manipulating processes (it's very easy to create very bad bugs); bash is much better; so I always do the parallel programming parts in bash
         1. MapReduce paradigm simplifies parallel data analysis
+
+## Docker
+
+<center>
+<a href=https://www.commitstrip.com/en/2016/06/24/how-to-host-a-coder-dinner-party/>
+<img src=Strip-Discussion-Docker-english650final-1.jpg />
+</a>
+</center>
+
+**Pre-lecture work:** (Complete before class on Wednesday)
+
+1. Watch the following videos:
+
+    1. [What is GNU+Linux](https://www.youtube.com/watch?v=kb2T8hWRu8g) by RMS
+
+    1. [Virtual Machines vs Docker Containers](https://www.youtube.com/watch?v=TvnZTi_gaNc)
+
+    1. (optional) [Docker vs Kubernetes vs Docker Swarm](https://www.youtube.com/watch?v=9_s3h_GVzZc)
+
+    <!--
+    1. (optional) [MapReduce - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
+
+    1. (optional) [Apache Spark - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
+    -->
+
+1. Install rootless docker
+
+    1. The instructions are here: https://docs.docker.com/engine/security/rootless/#install
+
+    1. Ensure that you:
+        1. move the contents of the `bin` folder into `.local/bin`
+        1. add the `DOCKER_HOST` environment variable to your `.bashrc` file
+    
+    1. Whenever the lambda server restarts, you must run the command
+       ```
+       $ systemctl --user start docker
+       ```
+       to restart the docker daemon.
+
+**Lecture:**
 
 1. Basic networking
     1. Internet Protocol (IP) addresses
@@ -83,22 +186,6 @@
     1. `PATH` environment variable
 -->
 
-**Pre-lecture work:**
-
-Watch the following videos:
-
-1. [Virtual Machines vs Docker Containers](https://www.youtube.com/watch?v=TvnZTi_gaNc)
-
-1. (optional) [Docker vs Kubernetes vs Docker Swarm](https://www.youtube.com/watch?v=9_s3h_GVzZc)
-
-1. (optional) [MapReduce - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
-
-1. (optional) [Apache Spark - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
-
-<!--
-1. (optional) https://dwheeler.com/essays/fixing-unix-linux-filenames.html
--->
-
 ## Lab
 
 TBA
@@ -125,19 +212,6 @@ This is a "hello world" assignment for flask/docker that just ensures you have a
       in your web browser (I use firefox with the uBlock origin extension for all my internet browsing).
       You should now have access to the search engine.
 
-1. Install rootless docker
-
-    1. The instructions are here: https://docs.docker.com/engine/security/rootless/#install
-
-    1. Ensure that you:
-        1. move the contents of the `bin` folder into `.local/bin`
-        1. add the `DOCKER_HOST` environment variable to your `.bashrc` file
-    
-    1. Whenever the lambda server restarts, you must run the command
-       ```
-       $ systemctl --user start docker
-       ```
-       to restart the docker daemon.
 
 1. Follow these instructions to create a simple flask app running in a docker container: https://runnable.com/docker/python/dockerize-your-flask-application
 
