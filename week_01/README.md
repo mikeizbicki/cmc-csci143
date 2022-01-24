@@ -1,6 +1,6 @@
 # More Unix + Docker Intro
 
-<img src=automate.jpg width=400px />
+<img src=automate.jpeg width=400px />
 
 ## More Unix
 
