@@ -149,6 +149,7 @@ and I want to ensure that everyone has sufficient time to complete it based on t
 
 1. Each of the following problems asks you to write a bash command to complete some task.
    You should submit the commands (not the output of the commands, but the actual commands) to sakai.
+   The commands must work no matter what the current working directory is (i.e., do not rely on the user having run a `cd` command previously).
    **This is the only lab task that requires that you turn anything in.**
 
     1. Write a 1-line command that counts the number of times the user `mizbicki` is logged in.
@@ -165,6 +166,20 @@ and I want to ensure that everyone has sufficient time to complete it based on t
        > Use the `ls` command to list all the files,
        > `grep` to select only the zip files,
        > and `wc` to count them.
+
+       > **NOTE:**
+       > The directory with the data is named `/data/Twitter dataset`,
+       > but you cannot directly type this as an argument to an executable program due to the space.
+       > Instead, you must "escape" the space using a backslash or quotation marks to pass it as an argument.
+       > For example, 
+       > ```
+       > $ ls /data/Twitter dataset
+       > ```
+       > will not work, but
+       > ```
+       > $ ls '/data/Twitter dataset'
+       > ```
+       > will work.
 
     1. Count the number of geolocated tweets sent on 2020-12-25 that contain the word "coronavirus".
        The file `/data/Twitter dataset/geoTwitter20-12-25.zip` contains all geolocated tweets sent on that day.
