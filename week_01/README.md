@@ -1,5 +1,7 @@
 # More Unix + Docker Intro
 
+<img src=automate.jpg width=400px />
+
 ## More Unix
 
 **Monday Announcements:**
