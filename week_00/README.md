@@ -174,6 +174,7 @@ and I want to ensure that everyone has sufficient time to complete it based on t
        > **HINT:**
        > Use the `unzip` command to extract the contents of the zip archive;
        > you will have to read the man page in order to figure out the correct option to get the output printed on stdout.
+       > (Use the command `man unzip` to open the manpage, then type the forward slash key `/` to search; `/` is also used the hotkey for searching in vim, firefox, and other open source programs.)
        > Use the `tr 'A-Z' 'a-z'` command to translate all characters into lowercase.
        > Use `grep` to extract only the lines containing `coronavirus`.
        > Use `wc` to count the number of lines.
