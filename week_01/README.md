@@ -20,7 +20,7 @@
     1. Make sure to "watch" the repo!
         1. Otherwise, you won't get class announcements
 
-1. Quiz next Monday
+1. Quiz next Wednesday
     1. You will have the first 10 minutes of class to complete the quiz
     1. I will arrive to class >20 minutes before the start of class; if you arrive early, you may start the quiz early
 
