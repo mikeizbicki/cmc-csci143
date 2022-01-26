@@ -111,12 +111,6 @@
 
 ## Docker
 
-<center>
-<a href=https://www.commitstrip.com/en/2016/06/24/how-to-host-a-coder-dinner-party/>
-<img src=Strip-Discussion-Docker-english650final-1.jpg />
-</a>
-</center>
-
 **Pre-lecture work:** (Complete before class on Wednesday)
 
 1. Watch the following videos:
@@ -172,21 +166,48 @@
 
 1. Overview
 
-    1. Lots of different concepts that all work together
+    1. Docker used basically everywhere
 
-    1. You can't fully understand any concept until you understand all the concepts
+       <https://stackshare.io/docker>
 
-       In this way it's like git/github... but on steroids
+       <img src=docker-docker-everywhere.jpg width=600px />
 
-    1. It's okay if you don't 100% understand all of today's lecture;
+    1. Why?
        
-       the next few lectures will build on this material, reviewing it and filling in gaps
+       1. Different computers have different versions of libraries
+       1. So code that works on 1 computer won't necessarily work on another computer
+       1. Docker containers let you deploy your code along with all the dependencies
+       1. So if it works on any machine, it works on every machine
 
-    1. you have to use it to full understand it... so labs/hws will be super important
+       <img src=works-on-my-machine2.jpeg width=600px />
+
+       <img src=works-on-my-machine.jpeg width=600px />
+
+    1. Hard to learn
+        1. Lots of different concepts that all work together
+
+        1. You can't fully understand any concept until you understand all the concepts
+
+           In this way it's like git/github... but on steroids
+
+        1. It's okay if you don't 100% understand all of today's lecture;
+           
+           the next few lectures will build on this material, reviewing it and filling in gaps
+
+        1. you have to use it to full understand it... so labs/hws will be super important
 
 1. References:
     1. https://www.docker.com/resources/what-container
+
+       Helps you understand the following jokes:
+
+       <a href=https://www.commitstrip.com/en/2016/06/24/how-to-host-a-coder-dinner-party/>
+       <img src=Strip-Discussion-Docker-english650final-1.jpg />
+       </a>
+
     1. https://docs.docker.com/get-started/overview/
+
+       Helps you actually understand the commands below
 
 1. Basic Commands
 
