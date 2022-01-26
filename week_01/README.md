@@ -170,22 +170,29 @@
     1. port forwarding lets you redirect connections from one computer to another ([optional reference](https://www.ssh.com/ssh/tunneling/example))
 
 1. Docker containers
-    1. `docker ps`: lists currently running containers
-    1. `docker run`: creates and runs a new container
-        1. `--name`: provide a name for the container that will be displayed with the `docker ps` command
-        1. `-it`: use this flag whenever you are running an interactive command (such as `bash`); the `i` stands for interactive and the `t` stands for tty
-        1. `--rm`: delete the container after running, useful for preserving disk space
-        1. `-p X:Y`: expose port `Y` in the docker image to lambda server port `X`
-        1. `-d` run as a daemon
-    1. `docker logs`: shows the output of a container started with the `-d` flag
-        1. `-f`: follow mode
-    1. `docker stop`: stop a container started with the `-d` flag
-    1. `docker rm`: delete a stopped container that was not created with the `--rm` flag
-    1. `docker exec`: runs a command in a container without creating a new container
-        1. `-it`: same as for `run`
-    1. `docker build`: creates a new "container image"
-        1. `-t`: name the image
-    1. `Dockerfile`: the instructions for creating a new image
+    1. References:
+        1. https://www.docker.com/resources/what-container
+        1. https://docs.docker.com/get-started/overview/
+    1. Cheatsheet
+
+       There are other commands we'll be using in class, but these are the must important ones we'll be using all the time.
+
+        1. `docker ps`: lists currently running containers
+        1. `docker run`: creates and runs a new container
+            1. `--name`: provide a name for the container that will be displayed with the `docker ps` command
+            1. `-it`: use this flag whenever you are running an interactive command (such as `bash`); the `i` stands for interactive and the `t` stands for tty
+            1. `--rm`: delete the container after running, useful for preserving disk space
+            1. `-p X:Y`: expose port `Y` in the docker image to lambda server port `X`
+            1. `-d` run as a daemon
+        1. `docker logs`: shows the output of a container started with the `-d` flag
+            1. `-f`: follow mode
+        1. `docker stop`: stop a container started with the `-d` flag
+        1. `docker rm`: delete a stopped container that was not created with the `--rm` flag
+        1. `docker exec`: runs a command in a container without creating a new container
+            1. `-it`: same as for `run`
+        1. `docker build`: creates a new "container image"
+            1. `-t`: name the image
+        1. `Dockerfile`: the instructions for creating a new image
 
 <!--
 1. More unix shell
