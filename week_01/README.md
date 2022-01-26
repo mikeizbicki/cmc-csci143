@@ -148,7 +148,7 @@
        to restart the docker daemon.
 
 **Lecture:**
-
+<!--
 1. Basic networking
     1. Internet Protocol (IP) addresses
         1. (Almost) every device on the internet has a unique IPv4 address.
@@ -168,31 +168,78 @@
         1. only root can listen on ports < 1024;
            therefore, you cannot use the standard ports for your web services running on the lambda server
     1. port forwarding lets you redirect connections from one computer to another ([optional reference](https://www.ssh.com/ssh/tunneling/example))
+-->
 
-1. Docker containers
-    1. References:
-        1. https://www.docker.com/resources/what-container
-        1. https://docs.docker.com/get-started/overview/
-    1. Cheatsheet
+1. Overview
 
-       There are other commands we'll be using in class, but these are the must important ones we'll be using all the time.
+    1. Lots of different concepts that all work together
 
-        1. `docker ps`: lists currently running containers
-        1. `docker run`: creates and runs a new container
-            1. `--name`: provide a name for the container that will be displayed with the `docker ps` command
-            1. `-it`: use this flag whenever you are running an interactive command (such as `bash`); the `i` stands for interactive and the `t` stands for tty
-            1. `--rm`: delete the container after running, useful for preserving disk space
-            1. `-p X:Y`: expose port `Y` in the docker image to lambda server port `X`
-            1. `-d` run as a daemon
-        1. `docker logs`: shows the output of a container started with the `-d` flag
-            1. `-f`: follow mode
-        1. `docker stop`: stop a container started with the `-d` flag
-        1. `docker rm`: delete a stopped container that was not created with the `--rm` flag
-        1. `docker exec`: runs a command in a container without creating a new container
-            1. `-it`: same as for `run`
-        1. `docker build`: creates a new "container image"
-            1. `-t`: name the image
-        1. `Dockerfile`: the instructions for creating a new image
+    1. You can't fully understand any concept until you understand all the concepts
+
+       In this way it's like git/github... but on steroids
+
+    1. It's okay if you don't 100% understand all of today's lecture;
+       
+       the next few lectures will build on this material, reviewing it and filling in gaps
+
+    1. you have to use it to full understand it... so labs/hws will be super important
+
+1. References:
+    1. https://www.docker.com/resources/what-container
+    1. https://docs.docker.com/get-started/overview/
+
+1. Basic Commands
+
+    1. `docker pull`: download a docker image
+
+        important images include:
+        1. `ubuntu`: a basic install of the ubuntu distro
+        1. `alpine`: a basic install of the alpine distro (most popular distro for containers due to extremely small size)
+        1. `python`: an alpine container with latest python pre-installed
+
+    1. `docker run`: creates and runs a new container
+
+       automatically calls `docker pull` if needed
+
+        1. `-it`: use this flag whenever you are running an interactive command (such as `bash`); the `i` stands for interactive and the `t` stands for tty
+
+           (pronounced "eye-tee" not "it")
+        1. `--name`: provide a name for the container that will be displayed with the `docker ps` command
+        1. `--rm`: delete the container after running, useful for preserving disk space
+        1. `-d` run as a daemon
+        <!--
+        1. `-p X:Y`: expose port `Y` in the docker image to lambda server port `X`
+        -->
+    1. `docker ps`: lists currently running containers
+        1. `-a`: list all containers (even those not running)
+        1. `-q`: only print container ids
+    1. `docker stop`: stop a container started with the `-d` flag
+    1. `docker rm`: delete a stopped container that was not created with the `--rm` flag
+        1. commonly called with the pattern
+           ```
+           $ docker rm $(docker ps -qa)
+           ```
+           to delete all containers
+    1. `docker exec`: runs a command in a container without creating a new container
+        1. `-it`: same as for `run`
+
+1. Customization commands
+    1. `docker build`: creates a new "container image"
+        1. `-t`: name the image
+    1. `Dockerfile`: a file describing the instructions for creating a new image
+
+1. Debug/admin commands
+    1. `docker image`:
+        1. `rm`: remove a single image
+        1. `prune`: remove ALL images
+    1. `docker system`:
+        1. `df`: report disk usage of docker
+            
+            all docker data stored in `~/.local/share/docker`
+            1. a bit "hidden"
+            1. counts towards your diskspace quota
+    1. `docker logs`: shows `stdout` and `stderr` of all commands run without the `-it` flags; most commonly used on containers started with the `-d` flag
+        1. `-f`: follow mode
 
 <!--
 1. More unix shell
