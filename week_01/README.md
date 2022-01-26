@@ -105,6 +105,7 @@
         1. code is non-deterministic (everytime you run it, you get different results), resulting in lots of [heisenbugs](https://en.wikipedia.org/wiki/Heisenbug)
             1. simple example: [I can't login standing up](https://www.reddit.com/r/talesfromtechsupport/comments/3v52pw/i_cant_log_in_when_i_stand_up/)
             1. complicated example: [I can't send email more than 500 miles](http://www.ibiblio.org/harris/500milemail.html)
+            1. (links in the lecture notes are never required... but the "most cultured" programmers will want to read them... these two in particular)
         1. python is not great for manipulating processes (it's very easy to create very bad bugs); bash is much better; so I always do the parallel programming parts in bash
         1. MapReduce paradigm simplifies parallel data analysis
 
