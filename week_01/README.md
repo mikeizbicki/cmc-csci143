@@ -180,6 +180,8 @@
        1. So if it works on any machine, it works on every machine
 
        <img src=works-on-my-machine2.jpeg width=400px />
+       <br/>
+       <br/>
 
        <img src=works-on-my-machine.jpeg width=400px />
 
@@ -201,7 +203,7 @@
 
        Helps you understand the following jokes:
 
-       <img src=vm-docker.png width=600px />
+       <img src=docker-vm.png width=600px />
 
        <a href=https://www.commitstrip.com/en/2016/06/24/how-to-host-a-coder-dinner-party/>
        <img src=Strip-Discussion-Docker-english650final-1.jpg width=600px />
