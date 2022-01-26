@@ -100,7 +100,7 @@
                 1. `os.fork()`
                 1. [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) built-in library
     1. Programming with threads/processes is HARD
-        1. easy to create [memory leaks](https://en.wikipedia.org/wiki/Memory_leak)
+        1. easy to create [memory leaks](https://en.wikipedia.org/wiki/Memory_leak), [race conditions](https://en.wikipedia.org/wiki/Race_condition), and other hard-to-debug problems
         1. easy to accidentally create [fork bombs](https://en.wikipedia.org/wiki/Fork_bomb), which were the original form of [cracking](http://www.catb.org/jargon/html/C/cracker.html)
         1. code is non-deterministic (everytime you run it, you get different results), resulting in lots of [heisenbugs](https://en.wikipedia.org/wiki/Heisenbug)
             1. simple example: [I can't login standing up](https://www.reddit.com/r/talesfromtechsupport/comments/3v52pw/i_cant_log_in_when_i_stand_up/)
