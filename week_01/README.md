@@ -6,12 +6,15 @@
 
 **Monday Announcements:**
 
-1. 10/26 students have completed last weeks lab
+1. 10 students have completed last weeks lab
     1. you're not behind if you haven't done it yet
     1. if you don't finish it this week, you will be behind
     1. **Friday update:**
-        1. only 18 students have completed last week's lab
-        1. you are now behind if you have not, and should start feeling worried
+        1. only 18/29 students have completed last week's lab
+           
+           6 students missed points; check comments and resubmit
+        1. 11/18 students have completed the homework
+        1. you are now behind if you have not, and should be *slightly* worried
 
 1. Great use of github issues to ask questions!
     1. All questions should go through github issues
