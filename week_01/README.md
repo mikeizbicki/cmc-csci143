@@ -246,6 +246,8 @@
             1. Python's [global interpretter lock (GIL)](https://realpython.com/python-gil/) means you cannot use threads in python for parallel programming
         1. Processes are "heavyweight"
             1. about 10MB of unavoidable overhead per process in the system kernel
+                1. technically, this number is application dependent
+                1. 10MB is for postgres (and other "big" programs are same order of magnitude)
             1. additionally, each child process duplicates the memory of its parent process
             1. processes can communicate only by reading/writing to files
             1. processes are the only way to do parallel programming in python
