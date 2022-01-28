@@ -304,9 +304,12 @@ This is a "hello world" assignment for flask/docker that just ensures you have a
    1. After you've logged on to the lambda server, visit the url
       <https://localhost:8080>
       in your web browser.
-      (Muggles use chrome/edge.
-      A proper hacker uses firefox with the uBlock origin extension).
       You should now have access to the search engine.
+
+      > **NOTE:**
+      > Only muggles use chrome/edge/safari.
+      > Proper hackers use firefox with the uBlock origin extension.
+      > Almost all other add block extensions either sell your browsing history or let advertisers pay to not have their ads blocked.
 
 1. Follow these instructions to create a simple flask app running in a docker container: https://runnable.com/docker/python/dockerize-your-flask-application
 
