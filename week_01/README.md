@@ -9,6 +9,9 @@
 1. 10/26 students have completed last weeks lab
     1. you're not behind if you haven't done it yet
     1. if you don't finish it this week, you will be behind
+    1. **Friday update:**
+        1. only 18 students have completed last week's lab
+        1. you are now behind if you have not, and should start feeling worried
 
 1. Great use of github issues to ask questions!
     1. All questions should go through github issues
@@ -76,39 +79,6 @@
         1. The [friendly interactive shell](https://github.com/fish-shell/fish-shell) (`fish`)
 
 
-1. Parallel programming
-    1. "Trivial" to do in POSIX-compliant shells
-
-        (mod the weird #?*!ing edge cases)
-    1. All of the hardest parts of an OS course compressed down into 5 minutes
-
-       > **NOTE:**
-       > We will revisit this material in more detail after the final in the non-seniors-only portion of the class.
-
-    1. Two techniques: Threads vs Processes
-        1. Threads are "lightweight"
-            1. minimal overhead
-            1. each thread shares the same memory, so communication is easy
-            1. slighly less safe because a bug in one thread will cause bad behavior in every program
-            1. Python's [global interpretter lock (GIL)](https://realpython.com/python-gil/) means you cannot use threads in python for parallel programming
-        1. Processes are "heavyweight"
-            1. about 10MB of unavoidable overhead per process in the system kernel
-            1. additionally, each child process duplicates the memory of its parent process
-            1. processes can communicate only by reading/writing to files
-            1. processes are the only way to do parallel programming in python
-            1. processes created by "forking"
-                1. `os.fork()`
-                1. [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) built-in library
-    1. Programming with threads/processes is HARD
-        1. easy to create [memory leaks](https://en.wikipedia.org/wiki/Memory_leak), [race conditions](https://en.wikipedia.org/wiki/Race_condition), and other hard-to-debug problems
-        1. easy to accidentally create [fork bombs](https://en.wikipedia.org/wiki/Fork_bomb), which were the original form of [cracking](http://www.catb.org/jargon/html/C/cracker.html)
-        1. code is non-deterministic (everytime you run it, you get different results), resulting in lots of [heisenbugs](https://en.wikipedia.org/wiki/Heisenbug)
-            1. simple example: [I can't login standing up](https://www.reddit.com/r/talesfromtechsupport/comments/3v52pw/i_cant_log_in_when_i_stand_up/)
-            1. complicated example: [I can't send email more than 500 miles](http://www.ibiblio.org/harris/500milemail.html)
-            1. (links in the lecture notes are never required... but the "most cultured" programmers will want to read them... these two in particular)
-        1. python is not great for manipulating processes (it's very easy to create very bad bugs); bash is much better; so I always do the parallel programming parts in bash
-        1. MapReduce paradigm simplifies parallel data analysis
-
 ## Docker
 
 **Pre-lecture work:** (Complete before class on Wednesday)
@@ -142,27 +112,6 @@
        to restart the docker daemon.
 
 **Lecture:**
-<!--
-1. Basic networking
-    1. Internet Protocol (IP) addresses
-        1. (Almost) every device on the internet has a unique IPv4 address.
-           IPv4 uses 32bit addresses (looks like 134.173.191.241), which supports up to 4 billion unique addresses.
-        1. The internet is slowly moving to the IPv6 standard.
-           IPv6 uses 64bit addresses (looks like `fe80::3efd:feff:fedd:feec`).
-        1. The IPv4 address `127.0.0.1` is called a "loopback" address because it always refers to the computer you are working on.
-    1. TCP port numbers
-        1. ports are numbers between 1 and 2^16-1 (65535)
-        1. different services listen on different ports
-        1. some standard ports are:
-            1. ssh is 22
-            1. http is port 80
-            1. https is port 443
-        1. notice that the lambda server is running ssh on a non-standard port,
-           and that is why you must specify the `-p` flag when connecting
-        1. only root can listen on ports < 1024;
-           therefore, you cannot use the standard ports for your web services running on the lambda server
-    1. port forwarding lets you redirect connections from one computer to another ([optional reference](https://www.ssh.com/ssh/tunneling/example))
--->
 
 1. Overview
 
@@ -274,10 +223,64 @@
     1. `PATH` environment variable
 -->
 
+## Friday: some loose ends
+
+1. Parallel programming
+    1. All of the hardest parts of an OS course compressed down into 5 minutes
+
+       > **NOTE:**
+       > We will revisit this material in more detail after the final in the non-seniors-only portion of the class.
+
+    1. "Trivial" to do in POSIX-compliant shells
+
+        (mod the weird #?*!ing edge cases)
+
+    1. Two techniques: Threads vs Processes
+        1. Threads are "lightweight"
+            1. minimal overhead
+            1. each thread shares the same memory, so communication is easy
+            1. slighly less safe because a bug in one thread will cause bad behavior in every program
+            1. Python's [global interpretter lock (GIL)](https://realpython.com/python-gil/) means you cannot use threads in python for parallel programming
+        1. Processes are "heavyweight"
+            1. about 10MB of unavoidable overhead per process in the system kernel
+            1. additionally, each child process duplicates the memory of its parent process
+            1. processes can communicate only by reading/writing to files
+            1. processes are the only way to do parallel programming in python
+            1. processes created by "forking"
+                1. `os.fork()`
+                1. [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) built-in library
+    1. Programming with threads/processes is HARD
+        1. easy to create [memory leaks](https://en.wikipedia.org/wiki/Memory_leak), [race conditions](https://en.wikipedia.org/wiki/Race_condition), and other hard-to-debug problems
+        1. easy to accidentally create [fork bombs](https://en.wikipedia.org/wiki/Fork_bomb), which were the original form of [cracking](http://www.catb.org/jargon/html/C/cracker.html)
+        1. code is non-deterministic (everytime you run it, you get different results), resulting in lots of [heisenbugs](https://en.wikipedia.org/wiki/Heisenbug)
+            1. simple example: [I can't login standing up](https://www.reddit.com/r/talesfromtechsupport/comments/3v52pw/i_cant_log_in_when_i_stand_up/)
+            1. complicated example: [I can't send email more than 500 miles](http://www.ibiblio.org/harris/500milemail.html)
+            1. (links in the lecture notes are never required... but the "most cultured" programmers will want to read them... these two in particular)
+        1. python is not great for manipulating processes (it's very easy to create very bad bugs); bash is much better; so I always do the parallel programming parts in bash
+        1. MapReduce paradigm simplifies parallel data analysis
+
+1. Basic networking
+    1. Internet Protocol (IP) addresses
+        1. (Almost) every device on the internet has a unique IPv4 address.
+           IPv4 uses 32bit addresses (looks like 134.173.191.241), which supports up to 4 billion unique addresses.
+        1. The internet is slowly moving to the IPv6 standard.
+           IPv6 uses 64bit addresses (looks like `fe80::3efd:feff:fedd:feec`).
+        1. The IPv4 address `127.0.0.1` is called a "loopback" address because it always refers to the computer you are working on.
+    1. TCP port numbers
+        1. ports are numbers between 1 and 2^16-1 (65535)
+        1. different services listen on different ports
+        1. some standard ports are:
+            1. ssh is 22
+            1. http is port 80
+            1. https is port 443
+        1. notice that the lambda server is running ssh on a non-standard port,
+           and that is why you must specify the `-p` flag when connecting
+        1. only root can listen on ports < 1024;
+           therefore, you cannot use the standard ports for your web services running on the lambda server
+    1. port forwarding lets you redirect connections from one computer to another ([optional reference](https://www.ssh.com/ssh/tunneling/example))
+
 ## Lab
 
-TBA
-<!--
 This is a "hello world" assignment for flask/docker that just ensures you have a sane working environment.
 
 1. First, we'll practice using ssh port forwarding.
@@ -296,10 +299,11 @@ This is a "hello world" assignment for flask/docker that just ensures you have a
       You can follow [these instructions](https://blog.devolutions.net/2017/4/how-to-configure-an-ssh-tunnel-on-putty) to get pictures of where the checkboxes are located.
 
    1. After you've logged on to the lambda server, visit the url
-      https://localhost:8080
-      in your web browser (I use firefox with the uBlock origin extension for all my internet browsing).
+      <https://localhost:8080>
+      in your web browser.
+      (Muggles use chrome/edge.
+      A proper hacker uses firefox with the uBlock origin extension).
       You should now have access to the search engine.
-
 
 1. Follow these instructions to create a simple flask app running in a docker container: https://runnable.com/docker/python/dockerize-your-flask-application
 
@@ -324,7 +328,6 @@ This is a "hello world" assignment for flask/docker that just ensures you have a
 
 
 1. After completing the steps above, upload the sentence `I've completed the lab` to sakai to get credit for the lab.
--->
 
 ## Homework
 
