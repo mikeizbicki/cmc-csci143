@@ -148,7 +148,7 @@
            
            the next few lectures will build on this material, reviewing it and filling in gaps
 
-        1. you have to use it to full understand it... so labs/hws will be super important
+        1. you have to use it to fully understand it... so labs/hws will be super important
 
 1. References:
     1. https://www.docker.com/resources/what-container
