@@ -130,7 +130,7 @@
                     1. encrypt/decrypt HTTPS requests
                 1. social
                     1. world's #1 web server: https://news.netcraft.com/archives/category/web-server-survey/
-                    1. rare Russian (global) tech success
+                    1. rare Russian company to beat American companies both technically and socially
                     1. recently (2019) raided by Russian police https://news.ycombinator.com/item?id=21771144
             1. The web development framework defines the web page's "application logic"
                 1. django
