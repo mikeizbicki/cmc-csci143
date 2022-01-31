@@ -180,37 +180,67 @@
             1. docker usage is seeing huge adoption right now: https://www.datadoghq.com/docker-adoption/
             1. major companies like netflix use docker: https://netflixtechblog.com/the-evolution-of-container-usage-at-netflix-3abfc096781b
             1. fundamental sys-admin principles you learn working with docker will transfer to whatever deployment solution your future employers use
-            1. <img src=galaxy-brain.jpg width=50% />
 
 1. More docker containers
 
-    <a href=https://xkcd.com/1988/><img width=70% src=containers_2x.png /></a>
+    <a href=https://xkcd.com/1988/><img width=600px src=containers_2x.png /></a>
 
     1. docker-compose
-        1. get it by running
+
+        1. a convenient "declarative" interface for managing docker commands
+
+           sh/bash/posix-shell is an "imperative" interface
+
+
+           imperative => specify HOW
+
+           1. adv: more "fine grained" control
+           1. adv: universal system
+           1. dis: more manual work
+
+           declarative => specify WHAT, the computer figures out HOW
+
+           1. adv: easier to use (fewer sharp edges)
+           1. adv: automatically figure out different HOWs depending on the environment (deploying to laptop? lambda server? AWS? Azure?  docker-compose will figure out the details for you)
+           1. dis: less control
+           1. dis: works only for docker
+
+           other tools (docker swarm/kubernetes) are more powerful declarative systems
+
+           <img src=galaxy-brain.jpg width=400px />
+
+        1. It's a python program.
+           First, you need to make sure that your `PATH` is setup to allow `pip` to install programs.
+           Run the following commands:
            ```
            $ which pip3
            $ pip3 install pip --upgrade
            $ which pip3
+           /home/user/.local/bin/pip3
+           ```
+           Assuming you get output similar to the above, you can now install the program:
+           ```
            $ pip3 install docker-compose
+           $ which docker-compose
+           /home/user/.local/bin/docker-compose
            ```
-        1. how to change your code:
-            1. dev (default) environment:
-                1. just change it
-                1. docker volumes ensure that the change is instant
-            1. production:
-                1. to update the contents of your image, run the commands
-                   ```
-                   $ docker-compose -f docker-compose.prod.yml down
-                   $ docker-compose -f docker-compose.prod.yml build
-                   $ docker-compose -f docker-compose.prod.yml up 
-                   ```
-                   takes a little while, but generates a much faster/more secure image
-        1. to start the containers in daemon mode, but still view the logs, use
-           ```
-           $ docker-compose up -d
-           $ docker-compose logs [-f] [container]
-           ```
+
+        1. important commands
+            1. `docker-compose build`: builds the container
+            1. `docker-compose up`: start all the services
+                1. `-d` in deamon mode
+            1. `docker-compose down`: stop all the services (equivalent to `docker stop` and `docker rm`
+            1. `docker-compose exec`: run a command on an already running docker container
+            1. `docker-compose run`: (probably don't want to use this for this class) brings up a container and runs a 1-off command; useful for admin tasks
+            1. `docker-compose logs [container]`: view the logs of `[container]` or all containers if not specified
+                1. `-f` follow mode
+    1. docker volumes
+        1. allow "persistant state" in a docker container
+        1. will be critical for databases; for everything else, main use is for debugging
+        1. docker-compose will handle all of the (rather complicated) underlying docker commands for us automatically
+        1. references:
+            1. docker's official docs: https://docs.docker.com/storage/volumes/
+            1. good tutorial that also references docker-compose: https://devopsheaven.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html
     1. differences between docker image and docker container
         1. image:
             1. defined by a docker file
@@ -301,6 +331,20 @@ This is a slightly more complicated "hello world" than you did last week that in
    just by uploading the files, you'll get full credit.
    Next week we'll be introducing test cases that combine docker with the github actions continuous integration.
 
+<!--
+1. how to change your code:
+    1. dev (default) environment:
+        1. just change it
+        1. docker volumes ensure that the change is instant
+    1. production:
+        1. to update the contents of your image, run the commands
+           ```
+           $ docker-compose -f docker-compose.prod.yml down
+           $ docker-compose -f docker-compose.prod.yml build
+           $ docker-compose -f docker-compose.prod.yml up 
+           ```
+           takes a little while, but generates a much faster/more secure image
+-->
 
 <!--
 1. Since we're working on a remote server, you need to enable port forwarding in ssh, and everyone can't be using the same lambda server port
