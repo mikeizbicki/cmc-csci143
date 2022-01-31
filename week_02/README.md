@@ -237,6 +237,9 @@
     1. docker volumes
         1. allow "persistant state" in a docker container
         1. will be critical for databases; for everything else, main use is for debugging
+        1. two types of volumes we'll use
+            1. bind mounts (you manage where the data is stored)
+            1. named volumes (docker manages where the data is stored)
         1. docker-compose will handle all of the (rather complicated) underlying docker commands for us automatically
         1. references:
             1. docker's official docs: https://docs.docker.com/storage/volumes/
