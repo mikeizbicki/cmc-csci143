@@ -26,8 +26,25 @@
 
     1. I'll try to give more time for future assignments, but the shortened timeline was needed for this assignment to keep us on track
 
-1. lab for this week is already posted below
-    1. this week's assignment is still a "copy+paste" assignment, but it has a lot more sharp edges where things can go wrong
+1. lab update
+
+   lots of problems with the tutorial?
+   
+   (it was intentional... muahaha...)
+
+   <img src='Strip-Le-déploiement-english650-final.jpg' width=600px />
+
+   good use of github issues to resolve problems!
+
+   the fundamental problem was dependencies improperly specified in the `requirements.txt` file
+
+   fixed version posted in the `flask_web` folder of this repo
+
+1. lab/hw for this week is already posted below
+    1. you'll build an instagram clone
+    1. this week's assignment is still a "copy+paste" assignment
+    1. but it has a lot more sharp edges where things can go wrong
+    1. expect to spend ~10x the amount of time on this assignment as last assignment
 
 1. Our goal for the week:
     1. finish docker/everything needed for the lab by Wed
@@ -258,8 +275,6 @@
 -->
 
 ## Lab / Homework
-
-<img src='Strip-Le-déploiement-english650-final.jpg' width=60% />
 
 Your lab and homework assignment this week are combined together.
 The goal is for you to get a fully working web service using our modified instagram tech stack.
