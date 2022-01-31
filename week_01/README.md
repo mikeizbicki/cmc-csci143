@@ -304,7 +304,7 @@ This is a "hello world" assignment for flask/docker that just ensures you have a
       You can follow [these instructions](https://blog.devolutions.net/2017/4/how-to-configure-an-ssh-tunnel-on-putty) to get pictures of where the checkboxes are located.
 
    1. After you've logged on to the lambda server, visit the url
-      <https://localhost:8080>
+      <http://localhost:8080>
       in your web browser.
       You should now have access to the search engine.
 
