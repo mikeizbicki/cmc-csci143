@@ -147,7 +147,7 @@
                     1. didn't exist when instagram first started
                 1. WSGI (pronounced like "whiskey") = Web Server Gateway Interface
                     1. [PEP-3333](https://www.python.org/dev/peps/pep-3333/)
-                    1. A standard interfance for python web frameworks
+                    1. A standard interface for python web frameworks
                     1. Ensures that the rest of the tech stack doesn't care which framework you use for you application logic
                     1. Internal to the framework libraries -> doesn't affect application developers
                     1. [ASGI](https://asgi.readthedocs.io/en/latest/introduction.html) = Asynchronous Server Gateway Interface
@@ -159,7 +159,7 @@
             1. [gunicorn webserver](https://gunicorn.org/)
                 1. Converts a WSGI application into an actual web service that people can connect to
                 1. Handles multiple requests simultaneously and in parallel (using the `fork` syscall)
-                1. Much more efficient than flask's built-in webserver
+                1. Much more efficient than flask's built-in web server
             1. pg_bouncer + postgresql database
                 1. Extremely complicated
                 1. Most of this class will be focused on the database
@@ -235,7 +235,7 @@
             1. `docker-compose logs [container]`: view the logs of `[container]` or all containers if not specified
                 1. `-f` follow mode
     1. docker volumes
-        1. allow "persistant state" in a docker container
+        1. allow "persistent state" in a docker container
         1. will be critical for databases; for everything else, main use is for debugging
         1. two types of volumes we'll use
             1. bind mounts (you manage where the data is stored)
