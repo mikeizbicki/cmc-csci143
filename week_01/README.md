@@ -148,7 +148,7 @@
            
            the next few lectures will build on this material, reviewing it and filling in gaps
 
-        1. you have to use it to full understand it... so labs/hws will be super important
+        1. you have to use it to fully understand it... so labs/hws will be super important
 
 1. References:
     1. https://www.docker.com/resources/what-container
@@ -242,10 +242,12 @@
         1. Threads are "lightweight"
             1. minimal overhead
             1. each thread shares the same memory, so communication is easy
-            1. slighly less safe because a bug in one thread will cause bad behavior in every program
+            1. slightly less safe because a bug in one thread will cause bad behavior in every program
             1. Python's [global interpretter lock (GIL)](https://realpython.com/python-gil/) means you cannot use threads in python for parallel programming
         1. Processes are "heavyweight"
             1. about 10MB of unavoidable overhead per process in the system kernel
+                1. technically, this number is application dependent
+                1. 10MB is for postgres (and other "big" programs are same order of magnitude)
             1. additionally, each child process duplicates the memory of its parent process
             1. processes can communicate only by reading/writing to files
             1. processes are the only way to do parallel programming in python
@@ -302,7 +304,7 @@ This is a "hello world" assignment for flask/docker that just ensures you have a
       You can follow [these instructions](https://blog.devolutions.net/2017/4/how-to-configure-an-ssh-tunnel-on-putty) to get pictures of where the checkboxes are located.
 
    1. After you've logged on to the lambda server, visit the url
-      <https://localhost:8080>
+      <http://localhost:8080>
       in your web browser.
       You should now have access to the search engine.
 
