@@ -4,6 +4,10 @@
 
 **Friday Feb 4**
 
+1. Week 03 weirdness:
+    1. We're now ahead of schedule
+    1. HW is posted for week_03, but not due until next Sunday (13 Feb)
+
 1. Grades updated in sakai
 
    Median grade: 89%
