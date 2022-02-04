@@ -1,5 +1,21 @@
 # Week 03: Basic SQL
 
+## Announcements
+
+1. Grades updated in sakai
+
+   Median grade: 89%
+
+   <img src=posix-quiz.png />
+
+   If you scored < 9 on the quiz:
+   1. You may retake next week in office hours to score up to a 9.
+   1. I will ask you why you got a low score, and how you plan to study differently in the future.
+
+1. TA update
+
+## Lecture
+
 Relational DataBase Management Systems (RDBMSs):
 
 1. It doesn't matter what the problem is, a database is the solution
@@ -7,7 +23,7 @@ Relational DataBase Management Systems (RDBMSs):
    <img src=dilbert2.jpeg width=80% />
 
 1. Structured Query Language (SQL) is the language for accessing the database
-    1. don't pronounce it es-cue-el; that's a shiboleth for not knowing much about databases
+    1. don't pronounce it es-cue-el; that's a shiboleth for not being a databases person
 
        <img src=dilbert.gif width=80% />
 
@@ -26,6 +42,12 @@ Relational DataBase Management Systems (RDBMSs):
             1. reddit uses the SQLAlchemy ORM
         1. [What ORMs have taught me: Just learn SQL](https://news.ycombinator.com/item?id=24845300)
 
+1. There are two other categories of databases:
+    1. NoSQL databases (MongoDB, CassandraDB, etc.)
+        1. No standard language for accessing them
+        1. No guarantees that the data will actually be in the database
+    1. Graph databases
+        1. Use SparQL instead of SQL
 
 1. Comparison of main database systems:
     1. http://howfuckedismydatabase.com/
@@ -34,20 +56,17 @@ Relational DataBase Management Systems (RDBMSs):
         1. if you can't install docker (e.g. writing a cell phone app), use sqlite3 
         1. otherwise, use postgresql
 
+    1. Even Microsoft uses Postgres instead of SQLServer for large scale database needs: https://www.citusdata.com/blog/2019/12/07/petabyte-scale-analytics-postgres-on-azure-with-citus/
+
+<!--
 Important stories:
 
 1. Junior dev given API keys and deletes the database: https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/
-1. Even Microsoft uses Postgres instead of SQLServer for large scale database needs: https://www.citusdata.com/blog/2019/12/07/petabyte-scale-analytics-postgres-on-azure-with-citus/
-
-<!--
-1. There are two other categories of databases:
-    1. NoSQL databases (MongoDB, CassandraDB, etc.)
-    1. Graph databases; use SparQL instead of SQL
 -->
 
 Outline of the rest of the class:
-    1. 4 weeks: how to make SQL correct
-    1. 8 weeks: how to make SQL fast
+1. 4 weeks: how to make SQL correct
+1. 8 weeks: how to make SQL fast
 
 What you must know for the homework/midterm
 
