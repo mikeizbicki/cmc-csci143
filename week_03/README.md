@@ -7,6 +7,7 @@
 1. Week 03 weirdness:
     1. We're now ahead of schedule
     1. HW is posted for week_03, but not due until next Sunday (13 Feb)
+    1. But we'll be using the docker container in class, so go ahead and clone it
 
 1. Grades updated in sakai
 
