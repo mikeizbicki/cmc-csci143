@@ -6,7 +6,7 @@
 
    Median grade: 89%
 
-   <img src=posix-quiz.png />
+   <img src=posix-quiz.png width=300px />
 
    If you scored < 9 on the quiz:
    1. You may retake next week in office hours to score up to a 9.
