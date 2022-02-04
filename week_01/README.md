@@ -242,7 +242,7 @@
         1. Threads are "lightweight"
             1. minimal overhead
             1. each thread shares the same memory, so communication is easy
-            1. slighly less safe because a bug in one thread will cause bad behavior in every program
+            1. slightly less safe because a bug in one thread will cause bad behavior in every program
             1. Python's [global interpretter lock (GIL)](https://realpython.com/python-gil/) means you cannot use threads in python for parallel programming
         1. Processes are "heavyweight"
             1. about 10MB of unavoidable overhead per process in the system kernel
