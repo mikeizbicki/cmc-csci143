@@ -14,6 +14,8 @@
 
 1. TA update
 
+1. We won't get too technical today... but get ready for a wild ride on Monday; try to make sure you're comfortable with SQL joins for Monday's class
+
 ## Lecture
 
 Relational DataBase Management Systems (RDBMSs):
