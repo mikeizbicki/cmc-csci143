@@ -2,6 +2,8 @@
 
 ## Announcements
 
+**Friday Feb 4**
+
 1. Grades updated in sakai
 
    Median grade: 89%
@@ -13,6 +15,10 @@
    1. I will ask you why you got a low score, and how you plan to study differently in the future.
 
 1. TA update
+
+1. I've been hacked!
+
+   Also see for details of a recent privilege elevation bug in the Linux kernel due to docker support: <https://www.willsroot.io/2022/01/cve-2022-0185.html> (reading this can count for your culture caveat task)
 
 1. We won't get too technical today... but get ready for a wild ride on Monday; try to make sure you're comfortable with SQL joins for Monday's class
 
