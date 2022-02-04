@@ -27,8 +27,9 @@ Relational DataBase Management Systems (RDBMSs):
 
        <img src=dilbert.gif width=80% />
 
-    1. SQL was originally SEQUEL, but shortened due to trademark reasons
-    1. You can find the official ANSI SQL standards and history at https://blog.ansi.org/2018/10/sql-standard-iso-iec-9075-2016-ansi-x3-135/
+    1. SQL was originally SEQUEL (Structured English Query Language), but shortened due to trademark reasons
+        1. You can find the official ANSI SQL standards and history at https://blog.ansi.org/2018/10/sql-standard-iso-iec-9075-2016-ansi-x3-135/
+        1. Invented in the 70s (just like the POSIX-shell), and so has lots of weird warts for backwards-compatibility reasons
     1. Comparison to other languages:
         1. Imperative languages (e.g. Python/C/C++/Java/etc) specify **how** to compute 
         1. Declarative languages (e.g. SQL/Prolog) specify **what** to compute.
