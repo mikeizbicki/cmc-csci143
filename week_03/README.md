@@ -79,8 +79,8 @@ Important stories:
 -->
 
 Outline of the rest of the class:
-1. 4 weeks: how to make SQL correct
-1. 8 weeks: how to make SQL fast
+1. 3 weeks: how to make SQL correct (midterm)
+1. 8 weeks: how to make SQL fast (final)
 
 What you must know for the homework/midterm
 
@@ -93,6 +93,7 @@ What you must know for the homework/midterm
 
 1. `JOIN`
     1. section 3 of https://www.postgresqltutorial.com/
+    1. for this homework, you will only need inner joins; next homework will need all types of joins
     1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/
     1. joins memes
 
