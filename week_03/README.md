@@ -82,7 +82,7 @@ Outline of the rest of the class:
 1. 3 weeks: how to make SQL correct
     - 3 hw
     - midterm
-1. 8 weeks: how to make SQL fast
+1. 8 weeks: how to make SQL (and other things) fast
 
 What you must know for the homework/midterm
 
