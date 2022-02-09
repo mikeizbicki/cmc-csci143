@@ -55,6 +55,9 @@ What you must know for the homework/midterm
 1. joins
     1. sections 3 of https://www.postgresqltutorial.com/
     1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/
+
+       <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg width=300px /></a>
+
     1. the formal definition of the different join operations is as syntactic sugar over the cross join
         1. inner join is syntactic sugar for a cross join + where clause
 
@@ -98,13 +101,14 @@ What you must know for the homework/midterm
            ```
         1. when you want to do an inner/left/right/full join on all columns with the same name, use the natural join
 
-    1. joins meme
-
-       <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg width=300px /></a>
+    1. if this all seems weird/hard/confusing... that's because it is
 
        <img src=cmcqtycmbmg51.jpg width=300px />
 
 1. arrays
+    1. a "denormalized" method for storing join tables
+        1. there's speed/memory tradeoffs between different representations which we'll talk about later
+        1. for now, just focus on using arrays to get the right answer
     1. https://www.postgresqltutorial.com/postgresql-array/
     1. `unnest` is the only array function you'll want to use (for this week's homework)
 
