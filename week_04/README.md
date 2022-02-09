@@ -17,7 +17,9 @@
 
 1. TA update
 
-1. I would normally do a quiz at this point... but there'll be a baby any day now
+1. I would normally do a quiz at this point... but we'll do a "take home exercise" instead
+
+    1. tentative due date: Wednesday 16 Feb
 
 ## Lecture
 
