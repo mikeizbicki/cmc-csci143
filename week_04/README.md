@@ -31,11 +31,22 @@ What you must know for the homework/midterm
 
 1. subqueries
     1. section 7 of https://www.postgresqltutorial.com/
-    1. compared to joins:
+    1. compared to joins (power):
         1. every join can be written as a cross join + subquery
         1. some subqueries can be written as joins
         1. a subquery cannot be written as a join if it contains an aggregate function
+    1. compared to joins (general):
+        1. subqueries are easier for beginners to understand than joins
+        1. joins are easier for experts to understand
+        1. which is faster depends
     1. alternative reference on subqueries vs joins: https://learnsql.com/blog/subquery-vs-join/
+    1. the most important subqueries are for use with the `IN` and `NOT IN` operators
+       ```
+       SELECT * FROM a WHERE a.c1 IN (SELECT b.c2 FROM b);
+       ```
+       ```
+       SELECT * FROM a WHERE a.c1 NOT IN (SELECT b.c2 FROM b);
+       ```
 
 1. set operations
     1. section 5 of https://www.postgresqltutorial.com/
@@ -44,6 +55,49 @@ What you must know for the homework/midterm
 1. joins
     1. sections 3 of https://www.postgresqltutorial.com/
     1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/
+    1. the formal definition of the different join operations is as syntactic sugar over the cross join
+        1. inner join is syntactic sugar for a cross join + where clause
+
+           the following are equivalent:
+           ```
+           SELECT * FROM a JOIN b ON (condition);
+           ```
+           ```
+           SELECT * FROM a,b WHERE condition;
+           ```
+        1. the left outer join is syntactic sugar for an inner join + set operations
+
+           the following are equivalent:
+           ```
+           SELECT * FROM a LEFT JOIN b ON (condition);
+           ```
+           ```
+           SELECT * FROM a JOIN b ON (condition)
+           UNION ALL
+           (
+           SELECT a.*,NULL,NULL,NULL,... FROM a         -- there should be one NULL for each column in b
+           EXCEPT
+           SELECT a.* FROM a JOIN b ON (condition)
+           );
+           ```
+           when `condition` is an equality of the form `a.c1=b.c2`, then the following is also equivalent:
+           ```
+           SELECT * FROM a JOIN b ON (a.c1 = b.c2)
+           UNION ALL
+           SELECT * FROM a WHERE a.c1 NOT IN (SELECT b.c2 FROM b);
+           ```
+        1. the right/full outer joins are defined similarly to the left outer join
+        1. for all joins, when `condition` has the form `a.c = b.c` (i.e. it is an equality on the same column name), then the `ON` clause can be replaced by a `USING` clause
+
+           the following are equivalent:
+           ```
+           SELECT * FROM a JOIN b ON (a.c = b.c);
+           ```
+           ```
+           SELECT * FROM a JOIN b USING (c);
+           ```
+        1. when you want to do an inner/left/right/full join on all columns with the same name, use the natural join
+
     1. joins meme
 
        <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg width=300px /></a>
