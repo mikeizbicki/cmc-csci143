@@ -82,7 +82,7 @@ What you must know for the homework/midterm
            (
            SELECT a.*,NULL,NULL,NULL,... FROM a         -- there should be one NULL for each column in b
            EXCEPT
-           SELECT a.* FROM a JOIN b ON (condition)
+           SELECT a.*,NULL,NULL,NULL,... FROM a JOIN b ON (condition)
            );
            ```
            when `condition` is an equality of the form `a.c1=b.c2`, then the following is also equivalent:
