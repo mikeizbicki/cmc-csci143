@@ -327,6 +327,8 @@ This is a slightly more complicated "hello world" than you did last week that in
    > This is not -2 points off your grade, this is a NEGATIVE TWO POINTS TOTAL...
    > committing private credentials to a public repo would cause your company to lose potentially millions of dollars, and so is worse than doing nothing at all.
    > I strongly recommend creating a `.gitignore` file to prevent this from happening on accident.
+   > In these instructions, the production credentials are located in the file `.env.prod.db`.
+   > So this file should not be uploaded to github, but all the other files should be.
 
 1. Upload the url of your repo to sakai.
 
