@@ -121,7 +121,16 @@ What you must know for the homework/midterm
            ```
            SELECT * FROM a JOIN b USING (c);
            ```
-        1. when you want to do an inner/left/right/full join on all columns with the same name, use the natural join
+        1. the natural join
+            1. is confusingly named... it's not a separate type of join (like inner/left/right/full)
+            1. it is a syntactic sugar over the `USING` clause
+
+               it is equivalent to `USING` with all of the columns that share the same name between the two tables
+            1. I personally avoid using these for the same reason I avoid using `SELECT *`:
+
+               [Explicit is better than Implicit](https://www.python.org/dev/peps/pep-0020/) makes code easier to read and more robust to changes in the future
+
+               (this is a principle in the zen of python)
 
     1. if this all seems weird/hard/confusing... that's because it is
 
