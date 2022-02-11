@@ -143,6 +143,8 @@ SELECT fruit_a,fruit_b FROM basket_a JOIN basket_b ON (b != a);
 \vspace{3in}
 \textbf{Problem 6:}
 \begin{lstlisting}
-SELECT fruit_a,fruit_b FROM basket_a RIGHT OUTER JOIN basket_b ON (fruit_b<fruit_a);
+SELECT t1.fruit_a,t2.fruit_a
+FROM basket_a t1
+RIGHT OUTER JOIN basket_a t2 ON (t1.fruit_a<t2.fruit_a);
 \end{lstlisting}
 \end{document}

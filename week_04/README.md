@@ -21,6 +21,26 @@
 
     1. tentative due date: Wednesday 16 Feb
 
+**Fri 11 Feb**:
+
+1. Two new files we'll be using in lecture: `create_food*.sql`
+
+   I recommend downloading them into your pagila folder if you want to follow along with what I'm doing
+
+1. Using the `diff` command to understand whether your output is correct or not
+
+   Reference: <https://en.wikipedia.org/wiki/Diff#Usage>
+
+1. How many people have memorized the commands on the [vim cheatsheet](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf)?
+
+   About 1/4 of the class has completed the [typespeed caveat task](https://github.com/mikeizbicki/cmc-csci143/blob/2022spring/caveat_tasks/typespeed.md).
+
+   <img src=gates.jpg width=600px />
+
+   <br/>
+
+   <img src=the-three-chief-virtues-of-a-programmer-are-laziness-impatience-and-hubris-larry-wall.jpg width=600px />
+
 ## Lecture
 
 What you must know for the homework/midterm
