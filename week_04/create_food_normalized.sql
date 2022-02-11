@@ -4,7 +4,7 @@ CREATE TABLE food (
 );
 
 INSERT INTO food VALUES
-    (1, 'banana')
+    (1, 'banana'),
     (2, 'cellery'),
     (3, 'carrot'),
     (4, 'pretzel'),
@@ -15,7 +15,7 @@ INSERT INTO food VALUES
 CREATE TABLE flavor (
     flavor_id INT PRIMARY KEY,
     food_id INT,
-    name flavor,
+    name TEXT
 );
 
 INSERT INTO flavor VALUES
