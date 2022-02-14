@@ -36,7 +36,7 @@ Relational DataBase Management Systems (RDBMSs):
    <img src=dilbert2.jpeg width=80% />
 
 1. Structured Query Language (SQL) is the language for accessing the database
-    1. don't pronounce it es-cue-el; that's a shiboleth for not being a databases person
+    1. don't pronounce it es-cue-el; that's a shibboleth for not being a databases person
 
        <img src=dilbert.gif width=80% />
 
