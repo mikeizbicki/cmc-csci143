@@ -10,7 +10,7 @@ Cube/rollup
 Window functions
 -->
 
-<img src=when-people-ask-me-to-explain-my-database-design-its-58698602.png />
+<img src=when-people-ask-me-to-explain-my-database-design-its-58698602.png width=400px />
 
 ## Announcements
 
