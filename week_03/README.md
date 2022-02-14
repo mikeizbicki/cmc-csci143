@@ -117,7 +117,7 @@ What you must know for the homework/midterm
     1. concatenate strings with `||` not `+`
 
 
-Refrences:
+References:
 1. cheatsheets
     1. https://postgresql-backup.com/postgresql-blog/wp-content/uploads/2016/06/PostgreSQL-Cheat-Sheet_-String-Functions.pdf
     1. https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-Cheat-Sheet.pdf
