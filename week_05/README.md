@@ -9,112 +9,127 @@ Recursive queries
 Cube/rollup
 Window functions
 -->
-### (disk usage + normalization)
+
+## Announcements
+
+**Mon 14 Feb:**
+
+1. Currently ~1 week ahead of schedule
+
+1. Please fill out the survey: [#131](https://github.com/mikeizbicki/cmc-csci143/issues/131)
 
 ## Lecture
-<!--
-1. **for lab/midterm**: you are responsible for being able to calculate the number of bytes used by a row of data with only fixed sized columns
--->
+1. We are going to be measuring the amount of disk space used by our database
+1. disk space usage can be large because:
+    1. of overhead that doesn't store data
+        1. multiple types: row, page
+    1. redundant data stored multiple times
 
-1. `CREATE TABLE` disk usage
-    1. references:
-        1. basic tutorial: https://www.2ndquadrant.com/en/blog/on-rocks-and-sand/
-            1. contains a sql query that will solve all problems for you automatically
-        1. detailed tutorial: https://rjuju.github.io/postgresql/2016/09/16/minimizing-tuple-overhead.html
-    1. postgres has more overhead per row than other dbs
-    1. each row is divided into a header, data, and padding section
-        1. header section:
-            1. contains a 23 byte [`HeapTupleHeaderData`](https://www.postgresql.org/docs/current/storage-page-layout.html#HEAPTUPLEHEADERDATA-TABLE) struct + an optional "null bitmap"
-            1. null bitmap:
-                1. only present if the tuple contains at least one `NULL` value
-                1. uses 1 bit per column (whether the column is nullable or not nullable), rounded up to the nearest byte (8-bits)
+### Row Overhead
 
-                    1. by default, every column is "nullable"
+1. **for midterm**: you are responsible for being able to calculate the number of bytes used by a row of data
 
-                       a column is not nullable only if it is defined with the `NOT NULL` parameter
+   references:
+    1. basic tutorial: https://www.2ndquadrant.com/en/blog/on-rocks-and-sand/
+    1. detailed tutorial: https://rjuju.github.io/postgresql/2016/09/16/minimizing-tuple-overhead.html
+    1. references contain sql queries that will solve all problems for you automatically
 
-                       ```
-                       CREATE TABLE example (
-                           a INTEGER,               -- nullable
-                           b INTEGER NULL,          -- nullable
-                           c INTEGER NOT NULL       -- not nullable
-                       );
-                       ```
-                    1. why do nullable columns require an entry in the null bitmap?
+1. postgres has more overhead per row than other dbs
+1. each row is divided into a header, data, and padding section
+    1. header section:
+        1. contains a 23 byte [`HeapTupleHeaderData`](https://www.postgresql.org/docs/current/storage-page-layout.html#HEAPTUPLEHEADERDATA-TABLE) struct + an optional "null bitmap"
+        1. null bitmap:
+            1. only present if the tuple contains at least one `NULL` value
+            1. uses 1 bit per column (whether the column is nullable or not nullable), rounded up to the nearest byte (8-bits)
 
-                       so that we can add/remove `NULL`/`NOT NULL` constraints in O(1) time with a command like
-                       ```
-                       ALTER TABLE example ALTER COLUMN a SET NOT NULL;
-                       ```
+                1. by default, every column is "nullable"
 
-            1. the header must be padded to be a multiple of 8
-                1. any table with <= 8 columns will have 24 bytes overhead (the null bitmap is 1 byte)
-                1. any table with 8-264 columns will have 32 bytes overhead (the null bitmap is >1 byte)
+                   a column is not nullable only if it is defined with the `NOT NULL` parameter
 
-        1. data section:
-            1. every column with a non-null value requires a number of bytes depending on the column type
-                1. types can be either a fixed or variable number of bytes, for example:
-
-                   | type               | size      |
-                   | ------------------ | --------- |
-                   | `smallint`         | 2 bytes   |
-                   | `integer`          | 4 bytes   |
-                   | `bigint`           | 8 bytes   |
-                   | `float`            | 4 bytes   |
-                   | `double precision` | 8 bytes   |
-                   | `text`             | variable  |
-
-            1. null values consume 0 bytes disk space
-                1. postgres knows they're not present due to the null bitmap
-
-            1. every type has an "alignment", which specifies hardware addresses the type is allowed to start on
-                1. required due to hardware implementation details
-                1. similar to byte alignment in C structs
-                1. every hardware address is represented by a 64-bit (8-byte) integer
-                1. for fixed-width types, the type is typically required to "align" onto a hardware address satisfying the following formula:
                    ```
-                   size in byte % 8
+                   CREATE TABLE example (
+                       a INTEGER,               -- nullable
+                       b INTEGER NULL,          -- nullable
+                       c INTEGER NOT NULL       -- not nullable
+                   );
                    ```
-                   but not always
-            1. to find information about a type, use the query
+                1. why do nullable columns require an entry in the null bitmap?
+
+                   so that we can add/remove `NULL`/`NOT NULL` constraints in O(1) time with a command like
+                   ```
+                   ALTER TABLE example ALTER COLUMN a SET NOT NULL;
+                   ```
+
+        1. the header must be padded to be a multiple of 8
+            1. any table with <= 8 columns will have 24 bytes overhead (the null bitmap is 1 byte)
+            1. any table with 8-264 columns will have 32 bytes overhead (the null bitmap is >1 byte)
+
+    1. data section:
+        1. every column with a non-null value requires a number of bytes depending on the column type
+            1. types can be either a fixed or variable number of bytes, for example:
+
+               | type               | size      |
+               | ------------------ | --------- |
+               | `smallint`         | 2 bytes   |
+               | `integer`          | 4 bytes   |
+               | `bigint`           | 8 bytes   |
+               | `float`            | 4 bytes   |
+               | `double precision` | 8 bytes   |
+               | `text`             | variable  |
+
+        1. null values consume 0 bytes disk space
+            1. postgres knows they're not present due to the null bitmap
+
+        1. every type has an "alignment", which specifies hardware addresses the type is allowed to start on
+            1. required due to hardware implementation details
+            1. similar to byte alignment in C structs
+            1. every hardware address is represented by a 64-bit (8-byte) integer
+            1. for fixed-width types, the type is typically required to "align" onto a hardware address satisfying the following formula:
                ```
-               select typname,typalign,typlen from pg_type;
+               size in byte % 8
                ```
-               1. `pg_type` is a table built-in to all postgres databases that contains all the information about a type
-               1. see pg_type table documentation: <https://www.postgresql.org/docs/13/catalog-pg-type.html>
-               1. one of the nice things about postgres is that all properties of the database are stored in tables like `pg_type` and can be queried using normal sql
-        1. padding section:
-            1. all rows are padded so that their total number of bytes is divisible by 8
-            1. the function `pg_column_size` gives the size of the header+data portion only, without the padding
+               but not always
+        1. to find information about a type, use the query
+           ```
+           select typname,typalign,typlen from pg_type;
+           ```
+           1. `pg_type` is a table built-in to all postgres databases that contains all the information about a type
+           1. see pg_type table documentation: <https://www.postgresql.org/docs/13/catalog-pg-type.html>
+           1. one of the nice things about postgres is that all properties of the database are stored in tables like `pg_type` and can be queried using normal sql
+    1. padding section:
+        1. all rows are padded so that their total number of bytes is divisible by 8
+        1. the function `pg_column_size` gives the size of the header+data portion only, without the padding
 
-    1. "column tetris" is ordering table columns optimally:
-        1. do not order columns "logically"
-        1. order columns fixed length (largest to smallest), then variable length
-        1. gitlab policy: https://docs.gitlab.com/ee/development/ordering_table_columns.html#real-example
-        1. postgres devs are aware of this "code smell"/"wart", and are working to fix it... but it's super complicated for lots of abnoxious technical reasons: https://wiki.postgresql.org/index.php?title=Alter_column_position&oldid=23469
+1. "column tetris" is ordering table columns optimally:
+    1. do not order columns "logically"
+    1. order columns fixed length (largest to smallest), then variable length
+    1. gitlab policy: https://docs.gitlab.com/ee/development/ordering_table_columns.html#real-example
+    1. postgres devs are aware of this "code smell"/"wart", and are working to fix it... but it's super complicated for lots of abnoxious technical reasons: https://wiki.postgresql.org/index.php?title=Alter_column_position&oldid=23469
 
-    1. TOAST used for variable sized columns
-        1. TOAST = The Oversized Attribue Storate Technique
+1. TOAST used for variable sized columns
+    1. TOAST = The Oversized Attribue Storate Technique
 
-           "the best thing since sliced bread"
+       "the best thing since sliced bread"
 
-        1. advantages:
-            1. allows storage of arbitrarily large variable length columns (most commonly text)
-               
-               1. one of the major advantages of postgres vs other rdbms, since they don't support arbitrarily large columns
+    1. advantages:
+        1. allows storage of arbitrarily large variable length columns (most commonly text)
+           
+           1. one of the major advantages of postgres vs other rdbms, since they don't support arbitrarily large columns
 
-               1. there's 2 string types defined by the SQL standard: `CHAR(n)`, `VARCHAR(n)` where `n` is the length of text
+           1. there's 2 string types defined by the SQL standard: `CHAR(n)`, `VARCHAR(n)` where `n` is the length of text
 
-                  postgres also supports `TEXT`, which is strictly better and should almost always be used: <https://www.depesz.com/2010/03/02/charx-vs-varcharx-vs-varchar-vs-text/>
+              postgres also supports `TEXT`, which is strictly better and should almost always be used: <https://www.depesz.com/2010/03/02/charx-vs-varcharx-vs-varchar-vs-text/>
 
-            1. automatically/transparently compresses "large" (typically >2kb) data
-        1. disadvantages:
-            1. the format is rather more complicated
+        1. automatically/transparently compresses "large" (typically >2kb) data
+    1. disadvantages:
+        1. the format is rather more complicated
 
-               we don't need the gory details, but they're in the docs: <https://www.postgresql.org/docs/current/storage-toast.html>
-            1. the "null byte" `\x00` is not allowed in text (or basically any other variable-sized types)
+           we don't need the gory details, but they're in the docs: <https://www.postgresql.org/docs/current/storage-toast.html>
+        1. the "null byte" `\x00` is not allowed in text (or basically any other variable-sized types)
 
-               there's workarounds, but it's a pain: <https://www.commandprompt.com/blog/null-characters-workarounds-arent-good-enough/>
+           there's workarounds, but it's a pain: <https://www.commandprompt.com/blog/null-characters-workarounds-arent-good-enough/>
+
+### Redundant data
 
 1. database normalization:
 
@@ -142,6 +157,8 @@ Window functions
         1. [create_view.sql](create_view.sql)
         1. a common use is to provide a denormalized interface to a normalized table
         1. by default, every view can support the `select` statement; special work is needed to support `insert`/`update` commands; for details, see: https://arjanvandergaag.nl/blog/postgresql-updatable-views.html
+
+### Other considerations
 
 1. tools for enforcing table correctness:
     1. `NULL` / `NOT NULL`
