@@ -51,6 +51,8 @@ INSERT INTO example2 (NULL,NULL,NULL);
 -- padding:
 -- total:
 
+--------------------------------------------------------------------------------
+
 CREATE TABLE example3 (
     b BIGINT,
     c INTEGER,
@@ -80,7 +82,7 @@ INSERT INTO example3 (NULL,NULL,NULL);
 
 --------------------------------------------------------------------------------
 
-CREATE TABLE example3 (
+CREATE TABLE example4 (
     c1 SMALLINT,
     c2 SMALLINT,
     c3 SMALLINT,
@@ -92,21 +94,21 @@ CREATE TABLE example3 (
     c9 SMALLINT
 );
 
-INSERT INTO example3 (1,2,3,4,5,6,7,8,9);
+INSERT INTO example4 (1,2,3,4,5,6,7,8,9);
 
 -- header:
 -- data:
 -- padding:
 -- total:
 
-INSERT INTO example3 (1,2,NULL,4,5,6,7,8,9);
+INSERT INTO example4 (1,2,NULL,4,5,6,7,8,9);
 
 -- header:
 -- data:
 -- padding:
 -- total:
 
-INSERT INTO example3 (NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO example4 (NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 -- header:
 -- data:
