@@ -21,11 +21,16 @@ Window functions
 1. Please fill out the survey: [#131](https://github.com/mikeizbicki/cmc-csci143/issues/131)
 
 ## Lecture
-1. We are going to be measuring the amount of disk space used by our database
-1. disk space usage can be large because:
+
+Goals:
+1. measure the disk usage of a database
+
+   disk space usage can be large because:
     1. of overhead that doesn't store data
         1. multiple types: row, page
     1. redundant data stored multiple times
+
+1. other misc. database design decisions
 
 ### Row Overhead
 
