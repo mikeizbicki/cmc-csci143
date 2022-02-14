@@ -1,0 +1,89 @@
+
+64 bit machine = 8 bytes
+
+the memory address of data % 8 = 0
+
+biginteger size is 8 bytes
+
+10 bigints 
+
+smallint followed by a bigint
+2 bytes                8 bytes
+
+smallint: memory position 16
+end of the smallint is memory position 18
+add 6 bytes of padding so that the next memory position is 24
+
+
+
+smallint typalign=s = 2 bytes
+
+smallint at memory position 24-25
+we can put another smallint at position 26 because 26%2==0
+
+integer typalign=i  = 4 bytes
+
+the next position for an integer would be 28 because 28%4==0
+we must add padding bytes to make the next position be 28
+
+
+--------------------------------------------------------------------------------
+
+CREATE TABLE example1 (
+    a INTEGER
+);
+
+INSERT INTO example1 (1);
+
+-- header: 23 bytes struct, no null bitmap (because there's no null values); pad the 23 bytes to 24 bytes
+-- data: 4 bytes
+-- padding: 24+4 = 28 + 4 bytes of padding; 
+-- total: 32 bytes total
+
+INSERT INTO example1 (NULL);
+
+-- header: 23 bytes struct; 1 byte null bitmap; 23+1=24
+-- data: 0 bytes
+-- padding:24+0 = 24 => 0 padding
+-- total: 24 bytes
+
+--------------------------------------------------------------------------------
+
+CREATE TABLE example2 (
+    a SMALLINT,
+    b BIGINT,
+    c INTEGER
+);
+
+INSERT INTO example2 (1,2,3);
+
+SMALLINT position 24; takes up 2 bytes; next possible location position 26
++6 bytes of padding
+BIGINT has align=d=8bytes needs to be at a position %8==0; need to add 6 bytes of padding
+    is at position 32-40
+INTEGER has align=i=4bytes needs to be at a position %4==0
+
+SMALLINT 2 bytes data + 6 bytes of padding
+BIGINT 8 bytes data + 0 bytes of padding
+INTEGER 4 bytes data
+
+-- header: 23 bytes for struct; 0 for null bitmap; add 1 padding => 24 bytes 
+-- data: 20 bytes
+-- padding: 20+24=44 + 4 padding
+-- total: 48 total
+
+INSERT INTO example2 (1,NULL,3);
+
+-- header: 23 bytes struct; +1 for null bitmap = 24 total
+-- data: 8 bytes total
+SMALLINT 2 bytes of data; position =24-25; +2 bytes of padding
+INTEGER position 28; 4 bytes of data
+-- padding: 24+8=32 %8==0 => 0 bytes of padding
+-- total: 32 bytes
+
+INSERT INTO example2 (NULL,NULL,NULL);
+
+-- header: 23 bytes struct; +1 for null bitmap = 24 total
+-- data: 0 bytes
+-- padding: 24%8==0 => 0 bytes
+-- total: 24 bytes
