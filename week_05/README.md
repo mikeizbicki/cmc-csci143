@@ -114,7 +114,7 @@ Goals:
     1. postgres devs are aware of this "code smell"/"wart", and are working to fix it... but it's super complicated for lots of abnoxious technical reasons: https://wiki.postgresql.org/index.php?title=Alter_column_position&oldid=23469
 
 1. TOAST used for variable sized columns
-    1. TOAST = The Oversized Attribue Storate Technique
+    1. TOAST = The Oversized Attribute Storage Technique
 
        "the best thing since sliced bread"
 
