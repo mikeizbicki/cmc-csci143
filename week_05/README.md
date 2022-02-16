@@ -306,7 +306,7 @@ Goals:
                 1. combine all of these into a single `address` field inside the `customer` table
 
     1. 1-many
-        1. normalized representation: arrays
+        1. denormalized representation: arrays
             1. film-special_features
 
                ```
