@@ -44,6 +44,8 @@ Window functions
          
     1. concerns about how paternity leave would affect class
         1. very reasonable concerns on your part
+
+1. office hours today cancelled (have to take wife to doctor)
     <!--
     1. how to hack typespeed?
     -->
@@ -55,6 +57,8 @@ Window functions
         1. new extra credit:
             1. use the 
         -->
+
+
 
 ## Lecture
 
