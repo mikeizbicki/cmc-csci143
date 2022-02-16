@@ -46,17 +46,17 @@ Window functions
         1. very reasonable concerns on your part
 
 1. office hours today cancelled (have to take wife to doctor)
-    <!--
-    1. how to hack typespeed?
-    -->
+<!--
+1. how to hack typespeed?
+-->
 
-        <!--
-        1. purpose of grades
-            1. In my view, grades should a way for you to measure how you're doing, not for other people to measure it
-            1. [Google's VP in charge of hiring people says "GPA’s are worthless as a criteria for hiring, and test scores are worthless" because they don’t predict how productive an employee will be.](https://www.nytimes.com/2014/02/23/opinion/sunday/friedman-how-to-get-a-job-at-google.html)
-        1. new extra credit:
-            1. use the 
-        -->
+<!--
+1. purpose of grades
+    1. In my view, grades should a way for you to measure how you're doing, not for other people to measure it
+    1. [Google's VP in charge of hiring people says "GPA’s are worthless as a criteria for hiring, and test scores are worthless" because they don’t predict how productive an employee will be.](https://www.nytimes.com/2014/02/23/opinion/sunday/friedman-how-to-get-a-job-at-google.html)
+1. new extra credit:
+    1. use the 
+-->
 
 
 
