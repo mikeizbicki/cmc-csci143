@@ -90,11 +90,13 @@ to get information about each of the types used in the problems below.
 The references in the lecture notes also contain SQL queries that will reorder the columns for you automatically, but I recommend trying to do the problems by hand first.
 
 \newpage
+\noindent
 \textbf{Problem 1:}
 The \lstinline{country} table in the pagila database is defined as follows:
 \begin{lstlisting}
 CREATE TABLE country (
-    country_id integer DEFAULT nextval('public.country_country_id_seq'::regclass) NOT NULL,
+    country_id integer DEFAULT nextval('public.country_country_id_seq'::regclass)
+        NOT NULL,
     country text NOT NULL,
     last_update timestamp with time zone DEFAULT now() NOT NULL
 );
@@ -103,6 +105,7 @@ Create a new, equivalent table whose column-order minimizes the amount of row ov
 
 
 \newpage
+\noindent
 \textbf{Problem 2:}
 The \lstinline{staff} table in the pagila database is defined as follows:
 \begin{lstlisting}
@@ -123,6 +126,7 @@ CREATE TABLE staff (
 Create a new, equivalent table whose column-order minimizes the amount of row overhead.
 
 \newpage
+\noindent
 \textbf{Problem 3:}
 The \lstinline{film} table in the pagila database is defined as follows:
 \begin{lstlisting}
