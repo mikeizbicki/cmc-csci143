@@ -33,7 +33,7 @@ Window functions
     1. due in 2 weeks (Mar 6)
     1. can potentially take a long time to run
         1. if no one else is doing it, just 1-2 hours
-        1. runtime is quadraticish in the number of students running their code due to thrashing
+        1. runtime is cubic-ish in the number of students running their code due to thrashing
     1. this is the last week of pagila; next week we'll be putting the twitter data into the db
 
 1. class survey comments;
