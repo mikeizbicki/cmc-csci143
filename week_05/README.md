@@ -44,6 +44,13 @@ Window functions
          
     1. concerns about how paternity leave would affect class
         1. very reasonable concerns on your part
+        1. midterm details
+            1. takehome format
+            1. open book/computer (any non-human references allowed)
+            1. you will have 48hr to complete
+            1. will definitely have at least 1 review session prior
+            1. unfortunately, still can't set an exact date (but I will be flexible with your schedules)
+        1. if there's other specific things I can do to alleviate any concerns, please let me know
 
 1. office hours today cancelled (have to take wife to doctor)
 <!--
