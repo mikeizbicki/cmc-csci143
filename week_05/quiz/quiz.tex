@@ -1,0 +1,155 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage[normalem]{ulem}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor    = blue  %Colour of citations
+}
+
+\usepackage{courier}
+\usepackage{listings}
+\lstset{numbers=left}
+\lstset{basicstyle=\ttfamily}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\trans}[1]{{#1}^{T}}
+\newcommand{\loss}{\ell}
+\newcommand{\w}{\mathbf w}
+\newcommand{\mle}[1]{\hat{#1}_{\textit{mle}}}
+\newcommand{\map}[1]{\hat{#1}_{\textit{map}}}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\x}{\mathbf x}
+\newcommand{\y}{\mathbf y}
+\newcommand{\ltwo}[1]{\lVert {#1} \rVert}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+{
+\Large
+    \sout{Quiz}Take-Home Exercise: Row Overhead
+}
+
+    \vspace{0.1in}
+\end{center}
+
+
+\vspace{0.15in}
+\noindent
+\textbf{Total Score:} ~~~~~~~~~~~~~~~/6
+
+\vspace{0.5in}
+\noindent
+\textbf{Printed Name:}
+
+\noindent
+\rule{\textwidth}{0.1pt}
+\vspace{0.25in}
+
+\noindent\textbf{Due:} Wed, 23 Feb before class
+
+\vspace{0.15in}
+\noindent
+\textbf{Rules:}
+\begin{enumerate}
+    \item You MAY use any printed or handwritten notes.
+    \item You MAY \sout{NOT} use a computer or any other electronic device.
+    \item You MAY \sout{NOT} discuss this quiz with any other human.
+\end{enumerate}
+
+\noindent
+\textbf{Note:}
+You are allowed to use any resources you want.
+In particular, you should use the command
+\begin{lstlisting}
+select typname,typalign,typlen from pg_type;
+\end{lstlisting}
+to get information about each of the types used in the problems below.
+
+The references in the lecture notes also contain SQL queries that will reorder the columns for you automatically, but I recommend trying to do the problems by hand first.
+
+\newpage
+\textbf{Problem 1:}
+The \lstinline{country} table in the pagila database is defined as follows:
+\begin{lstlisting}
+CREATE TABLE country (
+    country_id integer DEFAULT nextval('public.country_country_id_seq'::regclass) NOT NULL,
+    country text NOT NULL,
+    last_update timestamp with time zone DEFAULT now() NOT NULL
+);
+\end{lstlisting}
+Create a new, equivalent table whose column-order minimizes the amount of row overhead.
+
+
+\newpage
+\textbf{Problem 2:}
+The \lstinline{staff} table in the pagila database is defined as follows:
+\begin{lstlisting}
+CREATE TABLE staff (
+    staff_id integer DEFAULT nextval('public.staff_staff_id_seq'::regclass) NOT NULL,
+    first_name text NOT NULL,
+    last_name text NOT NULL,
+    address_id integer NOT NULL,
+    email text,
+    store_id integer NOT NULL,
+    active boolean DEFAULT true NOT NULL,
+    username text NOT NULL,
+    password text,
+    last_update timestamp with time zone DEFAULT now() NOT NULL,
+    picture bytea
+);
+\end{lstlisting}
+Create a new, equivalent table whose column-order minimizes the amount of row overhead.
+
+\newpage
+\textbf{Problem 3:}
+The \lstinline{film} table in the pagila database is defined as follows:
+\begin{lstlisting}
+CREATE TABLE public.film (
+    film_id integer DEFAULT nextval('public.film_film_id_seq'::regclass) NOT NULL,
+    title text NOT NULL,
+    description text,
+    release_year public.year,
+    language_id integer NOT NULL,
+    original_language_id integer,
+    rental_duration smallint DEFAULT 3 NOT NULL,
+    rental_rate numeric(4,2) DEFAULT 4.99 NOT NULL,
+    length smallint,
+    replacement_cost numeric(5,2) DEFAULT 19.99 NOT NULL,
+    rating public.mpaa_rating DEFAULT 'G'::public.mpaa_rating,
+    last_update timestamp with time zone DEFAULT now() NOT NULL,
+    special_features text[],
+    fulltext tsvector NOT NULL
+);
+\end{lstlisting}
+Create a new, equivalent table whose column-order minimizes the amount of row overhead.
+
+\vspace{5in}
+\noindent
+\textbf{NOTE:}
+The \lstinline{rental_rate} and \lstinline{replacement_cost} fields are stored using the \lstinline{numeric} type instead of \lstinline{float}.
+\lstinline{numeric} is an exact representation of a number, so it requires more computation and more storage, but it will never have rounding errors.
+This is the correct way to represent money in a SQL database.
+
+\end{document}
