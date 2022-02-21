@@ -28,6 +28,8 @@
         1. `->'key'` returns the value of `'key'` as a `JSONB` type
         1. `->>'key'` returns the value of `'key'`, but resolves the type 
         1. typical to chain them like `data->'key1'->'key2'->>'key3'`
+
+           notice that the right most arrow is a `->>` and all other arrows are `->`
         1. `jsonb_array_elements` is like the `unnest` function, but for json arrays
         1. the `COALESCE` function is useful for providing default values
         1. if you're confused about the type of a variable, use `pg_typeof`
