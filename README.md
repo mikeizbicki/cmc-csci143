@@ -404,6 +404,10 @@ I want you to succeed and I'll make every effort to ensure that you can.
 Need to cover TTY vs non-TTY stdin/stdout in the first 2 weeks of class on bash.
 
 In particular, docker exec defaults to non-TTY and must add -it to get TTY, but docker-compose defaults to TTY and must add -T to get non-tty
+
+Properly escape the \x00 in the twitter_postgres assignment
+
+Add functions to the first pagila assignments
 -->
 
 <!--
