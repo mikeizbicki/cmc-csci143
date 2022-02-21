@@ -19,7 +19,7 @@
            1. Postgres team led the standardization effort for getting JSON in ANSI SQL standard
            1. No other RDBMS has good JSON support (MSSQL/MySQL/Sqlite have no support; Oracle has limited support)
 
-        > **NOTE:**
+    1.  > **NOTE:**
         > `JSON` (in backticks) refers to a specific type implemented in the postgres system;
         > JSON (no backticks) refers to the more abstract platonic JSON ideal without respect to any particular implementation.
         > This subtle grammar point is an important shibboleth for programmer competence.
