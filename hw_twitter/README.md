@@ -22,7 +22,7 @@ I recommend that you have your code working by 14 Feb to ensure that you will ha
 Approximately 500 million tweets are sent everyday.
 Of those tweets, about 2% are *geotagged*.
 That is, the user's device includes location information about where the tweets were sent from.
-The lambda server's `/data-fast/twitter2020` folder contains all geotagged tweets that were sent in 2020.
+The lambda server's `/data/Twitter dataset` folder contains all geotagged tweets that were sent in 2020.
 In total, there are about 1.1 billion tweets in this dataset.
 
 The tweets are stored as follows.
