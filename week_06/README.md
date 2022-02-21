@@ -1,4 +1,4 @@
-# Combining Postgres+Python
+# Modifying the Database (SQL+Python)
 
 ## Lecture
 
@@ -7,13 +7,30 @@
     1. store data in `JSONB` columns
 
         1. `JSONB` stands for JSON + Binary formatted;
-        1. there is also a `JSON` column type, but it is strictly inferior and included only for historical reasons
+        1. There is also a `JSON` column type, but it is strictly inferior and included only for historical reasons
+        1. For the full history of Postgres JSON support, see <https://www.youtube.com/watch?v=tF3Lb2BvGpk>
+
+           (You may watch this video for your culture caveat task.)
+
+           Summary:
+           1. JSON support is the "killer feature" of MongoDB and many other NoSQL systems
+           1. For this reason, NoSQL became super popular around the 2010-2014 time frame
+           1. In 2014+ Postgres has strictly better JSON support
+           1. Postgres team led the standardization effort for getting JSON in ANSI SQL standard
+           1. No other RDBMS has good JSON support (MSSQL/MySQL/Sqlite have no support; Oracle has limited support)
+
+        > **NOTE:**
+        > `JSON` (in backticks) refers to a specific type implemented in the postgres system;
+        > JSON (no backticks) refers to the more abstract platonic JSON ideal without respect to any particular implementation.
+        > This subtle grammar point is an important shibboleth for programmer competence.
 
     1. access data using the operators
         1. `->'key'` returns the value of `'key'` as a `JSONB` type
         1. `->>'key'` returns the value of `'key'`, but resolves the type 
         1. typical to chain them like `data->'key1'->'key2'->>'key3'`
+        1. `jsonb_array_elements` is like the `unnest` function, but for json arrays
         1. the `COALESCE` function is useful for providing default values
+        1. if you're confused about the type of a variable, use `pg_typeof`
 
     1. every row can have a different schema, just like every JSON object can have different keys;
         1. postgres can't do as many optimizations, so selects a bit slower and rows take up more disk space
@@ -184,5 +201,7 @@
    Postgres will happily delete everything in the database if you have a typo in your delete/update statements,
    and these tips will ensure that you don't accidentally have this happen to you.
 
-   <img src=Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg />
+   <img src=Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg width=400px />
 
+   Stories:
+   1. Junior dev given API keys and deletes the database: <https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/>
