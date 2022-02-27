@@ -101,7 +101,7 @@ Complete the following tasks:
 1. Modify the `map.py` file so that it tracks the usage of the hashtags on both a language and country level.
    This will require creating a variable `counter_country` similar to the variable `counter_lang`, 
    and modifying this variable in the `#search hashtags` section of the code appropriately.
-   The output of running `map.py` should be two files now, one that ends in `.lang` for the lanuage dictionary (same as before),
+   The output of running `map.py` should be two files now, one that ends in `.lang` for the language dictionary (same as before),
    and one that ends in `.country` for the country dictionary.
 
    **HINT:**
