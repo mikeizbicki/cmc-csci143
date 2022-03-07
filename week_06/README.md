@@ -34,6 +34,8 @@
 
    - Wednesday in-class is a review session for you to ask questions (no class Friday)
 
+   - example previous midterm available at <https://github.com/mikeizbicki/pagila-midterm>
+
    Content:
 
    - 5 questions, 15 points/question => 75 points
