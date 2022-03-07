@@ -50,6 +50,8 @@
 
              (I'm told I'm less generous than other profs)
 
+           - If you misunderstand what the English is asking for, expect no credit on the problem
+
            - 3 points/problem for the "readability" of your SQL code
 
    - 1 question of column tetris; you must do both:
