@@ -24,6 +24,12 @@
 
       Total points: between 103-133
 
+1. Reminder:
+
+   - Week 06 hw (twitter\_postgres) due Sunday 20 March, after spring break
+
+   - Not on midterm
+
 1. Midterm
 
    Format:
@@ -39,6 +45,8 @@
    Content:
 
    - 5 questions, 15 points/question => 75 points
+
+   - No questions on shell/docker, just postgres
 
    - 4 questions of SQL problems based on pagila (focus on pagila-hw2/hw3 concepts)
 
