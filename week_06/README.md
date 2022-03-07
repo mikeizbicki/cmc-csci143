@@ -1,5 +1,63 @@
 # Modifying the Database (SQL+Python)
 
+## Announcments
+
+**Monday, 07 March**
+
+1. Good to see you all again :)
+
+1. All assignments are graded.
+
+   1. Twitter/MapReduce
+
+      4 students missed points (between -10 to -2)
+
+      The explanations are a bit complex, so see me to go over why (and possibly get points back)
+
+   1. Pagila-hwX
+
+      1. Lots of great scores!
+
+   1. Overall grades
+
+      Median: 97%
+
+      Total points: between 103-133
+
+1. Midterm
+
+   Format:
+
+   - take-home; open note/computer/any other resource you'd like
+
+   - I will distribute it Wednesday afternoon; you have until Friday@midnight
+
+   - Wednesday in-class is a review session for you to ask questions (no class Friday)
+
+   Content:
+
+   - 5 questions, 15 points/question => 75 points
+
+   - 4 questions of SQL problems based on pagila (focus on pagila-hw2/hw3 concepts)
+
+       - you will NOT have access to the desired output
+
+       - I will read your SQL manually to grade (and not do a verbatim check on the output like in the hw)
+
+           - No penalty for incorrect answers
+
+           - I will award partial credit
+
+             (I'm told I'm less generous than other profs)
+
+           - 3 points/problem for the "readability" of your SQL code
+
+   - 1 question of column tetris; you must do both:
+
+       - find the total number of bytes/row
+
+       - rearrange the rows for optimal storage
+
 ## Lecture
 
 1. Working with denormalized JSON data in postgres
