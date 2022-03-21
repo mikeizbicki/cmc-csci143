@@ -105,6 +105,28 @@ overall median: 89%
 
 # Multi-Version Concurrency Control (MVCC)
 
+<img src=concurrency-why-did-it-have-to-be-concurrency.jpg width=400px>
+
+**Low level:**
+
+1. There will be a quiz on the `notes.pdf` file.
+
+1. References:
+
+    1. https://www.postgresql.org/docs/current/transaction-iso.html 
+
+       responsible for:
+       1. "read committed", and "repeatable read" isolation levels
+
+       not responsible for:
+       1. "serializable" isolation level
+
+    1. https://www.postgresql.org/docs/current/explicit-locking.html
+
+       responsible for everything
+
+**High level:**
+
 1. [ACID](https://en.wikipedia.org/wiki/ACID)
 
     1. Atomicity: In a transaction involving two or more discrete pieces of information, either all of the pieces are committed or none are.
@@ -142,16 +164,20 @@ overall median: 89%
 
       <img src=nosql.jpeg width=300px />
 
-**References:**
+**Life Pro Tips:**
 
-1. https://www.postgresql.org/docs/current/transaction-iso.html 
+1. Wrap all of your `DELETE` calls within a transaction.
 
-   responsible for:
-   1. "read committed", and "repeatable read" isolation levels
+    <img src=Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg width=500px/>
 
-   not responsible for:
-   1. "serializable" isolation level
+    1. The Junior Dev who deleted the production database:
 
-1. https://www.postgresql.org/docs/current/explicit-locking.html
+       https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/
 
-   responsible for everything
+1. Avoid deadlocks in your `INSERT` code by avoiding `UNIQUE` constraints that aren't necessary
+
+   <img src=deadlock.jpg width=500px>
+
+   but don't remove the constraints that actually ARE necessary, or you'll corrupt your data
+
+   <img src=you-cant-have-a-deadlock-if-you-remove-the-locks.jpg width=500px>
