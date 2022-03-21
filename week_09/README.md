@@ -162,7 +162,7 @@ overall median: 89%
 
       Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
 
-      <img src=nosql.jpeg width=300px />
+      <img src=nosql.jpeg width=500px />
 
 **Life Pro Tips:**
 
