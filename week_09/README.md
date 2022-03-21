@@ -1,6 +1,6 @@
 # Midterm
 
-<img src=midterm-scores.jpg>
+<img src=midterm-scores.png width=600px>
 
 2 perfect scores, most people lost most of their points heavily on problems 1 or 4
 
