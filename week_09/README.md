@@ -10,6 +10,8 @@ overall median: 89%
 
 **Rubric:**
 
+1. Solutions posted to <https://github.com/mikeizbicki/pagila-midterm/tree/2022spring-solution>
+
 1. Any problem:
 
     1. (-3) if you had some minor logic problems in the where clause
