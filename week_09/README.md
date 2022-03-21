@@ -111,19 +111,23 @@ overall median: 89%
 
 1. There will be a quiz on the `notes.pdf` file.
 
+   1. Quiz will allow arbitrary references, but no access to postgresql
+
+   1. You will not pass the quiz if you are not able to navigate the references
+
 1. References:
 
     1. https://www.postgresql.org/docs/current/transaction-iso.html 
 
-       responsible for:
-       1. "read committed", and "repeatable read" isolation levels
+       responsible for: `READ COMMITTED`, and `REPEATABLE READ` isolation levels
 
-       not responsible for:
-       1. "serializable" isolation level
+       not responsible for: `SERIALIZABLE` isolation level
 
     1. https://www.postgresql.org/docs/current/explicit-locking.html
 
-       responsible for everything
+       responsible for: table/row-level locks, deadlocks
+       
+       not responsible for: page-level locks, advisory locks 
 
 **High level:**
 
