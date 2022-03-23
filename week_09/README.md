@@ -180,7 +180,7 @@ overall median: 89%
 
        https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/
 
-1. Avoid deadlocks in your `INSERT` code by avoiding `UNIQUE` constraints that aren't necessary
+1. Avoid deadlocks in your `INSERT` code by avoiding `UNIQUE`/`FOREIGN KEY` constraints that aren't necessary
 
    <img src=deadlock.jpg width=500px>
 
