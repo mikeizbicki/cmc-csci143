@@ -24,6 +24,6 @@
 [submodule "week_06/twitter_postgres"]
 	path = week_06/twitter_postgres
 	url = https://github.com/mikeizbicki/twitter_postgres
-[submodule "week_08/twitter_postgres2"]
-	path = week_11/twitter_postgres2
-	url = https://github.com/mikeizbicki/twitter_postgres2
+[submodule "week_10/twitter_postgres_parallel"]
+	path = week_10/twitter_postgres_parallel
+	url = https://github.com/mikeizbicki/twitter_postgres_parallel

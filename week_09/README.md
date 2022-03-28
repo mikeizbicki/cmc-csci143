@@ -139,7 +139,7 @@ overall median: 89%
 
     1. Durability: Committed data is saved by the system such that, even in the event of a failure and system restart, the data is available in its correct state.
 
-1. Implementing atomicity, consistency, durability is a hard CS problem that we will ignore.
+1. Implementing durability is a hard CS problem that we will ignore.
    The fact that Postgres has these properties ensures that even when hardware fails,
    the data in the database will not be corrupted.
 
@@ -176,6 +176,7 @@ overall median: 89%
 
        https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/
 
+<!--
 1. Avoid deadlocks in your `INSERT` code by avoiding `UNIQUE` constraints that aren't necessary
 
    <img src=deadlock.jpg width=500px>
@@ -183,3 +184,4 @@ overall median: 89%
    but don't remove the constraints that actually ARE necessary, or you'll corrupt your data
 
    <img src=you-cant-have-a-deadlock-if-you-remove-the-locks.jpg width=500px>
+   -->
