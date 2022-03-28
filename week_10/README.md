@@ -6,15 +6,23 @@
 
 1. I've regraded problem 4 from the midterm
 
+    1. I made a mistake with my initial grading (my sincere apologies)
+
+    1. Many people got the full 10 points back, many other people got 5/10 points
+
+    1. Some people "should" have lost points, but I didn't take them away
+
 1. Quiz on transactions/locks will be Monday 4 April
 
 1. Homework posted due Sunday 3 April
+
+1. Several people have emailed me about extra credit... these discussions must happen in person and not over email
 
 ## Lecture Notes
 
 **Reading:**
 
-1. You are responsible for everything in chapters 1,2,5,6,7 in the book <http://www.interdb.jp/pg>
+1. You are responsible for everything in chapters 1,2,5,6 in the book <http://www.interdb.jp/pg>
 
     This covers the implementation details of MVCC.
     These details will help you understand:
@@ -24,7 +32,6 @@
     1. how to make SQL `SELECT` queries fast
         1. next section of class covers the algorithms used for these queries,
             and you'll need to know the MVCC details
-         
 
 **Important Highlights From the Reading:**
 
