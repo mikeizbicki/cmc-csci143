@@ -18,6 +18,8 @@
 
 1. Several people have emailed me about extra credit... these discussions must happen in person and not over email
 
+1. We will finish up week 9 notes today before starting on the material below
+
 ## Lecture Notes
 
 **Reading:**
