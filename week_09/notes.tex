@@ -1767,6 +1767,487 @@ COMMIT;
 \end{tcolorbox}
 \vspace{2.5in}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Foreign Keys I}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+BEGIN;
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+
+INSERT INTO u VALUES (9);
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+
+INSERT INTO t VALUES (9);
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+BEGIN;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Foreign Keys II}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+INSERT INTO u VALUES (9);
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=9;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+INSERT INTO u VALUES (9);
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=8;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+INSERT INTO u VALUES (9);
+
+ABORT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=9;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+INSERT INTO u VALUES (9);
+
+ABORT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=8;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+
+INSERT INTO u VALUES (9);
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+DELETE FROM t WHERE a=9;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+
+INSERT INTO u VALUES (9);
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+DELETE FROM t WHERE a=8;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Deferring Constraints}
+
+\noindent
+\textbf{Note:}
+For each problem, you should consider what would happen both with and without the 
+
+\noindent
+\lstinline{DEFERRABLE INITIALLY DEFERRED} line.
+
+\vspace{0.2in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (
+    a INT UNIQUE
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (8);
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT UNIQUE);
+CREATE TABLE u (
+    b INT REFERENCES t(a)
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+
+INSERT INTO t VALUES (8);
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN;
+INSERT INTO u VALUES (8);
+
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT UNIQUE);
+CREATE TABLE u (
+    b INT REFERENCES t(a)
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+
+INSERT INTO t VALUES (8);
+ABORT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN;
+INSERT INTO u VALUES (8);
+
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT UNIQUE);
+CREATE TABLE u (
+    b INT REFERENCES t(a)
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+
+LOCK TABLE t IN EXCLUSIVE MODE;
+
+INSERT INTO t VALUES (8);
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN;
+INSERT INTO u VALUES (8);
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT UNIQUE);
+CREATE TABLE u (
+    b INT REFERENCES t(a)
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+
+LOCK TABLE t IN EXCLUSIVE MODE;
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN;
+INSERT INTO u VALUES (8);
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{2.5in}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

@@ -113,19 +113,25 @@ overall median: 89%
 
 1. There will be a quiz on the `notes.pdf` file.
 
+   1. Quiz will allow arbitrary references, but no access to postgresql
+
+   1. We will not cover everything in class,
+   
+      So you must learn to navigate the references
+
 1. References:
 
     1. https://www.postgresql.org/docs/current/transaction-iso.html 
 
-       responsible for:
-       1. "read committed", and "repeatable read" isolation levels
+       responsible for: `READ COMMITTED`, and `REPEATABLE READ` isolation levels
 
-       not responsible for:
-       1. "serializable" isolation level
+       not responsible for: `SERIALIZABLE` isolation level
 
     1. https://www.postgresql.org/docs/current/explicit-locking.html
 
-       responsible for everything
+       responsible for: table/row-level locks, deadlocks
+       
+       not responsible for: page-level locks, advisory locks 
 
 **High level:**
 
@@ -143,28 +149,28 @@ overall median: 89%
    The fact that Postgres has these properties ensures that even when hardware fails,
    the data in the database will not be corrupted.
 
-   1. NoSQL databases (e.g. MongoDB, CassandraDB, etc.) are typically not ACID compliant,
-      and so the data can be corrupted.
-      For some databases, this can happen even under normal operating conditions.
+1. NoSQL databases (e.g. MongoDB, CassandraDB, etc.) are typically not ACID compliant,
+  and so the data can be corrupted.
+  For some databases, this can happen even under normal operating conditions.
 
-      MongoDB team infamously misrepresented reports about Jepsen Analysis (a standard test suite for checking ACID compliance),
-      claiming that they pass tests when they do not: https://www.infoq.com/news/2020/05/Jepsen-MongoDB-4-2-6/
+  MongoDB team infamously misrepresented reports about Jepsen Analysis (a standard test suite for checking ACID compliance),
+  claiming that they pass tests when they do not: https://www.infoq.com/news/2020/05/Jepsen-MongoDB-4-2-6/
 
-      How MongoDB corrupted a social network's website: http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/
+  How MongoDB corrupted a social network's website: http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/
 
-      How/why The Guardian switched from MongoDB to Postgres: https://www.theguardian.com/info/2018/nov/30/bye-bye-mongo-hello-postgres
+  How/why The Guardian switched from MongoDB to Postgres: https://www.theguardian.com/info/2018/nov/30/bye-bye-mongo-hello-postgres
 
-   1. NoSQL databases can be faster than Postgres because they do not implement ACID...
-      but it's possible to selectively turn off these features in Postgres in order to speed it up.
-      (You almost certainly shouldn't do this in a real world scenaio... but it's possible.)
+1. NoSQL databases can be faster than Postgres because they do not implement ACID...
+  but it's possible to selectively turn off these features in Postgres in order to speed it up.
+  (You almost certainly shouldn't do this in a real world scenario... but it's possible.)
 
-      Unlogged tables: https://www.compose.com/articles/faster-performance-with-unlogged-tables-in-postgresql/
+  Unlogged tables: https://www.compose.com/articles/faster-performance-with-unlogged-tables-in-postgresql/
 
-      Disable fsync: https://www.2ndquadrant.com/en/blog/postgresql-fsync-off-warning-in-config-file/
+  Disable fsync: https://www.2ndquadrant.com/en/blog/postgresql-fsync-off-warning-in-config-file/
 
-      Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
+  Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
 
-      <img src=nosql.jpeg width=500px />
+  <img src=nosql.jpeg width=500px />
 
 **Life Pro Tips:**
 
@@ -177,7 +183,7 @@ overall median: 89%
        https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/
 
 <!--
-1. Avoid deadlocks in your `INSERT` code by avoiding `UNIQUE` constraints that aren't necessary
+1. Avoid deadlocks in your `INSERT` code by avoiding `UNIQUE`/`FOREIGN KEY` constraints that aren't necessary
 
    <img src=deadlock.jpg width=500px>
 
