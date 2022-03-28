@@ -150,27 +150,27 @@ overall median: 89%
    the data in the database will not be corrupted.
 
 1. NoSQL databases (e.g. MongoDB, CassandraDB, etc.) are typically not ACID compliant,
-  and so the data can be corrupted.
-  For some databases, this can happen even under normal operating conditions.
+    and so the data can be corrupted.
+    For some databases, this can happen even under normal operating conditions.
 
-  MongoDB team infamously misrepresented reports about Jepsen Analysis (a standard test suite for checking ACID compliance),
-  claiming that they pass tests when they do not: https://www.infoq.com/news/2020/05/Jepsen-MongoDB-4-2-6/
+    MongoDB team infamously misrepresented reports about Jepsen Analysis (a standard test suite for checking ACID compliance),
+    claiming that they pass tests when they do not: https://www.infoq.com/news/2020/05/Jepsen-MongoDB-4-2-6/
 
-  How MongoDB corrupted a social network's website: http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/
+    How MongoDB corrupted a social network's website: http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/
 
-  How/why The Guardian switched from MongoDB to Postgres: https://www.theguardian.com/info/2018/nov/30/bye-bye-mongo-hello-postgres
+    How/why The Guardian switched from MongoDB to Postgres: https://www.theguardian.com/info/2018/nov/30/bye-bye-mongo-hello-postgres
 
 1. NoSQL databases can be faster than Postgres because they do not implement ACID...
-  but it's possible to selectively turn off these features in Postgres in order to speed it up.
-  (You almost certainly shouldn't do this in a real world scenario... but it's possible.)
+    but it's possible to selectively turn off these features in Postgres in order to speed it up.
+    (You almost certainly shouldn't do this in a real world scenario... but it's possible.)
 
-  Unlogged tables: https://www.compose.com/articles/faster-performance-with-unlogged-tables-in-postgresql/
+    Unlogged tables: https://www.compose.com/articles/faster-performance-with-unlogged-tables-in-postgresql/
 
-  Disable fsync: https://www.2ndquadrant.com/en/blog/postgresql-fsync-off-warning-in-config-file/
+    Disable fsync: https://www.2ndquadrant.com/en/blog/postgresql-fsync-off-warning-in-config-file/
 
-  Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
+    Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
 
-  <img src=nosql.jpeg width=500px />
+    <img src=nosql.jpeg width=500px />
 
 **Life Pro Tips:**
 
