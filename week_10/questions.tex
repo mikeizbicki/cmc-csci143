@@ -1,0 +1,221 @@
+\documentclass{exam}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+
+\usepackage{color}
+\usepackage{colortbl}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{gray}{rgb}{0.7,0.7,0.7}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor    = blue  %Colour of citations
+}
+
+\usepackage{listings}
+\lstset {
+	basicstyle=\ttfamily,
+    ,language=SQL
+    ,showstringspaces=false
+    ,keepspaces=true
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\printanswers
+
+% Create a True False question format
+\newcommand*{\TrueFalse}[1]{%
+\ifprintanswers
+    \ifthenelse{\equal{#1}{T}}{%
+        \textbf{TRUE}\hspace*{14pt}False
+    }{
+        True\hspace*{14pt}\textbf{FALSE}
+    }
+\else
+    {True}\hspace*{20pt}False
+\fi
+} 
+%% The following code is based on an answer by Gonzalo Medina
+%% https://tex.stackexchange.com/a/13106/39194
+\newlength\TFlengthA
+\newlength\TFlengthB
+\settowidth\TFlengthA{\hspace*{1.16in}}
+\newcommand\TFQuestion[2]{%
+    \setlength\TFlengthB{\linewidth}
+    \addtolength\TFlengthB{-\TFlengthA}
+    \parbox[t]{\TFlengthA}{\TrueFalse{#1}}\parbox[t]{\TFlengthB}{#2}
+}
+
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{defn}{Definition}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\E}{\mathbb E}
+\DeclareMathOperator{\nnz}{nnz}
+\DeclareMathOperator{\determinant}{det}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\I}{\mathbf I}
+\newcommand{\Q}{\mathbf Q}
+\newcommand{\p}{\mathbf P}
+\newcommand{\pb}{\bar {\p}}
+\newcommand{\pbb}{\bar {\pb}}
+\newcommand{\pr}{\bm \pi}
+
+\newcommand{\trans}[1]{{#1}^{T}}
+\newcommand{\loss}{\ell}
+\newcommand{\w}{\mathbf w}
+\newcommand{\x}{\mathbf x}
+\newcommand{\y}{\mathbf y}
+\newcommand{\lone}[1]{{\lVert {#1} \rVert}_1}
+\newcommand{\ltwo}[1]{{\lVert {#1} \rVert}_2}
+\newcommand{\lp}[1]{{\lVert {#1} \rVert}_p}
+\newcommand{\linf}[1]{{\lVert {#1} \rVert}_\infty}
+\newcommand{\lF}[1]{{\lVert {#1} \rVert}_F}
+
+% Shalev-Swartz and Ben-David
+
+\newcommand{\h}{\mathcal H}
+\newcommand{\D}{\mathcal D}
+\DeclareMathOperator*{\erm}{ERM}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+\begin{center}
+\Huge
+Questions on Table Storage
+\end{center}
+
+
+\section{True/False Questions}
+
+For each question below, circle either True or False.
+On your final exam,
+each correct answer will result in +1 point,
+each incorrect answer will result in -1 point,
+and each blank answer in 0 points.
+
+\vspace{0.15in}
+\noindent
+For this homework assignment, you can uncomment the following line in the tex file to view the answers:
+\begin{verbatim}
+\printanswers
+\end{verbatim}
+and so these questions do not need to be submitted.
+You should still try to complete them, however, to check your understanding.
+Approximately half of these questions will be answered directly in class and 
+and the remaining half you'll have to refer to the postgres documentation / supplementary material for the answers.
+
+\begin{questions}
+
+\question\TFQuestion{T}{An OID is a signed 4-byte integer.}
+
+\question\TFQuestion{F}{Every row is assigned an OID.}
+
+\question\TFQuestion{F}{The number 35184372088832 is a valid OID.}
+
+\question\TFQuestion{T}{The \lstinline{initdb} utility will initialize a new database cluster.}
+
+\question\TFQuestion{F}{The \lstinline{POSTGRES_DATA} environment variable stores the path to the base directory.}
+
+\question\TFQuestion{F}{It is safe to delete the postgres \lstinline{pg_xlog} folder in order to free up disk space.}
+
+\question\TFQuestion{T}{The file \lstinline{postgresql.conf} is used to set configuration parameters.}
+
+\question\TFQuestion{F}{The folder \lstinline{pg_stat} contains temporary files for the statistics subsystem.}
+
+\question\TFQuestion{F}{Every relation in a postgres database is physically stored on the harddrive as exactly one file.}
+
+\question\TFQuestion{T}{A table that takes up 160KB on disk has 20 pages.}
+
+\question\TFQuestion{F}{TID stands for \emph{Transaction ID}, and every transaction is assigned a unique TID.}
+
+\question\TFQuestion{T}{OID stands for \emph{Object ID}, and every table is assigned a unique OID.}
+
+\question\TFQuestion{F}{No page can have more than 100 tuples in it.}
+
+\question\TFQuestion{F}{Very large tuples can span multiple pages.}
+
+\question\TFQuestion{F}{If a tuple exists on disk, then there is guaranteed to be some transaction that can see the tuple.}
+
+\question\TFQuestion{F}{In order to remove dead tuples from a table, you must manually run the VACUUM command on that table.}
+
+\question\TFQuestion{F}{You should disable autovacuum to improve the performance of your database.}
+
+\question\TFQuestion{F}{When you use the INSERT command to insert multiple rows into a table at once, these rows are guaranteed to be inserted into the same page.}
+
+\question\TFQuestion{F}{A postgres database cluster can span dozens of computers.}
+
+\question\TFQuestion{F}{Postgres is using too much disk space, and you need to free up some space.  You identify that there is a large 10TB table that contains about 90\% dead tuples.  Running the VACUUM command on this table will likely free up several terabytes of disk space.}
+
+\question\TFQuestion{T}{Postgres uses a table's FSM to quickly determine which page it should insert a tuple into.}
+
+\question\TFQuestion{T}{Postgres uses a table's VM to speed up VACUUMing.}
+
+\question\TFQuestion{F}{If you are inserting large text strings into postgres, it makes sense to compress them first in order to save space.}
+
+\question\TFQuestion{F}{The DELETE command deletes tuples directly from the page files.}
+
+\question\TFQuestion{F}{NoSQL databases like MongoDB and CassandraDB use ACID compliant transactions.}
+
+\question\TFQuestion{T}{Postgres transactions are ACID compliant.}
+
+\question\TFQuestion{T}{The \lstinline{synchronous_commit} system setting can be used to disable postgresql's ACID guarantees.  This speeds up transactions, but may result in data loss if the server crashes.}
+
+\question\TFQuestion{F}{If the write ahead log (WAL) grows very large, it is safe to delete it in order to free up disk space.}
+
+\question\TFQuestion{F}{If the transaction log (clog/xact) grows very large, it is safe to delete it in order to free up disk space.}
+
+%\question\TFQuestion{T}{Given the choice between (A) having tables on an SSD and indexes on an HDD, and (B) having tables on an HDD and indexes on an SDD, option (A) will generally be faster.}
+
+\question\TFQuestion{T}{If the database cluster is being stored on an SSD, then the \lstinline{random_page_cost} system parameter should should be reduced from its default value of 4.}
+
+\question\TFQuestion{T}{The default \lstinline{fillfactor} for tables is 100.}
+
+\question\TFQuestion{T}{Tables that have INSERTs but no UPDATEs should use a \lstinline{fillfactor} of 100, but for tables with many updates, it may make sense to decrease the \lstinline{fillfactor}.}
+
+\question\TFQuestion{T}{Heap tuples are stacked in order from the bottom of the page.}
+
+\question\TFQuestion{T}{There is no difference between a line pointer and an item pointer.}
+
+\question\TFQuestion{T}{A page always has 24 bytes of header data.}
+
+\question\TFQuestion{T}{For any given page, the \lstinline{pd_lower} value can never be greater than the \lstinline{pg_upper} value.}
+
+\question\TFQuestion{F}{Postgres does not suffer from the txid wraparound problem.}
+
+\question\TFQuestion{F}{Phantom reads are possible in Postgres's REPEATABLE READ isolation level.}
+
+\question\TFQuestion{T}{The visibility map was introduced in Postgres version 8.4 to reduce the cost of VACUUM processing.}
+
+\question\TFQuestion{T}{The visibility map holds information about which pages contain dead tuples.}
+
+\question\TFQuestion{T}{The postgres server process is the parent of all other postgres processes.}
+
+\question\TFQuestion{T}{The WAL buffer is contained in the shared memory area.}
+
+\question\TFQuestion{T}{By default, the maximum number of client connections in postgres is 100.}
+
+\end{questions}
+\end{document}
+
+
+
