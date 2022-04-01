@@ -102,7 +102,7 @@
 
         If the `CREATE INDEX` command blocks due to autovacuum, it's tempting to disable autovacuum.
 
-        **#1 Rule of Postgres Admin:** Never disable autovacuum.
+        **First Rule of Postgres Admin:** Never disable autovacuum.
 
     1. Many database designers try to avoid creating a database that will require `UPDATE`/`DELETE` commands in order to avoid the difficulties associated with vacuuming,
         although it's not always possible to completely avoid these commands.
