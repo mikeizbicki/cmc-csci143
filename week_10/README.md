@@ -69,52 +69,62 @@
    then the row is called "dead".
    Dead tuples waste disk space.
 
-1. The `vacuum` procedure scans a table and actually deletes the dead tuples from a page file.
+1. `xid` numbers are 4-byte unsigned integers => "only" 4.2 billion transactions possible.
+
+    It's actually very common to exceed this number in practice => transaction wraparound problem.
+
+1. The `VACUUM` procedure scans a table and actually deletes the dead tuples from a page file.
    You can call it manually via
    ```
    VACUUM tablename;
    ```
    A background process called `autovacuum` runs regularly on each table, automatically vacuuming the table for you. 
 
-   Vacuuming a table is an expensive procedure.
-   For large tables (>1gb),
-   vacuuming can easily take days.
-   While a table is being vacuumed,
-   most SQL operations can be performed (e.g. `SELECT`/`UPDATE`/`DELETE` are okay),
-   but certain operations like creating an index are blocked.
+    1. Vacuuming a table is an expensive procedure.
+        For large tables (>1gb),
+        vacuuming can easily take days.
 
-   Tuning autovacuum is important for database loads with lots of deletes/updates,
-   and is a relatively difficult task that requires a fairly deep understanding of db implementation details.
-   For most workloads, however, the defaults work well enough.
+    1. The **visibility map (VM)** is used to determine which pages need to be vacuumed (i.e. have dead tuples), and greatly speeds up this process.
 
-   Many database designers try to avoid creating a database that will require `UPDATE`/`DELETE` commands in order to avoid the difficulties associated with vacuuming,
-   although it's not always possible to completely avoid these commands.
+    1. Regular vacuuming ensures that most pages do not have dead tuples, so that vacuuming remains fast.
+        The autovacuum process does this vacuuming for you automatically.
 
-   Reference: https://www.percona.com/blog/2018/08/06/basic-understanding-bloat-vacuum-postgresql-mvcc/
+        Tuning autovacuum is important for database loads with lots of deletes/updates,
+        and is a relatively difficult task that requires a fairly deep understanding of db implementation details.
+        For most workloads, however, the defaults work well enough.
 
-   <img src=autovacuum.jpeg />
+        <img src=autovacuum.jpeg />
 
-1. Because of vacuuming,
-   there is often free space in the table file that is not at the end of the table.
-   New tuples will get inserted into this free space.
-   The physical order of rows in the database therefore has no semantic meaning,
-   it is 100% arbitrary.
+    1. `VACCUM` acuires a `SHARE UPDATE EXCLUSIVE` lock.
+        While a table is being vacuumed,
+        most SQL operations can be performed (e.g. `SELECT`/`UPDATE`/`DELETE` are okay),
+        but certain operations like creating an index are blocked.
 
-   Finding information in a table therefore requires a full "sequential scan" of the entire table file.
-   Indexes can be used to speed up this process.
+        If the `CREATE INDEX` command blocks due to autovacuum, it's tempting to disable autovacuum.
 
+        **#1 Rule of Postgres Admin:** Never disable autovacuum.
 
-1. Even though vacuuming a table deletes dead tuples,
-   it does not "defragment" the tuples or delete "pages".
-   Therefore, it cannot actually remove any disk space.
-   The "full vacuum" is required to actually free up the disk space,
-   and it can be run via
-   ```
-   VACUUM FULL tablename;
-   ```
-   The downside of this command is that no other process can modify the table during a full vacuum.
+    1. Many database designers try to avoid creating a database that will require `UPDATE`/`DELETE` commands in order to avoid the difficulties associated with vacuuming,
+        although it's not always possible to completely avoid these commands.
 
-   Reference: http://www.interdb.jp/pg/pgsql06.html
+    1. Because of vacuuming,
+       there is often free space in the table file that is not at the end of the table.
+       New tuples will get inserted into this free space.
+       The physical order of rows in the database therefore has no semantic meaning,
+       it is 100% arbitrary.
+
+       The **free space map (FSM)** is used to determine which page to insert a tuple into.
+
+    1. Even though vacuuming a table deletes dead tuples,
+       it does not "defragment" the tuples or delete "pages".
+       Therefore, it cannot actually remove any disk space.
+       The "full vacuum" is required to actually free up the disk space,
+       and it can be run via
+       ```
+       VACUUM FULL tablename;
+       ```
+       The downside of this command is that it requires an `ACCESS EXCLUSIVE` lock,
+       so no other process can modify the table during a full vacuum.
 
 1. For workloads that involve updates/deletes,
    it is essentially impossible to predict how much disk space the database will use.
@@ -122,6 +132,7 @@
    Typical overhead factors are between 2-4x,
    but could easily be more.
 
+<!--
 1. Other oddities:
    The values in a `SERIAL` column need not be sequential.
 
@@ -130,4 +141,4 @@
    If the transaction is aborted,
    these numbers will remain unused,
    and future inserts will continue as if the transaction occurred.
-
+-->
