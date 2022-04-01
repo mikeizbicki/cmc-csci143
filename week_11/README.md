@@ -4,7 +4,7 @@ Indexes are data structures used for making SQL queries (typically `SELECT`) fas
 
 1. Advantage:
     1. reduce the runtime of finding a row (for `SELECT`/`UPDATE`/`DELETE` statements) from O(n) down to O(log n)
-    1. required for the implementation of `UNIQUE` constraints
+    1. required for the implementation of `UNIQUE` constraints (and thus `FOREIGN KEY` constraints)
 
 1. Disadvantage:
     1. increase the runtime of `INSERT` from O(1) to O(log n)
