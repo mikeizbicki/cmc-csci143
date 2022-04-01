@@ -292,12 +292,13 @@ CREATE TABLE tweets_mentions (
 
 \begin{questions}
 \question{
-List all the tables/columns that have indexes created on them.
+    Recall that certain constraints create indexes on the appropriate columns.
+    List the equivalent \lstinline{CREATE INDEX} commands that are run by these constraints.
 }
 
 \newpage
 \question{
-List the scan methods applicable for the following SQL query.
+List all of the scan methods that could possibly be used for the following SQL query.
 
 \lstinline{SELECT count(*) FROM tweets WHERE id_user=:id_user;}
 
@@ -305,7 +306,7 @@ List the scan methods applicable for the following SQL query.
 \vspace{1.5in}
 
 \question{
-List the scan methods applicable for the following SQL query.
+List all of the scan methods that could possibly be used for the following SQL query.
 
 \lstinline{SELECT id_users,username FROM users WHERE id_user=:id_user;}
 
@@ -469,9 +470,18 @@ How will this affect the number of pages accessed during (and therefore the runt
 \vspace{0.5in}
 \item bitmap scan?
 \vspace{0.5in}
+\item GroupAggregate?
+\vspace{0.5in}
+\item HashAggregate?
+\vspace{0.5in}
+\item Nested Loop join?
+\vspace{0.5in}
+\item Hash join?
+\vspace{0.5in}
+\item Merge join?
+\vspace{0.5in}
 \end{enumerate}
 
-You should also understand (but do not need to explain) why the number of pages accessed during a GroupAggregate/HashAggregate or Nested Loop/Hash/Merge join are not affected.
 }
 
 
