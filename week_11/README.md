@@ -23,7 +23,7 @@ Main reference:
 1. You are responsible for everything in the blog posts at <https://habr.com/en/company/postgrespro/blog/441962/>
 1. Chapter 7 of Internals of Postgres <http://www.interdb.jp/pg/pgsql07.html>
 
-Built-in Index in postgres:
+Built-in Indexes (data structures) in postgres:
 1. BTree **(most important)**
 1. Hash
 1. Gin
@@ -45,15 +45,25 @@ Vocabulary:
 
 1. You should have a basic intuitive understanding, but you won't need to understand low-level details
 
-1. A "high fan-out" balanced search tree
-    1. optimized for on-disk data storage
-        1. **key idea:** fast to find information stored close together, slow to "jump" to new information
+    1. BTree is an extension of the balanced binary search tree (AVL-Tree / Red-Black Tree / 2-3 Tree)
+
+    1. optimized for "on-disk" storage instead of "in-memory storage"
+
+        1. **key idea:** fast to find information stored close together, slow to "seek" to new information
+
+            1. increase the number of CPU operations in order to decrease the number of disk/IO (input-output) operations
 
         1. HDD internals:
 
            <img src=hdd.png />
 
            <img src=tm112_1_ol_s5_f1_5.tif.png />
+
+           1. HDD must load a "sector" of information at a time, cannot load individual bytes
+
+        1. A "high fan-out" reduces the number of disk seeks
+
+           in practice, fanout typically 100s in postgres
 
         1. common runtimes: http://norvig.com/21-days.html#answers
 
@@ -100,11 +110,7 @@ Table Scanning Strategies
     1. `n` = number of tuples in the table
     1. `b` = branching factor of the B-Tree
     1. `k` = number of rows returned by the `SELECT`
-    1. All runtimes assume 
-        1. Whenever we use an equality (`a = 5000`)
-           or a range query (`a <= 5000 AND a >= 4000`),
-           then the runtime is 
-        1. "worst case" bounds for the cartoon model of what postgres is doing
+    1. All runtimes are "worst case" bounds
 
 1. Sequential Scan
 
