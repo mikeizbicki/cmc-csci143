@@ -79,7 +79,7 @@ Vocabulary:
     1. **our main reference**: <https://habr.com/ru/company/postgrespro/blog/443284/>
 
     1. `README` in the source for real details: https://git.postgresql.org/gitweb/?p=postgresql.git;a=tree;f=src/backend/access/nbtree;h=2e3fb91ac5930dbcc0c6fc9b8b0659d9aa71bbd2;hb=HEAD
-    1. postgres uses the Lehman & Yao Algorithm from 1981 ([find the original paper here](<https://www.csd.uoc.gr/~hy460/pdf/p650-lehman.pdf>))
+    1. postgres uses the [Lehman & Yao Algorithm from 1981](https://www.csd.uoc.gr/~hy460/pdf/p650-lehman.pdf)
 
 ## Algorithms for using Indexes
 
