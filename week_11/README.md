@@ -83,17 +83,6 @@ Vocabulary:
 
 ## Algorithms for using Indexes
 
-Table Scanning Strategies
-
-1. Used to calculate the answer to a SQL query of the form:
-   ```
-   SELECT column_list
-   FROM table
-   WHERE condition
-   ```
-
-   Reference: <https://habr.com/ru/company/postgrespro/blog/441962/>
-
 1. Basic idea:
 
     1. You write a `SELECT` statement which describes "what" you want
@@ -103,7 +92,14 @@ Table Scanning Strategies
         1. There are various theorems that prove that no system can perform these steps optimally in all circumstances,
            but it still is pretty good
         1. To fully understand the query planner, you should take a course on compilers
-        1. Reference: http://www.interdb.jp/pg/pgsql03.html
+        1. Reference: <http://www.interdb.jp/pg/pgsql03.html>
+
+    1. `EXPLAIN`
+        1. Shows which algorithms postgres will use for any query
+        1. Used to debug all performance problems in postgres
+
+           <img src=explain_analyze.jpg />
+
 
 1. Definitions:
 
@@ -111,6 +107,17 @@ Table Scanning Strategies
     1. `b` = branching factor of the B-Tree
     1. `k` = number of rows returned by the `SELECT`
     1. All runtimes are "worst case" bounds
+
+### Table Scanning Strategies
+
+Used to calculate the answer to a SQL query of the form:
+```
+SELECT column_list
+FROM table
+WHERE condition
+```
+
+<!--   Reference: <https://habr.com/ru/company/postgrespro/blog/441962/> -->
 
 1. Sequential Scan
 
@@ -174,15 +181,38 @@ Table Scanning Strategies
     1. Downside:
         1. Cannot return results 1 at a time (like all other scans),
            must return them as a large batch
+        1. Cannot return results in sorted order
 
-Aggregate Strategies
+### Sorting Strategies
+
+Adding an `ORDER BY` clause.
+
+Two basic strategies:
+
+1. Explicit sort
+    1. Technically, 3 different types:
+        1. If the table scan data fits into `work_mem` (typically 20MB), then:
+            1. Top-N Heap Sort if `LIMIT N` clause
+            1. otherwise Quicksort
+        1. Otherwise a specialized merge sort that saves intermediate steps to the harddrive
+
+    1. Really good/fancy code here... but it's sorting is intrinsically slow, and you should try to avoid sorting
+
+    1. Reference: <https://www.cybertec-postgresql.com/en/postgresql-improving-sort-performance/>
+
+    <img src=sort.jpg width=600px />
+
+1. Use an index
+    1. Only applicable for index only/index scan (i.e. not bitmap scan)
+
+### Aggregate Strategies
 1. HashAggregate
 1. GroupAggregate
 1. Reference:
     1. https://www.slideshare.net/AlexeyBashtanov/pgday-uk-2016-performace-for-queries-with-grouping
     1. https://www.cybertec-postgresql.com/en/postgresql-speeding-up-group-by-and-joins/
 
-Parallelism
+### Parallelism
 1. Most query plans in postgres can be parallelized
     1. For those that cannot, lots of engineering work is going into enabling parallelism
 1. Parallelism incurs a (small) constant overhead to setup,
@@ -192,13 +222,12 @@ Parallelism
     1. https://www.postgresql.org/docs/13/how-parallel-query-works.html 
     1. Extensive details: https://wiki.postgresql.org/wiki/Parallel_Internal_Sort
 
-`EXPLAIN`
+### Other Topics
 
-1. Shows which algorithms postgres will use for any query
-1. Used to debug all performance problems in postgres
-
-   <img src=explain_analyze.jpg />
-
+1. Multicolumn indexes
+1. Expression indexes
+1. Partial indexes
+1. `UNIQUE`/`INCLUDE` indexes
 
 <!--
 ## Other Topics
