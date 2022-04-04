@@ -104,6 +104,7 @@ Vocabulary:
 1. Definitions:
 
     1. `n` = number of tuples in the table
+    1. `a` = number of tuples per page in the table
     1. `b` = branching factor of the B-Tree
     1. `k` = number of rows returned by the `SELECT`
     1. All runtimes are "worst case" bounds
@@ -142,6 +143,7 @@ WHERE condition
             1. this assumes that there are no "invisble" tuples in the table, which is checked using the visibility map
             1. this value can be non-zero if we must examine the `xmin`/`xmax` system columns to determine if the tuple is visible
             1. regular vacuuming helps keep the visibility map "clean" and ensures this scan is fast
+            1. if not vacuumed regularly, then potentially up to `O(k)`
         1. index pages accessed = `O(log_b n + k/b)`
         1. comparison operations = `O(b*log_b n + k)`
         1. small constant factor
@@ -155,19 +157,23 @@ WHERE condition
         1.  At least one column of the `WHERE` clause is present in the index... and it should be a highly selective one
     1. Runtime:
         1. table pages accessed = `O(k)`
-            1. Note that the number of pages is O(n/b), and k is only guaranteed to be <= n, so this can potentially access more pages than exist in the table!
+            1. Note that the number of pages is `O(n/a)`, and k is only guaranteed to be <= n, so this can potentially access more pages than exist in the table!
             1. No guarantee that the same page will not be accessed multiple times
             1. Caching of pages in memory somewhat mitigates this problem
         1. index pages accessed = `O(log_b n + k/b)`
         1. comparison operations = `O(b*log_b n + k)`
         1. medium constant factor
     1. Used when (AND):
-        1. `k << n/b`
+        1. `k << n/a`
         1. only one index will be consulted
 
 1. Bitmap Scan
-    1. More complicated scan method that uses indexes
-
+    1. Most complicated scan method
+        1. For each condition in the `WHERE` clause that matches an index:
+            1. Create a list of all TIDs in the index that match the condition
+            1. Compute a "bitmap" of all pages that contain these tuples
+        1. Compute the `AND`/`OR` of the bitmaps as appropriate
+        1. Scan only the pages in the final bitmap
     1. Runtime
         1. table pages accessed = `O(k)`
             1. typically much less than for an index scan
