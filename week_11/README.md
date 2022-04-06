@@ -189,9 +189,13 @@ WHERE condition
            must return them as a large batch
         1. Cannot return results in sorted order
 
+
 ### Sorting Strategies
 
-Adding an `ORDER BY` clause.
+Used for:
+
+1. Adding an `ORDER BY` clause
+1. When other components need sorted data
 
 Two basic strategies:
 
@@ -199,41 +203,201 @@ Two basic strategies:
     1. Technically, 3 different types:
         1. If the table scan data fits into `work_mem` (typically 20MB), then:
             1. Top-N Heap Sort if `LIMIT N` clause
+
+                Comparison Ops: `O(n + N log N)`
+
             1. otherwise Quicksort
+
+                Comparison Ops: `O(n log n)`
         1. Otherwise a specialized merge sort that saves intermediate steps to the harddrive
 
-    1. Really good/fancy code here... but it's sorting is intrinsically slow, and you should try to avoid sorting
+        1. Reference: <https://www.cybertec-postgresql.com/en/postgresql-improving-sort-performance/>
 
-    1. Reference: <https://www.cybertec-postgresql.com/en/postgresql-improving-sort-performance/>
+    1. Really good/fancy code here... but it's sorting is intrinsically slow `Omega(n)`... and so you should try to avoid sorting
 
-    <img src=sort.jpg width=600px />
+    <img src=sort.jpg width=400px />
 
 1. Use an index
     1. Only applicable for index only/index scan (i.e. not bitmap scan)
 
 ### Aggregate Strategies
-1. HashAggregate
+
+Used for:
+
+1. `GROUP BY` clause
+1. Aggregate functions (e.g. `count`, `sum`, `max`, etc.)
+
+Two Strategies:
+
 1. GroupAggregate
-1. Reference:
-    1. https://www.slideshare.net/AlexeyBashtanov/pgday-uk-2016-performace-for-queries-with-grouping
-    1. https://www.cybertec-postgresql.com/en/postgresql-speeding-up-group-by-and-joins/
+    1. Dis:
+        1. Requires sorted input data
+    1. Adv:
+        1. Needs less memory
+        1. Returns sorted data
+        1. Returns data continuously
+        1. Can perform complex aggregates like `COUNT (DISTINCT x)`
+
+1. HashAggregate
+    1. Adv:
+        1. Always applicable
+    1. Dis:
+        1. Needs more memory
+        1. Returns unsorted data
+        1. Must finish all computation before returning data
+        1. Can only perform basic aggregations
+    
+Reference:
+1. <https://www.slideshare.net/AlexeyBashtanov/pgday-uk-2016-performace-for-queries-with-grouping>
+1. <https://www.cybertec-postgresql.com/en/postgresql-speeding-up-group-by-and-joins/>
+
+### Join Strategies
+
+Used for:
+1. Any type of join (e.g. cross/inner/left outer/right outer/full outer)
+1. Only join exactly 2 tables at a time
+
+Reference:
+1. <https://www.cybertec-postgresql.com/en/join-strategies-and-performance-in-postgresql/>
+
+Three types of join strategies:
+
+1. Nested loop join
+   1. works in all scenarios
+   1. without an index
+      1. pseudocode looks like
+         ```
+         for each row a in A:
+             for each row b in B:
+                 if a,b satisfy join condition:
+                     output a,b
+         ```
+      1. runtime is `O(mn)`, where `m` is size of `A` and `n` is size of `B`
+   1. with an index
+      1. replace the inner for loop with an index only/index/bitmap scan:
+      1. pseudocode looks like
+         ```
+         for each row a in A:
+             find rows b in B satisfying join condition:
+                 output a,b
+         ```
+      1. runtime is `O(m log n)`
+   1. Recall that joins are commutative
+      1. That is,
+         ```
+         SELECT [columns]
+         FROM A
+         [LEFT/RIGHT/FULL] JOIN B USING join_condition
+         ```
+         is equivalent to 
+         ```
+         SELECT [columns]
+         FROM B
+         [LEFT/RIGHT/FULL] JOIN A USING join_condition
+         ```
+      1. So we can also do
+         ```
+         for each row b in B:
+             find rows a in A satisfying join condition:
+                 output a,b
+         ```
+      1. runtime is `O(n log m)`
+
+1. Hash join
+   1. requires:
+      1. equality join condition
+      1. hash table must fit inside `work_mem` parameter
+      1. large initial overhead to build the hash table before we can start outputing tuples
+   1. pseudocode looks like
+      ```
+      Build hash table for join column on B
+      for each row a in A:
+          if join column in hash table:
+              recheck row b in B for a hash collision
+              if no collision:
+                  output a,b
+      ```
+   1. runtime is `O(m + n)`, with a large overhead
+       1. if we have a `LIMIT k` clause, and every row in A has a corresponding row in B, then the runtime is `O(n + k)` because the for loop will stop early, but we still must build the hash table
+
+1. Merge join
+   1. like the merge step in merge sort
+   1. requires:
+      1. sorted inputs
+      1. equality join condition
+   1. advantages:
+      1. if the data is already sorted, there's no setup overhead
+      1. can early stop if only a small number of rows needed
+   1. pseudocode looks like
+      ```
+      i,j = 0
+      while i<m and j<n:
+          a = A[i]
+          b = B[j]
+          if a,b satisfy join condition:
+              output a,b
+          if join column of a < join column of b:
+              i += 1
+          else:
+              j += 1
+      ```
+   1. runtime is `O(m + n)` with a small overhead
+       1. if we have a `LIMIT k` clause, then the runtime is `O(k)` because while loop will stop early
+
+1. Conclusions:
+   1. merge/hash join faster than nested loop join whenever tables are reasonably large
+   1. asymptotically, indexes don't give us much benefit unless you have a `LIMIT k` clause in your query
+   1. they can remove the need for the sort step, allowing for faster merge joins
+
+
+Join Order
+
+1. Join strategies only join 2 tables at a time
+    1. When we join multiple tables, we must decide the order to do the joins in
+
+        The order that joins are performed in can have a HUGE impact on the join performance
+
+        See: <https://www.querifylabs.com/blog/introduction-to-the-join-ordering-problem>
+
+    1. It's analogous to the importance of multiplying matrices in the correct order for optimal performance
+
+        Famous dynamic [programming algorithm for solving](https://en.wikipedia.org/wiki/Matrix_chain_multiplication)
+
+1. Postgresql's query planner tries to pick an optimal join order for you automatically
+    1. If it has good statistics of the underlying tables,
+       it will pick a good join order
+    1. The algorithms for picking the join order given good table statistics are beyond the scope of this class
+    1. The important thing is to ensure that your table statistics are accurate by running the `ANALYZE` command.
+
+1. Reference: <https://www.cockroachlabs.com/blog/join-ordering-pt1/>
 
 ### Parallelism
-1. Most query plans in postgres can be parallelized
-    1. For those that cannot, lots of engineering work is going into enabling parallelism
+
+Postgres will automatically parallelize queries
+
+<img src='5ParallelismFTW.jpg' width=300px />
+
+1. All SQL queries can be parallelized in theory
+    1. In practice, not 100% of queries can be parallelized in postgres due to technical engineering issues
+    1. The devs are working to fix this
 1. Parallelism incurs a (small) constant overhead to setup,
    and so very small queries will not be parallelized
-1. References
-    1. https://www.postgresql.org/docs/13/parallel-plans.html
-    1. https://www.postgresql.org/docs/13/how-parallel-query-works.html 
-    1. Extensive details: https://wiki.postgresql.org/wiki/Parallel_Internal_Sort
 
-### Other Topics
+1. References
+    1. <https://www.postgresql.org/docs/13/parallel-plans.html>
+    1. <https://www.postgresql.org/docs/13/how-parallel-query-works.html>
+    1. Extensive details: <https://wiki.postgresql.org/wiki/Parallel_Internal_Sort>
+
+1. You need to be able to read the documentation and answer arbitrary questions about it
+
+### Other Concepts
+
+You must know how the following concepts relate to all of the query plan strategies discussed above.
 
 1. Multicolumn indexes
 1. Expression indexes
 1. Partial indexes
-1. `UNIQUE`/`INCLUDE` indexes
+1. `UNIQUE` indexes (with and without an `INCLUDE` statement)
 
 <!--
 ## Other Topics
