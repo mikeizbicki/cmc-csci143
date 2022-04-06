@@ -195,7 +195,7 @@ WHERE condition
 Used for:
 
 1. Adding an `ORDER BY` clause
-1. When other components need sorted data
+1. When downstream strategies need sorted data
 
 Two basic strategies:
 
