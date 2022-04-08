@@ -226,6 +226,11 @@ Used for:
 
 1. `GROUP BY` clause
 1. Aggregate functions (e.g. `count`, `sum`, `max`, etc.)
+    
+Reference:
+
+1. <https://www.slideshare.net/AlexeyBashtanov/pgday-uk-2016-performace-for-queries-with-grouping>
+1. <https://www.cybertec-postgresql.com/en/postgresql-speeding-up-group-by-and-joins/>
 
 Two Strategies:
 
@@ -246,16 +251,16 @@ Two Strategies:
         1. Returns unsorted data
         1. Must finish all computation before returning data
         1. Can only perform basic aggregations
-    
-Reference:
-1. <https://www.slideshare.net/AlexeyBashtanov/pgday-uk-2016-performace-for-queries-with-grouping>
-1. <https://www.cybertec-postgresql.com/en/postgresql-speeding-up-group-by-and-joins/>
 
 ### Join Strategies
 
 Used for:
 1. Any type of join (e.g. cross/inner/left outer/right outer/full outer)
-1. Only join exactly 2 tables at a time
+
+Note:
+1. Joins are traditionally thought of as "slow"
+1. NoSQL databases (e.g. MongoDB, CassandraDB) traditionally do not support joins in order to be fast/"web scale"
+1. A good understanding of join strategies can ensure that your joins are fast
 
 Reference:
 1. <https://www.cybertec-postgresql.com/en/join-strategies-and-performance-in-postgresql/>
