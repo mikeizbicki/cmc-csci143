@@ -302,7 +302,7 @@ Three types of join strategies:
             ```
             SELECT [columns]
             FROM B
-            [LEFT/RIGHT/FULL] JOIN A USING join_condition
+            [RIGHT/LEFT/FULL] JOIN A USING join_condition
             ```
         1. So we can also do
             ```
