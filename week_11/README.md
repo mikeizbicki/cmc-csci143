@@ -436,6 +436,18 @@ You must know how the following concepts relate to all of the query plan strateg
 1. Partial indexes
 1. `UNIQUE` indexes (with and without an `INCLUDE` statement)
 
+### Summary
+
+Creating indexes is complicated, and requires careful thought.
+
+<img src=index2.jpg width=400px >
+
+<!--
+It's not enough to:
+
+<img src=Index_all_the_things_-_All_the_things___Meme_Generator.png width=300px >
+-->
+
 <!--
 ## Other Topics
 
