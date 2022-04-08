@@ -268,46 +268,49 @@ Reference:
 Three types of join strategies:
 
 1. Nested loop join
-   1. works in all scenarios
-   1. without an index
-      1. pseudocode looks like
-         ```
-         for each row a in A:                       -- O(m)
-             for each row b in B:                   -- O(n)
-                 if a,b satisfy join condition:
-                     output a,b
-         ```
-      1. runtime is `O(mn)`, where `m` is size of `A` and `n` is size of `B`
-   1. with an index
-      1. replace the inner for loop with an index only/index/bitmap scan:
-      1. pseudocode looks like
-         ```
-         for each row a in A:                               -- O(m)
-             find rows b in B satisfying join condition:    -- O(log n)
-                 output a,b
-         ```
-      1. runtime is `O(m log n)`
+    1. works in all scenarios
+
+    1. without an index
+        1. pseudocode looks like
+            ```
+            for each row a in A:                       -- O(m)
+                for each row b in B:                   -- O(n)
+                    if a,b satisfy join condition:
+                        output a,b
+            ```
+        1. runtime is `O(mn)`, where `m` is size of `A` and `n` is size of `B`
+
+    1. with an index on B
+        1. replace the inner for loop with an index only/index/bitmap scan:
+        1. pseudocode looks like
+            ```
+            for each row a in A:                               -- O(m)
+                find rows b in B satisfying join condition:    -- O(log n)
+                    output a,b
+            ```
+        1. runtime is `O(m log n)`
             1. With a `LIMIT k` clause, if every row in `A` has a matching row in `B`, then `O(k log n)`
-   1. Recall that joins are commutative
-      1. That is,
-         ```
-         SELECT [columns]
-         FROM A
-         [LEFT/RIGHT/FULL] JOIN B USING join_condition
-         ```
-         is equivalent to 
-         ```
-         SELECT [columns]
-         FROM B
-         [LEFT/RIGHT/FULL] JOIN A USING join_condition
-         ```
-      1. So we can also do
-         ```
-         for each row b in B:                               -- O(n)
-             find rows a in A satisfying join condition:    -- O(log m)
-                 output a,b
-         ```
-      1. runtime is `O(n log m)`
+
+    1. with an index on A
+        1. Recall that joins are commutative; that is,
+            ```
+            SELECT [columns]
+            FROM A
+            [LEFT/RIGHT/FULL] JOIN B USING join_condition
+            ```
+            is equivalent to 
+            ```
+            SELECT [columns]
+            FROM B
+            [LEFT/RIGHT/FULL] JOIN A USING join_condition
+            ```
+        1. So we can also do
+            ```
+            for each row b in B:                               -- O(n)
+                find rows a in A satisfying join condition:    -- O(log m)
+                    output a,b
+            ```
+        1. runtime is `O(n log m)`
             1. With a `LIMIT k` clause, if every row in `B` has a matching row in `A`, then `O(k log m)`
 
 1. Hash join
@@ -315,6 +318,7 @@ Three types of join strategies:
       1. equality join condition
       1. hash table must fit inside `work_mem` parameter
       1. large initial overhead to build the hash table before we can start outputing tuples
+
    1. pseudocode looks like
       ```
       Build hash table for join column on B             -- O(n)
