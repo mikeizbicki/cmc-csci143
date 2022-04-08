@@ -267,8 +267,8 @@ Three types of join strategies:
    1. without an index
       1. pseudocode looks like
          ```
-         for each row a in A:
-             for each row b in B:
+         for each row a in A:                       -- O(m)
+             for each row b in B:                   -- O(n)
                  if a,b satisfy join condition:
                      output a,b
          ```
@@ -277,11 +277,12 @@ Three types of join strategies:
       1. replace the inner for loop with an index only/index/bitmap scan:
       1. pseudocode looks like
          ```
-         for each row a in A:
-             find rows b in B satisfying join condition:
+         for each row a in A:                               -- O(m)
+             find rows b in B satisfying join condition:    -- O(log n)
                  output a,b
          ```
       1. runtime is `O(m log n)`
+            1. With a `LIMIT k` clause, if every row in `A` has a matching row in `B`, then `O(k log n)`
    1. Recall that joins are commutative
       1. That is,
          ```
@@ -297,11 +298,12 @@ Three types of join strategies:
          ```
       1. So we can also do
          ```
-         for each row b in B:
-             find rows a in A satisfying join condition:
+         for each row b in B:                               -- O(n)
+             find rows a in A satisfying join condition:    -- O(log m)
                  output a,b
          ```
       1. runtime is `O(n log m)`
+            1. With a `LIMIT k` clause, if every row in `B` has a matching row in `A`, then `O(k log m)`
 
 1. Hash join
    1. requires:
@@ -310,24 +312,29 @@ Three types of join strategies:
       1. large initial overhead to build the hash table before we can start outputing tuples
    1. pseudocode looks like
       ```
-      Build hash table for join column on B
-      for each row a in A:
-          if join column in hash table:
-              recheck row b in B for a hash collision
+      Build hash table for join column on B             -- O(n)
+      for each row a in A:                              -- O(m)
+          if join column in hash table:                        
+              recheck row b in B for a hash collision          
               if no collision:
                   output a,b
       ```
+
    1. runtime is `O(m + n)`, with a large overhead
-       1. if we have a `LIMIT k` clause, and every row in A has a corresponding row in B, then the runtime is `O(n + k)` because the for loop will stop early, but we still must build the hash table
+        1. Due to commutivity, we may choose to build the hash table on A instead of B
+            1. if hashing the column type is slow, then we should perform the hash step on the smallest table
+        1. With a `LIMIT k` clause, if every row in A has a matching row in B, then `O(k + n)`
+
+            or due to commutivity, if every row in B has a matching row in A, then `O(k + m)`
 
 1. Merge join
    1. like the merge step in merge sort
    1. requires:
-      1. sorted inputs
+      1. sorted inputs (typically from an index/index only scan)
       1. equality join condition
    1. advantages:
       1. if the data is already sorted, there's no setup overhead
-      1. can early stop if only a small number of rows needed
+      1. can early stop if only a small number of rows needed (most commonly due to a `LIMIT` clause)
    1. pseudocode looks like
       ```
       i,j = 0
@@ -342,13 +349,24 @@ Three types of join strategies:
               j += 1
       ```
    1. runtime is `O(m + n)` with a small overhead
-       1. if we have a `LIMIT k` clause, then the runtime is `O(k)` because while loop will stop early
+        1. if we have a `LIMIT k` clause, then the runtime is `O(k)` because while loop will stop early
 
+            **this is the best case scenario for joins, and what we should always try to achieve**
+
+<!--
 1. Conclusions:
-   1. merge/hash join faster than nested loop join whenever tables are reasonably large
-   1. asymptotically, indexes don't give us much benefit unless you have a `LIMIT k` clause in your query
-   1. they can remove the need for the sort step, allowing for faster merge joins
-
+    1. merge/hash join faster than nested loop join when:
+        1. no indexes available (merge/hash join is `O(m + n)`, nested loop join is `O(mn)`)
+        1. have indexes, but both tables are large (merge/hash join is `O(m + n)`, nested loop join is `O(m log n)` or `O(n log m)`)
+    1. nested loop join is faster when:
+        1. 
+    1. indexes:
+        1. allow faster nested loop joins `O(m log(n))` or `O(n log (m))`
+        1. allow faster merge joins by removing the need for an explicit sort
+    1. what you need to know:
+        1. how to create indexes to make a specific query faster
+        1. how to predict which algorithm will be fastest given different conditions
+-->
 
 Join Order
 
@@ -357,25 +375,35 @@ Join Order
 
         The order that joins are performed in can have a HUGE impact on the join performance
 
-        See: <https://www.querifylabs.com/blog/introduction-to-the-join-ordering-problem>
+        See: 
+
+        1. <https://www.querifylabs.com/blog/introduction-to-the-join-ordering-problem>
+        1. <https://www.cockroachlabs.com/blog/join-ordering-pt1/>
+
 
     1. It's analogous to the importance of multiplying matrices in the correct order for optimal performance
 
         Famous dynamic [programming algorithm for solving](https://en.wikipedia.org/wiki/Matrix_chain_multiplication)
 
+    1. Optimal way to order joins is NP-hard
+        1. Finding good approximations is an open research problem
+        1. Lots of practical considerations
+            1. merge joins output results in sorted order, which enable more merge joins, so it might be worth an explicit sort
+            1. the hash step of a hash join can be cached and reused, speeding up future hash joins
+        1. The algorithms are WAY beyond the scope of this class
+
 1. Postgresql's query planner tries to pick an optimal join order for you automatically
     1. If it has good statistics of the underlying tables,
        it will pick a good join order
-    1. The algorithms for picking the join order given good table statistics are beyond the scope of this class
-    1. The important thing is to ensure that your table statistics are accurate by running the `ANALYZE` command.
 
-1. Reference: <https://www.cockroachlabs.com/blog/join-ordering-pt1/>
+       (assuming non-pathalogical data)
+    1. The important thing is to ensure that your table statistics are accurate by running the `ANALYZE` command.
 
 ### Parallelism
 
 Postgres will automatically parallelize queries
 
-<img src='5ParallelismFTW.jpg' width=300px />
+<img src='2015ParallelismFTW.jpg' width=300px />
 
 1. All SQL queries can be parallelized in theory
     1. In practice, not 100% of queries can be parallelized in postgres due to technical engineering issues
