@@ -123,8 +123,10 @@ WHERE text LIKE '%corona%';
    WHERE (text >= 'corona' AND text < 'coronb')
       OR (text >= 'Corona' AND text < 'Coronb')
       OR (text >= 'cOrona' AND text < 'cOronb')
+      OR (text >= 'COrona' AND text < 'COronb')
       OR (text >= 'coRona' AND text < 'coRonb')
-      OR (text >= 'coRona' AND text < 'coRonb')
+      OR (text >= 'cORona' AND text < 'cORonb')
+      OR (text >= 'CORona' AND text < 'CORonb')
       ...
    ```
    if there are `n` letters in your word, then there are `O(n^2)` different OR clauses in the equivalent query.
