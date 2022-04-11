@@ -1,5 +1,7 @@
 # MVCC Implementation
 
+<img src=update.jpeg width=400px >
+
 ## Announcements
 
 **Monday, 28 March:**
