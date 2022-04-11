@@ -109,9 +109,32 @@ WHERE text LIKE '%corona%';
    > **NOTE:**
    > A hash index would not be able to speed up this query because it only supports exact equality search.
 
-   > **QUESTION:**
-   > If we replace `LIKE` with `ILIKE` in the above queries,
-   > how does that affect the performance of a btree index?
+   **QUESTION:**
+   If we replace `LIKE` with `ILIKE` in the above queries,
+   how does that affect the performance of a btree index?
+
+   *ANSWER:*
+   It's bad.
+   Recall that `ILIKE` is a case-insensitive search.
+   So
+   ```
+   WHERE text ILIKE 'corona%'
+   ```
+   is equivalent to
+   ```
+   WHERE (text >= 'corona' AND text < 'coronb')
+      OR (text >= 'Corona' AND text < 'Coronb')
+      OR (text >= 'cOrona' AND text < 'cOronb')
+      OR (text >= 'coRona' AND text < 'coRonb')
+      OR (text >= 'coRona' AND text < 'coRonb')
+      ...
+   ```
+   if there are `n` letters in your word, then there are `O(n^2)` different OR clauses in the equivalent query.
+   Each of those individually can be sped up with a b-tree,
+   but there's still a LOT of queries to try.
+
+   Some databases (i.e. SQLite) default to case insensitive search with `LIKE`,
+   but postgres maintains the case (in)sensitivity of (I)LIKE for performance reasons.
 
 1. These "one-sided" wildcard queries are not useful for full text search,
    but they are useful when finding hashtags about coronavirus.
