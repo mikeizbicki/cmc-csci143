@@ -1,6 +1,6 @@
 # Week 12: More Indexes, Full Text Search, JSON Search
 
-<img src=index-all-the-things.jpg width=400px />
+<img src=index-all-the-things-meme.jpg width=400px />
 
 ## Announcements
 
