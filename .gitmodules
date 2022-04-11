@@ -27,3 +27,6 @@
 [submodule "week_10/twitter_postgres_parallel"]
 	path = week_10/twitter_postgres_parallel
 	url = https://github.com/mikeizbicki/twitter_postgres_parallel
+[submodule "week_12/twitter_postgres_indexes"]
+	path = week_12/twitter_postgres_indexes
+	url = https://github.com/mikeizbicki/twitter_postgres_indexes
