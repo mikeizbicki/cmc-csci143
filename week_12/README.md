@@ -105,9 +105,7 @@ WHERE text LIKE '%corona%';
    WHERE text >= 'corona' AND text < 'coronb'
    ```
    and btree indexes support inequality search efficiently.
-
-   > **NOTE:**
-   > A hash index would not be able to speed up this query because it only supports exact equality search.
+   A hash index still would not be able to speed up this query because it only supports exact equality search.
 
    **QUESTION:**
    If we replace `LIKE` with `ILIKE` in the above queries,
