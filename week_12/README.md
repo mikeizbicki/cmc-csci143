@@ -1,5 +1,7 @@
 # Week 12: More Indexes, Full Text Search, JSON Search
 
+<img src=index-all-the-things.jpg width=400px />
+
 ## Announcements
 
 **Monday, 11 April:**
@@ -123,6 +125,8 @@ WHERE text LIKE '%corona%';
 
 ## Full Text Search (FTS) outside Postgres
 
+<img src=8s90ho7un6i51.jpg width=400px />
+
 1. There is no SQL standard for FTS
 
 1. Most FTS systems are not SQL-based (i.e. NoSQL)
@@ -134,8 +138,13 @@ WHERE text LIKE '%corona%';
         1. ElasticSearch
             1. Most popular FTS engine
             1. Reasonably powerful FTS, but cannot be combined with SQL
+
+                <img src=elastic-drink.jpg width=300px >
+
             1. Requires installing a full service with similar complexity of postgres => difficult to configure
-               <img src=one-does-not-ao1pfo.jpg />
+
+               <img src=one-does-not-ao1pfo.jpg width=300px />
+
             1. Can be embedded in postgres via [zombodb extension](https://github.com/zombodb/zombodb),
                but that's even more complicated
             1. No longer open source
