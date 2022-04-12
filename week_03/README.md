@@ -36,7 +36,7 @@ Relational DataBase Management Systems (RDBMSs):
    <img src=dilbert2.jpeg width=80% />
 
 1. Structured Query Language (SQL) is the language for accessing the database
-    1. don't pronounce it es-cue-el; that's a shiboleth for not being a databases person
+    1. don't pronounce it es-cue-el; that's a shibboleth for not being a databases person
 
        <img src=dilbert.gif width=80% />
 
@@ -117,7 +117,7 @@ What you must know for the homework/midterm
     1. concatenate strings with `||` not `+`
 
 
-Refrences:
+References:
 1. cheatsheets
     1. https://postgresql-backup.com/postgresql-blog/wp-content/uploads/2016/06/PostgreSQL-Cheat-Sheet_-String-Functions.pdf
     1. https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-Cheat-Sheet.pdf

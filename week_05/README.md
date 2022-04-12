@@ -20,6 +20,53 @@ Window functions
 
 1. Please fill out the survey: [#131](https://github.com/mikeizbicki/cmc-csci143/issues/131)
 
+**Wed 16 Feb:**
+
+1. pagila-hw graded; all but 2 students got 17/17; those 2 students need to resubmit to get credit, so everyone should check your grade
+
+    1. [solutions posted](https://github.com/mikeizbicki/pagila-hw/tree/solution)
+
+1. current median grade: 95%
+
+1. twitter/mapreduce hw reminder:
+    1. 2 students submitted (now graded)
+    1. due in 2 weeks (Mar 6)
+    1. can potentially take a long time to run
+        1. if no one else is doing it, just 1-2 hours
+        1. runtime is cubic-ish in the number of students running their code due to thrashing
+    1. this is the last week of pagila; next week we'll be putting the twitter data into the db
+
+1. class survey comments;
+    1. dislike the -1 penalty
+        1. the shell is **dangerous**, even for experts
+            1. last night I accidentally deleted the solutions to pagila-hw3
+            1. [Toy Story 2 was deleted due to a misunderstanding of how `*` worked (i.e. a bad `rm -rf *` command)](https://thenextweb.com/news/how-pixars-toy-story-2-was-deleted-twice-once-by-technology-and-again-for-its-own-good)
+         
+    1. concerns about how paternity leave would affect class
+        1. very reasonable concerns on your part
+        1. midterm details
+            1. takehome format
+            1. open book/computer (any non-human references allowed)
+            1. you will have 48hr to complete
+            1. will definitely have at least 1 review session prior
+            1. unfortunately, still can't set an exact date (but I will be flexible with your schedules)
+        1. if there's other specific things I can do to alleviate any concerns, please let me know
+
+1. office hours today cancelled (have to take wife to doctor)
+<!--
+1. how to hack typespeed?
+-->
+
+<!--
+1. purpose of grades
+    1. In my view, grades should a way for you to measure how you're doing, not for other people to measure it
+    1. [Google's VP in charge of hiring people says "GPA’s are worthless as a criteria for hiring, and test scores are worthless" because they don’t predict how productive an employee will be.](https://www.nytimes.com/2014/02/23/opinion/sunday/friedman-how-to-get-a-job-at-google.html)
+1. new extra credit:
+    1. use the 
+-->
+
+
+
 ## Lecture
 
 Goals:
@@ -114,7 +161,7 @@ Goals:
     1. postgres devs are aware of this "code smell"/"wart", and are working to fix it... but it's super complicated for lots of abnoxious technical reasons: https://wiki.postgresql.org/index.php?title=Alter_column_position&oldid=23469
 
 1. TOAST used for variable sized columns
-    1. TOAST = The Oversized Attribue Storate Technique
+    1. TOAST = The Oversized Attribute Storage Technique
 
        "the best thing since sliced bread"
 
@@ -259,7 +306,7 @@ Goals:
                 1. combine all of these into a single `address` field inside the `customer` table
 
     1. 1-many
-        1. normalized representation: arrays
+        1. denormalized representation: arrays
             1. film-special_features
 
                ```
@@ -317,11 +364,9 @@ Goals:
             1. only 1 column in the many (i.e. it's possible to use the denormalized form)
             1. joins on the array will be rare
             1. updates/deletes to entries in the array are rare
-        <!--
         1. method: enums
             1. film-rating (the rating column is restricted to be of the `mpaa_enum` type)
             1. supported in postgres, but strongly discouraged; see e.g. https://tapoueh.org/blog/2018/05/postgresql-data-types-enum/
-        -->
 
     1. many-many
         1. think bipartite graph
@@ -349,7 +394,8 @@ Goals:
                );
                ```
             1. customer-film (the join of rental and inventory acts as the connector table)
-            1. anti-pattern: category-film are given a many-many table structure, but they actually have a 1-1 relationship
+
+            <!--1. anti-pattern: category-film are given a many-many table structure, but they actually have a 1-1 relationship-->
 
     1. general graph structures
         1. no good denormalized representations
@@ -364,11 +410,9 @@ Goals:
                ```
             1. no easy way to enforce acyclical references (i.e. make the graph a tree)
         1. all graph algorithms (DFS, BFS, Dijkstra, Prim, Kruskal, A*, etc.) can be implemented with optimal asymptotic efficiency using recursive sql queries
-            <!--
             1. we're not covering how to do this
             1. https://www.postgresqltutorial.com/postgresql-recursive-view/
             1. https://www.postgresqltutorial.com/postgresql-recursive-query/
-            -->
 
 1. references on good database design:
     1. Good overview https://relinx.io/2020/09/14/old-good-database-design/
