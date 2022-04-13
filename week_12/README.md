@@ -244,11 +244,13 @@ WHERE text LIKE '%corona%';
     1. `tsvector` and `tsquery` represent fully normalized text documents and queries;
        they should typically be constructed with the `to_tsvector` and `to_tsquery` functions.
 
-       Compare the following two examples:
+       Compare the following examples:
 
        ```
        SELECT 'this is a test'::tsvector;
        SELECT to_tsvector('this is a test');
+       SELECT to_tsvector('english', 'this is a test');
+       SELECT to_tsvector('simple', 'this is a test');
        ```
 
     1. The following query does English language text search for tweets containing the string `coronavirus`:
@@ -264,7 +266,23 @@ WHERE text LIKE '%corona%';
        CREATE INDEX tweets_idx_fts on tweets USING gin(to_tsvector('english', text));
        ```
 
-## FTS Indexes
+## JSONB Operations
+
+Many new operators for querying `JSONB` type.
+
+Important operators/functions:
+1. `jsonb_pretty`
+1. `->` / `->>`
+1. `jsonb_path_query`
+1. `@@`
+1. `jsonb_array_elements`
+
+References:
+1. Postgres operators: <https://www.postgresql.org/docs/current/functions-json.html>
+1. JSONPath/JSON Selector syntax tutorial: <https://dev.to/rezigned/an-intoduction-to-json-selector-1mho>
+1. Postgres JSONPath + relation to GIN: <https://habr.com/en/company/postgrespro/blog/500440/>
+
+## Indexes for the `@@` operator
 
 GIN index (Generalized Inverted iNdex)
 1. reference: <https://habr.com/ru/company/postgrespro/blog/448746/>
