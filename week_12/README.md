@@ -247,10 +247,11 @@ WHERE text LIKE '%corona%';
        Compare the following examples:
 
        ```
-       SELECT 'this is a test'::tsvector;
-       SELECT to_tsvector('this is a test');
        SELECT to_tsvector('english', 'this is a test');
+       SELECT to_tsvector('this is a test');
+
        SELECT to_tsvector('simple', 'this is a test');
+       SELECT 'this is a test'::tsvector;
        ```
 
     1. The following query does English language text search for tweets containing the string `coronavirus`:
