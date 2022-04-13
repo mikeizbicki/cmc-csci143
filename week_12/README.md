@@ -270,6 +270,8 @@ WHERE text LIKE '%corona%';
 
 Many new operators for querying `JSONB` type.
 
+<img src=json.jpg width=300px />
+
 Important operators/functions:
 1. `jsonb_pretty`
 1. `->` / `->>`
