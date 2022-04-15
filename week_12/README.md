@@ -37,6 +37,17 @@ Summary of remaining graded material
        
        (non-seniors) Before Wednesday 11 May (our "final exam" timeslot)
 
+**Friday, 15 April:**
+
+Reminder:
+1. Quiz do Monday, beginning of class
+1. Use any resources you like: notes, internet, collaborate with other students
+1. Bring a printout to class; we will begin class by grading it
+
+HW deadline:
+1. Changed to Wednesday 20 April (focus on the quiz first)
+1. No collaboration extension possible
+
 ## Hash Index
 
 1. reference: <https://habr.com/ru/company/postgrespro/blog/442776/>
