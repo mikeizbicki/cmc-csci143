@@ -30,3 +30,6 @@
 [submodule "week_12/twitter_postgres_indexes"]
 	path = week_12/twitter_postgres_indexes
 	url = https://github.com/mikeizbicki/twitter_postgres_indexes
+[submodule "week_13/search_engine"]
+	path = week_13/search_engine
+	url = https://github.com/mikeizbicki/search_engine
