@@ -12,6 +12,14 @@ Updated "Instagram architecture" diagram:
 
    <a href=http://pudgylogic.blogspot.com/2016/01/horizontal-vs-vertical-scaling.html><img src=horizontal-vs-vertical-scaling-vertical-and-horizontal-scaling-explained-diagram.png /></a>
 
+   Tradeoffs:
+
+   1. vertical scaling cheaper, but has an upper limit
+
+   1. horizontal scaling requires about 10x the resources as vertical scaling for the same performance
+
+        but there's no upper limit
+
 1. Stateless process
     1. Easy to scale to multiple machines: just change 1 line in the `docker-compose.yml`
     1. Applies to everything except postgres
