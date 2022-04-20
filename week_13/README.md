@@ -68,7 +68,7 @@ Where to get data:
         1. excellent record of high uptime, no data loss
         1. pricing: https://aws.amazon.com/s3/pricing/
 
-            <img src=aws-bill.png width=300px />
+            <img src=aws-bill.png width=400px />
 
             1. common crawl's storage fees: ($0.021/GB/month)*(10^6 GB/PB) = $21000/PB/month
             1. data transfer fees: ($0.05/GB)*(10^6 GB/PB) = $50000/PB
@@ -117,6 +117,8 @@ Crawl data stored in WARC (= Web ARChive) files
 
            not included in the actual HTML file itself => we need to remember this as metadata
 
+        <img src=unicode.jpg width=400px />
+
 Extract information out of html
 
 1. for our search engine, we need to extract
@@ -125,6 +127,9 @@ Extract information out of html
     1. description
     1. text
 1. semantic web
+
+    <img src=beep-borp-semantic-web.jpg width=400px />
+
     1. google/microsoft/yahoo/yandex/w3c's schema.org: https://schema.org/docs/documents.html
     1. facebook's open graph protocol: https://ogp.me/
     1. twitter card markup: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup
