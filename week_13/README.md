@@ -67,8 +67,12 @@ Where to get data:
         1. standard method for storing/distributing large static files
         1. excellent record of high uptime, no data loss
         1. pricing: https://aws.amazon.com/s3/pricing/
+
+            <img src=aws-bill.png width=300px />
+
             1. common crawl's storage fees: ($0.021/GB/month)*(10^6 GB/PB) = $21000/PB/month
             1. data transfer fees: ($0.05/GB)*(10^6 GB/PB) = $50000/PB
+
     1. example uses
         1. https://commoncrawl.org/the-data/examples/
         1. map discussion of congressional bills: https://github.com/awavering/CC-Bill-Tracker
