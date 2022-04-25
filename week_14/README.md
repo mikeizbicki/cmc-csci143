@@ -233,7 +233,7 @@ Where to go from here?
 
     1. Also much better to actually build a product that people can use/see
 
-       <img src=r_538889_6FyHg.jpg width=400px />
+       <img src=r_538889_6FyHg.jpg width=450px />
 
 1. Do things that will make you more productive on future projects
 
