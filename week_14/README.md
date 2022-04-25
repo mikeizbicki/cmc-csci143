@@ -118,12 +118,20 @@ Next week: last homework for non-seniors
 
         1. Normalization is a spectrum
         
+           Exactly how normalized your database should be is a tricky technical decision with lots of tradeoffs
+
            | Normalized data | Denormalized data |
            | --------------- | ----------------- |
            | hard to insert  | easy to insert    |
            | less disk space | more disk space   |
            | easy to select  | hard to select    |
            | lots of joins   | few/no joins      |
+
+           Heuristic:
+           
+           1. if you "own" the data, then prefer normalized
+
+           1. if someone else "owns" the data, then prefer denormalized
 
         1. Use indexes
             1. Make SELECT much faster
