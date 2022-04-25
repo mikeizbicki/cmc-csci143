@@ -193,6 +193,9 @@ Next week: last homework for non-seniors
         1. MapReduce: 1-off analysis tasks that can take a long time, no setup overhead
         1. Database: many related tasks with real time responses, lots of setup overhead
 
+        > **Hint:**
+        > When interviewing, mention the Twitter assignments to illustrate your knowledge of these tradeoffs.
+
     1. Upload production credentials to github
 
     1. Run `DELETE`/`UPDATE`/`DROP` SQL commands outside of a transaction
@@ -279,10 +282,6 @@ Where to go from here?
     1. 60 points: Free response 
 
         Similar to the take home indexes quiz
-
-<!--
-    1. Probably going to be hard (based on the scores for these homeworks)
--->
 
 ## Course evals
 
