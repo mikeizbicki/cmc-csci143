@@ -75,17 +75,17 @@ Next week: last homework for non-seniors
            1. so getting good at scripting will make you good at lots of tasks
            1. getting good at Hadoop/etc will only make you good at MapReduce tasks
 
-        1. too much setup overhead
+        1. pain to set up
         
            <img src=hadoop_meme.jpg />
 
 1. Database: the main workhorse of storing "bigish data"
 
-    1. Used for repeated tasks
-
-       Basically, use for everything
+    1. Unless you have a good reason not to, use a database
 
        <img src=database-overloads.jpg />
+
+       Really big data (e.g. common crawl/internet archive) stored in custom formats
 
     1. We used: PostgreSQL
 
@@ -118,7 +118,7 @@ Next week: last homework for non-seniors
         1. Use indexes
             1. Make SELECT much faster
 
-               Lack of indexes brought down Auth0: <https://www.reddit.com/r/SQL/comments/n1z3o7/a_hardwon_lesson_in_indexing/>
+               Lack of proper indexes brought down the company Auth0: <https://www.reddit.com/r/SQL/comments/n1z3o7/a_hardwon_lesson_in_indexing/>
 
             1. Make INSERT slightly slower
 
