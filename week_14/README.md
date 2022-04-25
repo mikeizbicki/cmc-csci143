@@ -204,7 +204,7 @@ Academic vs. Industry big data
 1. We focused on industry in this class
 
 1. Academic big data is much more math heavy, less implementation
-    1. "monoid homomorphisms" needed for MapReduce
+    1. [monoid homomorphisms needed for MapReduce](https://en.wikipedia.org/wiki/Monoid#MapReduce)
     1. probabilistic data structures like [HyperLogLog](https://github.com/citusdata/postgresql-hll/)
     1. [CAP Theorem](https://en.wikipedia.org/wiki/CAP_theorem)
 
