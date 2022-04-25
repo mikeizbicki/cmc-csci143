@@ -107,7 +107,7 @@ Schedule:
             1. Scales to multipetabyte datasets
 
         1. Extremely popular in industry: 
-            1. [Ask HN: Who's Hiring (March 2022)](https://news.ycombinator.com/item?id=30515750) - 31 ads mention postgres
+            1. [Ask HN: Who's Hiring (April 2022)](https://news.ycombinator.com/item?id=30878761) - 40 ads mention postgres
             1. [stackshare.io/postgres](https://stackshare.io/postgresql)
 
                 > **HINT:**
