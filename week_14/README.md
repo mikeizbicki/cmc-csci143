@@ -2,13 +2,15 @@
 
 Done with material for the final exam
 
-Today: Review
+Schedule:
 
-Wednesday: Ask questions
+- Today: Review
 
-Friday: No class, midterm posted
+- Wednesday: Ask questions
 
-Next week: last homework for non-seniors
+- Friday: No class, midterm posted
+
+- Next week: last homework for non-graduating students only
 
 ## Main ideas
 
