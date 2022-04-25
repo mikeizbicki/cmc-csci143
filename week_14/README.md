@@ -4,7 +4,7 @@ Done with material for the final exam
 
 Schedule:
 
-- Today: Review
+- Monday: Review
 
 - Wednesday: Ask questions
 
