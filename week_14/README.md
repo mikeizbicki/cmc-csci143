@@ -6,6 +6,8 @@ Today: Review
 
 Wednesday: Ask questions
 
+Friday: No class, midterm posted
+
 Next week: last homework for non-seniors
 
 ## Main ideas
