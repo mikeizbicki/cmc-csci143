@@ -93,6 +93,8 @@ Next week: last homework for non-seniors
 
            If you insert data, it will be there.
 
+           [The Guardian newspaper switched from MongoDB to Postgres because Mongo randomly lost some archived news articles](https://www.theguardian.com/info/2018/nov/30/bye-bye-mongo-hello-postgres).
+
            Speed matters too, and postgres is *nearly* as fast as other systems.
 
         1. World's "most advanced open source database"
@@ -100,9 +102,17 @@ Next week: last homework for non-seniors
             1. More compliance with SQL standard than all other RDBMs
             1. Scales to multipetabyte datasets
 
-        1. Extremely popular in industry: <https://news.ycombinator.com/item?id=27025922>
-            1. Good enough for Instagram... and you're (probably) not going to ever have "bigger data" than Instagram
-            1. Even Microsoft uses Postgres when they need to processes multi-petabyte datasets
+        1. Extremely popular in industry: 
+            1. [Ask HN: Who's Hiring (March 2022)](https://news.ycombinator.com/item?id=30515750) - 31 ads mention postgres
+            1. [stackshare.io/postgres](https://stackshare.io/postgresql)
+
+                > **HINT:**
+                > When interviewing at a company, visit their stackshare.io webpage to learn what technologies they use.
+                > Then, you can have intelligent conversations with the interviewers about their tech.
+                > See, for example, <https://stackshare.io/companies/instagram>.
+
+            1. Postgres is good enough for Instagram... and you're (probably) not going to ever have "bigger data" than Instagram
+            1. Even Microsoft uses Postgres (instead of SQL Server) when they need to processes multi-petabyte datasets
 
                <https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/architecting-petabyte-scale-analytics-by-scaling-out-postgres-on/ba-p/969685>
 
