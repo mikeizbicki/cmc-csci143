@@ -170,10 +170,11 @@ Next week: last homework for non-seniors
     1. Other technologies
         1. Other RDBMS: MySQL, Microsoft SQL Server, Oracle, etc.
         1. NoSQL
-            1. JSON/denormalized representations: MongoDB, Cassandra
-                1. more scalable
+            1. JSON/denormalized representations: MongoDB
+                1. became popular around 2010 due to scalability and JSON ease-of-use
                 1. but data inserted into db not guaranteed to actually be inserted (not ACID)
                 1. postgres safety guarantees can be turned off to get this scalability (but don't do this!)
+                1. today, postgres supports (basically) everything MongoDB does and more
             1. Full text search: Elastic, Lucene, Solr, Groonga
                 1. there's a LOT more to FTS than what we covered...
                 1. My prediction: Postgres will be state-of-the-art within 10 years
@@ -204,7 +205,7 @@ Academic vs. Industry big data
 
 1. Academic big data is much more math heavy, less implementation
     1. "monoid homomorphisms" needed for MapReduce
-    1. probabilistic data structures like HyperLogLog
+    1. probabilistic data structures like [HyperLogLog](https://github.com/citusdata/postgresql-hll/)
     1. [CAP Theorem](https://en.wikipedia.org/wiki/CAP_theorem)
 
 <!--
