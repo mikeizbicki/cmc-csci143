@@ -31,11 +31,12 @@ Next week: last homework for non-seniors
                (most venders MUCH cheaper than AWS)
         1. We used: docker + docker-compose
         1. Other technologies
-            1. Kubernetes:
+            1. Kubernetes (abbreviated K8s):
                 1. automatically start/stop services based on current system load
                 1. even easier deployment to cloud providers
                 1. this is for real "google scale"
-            1. not many other options
+            1. not many other (popular) options
+            1. containers are easy to do "from scratch": <https://www.redhat.com/sysadmin/building-container-namespaces>
 
     1. Use:
         1. a good text editor (e.g. vim)
