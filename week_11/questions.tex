@@ -181,7 +181,7 @@ and the remaining 1/5 you'll have to refer to the postgres documentation / suppl
 \fullwidth{\textbf{Join Strategies}}
 \question\TFQuestion{F}{An index scan can be used to compute the join between two tables.}
 \question\TFQuestion{T}{It's always possible to use a nested loop join.}
-\question\TFQuestion{T}{It's always possible to use a hash join.}
+\question\TFQuestion{F}{It's always possible to use a hash join.}
 \question\TFQuestion{F}{It's always possible to use a merge join.}
 \question\TFQuestion{T}{The nested loop join can implement joins using a $<$ condition.}
 \question\TFQuestion{F}{The hash join can implement joins using a $<$ condition.}
@@ -228,7 +228,7 @@ and the remaining 1/5 you'll have to refer to the postgres documentation / suppl
 \question\TFQuestion{T}{It is possible to have a CHECK constraint without an index.}
 \question\TFQuestion{T}{It is possible to have a NOT NULL constraint without an index.}
 \question\TFQuestion{F}{It is possible to have a FOREIGN KEY constraint without an index on the target table/column(s).}
-\question\TFQuestion{F}{It is possible to have a FOREIGN KEY constraint without an index on the source table/column(s).}
+\question\TFQuestion{T}{It is possible to have a FOREIGN KEY constraint without an index on the source table/column(s).}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \fullwidth{
@@ -243,9 +243,9 @@ The questions below all refer specifically to Postgres version 13.
 \question\TFQuestion{T}{Index only scans can be parallelized.}
 \question\TFQuestion{T}{Index scans can be parallelized.}
 \question\TFQuestion{T}{Bitmap scans can be parallelized.}
-\question\TFQuestion{T}{Both the inner and outer sides of a nested loop join can be parallelized.}
+\question\TFQuestion{F}{Both the inner and outer sides of a nested loop join can be parallelized.}
 \question\TFQuestion{F}{Both the inner and outer sides of a merge join can be parallelized.}
-\question\TFQuestion{F}{Both the inner and outer sides of a hash join can be parallelized.}
+\question\TFQuestion{T}{Both the inner and outer sides of a hash join can be parallelized.}
 \question\TFQuestion{F}{For all join strategies, the inner side can be parallelized.}
 \question\TFQuestion{T}{For all join strategies, the outer side can be parallelized.}
 \end{questions}
