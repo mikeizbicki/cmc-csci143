@@ -168,7 +168,7 @@ and the remaining 1/5 you'll have to refer to the postgres documentation / suppl
 \question\TFQuestion{T}{A BTree index can be used to speed up SELECT statements with the ORDER BY clause.}
 \question\TFQuestion{T}{The query planner will typically prefer an index scan over a bitmap index scan on SELECT queries that use a LIMIT clause with a small value.}
 \question\TFQuestion{F}{If a SELECT statement requires an explicit SORT operation in the query plan, then adding a LIMIT clause to the SELECT statement is likely to significantly improve performance.}
-\question\TFQuestion{T}{A GROUP BY clause can always be implemented with either a GroupAggregate or a HashAggregate.}
+\question\TFQuestion{F}{A GROUP BY clause can always be implemented with either a GroupAggregate or a HashAggregate.}
 \question\TFQuestion{T}{A BTree index can be used to speed up a GroupAggregate operation.}
 \question\TFQuestion{F}{A BTree index can be used to speed up a HashAggregate operation.}
 \question\TFQuestion{F}{The HashAggregate requires less memory than the GroupAggregate.}
