@@ -1,5 +1,7 @@
 # Coroutines and Async Programming in Python
 
+<img src=blocking-calls.jpg width=400px />
+
 ## Background
 
 The problem:
