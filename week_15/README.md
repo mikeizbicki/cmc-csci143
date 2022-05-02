@@ -34,7 +34,7 @@ Techniques:
 
 1. ... many more ...
 
-We will use: Coroutines
+We will use: Coroutines (i.e. `async` / `await` syntax)
 
 1. Recall that "routine" is a synonym for "function"
 
@@ -42,9 +42,9 @@ We will use: Coroutines
 
 1. Currently most popular technique
 
-1. Most computationally efficient
+1. Computationally efficient
 
-1. "Easiest" to use
+1. "Easy" to use compared to other techniques
 
     <img src=yoda.jpeg width=400px />
 
