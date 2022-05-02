@@ -3,7 +3,6 @@ Explanation of [PEP342 - Coroutine via Enhanced Generators](https://peps.python.
 (2005)
 '''
 
-
 def coroutine():
     '''
     This function demonstrates how yield can be used to send and receive data.

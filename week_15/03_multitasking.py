@@ -1,3 +1,8 @@
+'''
+This code doesn't use concurrency, but it would benefit from it.
+
+'''
+
 import time
 
 def get_page():
@@ -18,4 +23,4 @@ def run():
     start = time.time()
     get_page()
     read_db()
-    #print(f"Time elapsed: {time.time()-start:.3}s")
+    print(f"Time elapsed: {time.time()-start:.3}s")

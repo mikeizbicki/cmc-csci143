@@ -1,15 +1,8 @@
 '''
 `asyncio` is python's standard library for working with async functions
-
-Python's syntax for asynchronous functions is now set in stone.
-But the standard library changes frequently.
-
->>> loop = asyncio.get_event_loop()
->>> loop.run_until_completion(worker())
 '''
 
 from asyncio import sleep
-import asyncio
 
 async def get_page():
     print("Starting to download page")

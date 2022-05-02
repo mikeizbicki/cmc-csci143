@@ -3,7 +3,6 @@ Explanation of [PEP255 - Simple Generators](https://peps.python.org/pep-0255/)
 (2001)
 '''
 
-
 def factorial_list(n):
     '''
     Compute the factorial of every number from 1 to n.
@@ -17,8 +16,10 @@ def factorial_list(n):
     return ret
 
 
-for i in factorial_list(10):
-    print("i=",i)
+'''
+>>> for i in factorial_list(10):
+>>>     print("i=",i)
+'''
 
 
 def factorial_generator(n):
@@ -31,9 +32,10 @@ def factorial_generator(n):
         x *= i
         yield x
 
-
-for i in factorial_generator(10):
-    print("i=",i)
+'''
+>>> for i in factorial_generator(10):
+>>>     print("i=",i)
+'''
 
 
 class Factorial:
@@ -68,14 +70,16 @@ class FactorialIter:
             return self.ret
 
 
-for i in Factorial(10):
-    print("i=",i)
-
-# the for loop above desugars into the following
-tmp = Factorial(10).__iter__()
-while True:
-    try:
-        i = tmp.__next__()
-        print("i=",i)
-    except StopIteration:
-        break
+'''
+>>> for i in Factorial(10):
+>>>     print("i=",i)
+>>> 
+>>> # the for loop above desugars into the following
+>>> tmp = Factorial(10).__iter__()
+>>> while True:
+>>>     try:
+>>>         i = tmp.__next__()
+>>>         print("i=",i)
+>>>     except StopIteration:
+>>>         break
+'''

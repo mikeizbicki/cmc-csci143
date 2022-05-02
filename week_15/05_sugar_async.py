@@ -1,15 +1,9 @@
 '''
 Explanation of [PEP492 - Coroutines with async and await syntax](https://peps.python.org/pep-0492/)
 (2015)
-
-Changes:
-1. All coroutines defined with the "async def" keyword.
-2. Results extracted using the "await" syntax.
 '''
 
 import time
-from collections import deque
-import heapq
 
 async def get_page():
     print("Starting to download page")
@@ -38,6 +32,12 @@ class Sleep:
 def sleep(delay):
     return Sleep(delay)
 
+
+scheduler = __import__('04_multitasking2').scheduler
+
+"""
+from collections import deque
+import heapq
 def scheduler(coros):
     start = time.time()
     ready = deque(coros)
@@ -67,4 +67,4 @@ def scheduler(coros):
         except StopIteration:
             pass
 	#print(f"Time elapsed: {time.time()-start:.3}s")
-
+"""
