@@ -83,15 +83,23 @@ Applications:
 
     1. WSGI - Web Server Gateway Interface (pronounced like Whiskey)
 
+        [PEP333 - Python Web Server Gateway Interface v1.0](https://peps.python.org/pep-0333/) (2003)
+
         1. Django
 
         1. Flask
 
-    1. ASGI - Asynchronous Server Gateway Interface)
+    1. ASGI - Asynchronous Server Gateway Interface
+
+        [No PEP](https://mail.python.org/pipermail/python-ideas/2018-October/054341.html), just a [github repo](https://asgi.readthedocs.io/en/latest/)
         
         1. [FastAPI](https://fastapi.tiangolo.com/)
 
+            [First commit](https://github.com/tiangolo/fastapi/commit/406c092a3bf65bbd4405ce87611a7e0b9c0ae706) - December 2018
+
     1. [Performance comparison](https://www.techempower.com/benchmarks/#section=test&runid=a979de55-980d-4721-a46f-77298b3f3923&hw=ph&test=plaintext&l=v2qiv3-e7&a=2&f=zik0zj-qmx0qn-zhxjwf-zik0zi-zik0zj-zik0zj-zik0zj-zik0zj-zik0zj-zik0zj-zik0zj-1kv)
+
+    <img src=wsgi-asgi.jpeg width=400px />
 
 1. Database access:
 
