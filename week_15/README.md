@@ -16,9 +16,13 @@ The problem:
 
 1. Traditional IO operations "block" the CPU from doing work
 
+    <img src=IOBound.webp height=200px />
+
 Solution:
 
 1. Asynchronous programming
+
+    <img src=Asyncio.webp height=200px />
 
 Techniques:
 
