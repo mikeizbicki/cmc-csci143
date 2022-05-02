@@ -2,7 +2,7 @@
 
 <img src=blocking-calls.jpg width=400px />
 
-## Background
+### Background
 
 The problem:
 
@@ -121,7 +121,7 @@ Applications:
 
 1. Not everything is async yet, but everything will be async in the future
 
-## The Syntax
+### The Syntax
 
 References:
 
@@ -133,7 +133,7 @@ References:
 
     More "applied"
 
-## Concurrent Web Requests
+### Concurrent Web Requests
 
 1. aiohttp library: 
 
@@ -142,3 +142,17 @@ References:
     1. Examples all use docker/postgres or (mongo or redis)
 
         <https://aiohttp-demos.readthedocs.io/en/latest/index.html#aiohttp-demos-polls-beginning>
+
+## Homework
+
+Part 1: generator syntax practice (10pts)
+
+1. Fork/fix the [containers repo](https://github.com/mikeizbicki/containers) so that all test cases pass
+
+    Submit the completed repo to sakai
+
+1. This is an assignment from CS46 (data structures), and so only students who didn't take that with me need to complete it
+
+Part 2: TBA
+
+Both assignments will be due Wednesday, May 11.
