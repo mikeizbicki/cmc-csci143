@@ -99,7 +99,7 @@ Applications:
 
     1. [Performance comparison](https://www.techempower.com/benchmarks/#section=test&runid=a979de55-980d-4721-a46f-77298b3f3923&hw=ph&test=plaintext&l=v2qiv3-e7&a=2&f=zik0zj-qmx0qn-zhxjwf-zik0zi-zik0zj-zik0zj-zik0zj-zik0zj-zik0zj-zik0zj-zik0zj-1kv)
 
-    <img src=wsgi-asgi.jpeg width=400px />
+    <!-- <img src=wsgi-asgi.jpeg width=400px /> -->
 
 1. Database access:
 
