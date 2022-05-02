@@ -111,9 +111,9 @@ Applications:
 
         By default, sqlalchemy still uses psycopg2 as the backend
 
-        History of the name: <https://www.postgresql.org/message-id/flat/CA%2BRjkXFL6Jy7actUy%2BS%3DdGfjpuD_jpUYYofGpON%2B1Nq9S2Y75w%40mail.gmail.com#f9771ec89bf350e0594cf9640a1f912c>
+        History of the name, [from the postgres mailing list](https://www.postgresql.org/message-id/flat/CA%2BRjkXFL6Jy7actUy%2BS%3DdGfjpuD_jpUYYofGpON%2B1Nq9S2Y75w%40mail.gmail.com#f9771ec89bf350e0594cf9640a1f912c):
 
-        > So, in about a weekend I wrote the core of psycopg 1, just to demonstrate that you can write something that works without over-engineering it. **I wanted to call it psychopg (a reference to their psychotic driver) but I typed the name wrong.  And the name just stuck.**
+        > I wanted to call it psychopg but I typed the name wrong.  And the name just stuck.
 
 **Takeaway:**
 
