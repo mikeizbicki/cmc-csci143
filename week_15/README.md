@@ -107,17 +107,19 @@ Applications:
 
     1. Psycopg3 [introduces async support](https://www.psycopg.org/psycopg3/docs/advanced/async.html#async)
 
-        (By default, sqlalchemy still uses psycopg2 as the backend)
+        First stable release was this year
+
+        By default, sqlalchemy still uses psycopg2 as the backend
 
         History of the name: <https://www.postgresql.org/message-id/flat/CA%2BRjkXFL6Jy7actUy%2BS%3DdGfjpuD_jpUYYofGpON%2B1Nq9S2Y75w%40mail.gmail.com#f9771ec89bf350e0594cf9640a1f912c>
 
-        > Like always, the name was a joke, and a badly worded one. At the time, all PostgreSQL Python drivers were pure s**t and my company gave to two interns the job to write a new driver. They produced s**t^2 by writing first a server that connected to PostgreSQL using libpq and then a Python client that was supposed to connect to the server and pass through it all the SQL for the backend. After a couple of month the a whole thing still didn't work: the worse bug was that for apparently no reason it opened connections to the backend like _crazy_.
-        >
-        > So, in about a weekend I wrote the core of psycopg 1, just to demonstrate that you can write something that works without over-engineering it. **I wanted to call it psychopg (a reference to their psychotic driver) but I typed the name wrong.**
-        >
-        > **And the name just stuck.**
-        >
-        > To be honest, we later decided that the name was ok, given that, at the time, psycopg was the only driver able to support multi-threaded Python applications without dying an horrible death. Something along the lines that the driver should be a bit "psycho" to manage all the threads. Or something like that.
+        > So, in about a weekend I wrote the core of psycopg 1, just to demonstrate that you can write something that works without over-engineering it. **I wanted to call it psychopg (a reference to their psychotic driver) but I typed the name wrong.  And the name just stuck.**
+
+**Takeaway:**
+
+1. Async makes io code faster
+
+1. Not everything is async yet, but everything will be async in the future
 
 ## The Syntax
 
