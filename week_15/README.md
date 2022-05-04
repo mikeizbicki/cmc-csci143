@@ -131,6 +131,16 @@ References:
 
     More "applied"
 
+<!--
+1. <https://hynek.me/articles/waiting-in-asyncio/>
+
+    How to make things concurrent vs sequential
+
+1. <https://www.roguelynn.com/words/asyncio-we-did-it-wrong/>
+
+    `asyncio` use at spotify, with lots of examples/pycon videos
+-->
+
 ### Concurrent Web Requests
 
 1. aiohttp library: 
@@ -151,6 +161,6 @@ Part 1: generator syntax practice (10pts)
 
 1. This is an assignment from CS46 (data structures), and so only students who didn't take that with me need to complete it
 
-Part 2: TBA
+Part 2: wardial (20pts)
 
 Both assignments will be due Wednesday, May 11.
