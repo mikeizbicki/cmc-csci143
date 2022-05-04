@@ -1,0 +1,652 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}
+
+\usepackage[normalem]{ulem}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor    = blue  %Colour of citations
+}
+
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage[table]{xcolor}
+\usepackage{color}
+\usepackage{colortbl}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{gray}{rgb}{0.7,0.7,0.7}
+
+\usepackage{listings}
+\lstset {
+	basicstyle=\ttfamily,
+    ,language=SQL
+    ,showstringspaces=false
+    ,keepspaces=true
+}
+
+\usepackage {tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\definecolor {processblue}{cmyk}{0.96,0,0,0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% question definitions
+
+\printanswers
+
+\newcommand*{\hl}[1]{\colorbox{yellow}{#1}}
+
+\newcommand*{\answerLong}[2]{
+    \ifprintanswers{\hl{#1}}
+\else{#2}
+\fi
+}
+
+\newcommand*{\answer}[1]{\answerLong{#1}{~}}
+
+\newcommand*{\TrueFalse}[1]{%
+\ifprintanswers
+    \ifthenelse{\equal{#1}{T}}{%
+        \hl{\textbf{TRUE}}\hspace*{14pt}False
+    }{
+        True\hspace*{14pt}\hl{\textbf{FALSE}}
+    }
+\else
+    {True}\hspace*{20pt}False
+\fi
+} 
+%% The following code is based on an answer by Gonzalo Medina
+%% https://tex.stackexchange.com/a/13106/39194
+\newlength\TFlengthA
+\newlength\TFlengthB
+\settowidth\TFlengthA{\hspace*{1.3in}}
+\newcommand\TFQuestion[2]{%
+    \setlength\TFlengthB{\linewidth}
+    \addtolength\TFlengthB{-\TFlengthA}
+    \parbox[t]{\TFlengthA}{\TrueFalse{#1}}\parbox[t]{\TFlengthB}{#2}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\trans}[1]{{#1}^{T}}
+\newcommand{\loss}{\ell}
+\newcommand{\w}{\mathbf w}
+\newcommand{\x}{\mathbf x}
+\newcommand{\y}{\mathbf y}
+\newcommand{\ltwo}[1]{\lVert {#1} \rVert}
+
+\newcommand{\ignore}[1]{}
+
+\usepackage{listings}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            % 
+stepnumber=1,
+numbers=left
+}}
+
+\lstnewenvironment{python}[1][]
+{
+    \pythonstyle
+    \lstset{#1}
+}
+{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+    {
+\Large
+    CSCI143 Final, Spring 2022
+}
+
+    \vspace{0.1in}
+\end{center}
+
+\noindent
+\textbf{Collaboration policy:} 
+
+\vspace{0.1in}
+\noindent
+You may NOT:
+\begin{enumerate}
+    \item discuss the exam with any human other than Mike; this includes:
+        \begin{enumerate}
+            \item asking your friend for clarification about what a problem is asking
+            \item asking your friend if they've completed the exam
+            \item posting questions to github
+        \end{enumerate}
+\end{enumerate}
+
+\noindent
+You may:
+\begin{enumerate}
+    \item take as much time as needed
+    \item use any written notes / electronic resources you would like
+    \item use the lambda server
+    \item ask Mike to clarify questions via email
+\end{enumerate}
+
+
+\vspace{0.15in}
+
+\vspace{0.25in}
+\noindent
+Name: 
+
+\noindent
+\rule{\textwidth}{0.1pt}
+\vspace{0.15in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{True/False Questions}
+
+For each question below, circle either True or False.
+Each correct answer will result in +2 points,
+each incorrect answer will result in -2 points,
+and each blank answer in 0 points.
+
+\begin{questions}
+\question\TFQuestion{F}{A table that takes up 832KB on disk has 109 pages.}
+\question\TFQuestion{T}{An index only scan may have to access heap table pages to determine whether a tuple is visible.  This is likely to happen on a table that has had many recent UPDATE/DELETE operations and no recent VACUUM operation.}
+\question\TFQuestion{F}{Every heap page must have at least one live tuple.}
+\question\TFQuestion{F}{If you run the TRUNCATE command to delete the contents of a table, you must run a subsequent VACUUM FULL command to free up the disk space for other processes to use.}
+\question\TFQuestion{T}{Postgres automatically compresses large TEXT values.}
+\question\TFQuestion{F}{Postgres documentation recommends disabling autovacuum if you encounter the transaction id wraparound problem.}
+\question\TFQuestion{T}{Decreasing the \lstinline{fillfactor} for a table from the default value of 100 will make HOT tuple updates more likely.}
+\question\TFQuestion{F}{The autovacuum process runs the VACUUM FULL command at regular intervals in order to automatically free up disk space from dead tuples.}
+\question\TFQuestion{T}{A btree index created on an SMALLINT column will have higher fanout than the same index created on a BIGINT column.}
+%\question\TFQuestion{T}{Both heap tables and indexes can have a free space map file.}
+\question\TFQuestion{F}{In the postgres documentation, TID is an abbreviation for transaction identifier.}
+\question\TFQuestion{F}{Dirty reads are possible in Postgres's read committed isolation level.}
+%\question\TFQuestion{F}{If a tuple exists on disk, there is guaranteed to be some transaction that can see the tuple.}
+%\question\TFQuestion{F}{Postgres's btree indexes contain metainfo in order to determine tuple visibility for index only scans.}
+\question\TFQuestion{T}{For very small tables, the postgres query planner is likely to choose sequential scan instead of an index scan.}
+\question\TFQuestion{T}{The hash index supports the bitmap scan access method.}
+\question\TFQuestion{T}{A database stored using HDDs should have a higher value for the \lstinline{random_page_cost} system parameter than a database stored using SSDs.}
+\question\TFQuestion{F}{A denormalized representation of data tends to take up less disk space than a normalized representation.}
+\question\TFQuestion{T}{The nested loop join strategy can be used to join tables on an equality constraint.}
+\question\TFQuestion{T}{The hash join strategy can be used for self joins.}
+%\question\TFQuestion{T}{The HashAggregate strategy can be}
+
+\question\TFQuestion{T}{A hash index can be used to speed up a nested loop join.}
+\question\TFQuestion{F}{A btree index can be used to speed up a CHECK constraint.}
+\question\TFQuestion{F}{It is possible to INSERT a NULL value into a column labeled as the PRIMARY KEY.}
+\question\TFQuestion{F}{It is not possible to create a GIN index to enforce a UNIQUE constraint, but it is possible to create a RUM index to enforce a UNIQUE constraint.}
+\question\TFQuestion{T}{One advantage of the RUM index over the GIN index is that the former supports index scans and the latter does not.  This implies that the RUM index can be used to speed up queries using the \lstinline{LIMIT} clause, but the GIN index cannot.}
+\question\TFQuestion{F}{If postgres crashes while a DELETE/INSERT/UPDATE statement is modifying a RUM index, the index becomes corrupted and must be regenerated.}
+\question\TFQuestion{T}{The ANALYZE command collects statistics on the values in the table which the query planner uses when selecting which scan algorithm to use for a query.}
+%\question\TFQuestion{T}{It's always possible to use a nested loop join.}
+\question\TFQuestion{F}{A hash index can return tuples in sorted order.}
+\question\TFQuestion{T}{The GroupAggregate algorithm can be used if one of the SELECT columns contains COUNT(DISTINCT *).}
+\question\TFQuestion{F}{When a table has been CLUSTERed on an index, inserting new tuples causes them to be inserted in the order specified by the index.}
+%\question\TFQuestion{T}{In postgres, the INSERT command will never block a SELECT command, and the SELECT command will never block the INSERT command.}
+\question\TFQuestion{F}{In the current version of postgres (versrion 14), index only scans can be parallelized, but index scans cannot be parallelized.}
+\question\TFQuestion{F}{If you run EXPLAIN ANALYZE on an UPDATE statement, then the database is guaranteed not to modify your data.}
+\question\TFQuestion{F}{The order of columns matters in a multi-column GIN index.}
+%\question\TFQuestion{T}{Given the string ``C\'esar Ch\'avez'', an NFD-normalized UTF-8 encoding will require more bytes than a NFKC-normalized UTF-8 encoding.}
+%\question\TFQuestion{F}{The UTF-16 encoding cannot represent NFKD-normalized text.}
+%\question\TFQuestion{F}{The TSVECTOR type can be created on NFC normalized TEXT fields, but cannot be created on NFD normalized TEXT fields.}
+%\question\TFQuestion{T}{Given any string in NFKC form, normalizing to NFC and back to NFKC is guaranteed to be an idempotent operation (i.e. you will get the same string back.)}
+
+\end{questions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Integrated Questions}
+
+The questions below relate to the following simplified normalized twitter schema.
+There are 12 subproblems in total, each worth 5 points.
+
+\begin{lstlisting}
+CREATE TABLE users (
+    id_users BIGINT PRIMARY KEY,
+    created_at TIMESTAMPTZ CHECK (created_at > '2000-01-01'),
+    name TEXT UNIQUE NOT NULL,
+    description TEXT
+);
+
+CREATE TABLE tweets (
+    id_tweets BIGINT PRIMARY KEY,
+    id_users BIGINT REFERENCES users(id_users),
+    retweet_count SMALLINT NOT NULL,
+    country_code VARCHAR(2),
+    lang VARCHAR(2) NOT NULL,
+    text TEXT NOT NULL
+);
+
+CREATE TABLE tweet_mentions (
+    id_tweets BIGINT REFERENCES tweets(id_tweets),
+    id_users BIGINT REFERENCES users(id_users),
+    PRIMARY KEY(id_tweets, id_users)
+);
+\end{lstlisting}
+    %favorite_count SMALLINT NOT NULL,
+    %quote_count SMALLINT NOT NULL,
+
+\begin{questions}
+\question{
+    Recall that certain constraints create indexes on the appropriate columns.  List the equivalent CREATE INDEX commands that are run by the constraints above.
+}
+
+\begin{solution}
+
+    {\lstinline{CREATE UNIQUE INDEX ON users (id_users);}}
+
+    {\lstinline{CREATE UNIQUE INDEX ON users (name);}}
+
+    {\lstinline{CREATE UNIQUE INDEX ON tweets (id_tweets);}}
+
+    {\lstinline{CREATE UNIQUE INDEX ON tweets_mentions (id_tweets, id_users);}}
+\end{solution}
+
+\newpage
+\question{
+Create index(es) so that the following query will run as efficiently as possible.
+Do not create any unneeded indexes; if no new indexes are needed, say so and explain why.
+
+\begin{lstlisting}
+SELECT count(*)
+FROM users
+WHERE name=lower(:name); 
+\end{lstlisting}
+
+}
+\begin{solution}
+No new index is needed.
+The index on \lstinline{users(name)} can be used.
+The fact that there is a function call to the right of the equals doesn't matter.
+
+\noindent
+\textbf{Common mistakes:}
+
+(-5pts)
+Many students suggested the following index:
+\begin{lstlisting}
+CREATE INDEX ON users(lower(name));
+\end{lstlisting}
+This index cannot be used to speed up the query, however, because the expression \lstinline{lower(name)} that appears in the index does not appear in the WHERE clause.
+A similar looking expression \lstinline{lower(:name)} does appear, but \lstinline{:name} is different than \lstinline{name}.
+\end{solution}
+
+\newpage
+\question{
+Create index(es) so that the following query will run as efficiently as possible.
+Do not create any unneeded indexes; if no new indexes are needed, say so and explain why.
+
+\begin{lstlisting}
+SELECT max(retweet_count)
+FROM tweets
+WHERE
+    id_users = :id_users;
+\end{lstlisting}
+}
+
+\begin{solution}
+\begin{lstlisting}
+CREATE INDEX ON tweets(id_users, retweet_count);
+\end{lstlisting}
+
+\textbf{Common mistakes:}
+
+(-3) Not creating an index with the \lstinline{retweet_count} column.  Not including this column means we cannot do an index only scan.
+
+(-4) Listing the columns in the wrong order.  This prevents the index from being used.
+
+(-5) Creating an index that includes \lstinline{max(retweet_count)}.  Indexes cannot be created on aggregate functions.
+\end{solution}
+
+\newpage
+\question{
+Create index(es) so that the following query will run as efficiently as possible.
+Do not create any unneeded indexes; if no new indexes are needed, say so and explain why.
+
+\begin{lstlisting}
+SELECT DISTINCT id_users
+FROM tweets
+WHERE country_code = :country_code
+   OR lang = :lang
+LIMIT 10;
+\end{lstlisting}
+}
+
+\begin{solution}
+\begin{lstlisting}
+CREATE INDEX ON tweets(country_code);
+CREATE INDEX ON tweets(lang);
+\end{lstlisting}
+
+\textbf{Note:}
+Due to the OR condition above, there is no way to create a single index on both \lstinline{country_code} and \lstinline{lang} that will result in an index/index only scan.
+Instead, we must create the two indexes above and do a bitmap scan.
+The bitmap scan cannot take advantage of additional columns to output results in a sorted order,
+and so an explicit sort must be called to implement the DISTINCT clause.
+Furthermore, the bitmap scan cannot return tuples one at a time, and so we cannot take advantage of the LIMIT clause.
+
+\textbf{Common Mistakes:}
+
+(-5pts) Creating only a single index.
+
+(-2pts)
+    Adding additional columns into the created indexes.
+    Because we are using a bitmap scan, the additional columns cannot be used.
+    Instead, they will take up additional space in the index and cause a variety of small performance problems.
+    These include reducing the fanout of the btree and increasing the disk usage.
+\end{solution}
+
+\newpage
+\question{
+Create index(es) so that the following query will run as efficiently as possible.
+Do not create any unneeded indexes; if no new indexes are needed, say so and explain why.
+
+\begin{lstlisting}
+SELECT id_users, id_tweets
+FROM tweets
+WHERE retweet_count > :minimum_retweet_count
+  AND country_code = :country_code
+ORDER BY retweet_count DESC, id_users ASC
+LIMIT 10;
+\end{lstlisting}
+}
+\begin{solution}
+\begin{lstlisting}
+CREATE INDEX ON tweets(
+    country_code,
+    retweet_count DESC,
+    id_users ASC,
+    id_tweets
+    );
+\end{lstlisting}
+
+\textbf{Common mistakes:}
+
+(-3)
+If you created multiple indexes that can use a bitmap scan to speed up the query.
+This won't be as fast as an index only scan, and in particular won't be to exploit the ORDER BY or LIMIT clauses.
+
+(between -2 to -5) 
+If you ordered your columns incorrectly.
+If the mistake is so grievous that the proposed index cannot be used at all, you got -5;
+smaller penalties were for orderings that could still be used somewhat but were not optimal.
+\end{solution}
+\vspace{2in}
+
+
+\newpage
+\question{
+Create index(es) so that the following query will run as efficiently as possible.
+Do not create any unneeded indexes; if no new indexes are needed, say so and explain why.
+
+\begin{lstlisting}
+SELECT name
+FROM users
+JOIN tweet_mentions USING (id_users)
+WHERE
+    id_tweets = :id_tweets
+ORDER BY name;
+\end{lstlisting}
+}
+
+\begin{solution}
+We need the following index
+\begin{lstlisting}
+CREATE INDEX ON users (id_users, name);
+\end{lstlisting}
+Additionally, we would need to create the following index as well, but it is already created by the PRIMARY KEY constraint
+\begin{lstlisting}
+CREATE INDEX ON tweet_mentions (id_tweets, id_users);
+\end{lstlisting}
+With these two indexes, we can do index only scans and a merge join, and the results will already be sorted according to the ORDER BY clause so no explicit sort is needed.
+
+\textbf{Common Mistakes:}
+
+(-1) 
+    Relying on the index on \lstinline{users(id_users)} instead of creating \lstinline{users(id_users, name)}.
+    The former will not have results in sorted order by \lstinline{name}, and so cannot take advantage of the ORDER BY clause.
+
+(-3) Getting the column order wrong on the index \lstinline{(tweet_mentions (id_tweets, id_users))}.
+\end{solution}
+
+
+\newpage
+\question{
+Create index(es) so that the following query will run as efficiently as possible.
+Do not create any unneeded indexes; if no new indexes are needed, say so and explain why.
+
+\begin{lstlisting}
+SELECT country_code, count(*)
+FROM tweets
+JOIN users USING (id_users)
+WHERE name = :name
+GROUP BY country_code
+ORDER BY count(*) DESC;
+\end{lstlisting}
+}
+
+\begin{solution}
+
+\begin{lstlisting}
+CREATE INDEX ON users (name, id_users);
+CREATE INDEX ON tweets (id_users, country_code);
+\end{lstlisting}
+
+\noindent
+\textbf{Note:}
+The indexes above allow a merge join, returning results in sorted order based on the \lstinline{country_code}.
+Because the results are pre-sorted, the GroupAggregate algorithm can be used to implement the grouping and \lstinline{count(*)}.
+There is no way to speed up the ORDER BY clause, however.
+
+\textbf{Common Mistakes:}
+
+(-2) Not creating multicolumn indexes.  This can prevent the use of the merge join and GroupAggregate algorithms.
+If you created one index multicolumn and one index not multicolumn, you got -1 point.
+\end{solution}
+
+\newpage
+\question{
+Create index(es) so that the following query will run as efficiently as possible.
+Do not create any unneeded indexes; if no new indexes are needed, say so and explain why.
+
+\begin{lstlisting}
+SELECT count(*)
+FROM tweets
+WHERE retweet_count > 0
+  AND country_code = :country_code
+  AND to_tsvector('english', text) @@ to_tsquery('english', :query)
+LIMIT 10;
+\end{lstlisting}
+}
+
+\noindent
+%\textbf{HINT:} Ensure that you take advantage of the fact that the minimum \lstinline{retweet_count} is hard coded.
+
+\begin{solution}
+There are many possible solutions to this problem with near-identical performance.
+The following are two full credit solutions.
+
+\textbf{Example 1:}
+The following RUM index allows an index scan and so can take advantage of the LIMIT clause:
+
+\begin{lstlisting}
+CREATE INDEX ON tweets using RUM(
+    to_tsvector('english', text),
+    country_code
+    )
+    WHERE retweet_count > 0;
+\end{lstlisting}
+
+\textbf{Example 2:}
+The following pair of GIN indexes can work together in a bitmap scan.
+This example is likely to be slightly slower than the example above, however, as it cannot take advantage of the LIMIT clause.
+
+\begin{lstlisting}
+CREATE INDEX ON tweets(
+    country_code
+    )
+    WHERE retweet_count > 0;
+
+CREATE INDEX ON tweets USING GIN(
+    to_tsvector('english', text)
+    )
+    WHERE retweet_count > 0;
+\end{lstlisting}
+
+\textbf{Common mistakes:}
+
+(-1) If you didn't take advantage of the fact that the \lstinline{retweet_count > 0} clause is hardcoded and create a partial index.
+If you didn't take advantage of this column at all, you received an additional -2 penalty.
+
+(-1)
+    If you used the \lstinline{ATTACH='...', TO='...'} syntax for the RUM index incorrectly.
+    In order to get speed up from filtering on the \lstinline{country_code} column,
+    you cannot attach this value.
+
+(-5) If you did not use a GIN/RUM index at all.
+\end{solution}
+
+\newpage
+\question{
+Consider the following SQL query.
+\begin{lstlisting}
+SELECT count(*)
+FROM users
+WHERE name ILIKE '%Smith'
+\end{lstlisting}
+
+\begin{enumerate}[a)]
+    \item This query cannot be sped up using an index.  Why?
+
+        \begin{solution}
+            Only a btree index can be used to speed up ILIKE/LIKE clauses.
+            The leading wildcard in the ILIKE expression means that when scanning the btree,
+            we cannot prune any branches from the search and must check every value for a match.
+
+            The above answer is full credit, but it's also important for the second part of the problem that the ILIKE operator must do more comparisons than the LIKE operator because ILIKE is case-insensitive.
+            By replacing ILIKE with an equivalent LIKE expression, we can reduce the number of comparisons when the wildcard comes at the end of the string.
+
+            \textbf{Common Mistakes:}
+
+            (-3) Only mentioning case sensitivity.
+        \end{solution}
+
+    \item Rewrite the query above into an equivalent query that can be sped up with an index.  Also provide the index that would speed up the query.
+        \begin{solution}
+            The key idea is to use the \lstinline{reverse} function to move the wildcard to the end of the string and the \lstinline{lower} function to replace the ILIKE operator with a LIKE operator.
+
+\begin{lstlisting}
+SELECT count(*)
+FROM users
+WHERE reverse(lower(name)) LIKE reverse('%smith');
+
+CREATE INDEX ON users (reverse(lower(name)));
+\end{lstlisting}
+
+            \textbf{Common Mistakes:}
+
+            (-1) Not changing ILIKE to LIKE and adding the call to \lstinline{lower}, which is needed because \lstinline{ILIKE} is case-insensitive.
+
+            (-3) Only fixing the case sensitivity, and not the position of the wildcard.
+
+            (between -5 to -2) If you created a query/index (often using FTS) that is not equivalent to the one above.  The exact penalty is absed on how similar your query is to the original.
+        \end{solution}
+\end{enumerate}
+}
+
+
+\newpage
+\question{
+Consider the following SQL query, which returns tweets where either the text or the description of the user match a FTS query.
+
+\begin{lstlisting}
+SELECT id_tweets
+FROM tweets, users
+WHERE ( to_tsvector('english', text)
+     || to_tsvector('english', description)
+      ) 
+      @@ to_tsquery('english', :query)
+;
+\end{lstlisting}
+}
+
+\begin{enumerate}[a)]
+    \item This query cannot be sped up using an index.  Why?
+
+        \begin{solution}
+            The condition in the WHERE clause mentions columns from multiple tables in the same expression.
+            To speed up a query, the expression in an index must exactly match the expression on one side of the operator in the condition,
+            and you cannot build an index on an expression that mentions multiple tables.
+        \end{solution}
+
+    \item Rewrite the query above into an equivalent query that can be sped up with an index.  Also provide the index that would speed up the query.
+
+        \begin{solution}
+            The key idea is to "factor out" the \lstinline{||} operator so that we have multiple conditions, each mentioning only a single table:
+\begin{lstlisting}
+SELECT id_tweets
+FROM tweets, users
+WHERE (to_tsvector('english', text) 
+    @@ to_tsquery('english', :query)
+      )
+   OR ( to_tsvector('english', description)
+     @@ to_tsquery('english', :query)
+      )
+;
+\end{lstlisting}
+Then we can build gin indexes like so:
+\begin{lstlisting}
+CREATE INDEX ON tweets USING GIN(
+    to_tsvector('english', text)
+    );
+CREATE INDEX ON users USING GIN(
+    to_tsvector('english', description)
+    );
+\end{lstlisting}
+Note that it is not wrong to use a RUM index in this case, but there are no particular advantages to using it.
+        \end{solution}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{questions}
+
+\end{document}
