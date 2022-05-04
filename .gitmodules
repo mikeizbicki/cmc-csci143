@@ -33,3 +33,6 @@
 [submodule "week_13/search_engine"]
 	path = week_13/search_engine
 	url = https://github.com/mikeizbicki/search_engine
+[submodule "week_15/wardial"]
+	path = week_15/wardial
+	url = https://github.com/mikeizbicki/wardial
