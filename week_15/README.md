@@ -161,6 +161,6 @@ Part 1: generator syntax practice (10pts)
 
 1. This is an assignment from CS46 (data structures), and so only students who didn't take that with me need to complete it
 
-Part 2: wardial (20pts)
+Part 2: [wardial](https://github.com/mikeizbicki/wardial) (20pts)
 
 Both assignments will be due Wednesday, May 11.
