@@ -102,7 +102,7 @@ Therefore, this program will run with the permissions of group `games` for all u
 > In general, we want our programs to run with as few permissions as possible to limit the scope of these attacks.
 
 In order to get the extra credit for this assignment, you'll have to figure out a way to exploit the `typespeed` executable (or some other executable with group `games`) to make the necessary changes to the scores file.
-I know of at least 1 way to do this, but I suspect there are probably more.
+I know of at least one way to do this, but I suspect there are probably more.
 
 ## Submission
 

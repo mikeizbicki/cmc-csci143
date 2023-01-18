@@ -1,6 +1,7 @@
 # Caveat Task: Hacker Culture
 
 **Background:**
+
 Hacker culture built the internet and continues to be the most important cultural trend amongst programmers.
 According to [wikipedia](https://en.wikipedia.org/wiki/Hacker_culture),
 
@@ -11,8 +12,9 @@ It will also help you pass the [culture fit test](https://triplebyte.com/blog/wh
 
 ## Task
 
-You must earn 5 points by watching/reading the shows/books below.
-Each point takes approximately 2 hours to each, so you must spend about 10 hours on this task.
+You must earn 4 points by watching/reading the shows/books below.
+Each point should take at most 2 hours to complete,
+so you should be able to finish this task in under 8 hours.
 
 **Watching (non-fiction):** (1 point each)
 
@@ -43,19 +45,36 @@ Each point takes approximately 2 hours to each, so you must spend about 10 hours
 
 **Reading (Non-Fiction):** (1 point per chapter)
 
-1. ESR's *The Art of Unix Programming*, available online at [his webpage](http://catb.org/~esr/writings/taoup/html/context.html) by ESR.
-   This is the classic exposition of the Unix philosophy that underlies the technical aspects of hacker culture.
+1. Peter Norvig's [Teach Yourself Programming in Ten Years (not 21 days)](https://norvig.com/21-days.html).
+    Norvig is one of the founders of Artificial Intelligence and Director of Research at Google.
 
-1. ESR's *The Cathedral and the Bazaar*, available online at [his webpage](http://www.catb.org/~esr/writings/cathedral-bazaar/).
-   This is the classic economic argument for why open source software is better than closed source software.
+1. Paul Graham's [what to study in college](http://www.paulgraham.com/college.html).
+    Graham is a founder of the the investment company <https://www.ycombinator.com/>,
+    which started many famous companies like dropbox, airbnb, stripe, doordash, reddit, and twitch.
 
-1. Peter Seibel's *Coders at Work: Reflections on the Craft of Programming*.
-   Seibel interviews many famous hackers about their coding setups and how their philosophy of coding.
+1. Jeff Atwood's [How To Become a Better Programmer by Not Programming](https://blog.codinghorror.com/how-to-become-a-better-programmer-by-not-programming/).
+    Atwood is the founder of <https://stackoverflow.com>.
+    He's also a Microsoft fanboi (and so provides a bit of a different perspective than everyone else on this list).
+
+1. ESR's [How to become a hacker](http://www.catb.org/esr/faqs/hacker-howto.html).
+    ESR is a famous hacker who started many open source projects.
 
 1. Any article on <https://phrack.org> counts as 1 point.
    Phrack is a famous hacker-zine that discusses both the philosophy of hacking and the practical aspects of "cracking."
    The most famous article is the [hacker's manifesto](http://phrack.org/issues/7/3.html).
 
+1. Each chapter of the following books count as one point:
+
+    1. ESR's *The Art of Unix Programming*, available online at [his webpage](http://catb.org/~esr/writings/taoup/html/context.html).
+       This is the classic exposition of the Unix philosophy that underlies the technical aspects of hacker culture.
+
+    1. ESR's *The Cathedral and the Bazaar*, available online at [his webpage](http://www.catb.org/~esr/writings/cathedral-bazaar/).
+       This is the classic economic argument for why open source software is better than closed source software.
+
+    1. Peter Seibel's *Coders at Work: Reflections on the Craft of Programming*.
+       Seibel interviews many famous hackers about their coding setups and how their philosophy of coding.
+
+<!--
 **Reading (Fiction):** (5 points for reading the whole book, no partial credit)
 
 1. [Harry Potter and the Methods of Rationality](https://hpmor.com).
@@ -65,6 +84,7 @@ Each point takes approximately 2 hours to each, so you must spend about 10 hours
    and the story introduces a lot of concepts important for AI safety and the philosophy of data science.
 
 1. Any of the fiction books [listed here](https://portswigger.net/daily-swig/the-top-10-best-hacker-themed-books-of-all-time).
+-->
 
 ## Submission
 

@@ -26,7 +26,7 @@ Fun facts:
     1. left Navy as a [conscientious objector](https://www.nytimes.com/2011/02/23/nyregion/23objector.html)
 1. phd/postdoc at UC Riverside
 1. taught in [DPRK (i.e. North Korea)](https://pust.co)
-1. my wife is pregnant and due to have a baby mid-February
+1. my wife is pregnant and due to have a baby April 18th
 
 ## About the Course
 
@@ -48,8 +48,8 @@ Depends entirely on the person who is talking
 We will work with the following three datasets:
 
 1. All geolocated tweets sent from 2017-today, 4 terabytes
-1. The [common crawl](https://commoncrawl.org/) of the web since 2008, >1 petabyte
-1. The [internet archive](https://archive.org/web/petabox.php), >50 petabytes as of 2014
+1. ~~The [common crawl](https://commoncrawl.org/) of the web since 2008, >1 petabyte~~
+1. ~~The [internet archive](https://archive.org/web/petabox.php), >50 petabytes as of 2014~~
 
 By the end of this course, you will build your own "google" search engine.
 You will manage a cluster of machines that work together to:
@@ -207,6 +207,12 @@ but I will provide more specific links each week.
 1. Extra credit, as posted in [#85](https://github.com/mikeizbicki/cmc-csci143/issues/85)
 1. In total, there will be between 400-500 points in the class.
 
+1. Weekly labs (worth `2**1` points)
+1. Occasional quizzes (worth `2**3` points)
+1. Weekly projects (worth `2**4` or `2**5` points)
+1. Open note, take-home midterm and final (worth `2**6` points each)
+1. [Occassional extra credit assignments](extra_credit/README.md)
+
 > **NOTE:**
 > All of my assignments are explicitly designed to help you get a good job after graduation.
 > They will help build your github "portfolio" and give you cool things to talk about during interviews.
@@ -215,8 +221,9 @@ but I will provide more specific links each week.
 
 **Late Work Policy:**
 
-You lose 20% on all assignments for each day late.
-If you have extenuating circumstances, contact me in advance of the due date and I may extend the due date for you.
+You lose `2**i` points on every assignment,
+where `i` is the number of days late.
+It is usually better to submit a correct assignment late than an incorrect one on time.
 
 **Grade Schedule:**
 
@@ -247,9 +254,11 @@ If you don't complete one of the tasks, however, your grade (from the table abov
 You have the entire semester (until I submit grades) to complete these tasks.
 
 You can find the details about the caveat tasks at:
-1. <https://github.com/mikeizbicki/cmc-csci143/blob/2022spring/caveat_tasks/typespeed.md>
-1. <https://github.com/mikeizbicki/cmc-csci143/blob/2022spring/caveat_tasks/culture.md>
+1. [caveat_tasks/typespeed.md](caveat_tasks/typespeed.md)
+1. [caveat_tasks/culture.md](caveat_tasks/culture.md)
 
+
+<!--
 ## Schedule
 
 **Overall Schedule:**
@@ -338,11 +347,12 @@ We will have a midterm "approximately" before spring break,
 and a final "approximately" on the second to last week of class.
 
 I promise to be reasonable with giving you sufficient advance notice to prepare for these exams.
+-->
 
 <!-- senior grades due May 6 -->
 <!-- https://medium.com/analytics-vidhya/python-generators-coroutines-async-io-with-examples-28771b586578 -->
 
-## Other Policies
+## Academic Integrity
 
 **Technology Policy:**
 
@@ -365,11 +375,8 @@ subject to the following constraints:
 
 You may use any online resources you like as references.
 
-> **IMPORTANT:**
-> If you collaborate in person with any human (besides Mike) outside of classtime,
-> then you will get a 2 day extension on all take home assignments.
-
 > **WARNING:**
+>
 > All material in this class is cumulative.
 > If you work "too closely" with another student on an assignment,
 > you won't understand how to complete subsequent assignments,
@@ -379,7 +386,7 @@ You may use any online resources you like as references.
 > 
 > *You are ultimately responsible for ensuring you learn the material!*
 
-**Accommodation Policy:**
+## Accommodations
 
 I've tried to design the course to be as accessible as possible for people with disabilities.
 (We'll talk a bit about how to design accessible software in class too!)
