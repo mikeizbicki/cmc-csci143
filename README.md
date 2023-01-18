@@ -216,11 +216,13 @@ but I will provide more specific links each week.
     1. Non-seniors will complete a final project due during finals week.
 1. [Occassional extra credit assignments](extra_credit/README.md)
 
+<!--
 > **NOTE:**
 > All of my assignments are explicitly designed to help you get a good job after graduation.
 > They will help build your github "portfolio" and give you cool things to talk about during interviews.
 > These assignments are all very practical, and not "leetcode".
 > For mastering leetcode-style questions, you'll want to take CSCI148: Graph Algorithms with Prof Cannon.
+-->
 
 **Late Work Policy:**
 
