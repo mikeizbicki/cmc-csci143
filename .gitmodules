@@ -1,6 +1,38 @@
-[submodule "pagila_hw"]
-	path = week_04/pagila-hw
-	url = https://github.com/mikeizbicki/pagila-hw
-[submodule "week_07/pagila-midterm"]
-	path = week_07/pagila-midterm
-	url = https://github.com/mikeizbicki/pagila-midterm
+[submodule "continuous-integration"]
+	path = topic_00_unic/homework
+	url = https://github.com/mikeizbicki/continuous-integration
+
+#[submodule "twitter_coronavirus"]
+    #path = hw_twitter/twitter_coronavirus
+    #url = https://github.com/mikeizbicki/twitter_coronavirus
+
+#[submodule "pagila_hw"]
+	#path = week_04/pagila-hw
+	#url = https://github.com/mikeizbicki/pagila-hw
+#[submodule "week_03/pagila-hw"]
+	#path = week_03/pagila-hw
+	#url = https://github.com/mikeizbicki/pagila-hw
+#[submodule "week_04/pagila-hw2"]
+	#path = week_04/pagila-hw2
+	#url = https://github.com/mikeizbicki/pagila-hw2
+#[submodule "week_05/pagila-hw3"]
+	#path = week_05/pagila-hw3
+	#url = https://github.com/mikeizbicki/pagila-hw3
+#[submodule "week_07/pagila-midterm"]
+	#path = week_07/pagila-midterm
+	#url = https://github.com/mikeizbicki/pagila-midterm
+#[submodule "week_06/twitter_postgres"]
+	#path = week_06/twitter_postgres
+	#url = https://github.com/mikeizbicki/twitter_postgres
+#[submodule "week_10/twitter_postgres_parallel"]
+	#path = week_10/twitter_postgres_parallel
+	#url = https://github.com/mikeizbicki/twitter_postgres_parallel
+#[submodule "week_12/twitter_postgres_indexes"]
+	#path = week_12/twitter_postgres_indexes
+	#url = https://github.com/mikeizbicki/twitter_postgres_indexes
+#[submodule "week_13/search_engine"]
+	#path = week_13/search_engine
+	#url = https://github.com/mikeizbicki/search_engine
+#[submodule "week_15/wardial"]
+	#path = week_15/wardial
+	#url = https://github.com/mikeizbicki/wardial
