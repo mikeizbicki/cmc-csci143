@@ -1,4 +1,4 @@
-# Week 00: The Unix Shell
+# Topic 00: Unix and the open source workflow
 
 <center>
 <a href="https://www.reddit.com/r/linuxmasterrace/comments/3las1l/dilbert_had_it_right_back_in_1995/">
@@ -8,20 +8,18 @@
 
 ## Lecture
 
-We will cover the basics of the unix shell.
-This includes:
+We will cover how to
 
-1. basic shell scripting
-1. piping / output redirection
-1. file permissions
-1. environment variables
-1. signals
-1. processes
-1. git
-1. github
+1. work on a remote unix server
+1. use the git version control system
+1. use continuous integration to "prove" that your code works
 
-> **WARNING:**
-> We will go over this material VERY fast, so if you don't already feel comfortable with this material, see the references/pre-lecture reading below.
+Cheat sheets:
+
+1. [bash](https://files.fosswire.com/2007/08/fwunixref.pdf)
+1. [vim](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf)
+1. [git](https://education.github.com/git-cheat-sheet-education.pdf)
+1. [github pull requests](pull_request.png)
 
 All of our work in this class will be done on the "lambda server."
 (You should have received an email with login credentials.)
@@ -34,98 +32,75 @@ The lambda server has:
 
 Your accounts have:
 1. 10GB storage in the NVME (home folder)
-1. 250GB storage in the RAID array (`~/bigdata` folder)
-
-**Pre-lecture work:**
-
-Read/watch the following articles/videos:
-
-1. [Ken Thompson and Dennis Ritchie Explain UNIX](https://www.youtube.com/watch?v=JoVQTPbD6UY)
-1. (optional) [Where GREP Came From - Computerphile](https://www.youtube.com/watch?v=NTfOnGZUZDk)
-1. (optional) [vim vs emacs: the oldest rivalry in computing](https://slate.com/technology/2014/05/oldest-software-rivalry-emacs-and-vi-two-text-editors-used-by-programmers.html)
-
-1. If you don't feel comfortable using git/the command line yet, then try to work through one of the following tutorials.
-   You don't have to do both, I've just provided two since some people prefer video and some prefer text.
-
-    1. (video) Corey Schafer's [Git Tutorial for Beginners: Command-Line Fundamentals](https://www.youtube.com/watch?v=HVsySz-h9r4).
-       Corey is a really famous youtuber for programming tutorials, and you can watch his other videos too if you need more background.
-       
-    1. (text) [An Intro to Git and GitHub for Beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
-
-**Cheatsheets:**
-
-1. [bash](https://files.fosswire.com/2007/08/fwunixref.pdf)
-1. [vim](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf)
-1. [git](https://education.github.com/git-cheat-sheet-education.pdf)
-1. [github pull requests](pull_request.png)
-
-**References:**
-
-1. <https://www.tutorialspoint.com/unix/shell_scripting.htm>
 
 ## Lab
 
 **Due Date:**
-Labs (and homeworks) are always due on midnight of the Sunday of the week that they are assigned (i.e. January 23 for this lab).
-If you collaborate with either a student or TA,
-then you get a 48 hour extension until the following Tuesday at midnight (i.e. January 25 for this lab).
 
-**For this lab only:**
+Labs are always due on midnight of the Sunday of the week that they are assigned (i.e. January 22 for this lab).
+
+*For this lab only:*
 There will be no late penalty if you miss the due date,
 but please be reasonable.
 This is all important background material,
 and I want to ensure that everyone has sufficient time to complete it based on their background experience.
 
-**Instructions:**
+**Pre-lab work:**
 
+<!--
+1. Read/watch the following articles/videos:
+
+    1. [Ken Thompson and Dennis Ritchie Explain UNIX](https://www.youtube.com/watch?v=JoVQTPbD6UY)
+    1. (optional) [Where GREP Came From - Computerphile](https://www.youtube.com/watch?v=NTfOnGZUZDk)
+    1. (optional) [vim vs emacs: the oldest rivalry in computing](https://slate.com/technology/2014/05/oldest-software-rivalry-emacs-and-vi-two-text-editors-used-by-programmers.html)
+
+    1. (optional) Corey Schafer's [Git Tutorial for Beginners: Command-Line Fundamentals](https://www.youtube.com/watch?v=HVsySz-h9r4).
+       Corey is a really famous youtuber for programming tutorials, and you can watch his other videos too if you need more background.
+       -->
+       
 1. Create a GitHub account if you do not already have one.
    Log in, and press the "watch" button at the top of this page.
    This will ensure you get email notifications whenever I post new issues to github.
-   Read and follow the instructions in [the meet and greet issue](https://github.com/mikeizbicki/cmc-csci143/issues/83).
+
+1. Read and follow the instructions in [the meet and greet issue](https://github.com/mikeizbicki/cmc-csci143/issues/226).
+
+1. Log in to the lambda server.
+   Run the command
+   ```
+   $ vimtutor
+   ```
+   Complete all instructions in order to learn vim.
+   This should take 30-60 minutes.
+
+   Vim is famous for having a steep learning curve,
+   and has inspired lots of memes/comics:
+
+   <img src=vim-productivity.jpg width=500px>
+
+   <img src=vim-comic2.webp width=500px>
+
+   <img src=vim-comic.jpg width=500px>
+
+1. (Optional)
+   Play the <https://vim-adventures.com> game to learn vim while playing a game.
+   The first 3 levels are free, but you have to pay to continue playing the game.
+   Anyone who completes the entire game before the end of the semester gets +1 point extra credit.
+
+**Instructions:**
 
 1. Complete the following "review tasks" from CS46.
 
-    There is nothing to turn in for these review tasks,
-    but subsequent lectures will assume you are 100% comfortable with all of the material.
-    So it would behoove you to spend a few hours working through the material to ensure that you fully understand it all.
+    1. Update your lambda server account settings to match mine,
+       which are a bit more user friendly than the defaults.
+       Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/lambda-server.md) to make the changes.
 
-    1. In this first task, you will practice using the vim terminal-based text editor.
+    1. Work through the following tutorials that review important unix shell concepts:
 
-       > **IMPORTANT:**
-       > Recall that in this class, you must use vim for all assignments.
-       > Emacs (in evil mode) is okay if you're one of *those* people,
-       > but you cannot use an IDE environment like VSCode, PyCharm, or IDLE.
+        1. the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md)
+        3. the [github tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/topic_00_unix/github.md)
+        3. the [unix processes tutorial](processes.md)
 
-       If you've never used vim before, then log in to the lambda server and run the command
-       ```
-       $ vimtutor
-       ```
-       Complete all the on-screen instructions in order to learn vim.
-       This should take 30-60 minutes.
-
-       If you're already comfortable using vim,
-       then you should instead spend at least 30 minutes reviewing and practicing new vim techniques.
-       I recommend working through the tutorials at <https://thevaluable.dev/vim-commands-beginner/>,
-       but you can use whatever resource you'd like.
-
-       > **NOTE:**
-       > There are a number of games designed to help you get better at using vim.
-       > The most polished is <https://vim-adventures.com>, which is a vim RPG. 
-       > The first 3 levels are free, but you have to pay to continue playing the game.
-       > One of my former students also created the [PacVim](https://github.com/jmoon018/PacVim) game,
-       > which is an open source pacman clone using vim controls.
-       > You're not required to play any of these games,
-       > but many people find them more fun than working through standard tutorials.
-
-    1. In this second task, you will update your lambda server account settings to match mine and be a bit more user friendly.
-       Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/lambda-server.md) to make the changes.
-
-    1. Next, you should work through the following tutorials that review important unix shell concepts:
-
-        1. the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/git.md)
-        1. the [github tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/week_00/github.md)
-        1. the [unix processes tutorial](processes.md)
-
+<!--
     1. Finally, you will begin the `typespeed` "caveat task.
        
        Log in to the lambda server, and run the command
@@ -140,9 +115,11 @@ and I want to ensure that everyone has sufficient time to complete it based on t
        Anyone who beats my high score will have my undying admiration :)
 
        Performing well at `typespeed` is one of the "caveat tasks" in this class.
-       You should [work through the task instructions](https://github.com/mikeizbicki/cmc-csci143/blob/2022spring/caveat_tasks/typespeed.md),
+       You should [work through the task instructions](../caveat_tasks/typespeed.md),
        which will also help you review basic terminal commands.
+-->
 
+<!--
 1. Each of the following problems asks you to write a bash command to complete some task.
    You should submit the commands (not the output of the commands, but the actual commands) to sakai.
    The commands must work no matter what the current working directory is (i.e., do not rely on the user having run a `cd` command previously).
@@ -189,17 +166,9 @@ and I want to ensure that everyone has sufficient time to complete it based on t
        > Use the `tr 'A-Z' 'a-z'` command to translate all characters into lowercase.
        > Use `grep` to extract only the lines containing `coronavirus`.
        > Use `wc` to count the number of lines.
+-->
 
 ## Homework
 
 Homeworks will generally be posted into the `homework` [git submodule](https://www.atlassian.com/git/tutorials/git-submodule) for each week.
-Like labs, homeworks are always due on midnight of the Sunday of the week that they are assigned (i.e. Jan 23 for this homework, or Jan 25 with the 2 day collaboration extension).
-
-This week's homework assignment is a review assignment from CS46.
-Therefore:
-
-1. Only those students who did not take CS46 with me should complete this assignment.
-   If you took CS46 with me, you are welcome to complete the assignment as review, but it will not count towards your grade.
-
-1. **There will be no late penalty for this assignment if you miss the due date.**
-   This is an important assignment, and I want to ensure that everyone has sufficient time to master it.
+Homeworks are always due on Tuesday of the week after they are assigned (i.e. Jan 24 for this homework).
