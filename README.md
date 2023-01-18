@@ -13,8 +13,8 @@
 | Name | Mike Izbicki (call me Mike) |
 | Email | mizbicki@cmc.edu |
 | Office | Adams 216 |
-| Office Hours | See [#86](https://github.com/mikeizbicki/cmc-csci143/issues/86) |
-| Zoom Link | <https://cmc-its.zoom.us/j/644800111><br/>all lectures recorded and uploaded to youtube (see [#87](https://github.com/mikeizbicki/cmc-csci143/issues/87)) |
+| Office Hours | TBA |
+| Zoom Link | See [Issue #227](https://github.com/mikeizbicki/cmc-csci143/issues/227) |
 | Webpage | [izbicki.me](https://izbicki.me) |
 | Research | Machine Learning (see [izbicki.me/research.html](https://izbicki.me/research.html) for some past projects) |
 

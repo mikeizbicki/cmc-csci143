@@ -101,7 +101,7 @@ and I want to ensure that everyone has sufficient time to complete it based on t
     1. Work through the following tutorials that review important unix shell concepts:
 
         1. the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md)
-        3. the [github tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/topic_00_unix/github.md)
+        3. the [github tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/topic_00_unix/github.md) (this tutorial has a component that you must submit to sakai)
         3. the [unix processes tutorial](processes.md)
 
 <!--
