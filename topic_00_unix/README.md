@@ -8,18 +8,13 @@
 
 ## Lecture
 
-We will cover how to
+<img src=map_of_cs.png width=600px>
 
-1. work on a remote unix server
-1. use the git version control system
-1. use continuous integration to "prove" that your code works
+We will review the following material from CS46
 
-Cheat sheets:
-
-1. [bash](https://files.fosswire.com/2007/08/fwunixref.pdf)
-1. [vim](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf)
-1. [git](https://education.github.com/git-cheat-sheet-education.pdf)
-1. [github pull requests](pull_request.png)
+1. working on a remote unix server
+1. using the git version control system
+1. using continuous integration to "prove" that your code works
 
 All of our work in this class will be done on the "lambda server."
 (You should have received an email with login credentials.)
@@ -32,6 +27,18 @@ The lambda server has:
 
 Your accounts have:
 1. 10GB storage in the NVME (home folder)
+
+**Cheat sheets:**
+
+1. [bash](https://files.fosswire.com/2007/08/fwunixref.pdf)
+1. [vim](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf)
+1. [git](https://education.github.com/git-cheat-sheet-education.pdf)
+1. [github pull requests](pull_request.png)
+
+**Quiz details:**
+
+1. You will have a quiz next Wednesday (25 Jan)
+1. The format follows the `practice_quiz_X.pdf` files
 
 ## Lab
 
