@@ -10,7 +10,7 @@
 
 <img src=map_of_cs.png width=600px>
 
-We will review the following material from CS46
+We will review the following material from CS46:
 
 1. working on a remote unix server
 1. using the git version control system
@@ -24,9 +24,6 @@ The lambda server has:
 1. 256 GB RAM
 1. 2 TB NVME
 1. 50 TB RAID array of 16 HDDs
-
-Your accounts have:
-1. 10GB storage in the NVME (home folder)
 
 **Cheat sheets:**
 
