@@ -264,61 +264,6 @@ You can find the details about the caveat tasks at:
 
 
 <!--
-## Schedule
-
-**Overall Schedule:**
-
-| Week | Date        | Topic                                                |
-| ---- | ----------- | ---------------------------------------------------- |
-| 0    | M, 17 Jan   | **MLK Jr Holiday**                                   |
-| 0    | W, 19 Jan   | DevOps: Unix Shell                                   |
-| 0    | F, 21 Jan   | DevOps: Unix Shell                                   |
-| 1    | M, 24 Jan   | DevOps: Docker                                       |
-| 1    | W, 26 Jan   | DevOps: Docker                                       |
-| 1    | F, 28 Jan   | DevOps: Docker                                       |
-| 2    | M, 31 Jan   | DevOps: CRUD Apps                                    | 
-| 2    | W, 02 Feb   | DevOps: CRUD Apps                                    | 
-| 2    | F, 04 Feb   | DevOps: CRUD Apps                                    | 
-| 3    | M, 07 Feb   | SQL: Basics                                          |
-| 3    | W, 09 Feb   | SQL: Basics                                          |
-| 3    | F, 11 Feb   | SQL: Basics                                          |
-| 4    | M, 14 Feb   | SQL: Intermediate Data Types                         |
-| 4    | W, 16 Feb   | SQL: Intermediate Data Types                         | 
-| 4    | F, 18 Feb   | SQL: Intermediate Data Types                         | 
-| 5    | M, 21 Feb   | SQL: ACID/MVCC/Transactions                          | 
-| 5    | W, 23 Feb   | SQL: ACID/MVCC/Transactions                          | <!-- low grade notice -->
-| 5    | F, 25 Feb   | SQL: ACID/MVCC/Transactions                          | <!-- low grade notice -->
-| 6    | M, 28 Feb   | SQL: ACID/MVCC/Transactions                          |
-| 6    | W, 02 Mar   | SQL: ACID/MVCC/Transactions                          |
-| 6    | F, 04 Mar   | SQL: ACID/MVCC/Transactions                          |
-| 7    | M, 07 Mar   | Indexing: b-tree                                     |
-| 7    | W, 09 Mar   | Indexing: b-tree                                     | <!-- 10 March is last day to add/drop -->
-| 7    | F, 11 Mar   | Indexing: b-tree                                     | <!-- 10 March is last day to add/drop -->
-| 8    | M, 14 Mar   | **Spring Break**                                     |
-| 8    | W, 16 Mar   | **Spring Break**                                     |
-| 8    | F, 18 Mar   | **Spring Break**                                     |
-| 9    | M, 21 Mar   | Indexing: Multilingual Full Text Search              |
-| 9    | W, 23 Mar   | Indexing: Multilingual Full Text Search              |
-| 9    | F, 25 Mar   | **César Chávez Holiday**                             |
-| 10   | M, 28 Mar   | Indexing: Multilingual Full Text Search              |
-| 10   | W, 30 Mar   | Indexing: Multilingual Full Text Search              |
-| 10   | F, 01 Apr   | Indexing: Multilingual Full Text Search              |
-| 11   | M, 04 Apr   | Counting: Triggers                                   |
-| 11   | W, 06 Apr   | Counting: Triggers                                   |
-| 11   | F, 08 Apr   | Counting: Triggers                                   |
-| 12   | M, 11 Apr   | Counting: Rollup Tables                              |
-| 12   | W, 13 Apr   | Counting: Rollup Tables                              |
-| 12   | F, 15 Apr   | Counting: Rollup Tables                              |
-| 13   | M, 18 Apr   | Counting: Probabilistic Data Structures              |
-| 13   | W, 20 Apr   | Counting: Probabilistic Data Structures              |
-| 13   | F, 22 Apr   | Counting: Probabilistic Data Structures              |
-| 14   | M, 25 Apr   | DBA (DataBase Admin)                                 |
-| 14   | W, 27 Apr   | DBA (DataBase Admin)                                 |
-| 14   | F, 29 Apr   | DBA (DataBase Admin)                                 |
-| 15   | M, 02 May   | *Non-seniors:* Python Coroutines (async/await)       |
-| 15   | W, 04 May   | *Non-seniors:* Python Coroutines (async/await)       |
-| 15   | F, 06 May   | *Non-seniors:* Python Coroutines (async/await)       |
-
 **Weekly Schedule:**
 
 | Day                   | Time              |
