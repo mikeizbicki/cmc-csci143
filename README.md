@@ -197,6 +197,7 @@ but I will provide more specific links each week.
 
 **Assignments:**
 
+<!--
 1. Occasional labs (worth 1-5 points each)
 1. Occasional quizzes (worth 10-30 points each)
 1. Weekly homeworks (worth 10-30 points each)
@@ -206,11 +207,13 @@ but I will provide more specific links each week.
 1. Non-seniors will have a final project (50 points)
 1. Extra credit, as posted in [#85](https://github.com/mikeizbicki/cmc-csci143/issues/85)
 1. In total, there will be between 400-500 points in the class.
+-->
 
 1. Weekly labs (worth `2**1` points)
 1. Occasional quizzes (worth `2**3` points)
 1. Weekly projects (worth `2**4` or `2**5` points)
-1. Open note, take-home midterm and final (worth `2**6` points each)
+1. Two open note, take-home midterms (worth `2**6` points each)
+    1. Non-seniors will complete a final project due during finals week.
 1. [Occassional extra credit assignments](extra_credit/README.md)
 
 > **NOTE:**
