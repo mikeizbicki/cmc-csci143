@@ -1,9 +1,5 @@
 # Week 00: The Unix Shell
 
-I've made a change :)
-
-Linus made a change
-
 <center>
 <a href="https://www.reddit.com/r/linuxmasterrace/comments/3las1l/dilbert_had_it_right_back_in_1995/">
 <img width='80%' src=dilbert.gif />
@@ -56,7 +52,7 @@ Read/watch the following articles/videos:
        
     1. (text) [An Intro to Git and GitHub for Beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
 
-Print each of these cheatsheets, and have them handy for lecture:
+**Cheatsheets:**
 
 1. [bash](https://files.fosswire.com/2007/08/fwunixref.pdf)
 1. [vim](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf)
