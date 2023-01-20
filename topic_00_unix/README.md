@@ -98,11 +98,11 @@ Complete the following "review tasks" from CS46:
 
 1. Visit the [messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
 
-1. Complete the [unix/git tutorial](git.md).
+1. Complete the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md).
 
-1. Follow [these instructions](lambda-server.md) to update your lambda server account's settings.
+1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/lambda-server.md) to update your lambda server account's settings.
 
-1. Complete the [github pull request assignment](github.md) (we'll cover the details of how to do this Monday, so you don't need to complete it until then)
+1. Complete the [github pull request assignment](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/github.md) (we'll cover the details of how to do this Monday, so you don't need to complete it until then)
 
 <!--
 1. Complete the following "review tasks" from CS46.
