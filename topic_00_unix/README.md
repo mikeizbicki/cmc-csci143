@@ -94,6 +94,17 @@ and I want to ensure that everyone has sufficient time to complete it based on t
 
 **Instructions:**
 
+Complete the following "review tasks" from CS46:
+
+1. Visit the [messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
+
+1. Complete the [unix/git tutorial](git.md).
+
+1. Follow [these instructions](lambda-server.md) to update your lambda server account's settings.
+
+1. Complete the [github pull request assignment](github.md) (we'll cover the details of how to do this Monday, so you don't need to complete it until then)
+
+<!--
 1. Complete the following "review tasks" from CS46.
 
     1. Update your lambda server account settings to match mine,
@@ -105,6 +116,7 @@ and I want to ensure that everyone has sufficient time to complete it based on t
         1. the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md)
         3. the [github tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2021spring/topic_00_unix/github.md) (this tutorial has a component that you must submit to sakai)
         3. the [unix processes tutorial](processes.md)
+-->
 
 <!--
     1. Finally, you will begin the `typespeed` "caveat task.
