@@ -94,11 +94,13 @@ and I want to ensure that everyone has sufficient time to complete it based on t
 
 **Instructions:**
 
-Complete the following "review tasks" from CS46.
 There is nothing to turn in at the end of this lab.
 If you complete it early, feel free to either leave or work on the quiz problems.
 
-Tasks:
+Complete the following "review tasks" from CS46:
+
+1. If you don't yet have access to the lambda server,
+    let me know and we'll get that resolved.
 
 1. Visit the [messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
 
@@ -106,7 +108,10 @@ Tasks:
 
 1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/lambda-server.md) to update your lambda server account's settings.
 
-1. Complete the [github pull request assignment](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/github.md) (we'll cover the details of how to do this Monday, so you don't need to complete it until then)
+On Monday, we will go over how to complete the following task.
+You're welcome to get started on it now if you're already familiar with github pull requests, but you don't have to.
+
+1. Complete the [github pull request assignment](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/github.md)
 
 <!--
 1. Complete the following "review tasks" from CS46.
@@ -194,3 +199,8 @@ Tasks:
 
 Homeworks will generally be posted into the `homework` [git submodule](https://www.atlassian.com/git/tutorials/git-submodule) for each week.
 Homeworks are always due on Tuesday of the week after they are assigned (i.e. Jan 24 for this homework).
+
+> **NOTE:**
+> We will go over how to complete this assignment on Monday in class.
+> You're welcome to get started on it if you're already familiar with cloning/pushing to/pulling from github repos,
+> but you don't have to.
