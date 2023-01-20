@@ -94,7 +94,11 @@ and I want to ensure that everyone has sufficient time to complete it based on t
 
 **Instructions:**
 
-Complete the following "review tasks" from CS46:
+Complete the following "review tasks" from CS46.
+There is nothing to turn in at the end of this lab.
+If you complete it early, feel free to either leave or work on the quiz problems.
+
+Tasks:
 
 1. Visit the [messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
 
