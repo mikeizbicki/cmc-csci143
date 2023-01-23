@@ -27,6 +27,7 @@ Fun facts:
 1. phd/postdoc at UC Riverside
 1. taught in [DPRK (i.e. North Korea)](https://pust.co)
 1. my wife is pregnant and due to have a baby April 18th
+    1. I'll be taking 2 weeks paternity leave when the baby comes
 
 ## About the Course
 
