@@ -309,35 +309,40 @@ I promise to be reasonable with giving you sufficient advance notice to prepare 
 
 **Technology Policy:**
 
-1. You must complete all programming assignments on the lambda server.
+1. You MUST complete all programming assignments on the lambda server.
 
-1. You must use either vim or emacs to complete all programming assignments.
-   In particular, you may not use VSCode, IDLE, or PyCharm for any reason.
+1. You MUST use either vim or emacs to complete all programming assignments.
+   In particular, you may not use the GitHub text editor, VSCode, IDLE, or PyCharm for any reason.
 
-1. You must not share your lambda-server password with anyone else.
+   In particular: You MAY NOT use the GitHub interface to edit files for a pull request.
+
+1. You MAY NOT share your lambda server credentials with anyone else.
 
 Violations of any of these policies will be treated as academic integrity violations.
 
-**Collaboration Policy:**
+**Collaboration Policy**
 
-You are encouraged to discuss all labs and projects with other students,
-subject to the following constraints:
+1. There are no restrictions on what you can post to GitHub Issues.
+    In particular, you are highly encouraged to post detailed questions/answers/comments with lots of code.
 
-1. you must be the person typing in all code for your assignments, and
-1. you must not copy another student's code.
+1. You are highly encouraged to collaborate with students
 
-You may use any online resources you like as references.
+    1. in class/lab,
 
-> **WARNING:**
->
-> All material in this class is cumulative.
-> If you work "too closely" with another student on an assignment,
-> you won't understand how to complete subsequent assignments,
-> and you will quickly fall behind.
-> You should view collaboration as a way to improve your understanding,
-> not as a way to do less work.
-> 
-> *You are ultimately responsible for ensuring you learn the material!*
+    1. in the QCL,
+
+    1. and in office hours.
+
+1. You MAY NOT look at another student's code (or have another human look at your code) in any other context.
+
+1. You MAY NOT look at another student's code on github.
+
+    All projects are developed as open source projects,
+    and so the code is published openly online.
+    The benefits of this model include:
+    (1) you actually learn how to develop/contribute to open source projects;
+    (2) future employers see you have github activity.
+    Please do not abuse this privillage.
 
 ## Accommodations
 
