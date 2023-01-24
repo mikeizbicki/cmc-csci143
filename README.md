@@ -215,7 +215,7 @@ but I will provide more specific links each week.
 1. Weekly projects (worth `2**3` or `2**4` or `2**5` points)
 1. 2 exams (worth `2**6` points each)
     1. Non-graduating students will complete a final project due during finals week.
-1. [Occassional extra credit assignments](extra_credit/README.md)
+1. [Occasional extra credit assignments](extra_credit/README.md)
 
 
 <!--
