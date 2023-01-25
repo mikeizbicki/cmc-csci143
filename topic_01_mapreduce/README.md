@@ -124,6 +124,12 @@ No late penalty for this lab, and you may collaborate however you'd like.
 
 1. Ensure that you have completed the entire lab for `topic_00` before completing this lab.
 
+    1. If you don't feel 100% confident in the git terminal commands,
+        then re-do the git+unix tutorial from last week.
+
+        (It's okay if you don't feel confident in these commands at this point.
+        I expect most of the class would benefit from redoing the tutorial.)
+
 1. Spend at least 20 minutes reviewing how to use vim effectively.
     You can either:
     
