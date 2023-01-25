@@ -47,7 +47,9 @@
             1. These make programming seem easy, but actually super #?*!ing hard
                <img src=bash-meme.jpg width=600px />
             1. Your quiz will scratch the surface of these hard edge cases
+            <!--
             1. (optional) for detailed examples, see https://dwheeler.com/essays/fixing-unix-linux-filenames.html
+            -->
     1. Non-POSIX shells 
         1. Fix POSIX problems, but not backwards compatible, so not popular
         1. The [friendly interactive shell](https://github.com/fish-shell/fish-shell) (`fish`)
