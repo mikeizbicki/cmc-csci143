@@ -1,4 +1,4 @@
-# Lab: shell scripting 
+# Tutorial: shell scripting and parallel programming
 
 This lab will teach you the shell scripting and command line tools you will need to complete the twitter analysis homework.
 
