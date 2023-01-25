@@ -1,4 +1,4 @@
-# shell scripting (and parallel programming)
+# MapReduce (via shell scripting)
 
 <img src=LinuxAdmin.jpg width=600px />
 
