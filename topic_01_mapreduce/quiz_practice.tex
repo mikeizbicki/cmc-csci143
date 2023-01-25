@@ -1,0 +1,465 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{courier}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor    = blue  %Colour of citations
+}
+
+\usepackage[T1]{fontenc}
+\usepackage{upquote}
+\usepackage{listings}
+\lstset{
+    language=HTML
+    ,basicstyle=\linespread{1}\ttfamily
+    ,keywordstyle=
+    ,language=sh
+    ,showstringspaces=false
+    ,numbers=left
+    ,breaklines=true
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{note}{Note}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\trans}[1]{{#1}^{T}}
+\newcommand{\loss}{\ell}
+\newcommand{\w}{\mathbf w}
+\newcommand{\mle}[1]{\hat{#1}_{\textit{mle}}}
+\newcommand{\map}[1]{\hat{#1}_{\textit{map}}}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\x}{\mathbf x}
+\newcommand{\y}{\mathbf y}
+\newcommand{\ltwo}[1]{\lVert {#1} \rVert}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{center}
+    {
+\Large
+    Quiz: Shell Scripting (Practice Problems)
+}
+
+    \vspace{0.1in}
+\end{center}
+
+\vspace{0.15in}
+\noindent
+%\textbf{Note:}
+\begin{note}
+    You will have 4 problems on this quiz.
+    One problem will be from previous quiz material,
+    and three problems from the material below.
+\end{note}
+\vspace{0.15in}
+
+\section{Pipes}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ echo 'hello world' >> README
+$ echo 'hola mundo' >> README
+$ echo 'salve mundi' >> README
+$ cat README | grep 'hello'
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ echo 'hello world' >> README
+$ echo 'hola mundo' >> README
+$ echo 'salve mundi' >> README
+$ cat README | grep 'h'
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ echo 'hello world' >> README
+$ echo 'hola mundo' >> README
+$ echo 'salve mundi' >> README
+$ cat README | grep 'h' | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ echo 'hello world' >> README
+$ echo 'hola mundo' >> README
+$ echo 'salve mundi' >> README
+$ cat README | grep 'h.*a'
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ touch hello_world
+$ touch hola_mundo
+$ touch salve_mundi
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ touch hello_world
+$ touch hola_mundo
+$ touch salve_mundi
+$ ls | grep 'h.*a' | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\newpage
+\section{Variables}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ var="hello world"
+$ touch $var
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ var="hello world"
+$ touch "$var"
+$ ls
+\end{lstlisting}
+\vspace{0.4in}
+
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ var="hello world"
+$ touch '$var'
+$ ls
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ var=`echo hello world`
+$ touch "$var"
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ var=$(echo hello world)
+$ touch "$var"
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ var=$(echo echo echo)
+$ touch "$var"
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ var=$(echo $(echo echo))
+$ touch "$var"
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ var=$(echo $(echo $(echo)))
+$ touch "$var"
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ var=$(echo $(echo) echo))
+$ touch "$var"
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ var=echo echo echo
+$ touch "$var"
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+\section{For loops}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ for file in a b c d e f; do touch $file; done
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ for file in 'a b' 'c d' 'e f'; do touch $file; done
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ for file in 'a b' 'c d' 'e f'; do touch $file; done
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ for file in 'a b' 'c d' 'e f'; do touch "$file"; done
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ for file in 'a b' 'c d' 'e f'; do touch '$file'; done
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ for file in a b c $(echo hello world) d e f; do touch "$file"; done
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+
+\newpage
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ for file in 'a b' 'c $(echo hello world) d' 'e f'; do touch "$file"; done
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ for file in "a b" "c $(echo hello world) d" "e f"; do touch "$file"; done
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd
+$ rm -rf quiz
+$ mkdir quiz
+$ cd quiz
+$ for file in "a b" "c $(echo hello world) d" "e f"; do touch $file; done
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{note}
+    I will generate new problems by:
+    (1) changing the type of quotation mark,
+    (2) removing/adding quotation marks.
+\end{note}
+\end{document}

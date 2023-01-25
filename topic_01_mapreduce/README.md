@@ -12,21 +12,22 @@
         1. runs on the lambda server, not your computer
 
 1. [Types of unix shells](https://www.multicians.org/shell.html)
-    1. Ken Thompson wrote the first Unix shell called `sh` in 1971
+    1. Ken Thompson wrote the first Unix shell called the "Thompson Shell" (`sh` for short) in 1971
     1. `sh` was inspired by the RUNCOM shell (`rc`), which was written in 1963
         1. `.*rc` config files were originally designed for the RUNCOM shell
         1. `.vimrc` and `.bashrc` are examples
     1. Many shells replaced the Thompson shell in the original Unix
         1. the most famous is Stephen Bourne wrote the Bourne shell in 1979
+           
+           the Bourne shell was the default for UNIX version 7+
     1. Open Source shells:
         1. Almquist shell (`ash`) written by Kenneth Almquist in 1980; BSD-licensed
         1. The Bourne-Again shell (`bash`) written by Brian Fox in 1989; GPL-licensed
 
-           Bash is the GNU project's shell
+           Bash is the GNU project's shell and by far the most popular (interactive) shell
 
            <!--
-           It is by far the most popular (interactive) shell,
-           and therefore people often (incorrectly) say they are writing a "bash" script when they are writing a generic "POSIX" script
+           #and therefore people often (incorrectly) say they are writing a "bash" script when they are writing a generic "POSIX" script
 
            <img src=gnu+linux.jpg width=600px />
 
@@ -37,9 +38,12 @@
             Dash is used on all Debian-based systems (including the lambda server) for system-wide scripts.
             it has fewer features than bash but is much faster.
         1. Z shell (`zsh`) is the default on Mac; BSD-licensed
+
     1. POSIX
         1. All the shells above have slightly different behaviors
         1. POSIX defines the a universal standard of minimal features that all shells must have
+
+           POSIX = Portable Operating System Interface
         1. It's best to try to write POSIX-compliant scripts to ensure portability (and speed, since you can use `dash` to run the script)
         1. Lots of weird behaviors that result from needing backwards compatibilty
             1. These make programming seem easy, but actually super #?*!ing hard
@@ -49,6 +53,7 @@
     1. Non-POSIX shells 
         1. Fix POSIX problems, but not backwards compatible, so not popular
         1. The [friendly interactive shell](https://github.com/fish-shell/fish-shell) (`fish`)
+        1. The [OIL Shell](https://www.oilshell.org/)
 
 
 1. Parallel programming
@@ -111,6 +116,10 @@
 
 ## Lab
 
+In-class lab Friday 27 Jan cancelled due to data science capstone kickoff.
+
+No late penalty for this lab, and you may collaborate however you'd like.
+
 **Pre-lab work:**
 
 1. Ensure that you have completed the entire lab for `topic_00` before completing this lab.
@@ -123,6 +132,9 @@
 
 **Instructions:**
 
+1. Complete the [shell scripting and parallel programming tutorial](processes.md)
+
+<!--
 1. In the previous lab, you forked the class repository.
     Since then, however, I have made updates to the class repo,
     and those updates won't be reflected in your forked repo.
@@ -137,23 +149,30 @@
     steps with "zero numbers" are events that you only have to run once to setup your local repo.
     Every time you need to update your repo,
     you will start with step 1.
+-->
 
-1. Complete the [shell scripting and parallel programming tutorial](processes.md)
+1. For each of the tasks below, write a POSIX-compliant one line shell command that completes the task.
+    Upload both the command and your result to sakai.
+    The command should be able to run from any directory,
+    and so should use absolute and not relative paths.
 
-1. Write a POSIX-compliant shell command that counts the number of geolocated tweets sent on 2020-12-25 that contain the word "coronavirus".
-   The file `/data/Twitter dataset/geoTwitter20-12-25.zip` contains all geolocated tweets sent on that day,
-   and you should be able to count tweets that write the word "coronavirus" with any capitalization.
-   (For example, you should include both `coronavirus` and `cOrOnAvIrUs`.)
+    1. Count the total number of days in the geolocated tweets dataset.
+       The dataset is located in the folder `/data/Twitter dataset` and has
 
-   My command took 51 seconds to run, and I got 3143 tweets.
-   
-   > **HINT:**
-   > Use the `unzip` command to extract the contents of the zip archive;
-   > you will have to read the man page in order to figure out the correct option to get the output printed on stdout.
-   > (Use the command `man unzip` to open the manpage, then type the forward slash key `/` to search; `/` is also used the hotkey for searching in vim, firefox, and other open source programs.)
-   > Use the `tr 'A-Z' 'a-z'` command to translate all characters into lowercase.
-   > Use `grep` to extract only the lines containing `coronavirus`.
-   > Use `wc` to count the number of lines.
+    1. Count the number of geolocated tweets sent on 2020-12-25 that contain the word "coronavirus".
+       The file `/data/Twitter dataset/geoTwitter20-12-25.zip` contains all geolocated tweets sent on that day,
+       and you should be able to count tweets that write the word "coronavirus" with any capitalization.
+       (For example, you should include both `coronavirus` and `cOrOnAvIrUs`.)
+
+       My command took 51 seconds to run, and I got 3143 tweets.
+       
+       > **HINT:**
+       > Use the `unzip` command to extract the contents of the zip archive;
+       > you will have to read the man page in order to figure out the correct option to get the output printed on stdout.
+       > (Use the command `man unzip` to open the manpage, then type the forward slash key `/` to search; `/` is also used the hotkey for searching in vim, firefox, and other open source programs.)
+       > Use the `tr 'A-Z' 'a-z'` command to translate all characters into lowercase.
+       > Use `grep` to extract only the lines containing `coronavirus`.
+       > Use `wc` to count the number of lines.
 
 ## Homework
 
