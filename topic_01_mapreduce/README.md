@@ -33,6 +33,9 @@
            See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
            -->
         1. The Debian-Almquist shell (`dash`) written by Herbert Xu ini 1997; GPL-licensed
+
+            Dash is used on all Debian-based systems (including the lambda server) for system-wide scripts.
+            it has fewer features than bash but is much faster.
         1. Z shell (`zsh`) is the default on Mac; BSD-licensed
     1. POSIX
         1. All the shells above have slightly different behaviors
