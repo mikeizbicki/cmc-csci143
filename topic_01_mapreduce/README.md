@@ -26,13 +26,11 @@
 
            Bash is the GNU project's shell and by far the most popular (interactive) shell
 
-           <!--
-           #and therefore people often (incorrectly) say they are writing a "bash" script when they are writing a generic "POSIX" script
+           and therefore people often (incorrectly) say they are writing a "bash" script when they are writing a generic "POSIX" script
 
            <img src=gnu+linux.jpg width=600px />
 
            See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
-           -->
         1. The Debian-Almquist shell (`dash`) written by Herbert Xu ini 1997; GPL-licensed
 
             Dash is used on all Debian-based systems (including the lambda server) for system-wide scripts.
