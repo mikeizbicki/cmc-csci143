@@ -22,22 +22,6 @@
 
 **Lecture:**
 
-1. Installing "rootless docker"
-
-    1. Instructions: <https://docs.docker.com/engine/security/rootless/#install>
-
-    <!--
-    1. Ensure that you:
-        1. move the contents of the `bin` folder into `.local/bin`
-        1. add the `DOCKER_HOST` environment variable to your `.bashrc` file
-    
-    1. Whenever the lambda server restarts, you must run the command
-       ```
-       $ systemctl --user start docker
-       ```
-       to restart the docker daemon.
-    -->
-
 1. Overview
 
     1. Docker used basically everywhere
@@ -77,15 +61,31 @@
 
        Helps you understand the following jokes:
 
-       <img src=docker-vm.png width=600px />
+       <img src=docker-vm.png width=400px />
 
        <a href=https://www.commitstrip.com/en/2016/06/24/how-to-host-a-coder-dinner-party/>
-       <img src=Strip-Discussion-Docker-english650final-1.jpg width=600px />
+       <img src=Strip-Discussion-Docker-english650final-1.jpg width=400px />
        </a>
 
     1. https://docs.docker.com/get-started/overview/
 
        Helps you actually understand the commands below
+
+1. Installing "rootless docker"
+
+    1. Instructions: <https://docs.docker.com/engine/security/rootless/#install>
+
+    <!--
+    1. Ensure that you:
+        1. move the contents of the `bin` folder into `.local/bin`
+        1. add the `DOCKER_HOST` environment variable to your `.bashrc` file
+    
+    1. Whenever the lambda server restarts, you must run the command
+       ```
+       $ systemctl --user start docker
+       ```
+       to restart the docker daemon.
+    -->
 
 1. Basic Commands
 
