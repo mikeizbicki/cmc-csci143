@@ -1,6 +1,6 @@
 # Docker Intro
 
-<img src=automate.jpeg width=400px />
+<img src=containers_2x.png width=400px />
 
 ## Docker
 
