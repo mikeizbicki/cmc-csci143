@@ -4,26 +4,29 @@
 
 ## Docker
 
-**Pre-lecture work:** (Complete before class on Wednesday)
+**Pre-lecture work:**
 
-1. Watch the following videos:
+1. (optional) Watch the following videos:
 
     1. [What is GNU+Linux](https://www.youtube.com/watch?v=kb2T8hWRu8g) by RMS
 
     1. [Virtual Machines vs Docker Containers](https://www.youtube.com/watch?v=TvnZTi_gaNc)
 
-    1. (optional) [Docker vs Kubernetes vs Docker Swarm](https://www.youtube.com/watch?v=9_s3h_GVzZc)
+    1. [Docker vs Kubernetes vs Docker Swarm](https://www.youtube.com/watch?v=9_s3h_GVzZc)
 
-    1. (optional) [MapReduce - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
+    1. [MapReduce - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
 
     <!--
     1. (optional) [Apache Spark - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
     -->
 
-1. Install rootless docker
+**Lecture:**
 
-    1. The instructions are here: https://docs.docker.com/engine/security/rootless/#install
+1. Installing "rootless docker"
 
+    1. Instructions: <https://docs.docker.com/engine/security/rootless/#install>
+
+    <!--
     1. Ensure that you:
         1. move the contents of the `bin` folder into `.local/bin`
         1. add the `DOCKER_HOST` environment variable to your `.bashrc` file
@@ -33,8 +36,7 @@
        $ systemctl --user start docker
        ```
        to restart the docker daemon.
-
-**Lecture:**
+    -->
 
 1. Overview
 
