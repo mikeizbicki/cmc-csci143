@@ -1,86 +1,6 @@
-# More Unix + Docker Intro
+# Docker Intro
 
 <img src=automate.jpeg width=400px />
-
-## More Unix
-
-**Monday Announcements:**
-
-1. 10 students have completed last weeks lab
-    1. you're not behind if you haven't done it yet
-    1. if you don't finish it this week, you will be behind
-    1. **Friday update:**
-        1. only 18/29 students have completed last week's lab
-           
-           6 students missed points; check comments and resubmit
-        1. 11/18 students have completed the homework
-        1. you are now behind if you have not, and should be *slightly* worried
-
-1. Great use of github issues to ask questions!
-    1. All questions should go through github issues
-        1. Faster response from me than email
-        1. Other people (TAs/students) can respond if I'm slow
-        1. Recruiters will run stats on your github profile, and this will improve your stats
-        1. Everyone has access to the answers
-    1. Email only for grade related questions
-    1. Make sure to "watch" the repo!
-        1. Otherwise, you won't get class announcements
-
-1. Quiz next Wednesday
-    1. You will have the first 10 minutes of class to complete the quiz
-    1. I will arrive to class >20 minutes before the start of class; if you arrive early, you may start the quiz early
-
-       (so basically, you can have up to 30 minutes on the quiz if you'd like; time shouldn't be an issue for anyone)
-
-    1. the `quiz` folder contains a sample
-
-**Lecture:**
-
-<img src=LinuxAdmin.jpg width=600px />
-
-1. Definitions:
-    1. **Terminal** the graphical program that you type in
-        1. technically, this is a **terminal emulator**
-        1. handles things like copy/paste, colorscheme, etc.
-        1. runs on your computer, not the lambda server
-    1. **Shell** the non-graphical program that actually runs the commands
-        1. it is a "thin wrapper" over the operating system
-        1. runs on the lambda server, not your computer
-
-1. [Types of unix shells](https://www.multicians.org/shell.html)
-    1. Ken Thompson wrote the first Unix shell called `sh` in 1971
-    1. `sh` was inspired by the RUNCOM shell (`rc`), which was written in 1963
-        1. `.*rc` config files were originally designed for the RUNCOM shell
-        1. `.vimrc` and `.bashrc` are examples
-    1. Many shells replaced the Thompson shell in the original Unix
-        1. the most famous is Stephen Bourne wrote the Bourne shell in 1979
-    1. Open Source shells:
-        1. Almquist shell (`ash`) written by Kenneth Almquist in 1980; BSD-licensed
-        1. The Bourne-Again shell (`bash`) written by Brian Fox in 1989; GPL-licensed
-
-           Bash is the GNU project's shell
-
-           It is by far the most popular (interactive) shell,
-           and therefore people often (incorrectly) say they are writing a "bash" script when they are writing a generic "POSIX" script
-
-           <img src=gnu+linux.jpg width=600px />
-
-           See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
-        1. The Debian-Almquist shell (`dash`) written by Herbert Xu ini 1997; GPL-licensed
-        1. Z shell (`zsh`) is the default on Mac; BSD-licensed
-    1. POSIX
-        1. All the shells above have slightly different behaviors
-        1. POSIX defines the a universal standard of minimal features that all shells must have
-        1. It's best to try to write POSIX-compliant scripts to ensure portability (and speed, since you can use `dash` to run the script)
-        1. Lots of weird behaviors that result from needing backwards compatibilty
-            1. These make programming seem easy, but actually super #?*!ing hard
-               <img src=bash-meme.jpg width=600px />
-            1. Your quiz will scratch the surface of these hard edge cases
-            1. (optional) for detailed examples, see https://dwheeler.com/essays/fixing-unix-linux-filenames.html
-    1. Non-POSIX shells 
-        1. Fix POSIX problems, but not backwards compatible, so not popular
-        1. The [friendly interactive shell](https://github.com/fish-shell/fish-shell) (`fish`)
-
 
 ## Docker
 
@@ -94,9 +14,9 @@
 
     1. (optional) [Docker vs Kubernetes vs Docker Swarm](https://www.youtube.com/watch?v=9_s3h_GVzZc)
 
-    <!--
     1. (optional) [MapReduce - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
 
+    <!--
     1. (optional) [Apache Spark - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
     -->
 
@@ -219,15 +139,6 @@
         1. `-f`: follow mode
 
 <!--
-1. More unix shell
-    1. for loops
-    1. glob (`*`)
-    1. file permissions ([optional reference](https://linuxhandbook.com/linux-file-permissions/))
-    1. `PATH` environment variable
--->
-
-## Friday: some loose ends
-
 1. Parallel programming
     1. All of the hardest parts of an OS course compressed down into 5 minutes
 
@@ -263,6 +174,7 @@
             1. (links in the lecture notes are never required... but the "most cultured" programmers will want to read them... these two in particular)
         1. python is not great for manipulating processes (it's very easy to create very bad bugs); bash is much better; so I always do the parallel programming parts in bash
         1. MapReduce paradigm simplifies parallel data analysis
+-->
 
 1. Basic networking
     1. Internet Protocol (IP) addresses
@@ -286,6 +198,7 @@
 
 ## Lab
 
+<!--
 This is a "hello world" assignment for flask/docker that just ensures you have a sane working environment.
 
 1. First, we'll practice using ssh port forwarding.
@@ -336,9 +249,12 @@ This is a "hello world" assignment for flask/docker that just ensures you have a
 
 
 1. After completing the steps above, upload the sentence `I've completed the lab` to sakai to get credit for the lab.
+-->
 
+<!--
 ## Homework
 
 You should start the [twitter MapReduce](../hw_twitter) homework.
 Because this homework can potentially take a very long time to run,
 this homework has a modified due date schedule.
+-->
