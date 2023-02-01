@@ -1,0 +1,599 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{courier}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor    = blue  %Colour of citations
+}
+
+\usepackage[T1]{fontenc}
+\usepackage{upquote}
+\usepackage{listings}
+\lstset{
+    language=HTML
+    ,basicstyle=\linespread{1}\ttfamily
+    ,keywordstyle=
+    ,language=sh
+    ,showstringspaces=false
+    ,numbers=left
+    ,breaklines=true
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{note}{Note}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\trans}[1]{{#1}^{T}}
+\newcommand{\loss}{\ell}
+\newcommand{\w}{\mathbf w}
+\newcommand{\mle}[1]{\hat{#1}_{\textit{mle}}}
+\newcommand{\map}[1]{\hat{#1}_{\textit{map}}}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\x}{\mathbf x}
+\newcommand{\y}{\mathbf y}
+\newcommand{\ltwo}[1]{\lVert {#1} \rVert}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{center}
+    {
+\Large
+    Quiz: POSIX Shell II (Practice Problems)
+}
+
+    \vspace{0.1in}
+\end{center}
+
+\section{If statements}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<'EOF'
+foo='hello'
+if [ $foo = "hello" ]; then
+    touch if
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<'EOF'
+foo='hello'
+if [ $foo != "hello" ]; then
+    touch if
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<EOF
+foo='hello'
+if [ $foo = "hello" ]; then
+    touch if
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<'EOF'
+foo='hello world'
+if [ $foo = "hello" ]; then
+    touch if
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+
+\filbreak
+\subsection{The \lstinline{else} and \lstinline{elif} keywords}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<'EOF'
+foo='hello world'
+if [ $foo = "hello" ]; then
+    touch if
+else
+    touch else
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<EOF
+foo='hello'
+if [ "$foo" = "hello" ]; then
+    touch if
+elif [ "$foo" = "hola" ]; then
+    touch elif
+else
+    touch else
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<EOF
+foo='hello'
+if [ "$foo" = "hello" ]; then
+    touch if
+elif [ "$foo" = "hola" ]; then
+    touch elif
+else
+    touch else
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+
+\filbreak
+\subsection{\lstinline{&&} and \lstinline{||}}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<EOF
+foo='hello'
+if [ "$foo" = "hello" ] || [ "$foo" = "hola" ]; then
+    touch if
+else
+    touch else
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<'EOF'
+foo='hello'
+bar='salve'
+if [ "$foo" = "hello" ] && [ "$bar" = "salve" ]; then
+    touch if
+else
+    touch else
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<'EOF'
+foo='hello'
+bar='salve'
+if true && [ "$bar" = "salve" ]; then
+    touch if
+else
+    touch else
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<'EOF'
+foo='hello'
+bar='salve'
+if false || ([ "$bar" = "salve" ] && true); then
+    touch if
+else
+    touch else
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+\filbreak
+\subsection{The \lstinline{!} operator}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<'EOF'
+foo='hello'
+if ! [ $foo = "hello" ]; then
+    touch if
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<'EOF'
+foo='hello'
+if ! [ $foo != "hello" ]; then
+    touch if
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<'EOF'
+foo='hello'
+bar='salve'
+if ! true || [ "$bar" != "salve" ]; then
+    touch if
+else
+    touch else
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+\section{Inline conditions}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ false || echo $foo > false
+$ true || echo $foo > true
+$ ls
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ false && echo $foo > false
+$ true && echo $foo > true
+$ ls
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ (false && echo $foo) > false
+$ (true && echo $foo) > true
+$ ls
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ [ "$foo" = 'hello' ] && echo $foo > false
+$ ls
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ [ "$foo" = 'hello' ] || echo $foo > false
+$ ls
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ ! [ "$foo" = 'hello' ] || echo $foo > false
+$ ls
+\end{lstlisting}
+
+\section{Exit codes}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ cat > logs <<EOF
+INFO: blah
+INFO: blah
+ERROR: blah blah blah
+INFO: blah
+EOF
+$ cat logs | grep 'ERROR' || echo 'hello world' > foo
+$ ls
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ cat > logs <<EOF
+INFO: blah
+INFO: blah
+WARNING: blah blah blah
+INFO: blah
+EOF
+$ cat logs | grep 'ERROR' || echo 'hello world' > foo
+$ ls
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ cat > logs <<EOF
+INFO: blah
+INFO: blah
+WARNING: blah blah blah
+INFO: blah
+EOF
+$ cat logs | grep 'ERROR' && echo 'hello world' > foo
+$ ls
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ cat > logs <<EOF
+INFO: blah
+INFO: blah
+ERROR: blah blah blah
+INFO: blah
+EOF
+$ cat logs | grep 'ERROR' && echo 'hello world' > foo
+$ ls
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ cat > logs <<EOF
+INFO: blah
+INFO: blah
+ERROR: blah blah blah
+INFO: blah
+EOF
+$ cat logs | grep 'ERROR' > /dev/null && echo 'hello world' > foo
+$ ls
+\end{lstlisting}
+\subsection{Commands inside if}
+
+%\filbreak
+%\begin{problem}
+    %Write the output of the final command in the following terminal session.
+    %If the command has no output, then leave the problem blank.
+%\end{problem}
+%\begin{lstlisting}
+%$ cd; rm -rf quiz; mkdir quiz; cd quiz
+%$ cat > logs <<EOF
+%INFO: blah
+%INFO: blah
+%ERROR: blah blah blah
+%INFO: blah
+%EOF
+%$ cat > quiz.sh <<'EOF'
+%if cat logs | grep ERROR; then
+    %touch if
+%fi
+%EOF
+%$ sh quiz.sh
+%$ ls
+%\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ cat > logs <<EOF
+INFO: blah
+INFO: blah
+ERROR: blah blah blah
+INFO: blah
+EOF
+$ cat > quiz.sh <<'EOF'
+if cat logs | grep ERROR > /dev/null; then
+    touch if
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ cat > logs <<EOF
+INFO: blah
+INFO: blah
+WARNING: blah blah blah
+INFO: blah
+EOF
+$ cat > quiz.sh <<'EOF'
+if cat logs | grep ERROR > /dev/null; then
+    touch error
+elif cat logs | grep WARNING > /dev/null; then
+    touch warning
+elif cat logs | grep INFO > /dev/null; then
+    touch info
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+
+\filbreak
+\end{document}
