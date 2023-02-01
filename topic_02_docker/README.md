@@ -203,9 +203,13 @@
 
 ## Lab
 
-<!--
 This is a "hello world" assignment for flask/docker that just ensures you have a sane working environment.
 
+**Part 1:**
+
+TBA
+
+<!--
 1. First, we'll practice using ssh port forwarding.
    A sample of the final search engine you'll be creating in this class is currently running on the lambda server's port 5000.
    For this task, you will log on to the lambda server with "local port forwarding" in order to get access to this webpage.
@@ -230,35 +234,42 @@ This is a "hello world" assignment for flask/docker that just ensures you have a
       > Only muggles use chrome/edge/safari.
       > Proper hackers use firefox with the uBlock origin extension.
       > Almost all other add block extensions either sell your browsing history or let advertisers pay to not have their ads blocked.
-
-1. Follow these instructions to create a simple flask app running in a docker container: https://runnable.com/docker/python/dockerize-your-flask-application
-
-    These instructions were not designed specifically with this class in mind, and thus you will have to modify parts of the instructions in order to get them to work.
-    This is intentional in order to get you more practice adapting tutorials into different computational environments.
-    There are two main modifications you'll have to make:
-
-    1. In the `docker run` command, you will have to change the port that docker exposes to a port other than 5000.
-       (This is because you're all running this code at the same time, and you can't all use the same port.)
-       I recommend using your user id as a port number, as this will guarantee that you don't run into conflicts with other students.
-       Your userid is stored in the environment variable `$UID`.
-
-    1. In order to view your webpage from your laptop,
-       you will have to connect to the lambda server with local port forwarding enabled.
-       The command will look something like
-       ```
-       $ ssh username@134.173.191.241 -p 5055 -L 8080:localhost:DOCKER_PORT
-       ```
-       where `DOCKER_PORT` is whatever port you specified.
-    
-    Finally, the python file in the webpage has a few python syntax errors that you'll have to fix.
-
-
-1. After completing the steps above, upload the sentence `I've completed the lab` to sakai to get credit for the lab.
 -->
 
-<!--
+**Part 2:**
+
+Follow these instructions to create a simple flask app running in a docker container: https://runnable.com/docker/python/dockerize-your-flask-application
+
+These instructions were not designed specifically with this class in mind, and thus you will have to modify parts of the instructions in order to get them to work.
+This is intentional in order to get you more practice adapting tutorials into different computational environments.
+There are two main modifications you'll have to make:
+
+1. In the `docker run` command, you will have to change the port that docker exposes to a port other than 5000.
+   (This is because you're all running this code at the same time, and you can't all use the same port.)
+   I recommend using your user id as a port number, as this will guarantee that you don't run into conflicts with other students.
+   Your userid is stored in the environment variable `$UID`.
+
+1. In order to view your webpage from your laptop,
+   you will have to connect to the lambda server with local port forwarding enabled.
+   The command will look something like
+   ```
+   $ ssh username@134.173.191.241 -p 5055 -L 8080:localhost:DOCKER_PORT
+   ```
+   where `DOCKER_PORT` is whatever port you specified.
+
+Finally, the python file in the webpage has a few python syntax errors that you'll have to fix.
+
+**Submission:**
+
+After completing the steps above, upload the sentence `I've completed the lab` to sakai to get credit for the lab.
+
 ## Homework
 
+No homework this week :)
+
+Just work on the twitter/MapReduce homework.
+
+<!--
 You should start the [twitter MapReduce](../hw_twitter) homework.
 Because this homework can potentially take a very long time to run,
 this homework has a modified due date schedule.
