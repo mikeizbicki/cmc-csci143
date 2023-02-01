@@ -353,7 +353,7 @@ $ cd
 $ rm -rf quiz
 $ mkdir quiz
 $ cd quiz
-$ var=$(echo $(echo) echo))
+$ var=$(echo $(echo) echo)
 $ touch "$var"
 $ ls | wc -l
 \end{lstlisting}
@@ -384,20 +384,6 @@ $ rm -rf quiz
 $ mkdir quiz
 $ cd quiz
 $ for file in a b c d e f; do touch $file; done
-$ ls | wc -l
-\end{lstlisting}
-\vspace{0.4in}
-
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
-$ for file in 'a b' 'c d' 'e f'; do touch $file; done
 $ ls | wc -l
 \end{lstlisting}
 \vspace{0.4in}
