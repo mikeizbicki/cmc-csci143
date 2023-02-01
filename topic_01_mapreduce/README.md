@@ -182,6 +182,6 @@ No late penalty for this lab, and you may collaborate however you'd like.
 
 ## Homework
 
-You should start the [twitter MapReduce](../hw_twitter) homework.
+You should start the [twitter MapReduce](./homework) homework.
 Because this homework can potentially take a very long time to run,
 this homework has a modified due date schedule.
