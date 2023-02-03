@@ -236,14 +236,18 @@ For example, the famous physicist Stephan Hawking
 
 could not use a mouse,
 and so could not use a traditional web browser.
-It is good practice when you are writing your own webpages to also use them in the links web browser in order to ensure that severely disabled people are also able to use your webpage.
+In order to make your webpages accessible to people like Hawking,
+it is good practice to test your webpages in the links browser.
+And the Americans with Disabilities Act (ADA) actually requires that large companies and government agencies do this.
 
-Another reason to use the links browser is that we can run it on remote machines and access web servers that are laptop doesn't have direct access to.
+Another reason to use the links browser is that we can run it on remote machines and access web servers that our laptop doesn't have direct access to.
 For example, run the command
 ```
 $ links http://localhost:5000/
 ```
-You should see a simple hello world webpage get displayed in the browser.
+You should see a simple hello world webpage get displayed in the links browser.
+But if you try to access this url from firefox on your laptop,
+you will get an error message.
 This webpage is running on port 5000 of the lambda server,
 but you can't connect to this webpage directly due to various firewalls that the CMC IT folks have installed.
 The links program is the easiest way to bypass these firewalls.
