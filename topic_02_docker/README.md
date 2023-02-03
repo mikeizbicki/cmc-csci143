@@ -214,7 +214,7 @@ including browsing the web.
 The most popular command line web browser is called `links`.
 Login to the lambda server, and run the command
 ```
-$ links https://phrack.org
+$ links http://www.phrack.org
 ```
 to browse to the phrack magazine.
 Phrack is an old-school hacker zine.
