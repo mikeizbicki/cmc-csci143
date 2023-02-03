@@ -230,7 +230,7 @@ and you should try to browse to it and open it in links.
 Browsing the web this way is unfortunately rather inconvenient,
 and so you may be tempted to ask why would anyone do it?
 The simplest answer is that many people must use command line web browsers due to physical disability.
-For example, the famous physicist Stephan Hawking
+For example, the famous physicist Stephen Hawking
 
 <img src=hawking.webp width=400px />
 
