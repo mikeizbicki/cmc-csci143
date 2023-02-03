@@ -277,7 +277,7 @@ Depending on how you login, the instructions will be slightly different.
 
 1. **Windows**:
     You will have to select the appropriate checkboxes in putty to get local port forwarding enabled.
-    You can follow [these instructions](https://blog.devolutions.net/2017/4/how-to-configure-an-ssh-tunnel-on-putty) to get pictures of where the checkboxes are located.
+    You can follow [these instructions](https://web.archive.org/web/20180508204631/https://blog.devolutions.net/2017/4/how-to-configure-an-ssh-tunnel-on-putty) to get pictures of where the checkboxes are located.
     You want port 8080 for the local side and port 5000 for the remote side of the connection.
 
 Once you're logged into the lambda server, visit the url
