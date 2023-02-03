@@ -219,7 +219,7 @@ $ links https://phrack.org
 to browse to the phrack magazine.
 Phrack is an old-school hacker zine.
 Issue 7, article 3 has the famous "hacker manifesto",
-and you should try to open it.
+and you should try to browse to it and open it in links.
 
 > **HINT:**
 > The up/down arrows take you to the next link,
