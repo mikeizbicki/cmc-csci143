@@ -268,14 +268,14 @@ so this first part of the lab focuses just on understanding port forwarding with
 
 Port forwarding gets enabled when you login to the lambda server.
 Depending on how you login, the instructions will be slightly different.
-1. **Mac/linux**: log on to the lambda server with the following command
+1. **Mac/Linux/Windows (with power shell)**: log on to the lambda server with the following command
     (changing `username` to your username):
     ```
     $ ssh username@134.173.191.241 -p 5055 -L 8080:localhost:5000
     ```
     This tells ssh to forward all requests to port 8080 on your computer (`localhost`) to port 5000 on the lambda server.
 
-1. **Windows**:
+1. **Windows (with Putty)**:
     You will have to select the appropriate checkboxes in putty to get local port forwarding enabled.
     You can follow [these instructions](https://blog.devolutions.net/2017/4/how-to-configure-an-ssh-tunnel-on-putty) to get pictures of where the checkboxes are located.
     You want port 8080 for the local side and port 5000 for the remote side of the connection.
