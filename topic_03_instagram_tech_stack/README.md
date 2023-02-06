@@ -2,53 +2,48 @@
 
 ## Announcements
 
-1. In person notes:
-    1. you may login over zoom and watch live, but I probably won't be able to interact with you
-    1. lectures still recorded/posted to youtube; watching these asynchronously is probably the best way to keep up with class if you miss a lecture for some reason
+1. Grades are updated...
 
-1. Quiz Wednesday!
+   If you haven't submitted the first hws/labs, you're officially behind
     
-    Recall:
-    1. I will be in RN12 by at least 7:50.
-       Quiz is 10 minutes, but you may come early and have extra time.
-       I don't want anyone to feel "time pressure."
-
-    1. Open notes, closed computer.
-
-1. As of Monday:
-    1. 20/29 students have submitted last week's lab
-       
-       you still have until Tuesday@midnight with the collaboration extension
-
-    1. 5 students still need to submit the week0 lab, 4 people need to submit the hw
-
-       (people who took data structures with me are excused from the hw but not the lab)
-
-    1. I'll try to give more time for future assignments, but the shortened timeline was needed for this assignment to keep us on track
-
 1. lab update
 
    lots of problems with the tutorial?
    
    (it was intentional... muahaha...)
 
-   <img src='Strip-Le-déploiement-english650-final.jpg' width=600px />
+   <img src='Strip-Le-déploiement-english650-final.jpg' width=400px />
 
-   good use of github issues to resolve problems!
-
+   <!--
    the fundamental problem was dependencies improperly specified in the `requirements.txt` file
 
    fixed version posted in the `flask_web` folder of this repo
+   -->
 
-1. lab/hw for this week is already posted below
+    getting versions right is HARD
+
+    the best solution we have is hard-coding the versions
+
+    but this leaves you open to security vulnerabilities:
+
+    1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
+    1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
+    1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
+    <!--
+    1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
+    -->
+
+1. hw for this week is already posted below
     1. you'll build an instagram clone
     1. this week's assignment is still a "copy+paste" assignment
     1. but it has a lot more sharp edges where things can go wrong
     1. expect to spend ~10x the amount of time on this assignment as last assignment
 
+<!--
 1. Our goal for the week:
     1. finish docker/everything needed for the lab by Wed
     1. start postgres/sql by Friday (maybe Wed)
+-->
 
 ## Lecture
 
@@ -66,20 +61,6 @@
 
         1. other newer technologies come and go
             1. [Pokemon or bigdata?](https://pixelastic.github.io/pokemonorbigdata/)
-
-    1. [types of scaling](http://pudgylogic.blogspot.com/2016/01/horizontal-vs-vertical-scaling.html)
-
-       <img src=horizontal-vs-vertical-scaling-vertical-and-horizontal-scaling-explained-diagram.png width=400px />
-
-       1. horizontal = more computers
-       1. vertical = better computers
-
-       1. my hot take:
-          1. vertical scaling is almost always what you want... easily solve problems quickly with bash scripts (e.g. Twitter MapReduce)
-
-          1. horizontal scaling can scale almost without limits, but it imposes a 10x factor overhead; so go with vertical if your problem can possibly fit on 1 computer
-
-          1. horizontal scaling often results from "resume driven development" as people try to add more "pokemon technologies" to their resumes that aren't really needed for solving business applications
 
 1. The elements of a standard web service deployment
     1. [12 factor webapp](https://12factor.net/)
@@ -276,12 +257,6 @@
         1. [overlay filesystems](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/)
         1. [Dockerfile best practices](https://github.com/docker/docker.github.io/blob/master/develop/develop-images/dockerfile_best-practices.md)
         1. [Best simple docker reference](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5)
-    1. security issues with docker
-        1. credentials and git (see [this post for examples](https://news.ycombinator.com/item?id=25013756).)
-        1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
-        1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
-        1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
-        1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
 
 1. More networking
     1. We often work with hostnames instead of IP addresses
@@ -315,7 +290,7 @@ This is a slightly more complicated "hello world" than you did last week that in
 
 1. Create a new github repo called `flask-on-docker`
 
-1. Follow this tutorial to create the necessary files for a simple web app: https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/
+1. Follow this tutorial to create the necessary files for a simple web app: <https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/>
 
 1. Add all of your tutorial files to the `flask-on-docker` repo except your database credentials.
 
