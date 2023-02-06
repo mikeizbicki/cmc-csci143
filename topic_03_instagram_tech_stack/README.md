@@ -33,6 +33,12 @@
     1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
     -->
 
+1. collaboration policy:
+    1. recall that you can't collaborate outside designated spaces
+    1. my hope is that this will actually encourage more collaboration by getting you all to set aside time to work together in those designated spaces
+    1. you should expect these sorts of hard problems in the future
+    1. I'm open to creating more of these designated spaces via pull requests to the collaboration policy
+
 1. hw for this week is already posted below
     1. you'll build an instagram clone
     1. this week's assignment is still a "copy+paste" assignment
