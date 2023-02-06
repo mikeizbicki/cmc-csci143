@@ -8,30 +8,46 @@
     
 1. lab update
 
-   lots of problems with the tutorial?
+    lots of problems with the tutorial?
    
-   (it was intentional... muahaha...)
+    (it was intentional... muahaha...)
 
-   <img src='Strip-Le-déploiement-english650-final.jpg' width=400px />
+    <img src='Strip-Le-déploiement-english650-final.jpg' width=400px />
 
-   <!--
-   the fundamental problem was dependencies improperly specified in the `requirements.txt` file
-
-   fixed version posted in the `flask_web` folder of this repo
-   -->
-
-    getting versions right is HARD
-
-    the best solution we have is hard-coding the versions
-
-    but this leaves you open to security vulnerabilities:
-
-    1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
-    1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
-    1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
     <!--
-    1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
+    the fundamental problem was dependencies improperly specified in the `requirements.txt` file
+
+    fixed version posted in the `flask_web` folder of this repo
     -->
+
+    Late policy:
+
+    1. No extensions
+
+    1. lose `2**(N-1)` points for each day late
+
+    1. There's lots of current submissions that are incorrect (0/4).
+
+        You will be allowed to resubmit.
+
+        In general, it is better to submit a correct assignment late than an incorrect one on time.
+
+    We will see the solution in class
+
+    Takeaway:
+
+    1. getting versions right is HARD
+
+    1. the best solution we have is hard-coding the versions
+
+    1. but this leaves you open to security vulnerabilities:
+
+        1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
+        1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
+        1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
+        <!--
+        1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
+        -->
 
 1. collaboration policy:
     1. recall that you can't collaborate outside designated spaces
