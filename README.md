@@ -330,7 +330,10 @@ Violations of any of these policies will be treated as academic integrity violat
 
     1. in the QCL,
 
-    1. and in office hours.
+    1. in office hours,
+
+    1. and in computer labs.
+
 
 1. You MAY NOT look at another student's code (or have another human look at your code) in any other context.
 
