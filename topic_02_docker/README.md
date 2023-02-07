@@ -297,7 +297,7 @@ On the lambda server, run the following command:
 ```
 $ while true ; do echo "$MESSAGE" | nc -lq1 -p $PORT ; done
 ```
-where `$MESSAGE` is a message you want to send to your partner and `$PORT` is a number number between `2**10` and `2**16`.
+where `$MESSAGE` is a message you want to send to your partner and `$PORT` is a number between `2**10` and `2**16`.
 
 > **NOTE:**
 > `nc` is short for "net cat" and is like the familiar `cat` command but outputs to the network instead of the terminal.
