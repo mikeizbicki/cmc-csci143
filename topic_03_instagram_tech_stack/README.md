@@ -82,6 +82,7 @@
             1. but it's also only getting more popular
 
         1. other newer technologies come and go
+            1. [Lindy effect](https://en.wikipedia.org/wiki/Lindy_effect)
             1. [Pokemon or bigdata?](https://pixelastic.github.io/pokemonorbigdata/)
 
 1. The elements of a standard web service deployment
