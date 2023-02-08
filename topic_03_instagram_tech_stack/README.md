@@ -304,9 +304,15 @@
     1. connecting programs with `|`, `&`, `||`, `&&`, `;` ([optional reference](https://unix.stackexchange.com/questions/24684/confusing-use-of-and-operators))
 -->
 
-## Lab / Homework
+## Lab
 
-Your lab and homework assignment this week are combined together.
+We will use the Friday class this week to discuss the "sharp edges" in the homework assignment.
+There is no lab due.
+
+I recommend you complete the first two sections of the homework ("Project Setup" and "Docker", but not "Postgres") before Friday's class.
+
+## Homework
+
 The goal is for you to get a fully working web service using our modified instagram tech stack.
 This is a slightly more complicated "hello world" than you did last week that includes (almost) all of the services we'll be using in this class.
 
