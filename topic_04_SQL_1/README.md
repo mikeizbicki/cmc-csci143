@@ -30,7 +30,7 @@ Relational DataBase Management Systems (RDBMSs):
 1. Structured Query Language (SQL) is the language for accessing the database
     1. don't pronounce it es-cue-el; that's a shibboleth for not being a databases person
 
-       <img src=dilbert.gif width=400px />
+       <img src=dilbert.gif width=80% />
 
     1. SQL was originally SEQUEL (Structured English Query Language), but shortened due to trademark reasons
         1. You can find the official ANSI SQL standards and history at https://blog.ansi.org/2018/10/sql-standard-iso-iec-9075-2016-ansi-x3-135/
