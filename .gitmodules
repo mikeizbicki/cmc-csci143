@@ -6,9 +6,9 @@
     #path = hw_twitter/twitter_coronavirus
     #url = https://github.com/mikeizbicki/twitter_coronavirus
 
-#[submodule "pagila_hw"]
-	#path = week_04/pagila-hw
-	#url = https://github.com/mikeizbicki/pagila-hw
+[submodule "pagila_hw"]
+	path = topic_04_SQL_1/pagila-hw
+	url = https://github.com/mikeizbicki/pagila-hw
 #[submodule "week_03/pagila-hw"]
 	#path = week_03/pagila-hw
 	#url = https://github.com/mikeizbicki/pagila-hw
