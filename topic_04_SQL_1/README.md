@@ -7,7 +7,7 @@
     1. still on a good pace
     1. probably lecture this Friday
 
-1. Docker:
+1. Assignments:
     1. Extend flask-on-docker due date to Sunday (19 Feb)
     1. No late penalty applied to `lab_02_docker` (everyone got 4/4)
     1. (Almost) No more docker weirdness!!!
