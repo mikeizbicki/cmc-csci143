@@ -57,12 +57,11 @@ Relational DataBase Management Systems (RDBMSs):
 
 1. Comparison of main database systems:
     1. <http://howfuckedismydatabase.com/>
-    1. [SQLite vs MySQL vs PostgreSQL](https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems)
+    1. [database popularity from stackoverflow](https://survey.stackoverflow.co/2022/#section-most-popular-technologies-databases)
     1. my summary:
         1. if you can't install docker (e.g. writing a cell phone app), use sqlite3 
         1. otherwise, use postgresql
-
-    1. Even Microsoft uses Postgres instead of SQLServer for large scale database needs: <https://www.citusdata.com/blog/2019/12/07/petabyte-scale-analytics-postgres-on-azure-with-citus/>
+    1. [Even Microsoft uses Postgres instead of SQLServer for large scale database needs](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/architecting-petabyte-scale-analytics-by-scaling-out-postgres-on/ba-p/969685)
 
 <!--
 Important stories:
