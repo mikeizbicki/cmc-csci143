@@ -39,3 +39,6 @@
 [submodule "topic_04_SQL_1/pagila-hw"]
 	path = topic_04_SQL_1/pagila-hw
 	url = https://github.com/mikeizbicki/pagila-hw
+[submodule "topic_04_SQL_1/sql_quiz"]
+	path = topic_04_SQL_1/sql_quiz
+	url = https://github.com/mikeizbicki/sql_quiz
