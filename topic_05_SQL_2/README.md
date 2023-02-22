@@ -12,11 +12,10 @@
 
 What you must know for the homework/midterm
 
-<!--
-1. skipping sections 5,6 of https://www.postgresqltutorial.com/
+1. skipping section 6 of <https://www.postgresqltutorial.com/>
+    1. syntactic sugar for complicated GROUP BY clauses
     1. good to know, but they're not "hard" concepts
-    1. I personally don't use them frequently
--->
+    1. "less technical" technical interviews often ask about these topics
 
 1. subqueries
     1. section 7 of https://www.postgresqltutorial.com/
@@ -29,7 +28,6 @@ What you must know for the homework/midterm
         1. joins are easier for experts to understand
         1. which is faster depends
     1. alternative reference on subqueries vs joins: https://learnsql.com/blog/subquery-vs-join/
-       ```
 
 1. set operations
     1. section 5 of https://www.postgresqltutorial.com/
