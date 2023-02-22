@@ -2,13 +2,15 @@
 
 ## Announcements
 
-1. Normal class session on Friday
-
 1. I forgot to mention when we covered the glob:
-
     1. A Pixar employee accidentally deleted Toy Story 2 by a bad `*` operator
     1. They only recovered portions of the movie because a dev was on parental leave and had "accidentally" taken some work home with them
     1. Details: <https://thenextweb.com/news/how-pixars-toy-story-2-was-deleted-twice-once-by-technology-and-again-for-its-own-good>
+
+1. Friday:
+    1. No lab assignment
+    1. Finish up whatever we don't cover today (will be recorded)
+    1. The rest of the time available to work
 
 1. Get a good workflow going for your assignments
 
