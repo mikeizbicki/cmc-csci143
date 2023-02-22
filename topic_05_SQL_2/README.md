@@ -10,7 +10,7 @@
 
 ## Lecture
 
-What you must know for the homework/midterm
+What you must know for the homework/midterm/quiz
 
 1. skipping section 6 of <https://www.postgresqltutorial.com/>
     1. syntactic sugar for complicated GROUP BY clauses
