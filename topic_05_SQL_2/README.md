@@ -2,11 +2,13 @@
 
 ## Announcements
 
-   <img src=gates.jpg width=600px />
+Get a good workflow going for your assignments
 
-   <br/>
+<img src=gates.jpg width=600px />
 
-   <img src=the-three-chief-virtues-of-a-programmer-are-laziness-impatience-and-hubris-larry-wall.jpg width=600px />
+<br/>
+
+<img src=the-three-chief-virtues-of-a-programmer-are-laziness-impatience-and-hubris-larry-wall.jpg width=600px />
 
 ## Lecture
 
