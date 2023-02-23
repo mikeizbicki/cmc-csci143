@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  pg:
+    build: .
+    volumes:
+      - .:/tmp/pagila-hw
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pass
+      - PGUSER=postgres

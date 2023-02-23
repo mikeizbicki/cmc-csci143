@@ -214,12 +214,12 @@ including browsing the web.
 The most popular command line web browser is called `links`.
 Login to the lambda server, and run the command
 ```
-$ links https://phrack.org
+$ links http://www.phrack.org
 ```
 to browse to the phrack magazine.
 Phrack is an old-school hacker zine.
 Issue 7, article 3 has the famous "hacker manifesto",
-and you should try to open it.
+and you should try to browse to it and open it in links.
 
 > **HINT:**
 > The up/down arrows take you to the next link,
@@ -268,16 +268,16 @@ so this first part of the lab focuses just on understanding port forwarding with
 
 Port forwarding gets enabled when you login to the lambda server.
 Depending on how you login, the instructions will be slightly different.
-1. **Mac/linux**: log on to the lambda server with the following command
+1. **Mac/Linux/Windows (with power shell)**: log on to the lambda server with the following command
     (changing `username` to your username):
     ```
     $ ssh username@134.173.191.241 -p 5055 -L 8080:localhost:5000
     ```
     This tells ssh to forward all requests to port 8080 on your computer (`localhost`) to port 5000 on the lambda server.
 
-1. **Windows**:
+1. **Windows (with Putty)**:
     You will have to select the appropriate checkboxes in putty to get local port forwarding enabled.
-    You can follow [these instructions](https://blog.devolutions.net/2017/4/how-to-configure-an-ssh-tunnel-on-putty) to get pictures of where the checkboxes are located.
+    You can follow [these instructions](https://web.archive.org/web/20180508204631/https://blog.devolutions.net/2017/4/how-to-configure-an-ssh-tunnel-on-putty) to get pictures of where the checkboxes are located.
     You want port 8080 for the local side and port 5000 for the remote side of the connection.
 
 Once you're logged into the lambda server, visit the url
@@ -331,7 +331,14 @@ There are two main modifications you'll have to make:
    ```
    where `DOCKER_PORT` is whatever port you specified.
 
-Finally, the python file in the webpage has a few python syntax errors that you'll have to fix.
+Finally, there's a handful of errors that you'll get when you build the project.
+You'll find that fixing these errors only takes a very small change to the project files,
+but figuring out exactly what this change is will be quite difficult.
+The fundamental problem is that various libraries/packages have introduced breaking changes since the author of the tutorial wrote the tutorial.
+The easiest way to figure out how to get the right versions is to open up a working container with the `docker run` command,
+then manually try installing all the different versions of the libraries until you get something that successfully creates the webpage.
+Once you've figured out the correct sequence of commands,
+then you should modify the `Dockerfile` to reflect these new commands.
 
 **Submission:**
 

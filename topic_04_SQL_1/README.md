@@ -1,31 +1,23 @@
-# Week 03: Basic SQL
+# Topic 04: Basic SQL
 
 ## Announcements
 
-**Friday Feb 4**
+1. We're about 1 week behind previous classes
+    1. due to extra focus on bash/git/lambda server
+    1. still on a good pace
+    1. probably lecture this Friday
 
-1. Week 03 weirdness:
-    1. We're now ahead of schedule
-    1. HW is posted for week_03, but not due until next Sunday (13 Feb)
-    1. But we'll be using the docker container in class, so go ahead and clone it
+1. Assignments:
+    1. Extend flask-on-docker due date to Sunday (19 Feb)
+    1. No late penalty applied to `lab_02_docker` (everyone got 4/4)
+    1. (Almost) No more docker weirdness!!!
+    1. THERE WILL BE NO EXTENSIONS FOR THE NEXT HOMEWORK ON SQL!
 
-1. Grades updated in sakai
-
-   Median grade: 89%
-
-   <img src=posix-quiz.png width=300px />
-
-   If you scored < 9 on the quiz:
-   1. You may retake next week in office hours to score up to a 9.
-   1. I will ask you why you got a low score, and how you plan to study differently in the future.
-
-1. TA update
-
-1. I've been hacked!
-
-   Also see for details of a recent privilege elevation bug in the Linux kernel due to docker support: <https://www.willsroot.io/2022/01/cve-2022-0185.html> (reading this can count for your culture caveat task)
-
-1. We won't get too technical today... but get ready for a wild ride on Monday; try to make sure you're comfortable with SQL joins for Monday's class
+1. Outline of the rest of the class:
+    1. 3 weeks: how to make SQL correct
+        - 3 hw
+        - midterm (SQL only, no docker)
+    1. 6 weeks: how to make SQL (and other things) fast
 
 ## Lecture
 
@@ -52,8 +44,8 @@ Relational DataBase Management Systems (RDBMSs):
         1. Libraries that "hide" the SQL interface to the database
         1. Make it so that you don't have to learn SQL, and can rely on your "normal" imperative programming knowledge
         1. They're easy to get started with, but much harder once you need to scale
-            1. twitter started with Ruby on Rails, but left due to bad performance
             1. reddit uses the SQLAlchemy ORM
+            1. twitter started with Ruby on Rails, but left due to bad performance
         1. [What ORMs have taught me: Just learn SQL](https://news.ycombinator.com/item?id=24845300)
 
 1. There are two other categories of databases:
@@ -64,13 +56,12 @@ Relational DataBase Management Systems (RDBMSs):
         1. Use SparQL instead of SQL
 
 1. Comparison of main database systems:
-    1. http://howfuckedismydatabase.com/
-    1. [SQLite vs MySQL vs PostgreSQL](https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems)
+    1. <http://howfuckedismydatabase.com/>
+    1. [database popularity from stackoverflow](https://survey.stackoverflow.co/2022/#section-most-popular-technologies-databases)
     1. my summary:
         1. if you can't install docker (e.g. writing a cell phone app), use sqlite3 
         1. otherwise, use postgresql
-
-    1. Even Microsoft uses Postgres instead of SQLServer for large scale database needs: https://www.citusdata.com/blog/2019/12/07/petabyte-scale-analytics-postgres-on-azure-with-citus/
+    1. [Even Microsoft uses Postgres instead of SQLServer for large scale database needs](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/architecting-petabyte-scale-analytics-by-scaling-out-postgres-on/ba-p/969685)
 
 <!--
 Important stories:
@@ -78,23 +69,17 @@ Important stories:
 1. Junior dev given API keys and deletes the database: https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/
 -->
 
-Outline of the rest of the class:
-1. 3 weeks: how to make SQL correct
-    - 3 hw
-    - midterm
-1. 8 weeks: how to make SQL (and other things) fast
-
 What you must know for the homework/midterm
 
 1. midterm questions will be the sorts of SQL questions found in data science technical interviews
 
 1. `SELECT`
-    1. sections 1,2,4 of https://www.postgresqltutorial.com/
+    1. sections 1,2,4 of <https://www.postgresqltutorial.com/>
     1. aggregate functions `count`, `max`, `min`, `sum`, `avg`
-    1. never use the `BETWEEN` keyword: https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_BETWEEN_.28especially_with_timestamps.29
+    1. never use the `BETWEEN` keyword: <https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_BETWEEN_.28especially_with_timestamps.29>
 
 1. `JOIN`
-    1. section 3 of https://www.postgresqltutorial.com/
+    1. section 3 of <https://www.postgresqltutorial.com/>
     1. for this homework, you will only need inner joins; next homework will need all types of joins
     <!--
     1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/
