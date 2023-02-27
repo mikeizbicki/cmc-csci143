@@ -1,4 +1,4 @@
-# Week 05: Designing the database layout
+# Topic 06: Designing the database layout
 <!--
 FUTURE NOTE:
 Implementing the word_ladder game in SQL would be a fantastic assignment!!!
@@ -77,7 +77,7 @@ Goals:
 
 ### Row Overhead
 
-1. **for midterm**: you are responsible for being able to calculate the number of bytes used by a row of data
+1. you are responsible for being able to calculate the number of bytes used by a row of data
 
    references:
     1. basic tutorial: <https://www.2ndquadrant.com/en/blog/on-rocks-and-sand/>
@@ -116,6 +116,7 @@ Goals:
 
     1. data section:
         1. every column with a non-null value requires a number of bytes depending on the column type
+            <!--
             1. types can be either a fixed or variable number of bytes, for example:
 
                | type               | size      |
@@ -126,6 +127,7 @@ Goals:
                | `float`            | 4 bytes   |
                | `double precision` | 8 bytes   |
                | `text`             | variable  |
+            -->
 
         1. null values consume 0 bytes disk space
             1. postgres knows they're not present due to the null bitmap
@@ -146,6 +148,15 @@ Goals:
            1. `pg_type` is a table built-in to all postgres databases that contains all the information about a type
            1. see `pg_type` table documentation: <https://www.postgresql.org/docs/13/catalog-pg-type.html>
            1. one of the nice things about postgres is that all properties of the database are stored in tables like `pg_type` and can be queried using normal sql
+
+           > **NOTE:**
+           > Some types have "aliases" that allow them to be called different names,
+           > and these aliases are not defined in the `typname` table.
+           > For example, the `SMALLINT` type is not listed in the table.
+           > In order to find out the necessary information about a `SMALLINT`, you must find the name of the type that it aliases.
+           > The easiest way to find these aliases is to google the type you are looking for restricted to the postgres webpage.
+           > For example: [site:postgresql.org SMALLINT](https://www.google.com/search?hl=en&q=site%3Apostgresql.org%20SMALLINT)
+
     1. padding section:
         1. all rows are padded so that their total number of bytes is divisible by 8
         1. the function `pg_column_size` gives the size of the header+data portion only, without the padding
