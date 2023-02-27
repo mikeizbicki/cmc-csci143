@@ -12,6 +12,7 @@ Window functions
 
 <img src=when-people-ask-me-to-explain-my-database-design-its-58698602.png width=400px />
 
+<!--
 ## Announcements
 
 **Mon 14 Feb:**
@@ -53,11 +54,6 @@ Window functions
         1. if there's other specific things I can do to alleviate any concerns, please let me know
 
 1. office hours today cancelled (have to take wife to doctor)
-<!--
-1. how to hack typespeed?
--->
-
-<!--
 1. purpose of grades
     1. In my view, grades should a way for you to measure how you're doing, not for other people to measure it
     1. [Google's VP in charge of hiring people says "GPA’s are worthless as a criteria for hiring, and test scores are worthless" because they don’t predict how productive an employee will be.](https://www.nytimes.com/2014/02/23/opinion/sunday/friedman-how-to-get-a-job-at-google.html)
@@ -84,8 +80,8 @@ Goals:
 1. **for midterm**: you are responsible for being able to calculate the number of bytes used by a row of data
 
    references:
-    1. basic tutorial: https://www.2ndquadrant.com/en/blog/on-rocks-and-sand/
-    1. detailed tutorial: https://rjuju.github.io/postgresql/2016/09/16/minimizing-tuple-overhead.html
+    1. basic tutorial: <https://www.2ndquadrant.com/en/blog/on-rocks-and-sand/>
+    1. detailed tutorial: <https://rjuju.github.io/postgresql/2016/09/16/minimizing-tuple-overhead.html>
     1. references contain sql queries that will solve all problems for you automatically
 
 1. postgres has more overhead per row than other dbs
@@ -148,7 +144,7 @@ Goals:
            select typname,typalign,typlen from pg_type;
            ```
            1. `pg_type` is a table built-in to all postgres databases that contains all the information about a type
-           1. see pg_type table documentation: <https://www.postgresql.org/docs/13/catalog-pg-type.html>
+           1. see `pg_type` table documentation: <https://www.postgresql.org/docs/13/catalog-pg-type.html>
            1. one of the nice things about postgres is that all properties of the database are stored in tables like `pg_type` and can be queried using normal sql
     1. padding section:
         1. all rows are padded so that their total number of bytes is divisible by 8
@@ -157,8 +153,8 @@ Goals:
 1. "column tetris" is ordering table columns optimally:
     1. do not order columns "logically"
     1. order columns fixed length (largest to smallest), then variable length
-    1. gitlab policy: https://docs.gitlab.com/ee/development/ordering_table_columns.html#real-example
-    1. postgres devs are aware of this "code smell"/"wart", and are working to fix it... but it's super complicated for lots of abnoxious technical reasons: https://wiki.postgresql.org/index.php?title=Alter_column_position&oldid=23469
+    1. gitlab policy: <https://docs.gitlab.com/ee/development/ordering_table_columns.html#real-example>
+    1. postgres devs are aware of this "code smell"/"wart", and are working to fix it... but it's super complicated for lots of obnoxious technical reasons: <https://wiki.postgresql.org/index.php?title=Alter_column_position&oldid=23469>
 
 1. TOAST used for variable sized columns
     1. TOAST = The Oversized Attribute Storage Technique
@@ -175,6 +171,7 @@ Goals:
               postgres also supports `TEXT`, which is strictly better and should almost always be used: <https://www.depesz.com/2010/03/02/charx-vs-varcharx-vs-varchar-vs-text/>
 
         1. automatically/transparently compresses "large" (typically >2kb) data
+
     1. disadvantages:
         1. the format is rather more complicated
 
@@ -207,10 +204,10 @@ Goals:
     1. views
         1. "Making liberal use of views is a key aspect of good SQL database design."
            
-           https://www.postgresql.org/docs/13/tutorial-views.html
+           <https://www.postgresql.org/docs/13/tutorial-views.html>
         1. [create_view.sql](create_view.sql)
         1. a common use is to provide a denormalized interface to a normalized table
-        1. by default, every view can support the `select` statement; special work is needed to support `insert`/`update` commands; for details, see: https://arjanvandergaag.nl/blog/postgresql-updatable-views.html
+        1. by default, every view can support the `select` statement; special work is needed to support `insert`/`update` commands; for details, see: <https://arjanvandergaag.nl/blog/postgresql-updatable-views.html>
 
 ### Other considerations
 
@@ -241,7 +238,7 @@ Goals:
         1. reference: https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning
         1. WARNING: Many of the ERD symbols in the pagila diagram are wrong
         1. these endings are often wrong and I don't personally find them useful; good table/column names should make the relationship "obvious"
-    1. Typical real world database: https://anna.voelkl.at/wp-content/uploads/2016/12/ce2.1.3.png
+    1. Typical real world database: <https://anna.voelkl.at/wp-content/uploads/2016/12/ce2.1.3.png>
 
 1. common table structures
     1. 1-1 relationships
@@ -415,9 +412,9 @@ Goals:
             1. https://www.postgresqltutorial.com/postgresql-recursive-query/
 
 1. references on good database design:
-    1. Good overview https://relinx.io/2020/09/14/old-good-database-design/
-    1. Database Modelization Anti-Patterns: https://tapoueh.org/blog/2018/03/database-modelization-anti-patterns/
-    1. Building a scalable e-commerce data model: https://news.ycombinator.com/item?id=25353148
+    1. Good overview <https://relinx.io/2020/09/14/old-good-database-design/>
+    1. Database Modelization Anti-Patterns: <https://tapoueh.org/blog/2018/03/database-modelization-anti-patterns/>
+    1. Building a scalable e-commerce data model: <https://news.ycombinator.com/item?id=25353148>
 
 <!--
 ## Lab
