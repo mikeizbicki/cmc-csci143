@@ -250,11 +250,42 @@ Goals:
 
 1. common table structures
     1. 1-1 relationships (more formally O(1) - O(1) relationships)
-        1. denormalized representation: different columns in the same table
+        1. denormalized representation: different columns in the same table with unique constraint
             1. every film has exactly 1 title, and every title corresponds to exactly 1 film
-            1. every customer has exactly 1 name, and every name corresponds to exactly one customer (`first_name || ' ' || last_name` is unique)
-                1. aside: don't store people's names as `first_name` and `last_name`: <https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/>
+                ```
+                CREATE TABLE film (
+                    film_id SERIAL PRIMARY KEY,
+                    ...
+                    title TEXT UNIQUE NOT NULL,
+                    ...
+                );
+                ```
+                
+                **ASIDE:**
+                This `UNIQUE` constraint is probably bad business logic.
+                Movie remakes can have the same title but be different movies.
+
+            1. every customer has exactly 1 name, and every name corresponds to exactly one customer
+                ```
+                CREATE TABLE customer (
+                    customer_id SERIAL PRIMARY KEY,
+                    ...
+                    first_name TEXT NOT NULL,
+                    last_name TEXT NOT NULL,
+                    ...
+                    UNIQUE (first_name, last_name)
+                );
+                ```
+                **ASIDE:** don't store people's names as `first_name` and `last_name`: <https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/>
             1. every payment has either 1 or 0 payment dates (nullable column)
+                ```
+                CREATE TABLE payment (
+                    payment_id SERIAL PRIMARY KEY,
+                    ...
+                    payment_date NOT NULL,
+                    ...
+                );
+                ```
         1. normalized representation: create a new table with a foreign key and unique constraint
             1. rental-payment tables
 
