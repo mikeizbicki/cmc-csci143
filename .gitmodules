@@ -6,18 +6,6 @@
     #path = hw_twitter/twitter_coronavirus
     #url = https://github.com/mikeizbicki/twitter_coronavirus
 
-[submodule "pagila_hw"]
-	path = topic_04_SQL_1/pagila-hw
-	url = https://github.com/mikeizbicki/pagila-hw
-#[submodule "week_03/pagila-hw"]
-	#path = week_03/pagila-hw
-	#url = https://github.com/mikeizbicki/pagila-hw
-#[submodule "week_04/pagila-hw2"]
-	#path = week_04/pagila-hw2
-	#url = https://github.com/mikeizbicki/pagila-hw2
-#[submodule "week_05/pagila-hw3"]
-	#path = week_05/pagila-hw3
-	#url = https://github.com/mikeizbicki/pagila-hw3
 #[submodule "week_07/pagila-midterm"]
 	#path = week_07/pagila-midterm
 	#url = https://github.com/mikeizbicki/pagila-midterm
@@ -45,3 +33,6 @@
 [submodule "topic_05_SQL_2/pagila_hw2"]
 	path = topic_05_SQL_2/pagila_hw2
 	url = https://github.com/mikeizbicki/pagila-hw2
+[submodule "topic_06_schema_design/pagila-hw3"]
+	path = topic_06_schema_design/pagila-hw3
+	url = https://github.com/mikeizbicki/pagila-hw3
