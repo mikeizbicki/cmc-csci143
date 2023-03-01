@@ -136,7 +136,9 @@ Goals:
 
     1. padding section:
         1. all rows are padded so that their total number of bytes is divisible by 8
+        <!--
         1. the function `pg_column_size` gives the size of the header+data portion only, without the padding
+        -->
 
 1. "column tetris" is ordering table columns optimally:
     1. do not order columns "logically"
