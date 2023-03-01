@@ -21,14 +21,25 @@ Window functions
     1. pagila-hw3 due next Tuesday
 
         1. most problems like problems from pagila 1-2, but no hints
+
+            Fred Brooks, [*The Mythical Man Month* (1975)](https://en.wikipedia.org/wiki/The_Mythical_Man-Month)
+
+            > Show me your code and conceal your tables, and I shall continue to be mystified. Show me your tables, and I won't usually need your code; it'll be obvious.
+
+            Linus Torvalds: [on git mailing list archive](https://lwn.net/Articles/193245/)
+
+            > I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
+
         1. some problems you'll have to look up new techniques
         1. I will (probably) add 1-2 more problems to it tonight
+           
+           (but if I don't add anything tonight, there will be no new problems)
 
     1. twitter homework due next Tuesday
 
     1. quiz next Wednesday
 
-    1. midterm posted next Wednesday after class, due Sunday
+    1. midterm posted next Wednesday after class, due Sunday@midnight
 
 <!--
 
@@ -175,16 +186,6 @@ Goals:
            there's workarounds, but it's a pain: <https://www.commandprompt.com/blog/null-characters-workarounds-arent-good-enough/>
 
 ### Redundant data
-
-1. Important quotes:
-
-    Linus Torvalds: [on git mailing list archive](https://lwn.net/Articles/193245/)
-
-    > I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
-
-    Fred Brooks, [*The Mythical Man Month* (1975)](https://en.wikipedia.org/wiki/The_Mythical_Man-Month)
-
-    > Show me your code and conceal your tables, and I shall continue to be mystified. Show me your tables, and I won't usually need your code; it'll be obvious.
 
 1. database normalization:
 
