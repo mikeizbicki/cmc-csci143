@@ -10,16 +10,23 @@ Cube/rollup
 Window functions
 -->
 
-<img src=when-people-ask-me-to-explain-my-database-design-its-58698602.png width=400px />
-
-<!--
 ## Announcements
 
-**Mon 14 Feb:**
+upcoming assignments
 
-1. Currently ~1 week ahead of schedule
+1. pagila-hw3 due next Tuesday
 
-1. Please fill out the survey: [#131](https://github.com/mikeizbicki/cmc-csci143/issues/131)
+    1. most problems like problems from pagila 1-2, but no hints
+    1. some problems you'll have to look up new techniques
+    1. I will (probably) add 1-2 more problems to it tonight
+
+1. twitter homework due next Tuesday
+
+1. quiz next Wednesday
+
+1. midterm posted next Wednesday after class, due Sunday
+
+<!--
 
 **Wed 16 Feb:**
 
@@ -27,43 +34,13 @@ Window functions
 
     1. [solutions posted](https://github.com/mikeizbicki/pagila-hw/tree/solution)
 
-1. current median grade: 95%
-
-1. twitter/mapreduce hw reminder:
-    1. 2 students submitted (now graded)
-    1. due in 2 weeks (Mar 6)
-    1. can potentially take a long time to run
-        1. if no one else is doing it, just 1-2 hours
-        1. runtime is cubic-ish in the number of students running their code due to thrashing
-    1. this is the last week of pagila; next week we'll be putting the twitter data into the db
-
-1. class survey comments;
-    1. dislike the -1 penalty
-        1. the shell is **dangerous**, even for experts
-            1. last night I accidentally deleted the solutions to pagila-hw3
-            1. [Toy Story 2 was deleted due to a misunderstanding of how `*` worked (i.e. a bad `rm -rf *` command)](https://thenextweb.com/news/how-pixars-toy-story-2-was-deleted-twice-once-by-technology-and-again-for-its-own-good)
-         
-    1. concerns about how paternity leave would affect class
-        1. very reasonable concerns on your part
-        1. midterm details
-            1. takehome format
-            1. open book/computer (any non-human references allowed)
-            1. you will have 48hr to complete
-            1. will definitely have at least 1 review session prior
-            1. unfortunately, still can't set an exact date (but I will be flexible with your schedules)
-        1. if there's other specific things I can do to alleviate any concerns, please let me know
-
-1. office hours today cancelled (have to take wife to doctor)
-1. purpose of grades
-    1. In my view, grades should a way for you to measure how you're doing, not for other people to measure it
     1. [Google's VP in charge of hiring people says "GPA’s are worthless as a criteria for hiring, and test scores are worthless" because they don’t predict how productive an employee will be.](https://www.nytimes.com/2014/02/23/opinion/sunday/friedman-how-to-get-a-job-at-google.html)
-1. new extra credit:
-    1. use the 
 -->
 
 
-
 ## Lecture
+
+<img src=when-people-ask-me-to-explain-my-database-design-its-58698602.png width=400px />
 
 Goals:
 1. measure the disk usage of a database
