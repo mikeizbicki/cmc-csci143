@@ -10,13 +10,15 @@
 
 1. References:
 
-    1. https://www.postgresql.org/docs/current/transaction-iso.html 
+    1. <https://www.postgresql.org/docs/current/view-pg-locks.html>
 
-       responsible for: `READ COMMITTED`, and `REPEATABLE READ` isolation levels
+    1. <https://www.postgresql.org/docs/current/transaction-iso.html >
 
-       not responsible for: `SERIALIZABLE` isolation level
+       responsible for: `READ UNCOMITTED`, `READ COMMITTED`, and `REPEATABLE READ` isolation levels
 
-    1. https://www.postgresql.org/docs/current/explicit-locking.html
+       not responsible for: `SERIALIZABLE` isolation level (because the differences `REPEATABLE READ` and `SERIALIZABLE` can't be realistically tested)
+
+    1. <https://www.postgresql.org/docs/current/explicit-locking.html>
 
        responsible for: table/row-level locks, deadlocks
        
