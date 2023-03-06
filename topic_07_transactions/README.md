@@ -45,11 +45,11 @@
     For some databases, this can happen even under normal operating conditions.
 
     MongoDB team infamously misrepresented reports about Jepsen Analysis (a standard test suite for checking ACID compliance),
-    claiming that they pass tests when they do not: https://www.infoq.com/news/2020/05/Jepsen-MongoDB-4-2-6/
+    claiming that they pass tests when they do not: <https://www.infoq.com/news/2020/05/Jepsen-MongoDB-4-2-6/>
 
-    How MongoDB corrupted a social network's website: http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/
+    How MongoDB corrupted the Diaspora social network's data: <http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/>
 
-    How/why The Guardian switched from MongoDB to Postgres: https://www.theguardian.com/info/2018/nov/30/bye-bye-mongo-hello-postgres
+    How/why *The Guardian* switched from MongoDB to Postgres: <https://www.theguardian.com/info/2018/nov/30/bye-bye-mongo-hello-postgres>
 
 1. NoSQL databases can be faster than Postgres because they do not implement ACID...
     but it's possible to selectively turn off these features in Postgres in order to speed it up.
