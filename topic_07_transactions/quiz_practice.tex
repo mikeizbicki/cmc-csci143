@@ -44,7 +44,7 @@
 \newcommand{\ltwo}[1]{\lVert {#1} \rVert}
 
 \newcounter{ProblemCounter}
-\newcommand{\nextproblem}{\stepcounter{ProblemCounter} \noindent\textbf{Problem \theProblemCounter}:}
+\newcommand{\nextproblem}{\filbreak\stepcounter{ProblemCounter} \noindent\textbf{Problem \theProblemCounter}:}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -61,11 +61,17 @@
 
 \noindent
 \textbf{Instructions:}
+For each problem, you must perform all of the following tasks correctly in order to get credit.
 \begin{enumerate}
 \item Circle all SQL commands that block.
 \item Write an X through all commands that error.
+\item If a command causes a deadlock, write \lstinline{DEADLOCK} and stop the problem.
 \item Write the output of each \lstinline{SELECT} statement.
 \end{enumerate}
+%\begin{note}
+    You will be allowed to use a computer and access the internet, but you will not be allowed to connect to postgres and run postgres commands.
+    The quiz will be worth 8 points.
+%\end{note}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Basic Transactions}
@@ -98,7 +104,7 @@ SELECT count(*) FROM t;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -132,7 +138,7 @@ SELECT count(*) FROM t;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -166,7 +172,7 @@ SELECT count(*) FROM t;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -200,10 +206,10 @@ SELECT count(*) FROM t;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+\filbreak
 \section{Isolation Levels}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -237,11 +243,12 @@ SELECT count(*) FROM t;
 
 SELECT count(*) FROM t;
 COMMIT;
+SELECT count(*) FROM t;
 \end{lstlisting}
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -277,13 +284,133 @@ SELECT count(*) FROM t;
 
 SELECT count(*) FROM t;
 COMMIT;
-
+SELECT count(*) FROM t;
 \end{lstlisting}
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+
+BEGIN;
+INSERT INTO t VALUES (5);
+INSERT INTO t VALUES (6);
+
+INSERT INTO t VALUES (2);
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+BEGIN ISOLATION LEVEL
+READ COMMITTED;
+
+
+
+SELECT count(*) FROM t;
+
+
+SELECT count(*) FROM t;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+
+BEGIN;
+INSERT INTO t VALUES (5);
+INSERT INTO t VALUES (6);
+INSERT INTO t VALUES (2);
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+
+
+
+
+
+SELECT count(*) FROM t;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+INSERT INTO t VALUES (5);
+SELECT count(*) FROM t;
+INSERT INTO t VALUES (6);
+SELECT count(*) FROM t;
+INSERT INTO t VALUES (2);
+SELECT count(*) FROM t;
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+SELECT count(*) FROM t;
+
+
+
+
+
+
+
+
+
+SELECT count(*) FROM t;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -317,7 +444,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -347,7 +474,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -377,7 +504,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -408,7 +535,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -442,7 +569,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
@@ -483,7 +610,7 @@ COMMIT;
 \end{lstlisting}
 \end{tabular}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -517,7 +644,7 @@ COMMIT;
 \end{lstlisting}
 \end{tabular}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -552,7 +679,7 @@ COMMIT;
 \end{lstlisting}
 \end{tabular}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -588,7 +715,7 @@ COMMIT;
 \end{lstlisting}
 \end{tabular}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -624,7 +751,7 @@ COMMIT;
 \end{lstlisting}
 \end{tabular}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -663,7 +790,7 @@ COMMIT;
 \vspace{-0.2in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+\filbreak
 \section{Implicit Locks I}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -689,7 +816,7 @@ INSERT INTO t VALUES (5);
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{3in}
+\vspace{0.25in}
 
 
 
@@ -716,7 +843,7 @@ SELECT count(*) FROM t;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -742,7 +869,7 @@ INSERT INTO t VALUES (1);
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{3in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -768,7 +895,7 @@ SELECT count(*) FROM t;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{3in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -794,12 +921,12 @@ INSERT INTO t VALUES (1);
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\section{Implicit Locks II}
+\section{Implicit Locks II: More interesting commands}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -824,7 +951,7 @@ CREATE INDEX ON t(a);
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -850,11 +977,11 @@ CREATE INDEX CONCURRENTLY ON t(a);
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+\filbreak
 \nextproblem
 \begin{tcolorbox}
 \begin{tabular}{p{3.25in}p{3in}}
@@ -877,7 +1004,7 @@ VACUUM t;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
@@ -905,12 +1032,12 @@ VACUUM FULL t;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
 
-\newpage
+\filbreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
 \begin{tcolorbox}
@@ -934,7 +1061,7 @@ ANALYZE t;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
@@ -961,16 +1088,12 @@ CLUSTER t;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\section{Implicit Locks III}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -1000,254 +1123,11 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nextproblem
-\begin{tcolorbox}
-\begin{tabular}{p{3.25in}p{3in}}
-\hspace{-0.2in}Session 1
-\begin{lstlisting}
-CREATE TABLE t ( a INT );
-BEGIN;
-ANALYZE t;
-
-
-COMMIT;
-\end{lstlisting}
-    &
-\hspace{-0.2in}Session 2
-\begin{lstlisting}
-
-
-
-BEGIN;
-INSERT INTO t VALUES (6);
-
-COMMIT;
-
-\end{lstlisting}
-\end{tabular}
-\vspace{-0.2in}
-\end{tcolorbox}
-\vspace{2.5in}
-
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\section{Implicit Locks IV: Unique constraints}
-
-\textbf{NOTE:}
-Insertion non-\lstinline{NULL} values into a \lstinline{UNIQUE} column acquires an \lstinline{EXCLUSIVE} lock.
-\vspace{0.15in}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nextproblem
-\begin{tcolorbox}
-\begin{tabular}{p{3.25in}p{3in}}
-\hspace{-0.2in}Session 1
-\begin{lstlisting}
-CREATE TABLE t ( a INT UNIQUE );
-BEGIN;
-INSERT INTO t VALUES (5);
-  
-
-COMMIT;
-\end{lstlisting}
-    &
-\hspace{-0.2in}Session 2
-\begin{lstlisting}
-
-
-
-BEGIN;
-INSERT INTO t VALUES (6);
-
-COMMIT;
-
-\end{lstlisting}
-\end{tabular}
-\vspace{-0.2in}
-\end{tcolorbox}
-\vspace{2.5in}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nextproblem
-\begin{tcolorbox}
-\begin{tabular}{p{3.25in}p{3in}}
-\hspace{-0.2in}Session 1
-\begin{lstlisting}
-CREATE TABLE t ( a INT UNIQUE );
-BEGIN;
-INSERT INTO t VALUES (NULL);
-  
-
-COMMIT;
-\end{lstlisting}
-    &
-\hspace{-0.2in}Session 2
-\begin{lstlisting}
-
-
-
-BEGIN;
-INSERT INTO t VALUES (6);
-
-COMMIT;
-
-\end{lstlisting}
-\end{tabular}
-\vspace{-0.2in}
-\end{tcolorbox}
-\vspace{2.5in}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nextproblem
-\begin{tcolorbox}
-\begin{tabular}{p{3.25in}p{3in}}
-\hspace{-0.2in}Session 1
-\begin{lstlisting}
-CREATE TABLE t ( a INT UNIQUE );
-BEGIN;
-INSERT INTO t VALUES (5);
-  
-
-COMMIT;
-\end{lstlisting}
-    &
-\hspace{-0.2in}Session 2
-\begin{lstlisting}
-
-
-
-BEGIN;
-INSERT INTO t VALUES (NULL);
-
-COMMIT;
-
-\end{lstlisting}
-\end{tabular}
-\vspace{-0.2in}
-\end{tcolorbox}
-\vspace{2.5in}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nextproblem
-\begin{tcolorbox}
-\begin{tabular}{p{3.25in}p{3in}}
-\hspace{-0.2in}Session 1
-\begin{lstlisting}
-CREATE TABLE t ( a INT UNIQUE );
-
-BEGIN;
-INSERT INTO t VALUES (NULL);
-  
-
-INSERT INTO u VALUES (6);
-
-
-COMMIT;
-\end{lstlisting}
-    &
-\hspace{-0.2in}Session 2
-\begin{lstlisting}
-
-CREATE TABLE u ( a INT UNIQUE );
-
-
-BEGIN;
-INSERT INTO u VALUES (NULL);
-
-INSERT INTO t VALUES (8);
-COMMIT;
-
-\end{lstlisting}
-\end{tabular}
-\vspace{-0.2in}
-\end{tcolorbox}
-\vspace{2.5in}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nextproblem
-\begin{tcolorbox}
-\begin{tabular}{p{3.25in}p{3in}}
-\hspace{-0.2in}Session 1
-\begin{lstlisting}
-CREATE TABLE t ( a INT UNIQUE );
-
-BEGIN;
-INSERT INTO t VALUES (5);
-  
-
-INSERT INTO u VALUES (NULL);
-
-
-COMMIT;
-\end{lstlisting}
-    &
-\hspace{-0.2in}Session 2
-\begin{lstlisting}
-
-CREATE TABLE u ( a INT UNIQUE );
-
-
-BEGIN;
-INSERT INTO u VALUES (7);
-
-INSERT INTO t VALUES (8);
-COMMIT;
-
-\end{lstlisting}
-\end{tabular}
-\vspace{-0.2in}
-\end{tcolorbox}
-\vspace{2.5in}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nextproblem
-\begin{tcolorbox}
-\begin{tabular}{p{3.25in}p{3in}}
-\hspace{-0.2in}Session 1
-\begin{lstlisting}
-CREATE TABLE t ( a INT UNIQUE );
-
-BEGIN;
-INSERT INTO t VALUES (5);
-  
-
-INSERT INTO u VALUES (6);
-
-
-COMMIT;
-\end{lstlisting}
-    &
-\hspace{-0.2in}Session 2
-\begin{lstlisting}
-
-CREATE TABLE u ( a INT UNIQUE );
-
-
-BEGIN;
-INSERT INTO u VALUES (7);
-
-INSERT INTO t VALUES (NULL);
-COMMIT;
-
-\end{lstlisting}
-\end{tabular}
-\vspace{-0.2in}
-\end{tcolorbox}
-\vspace{2.5in}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\section{Implicit Locks V: Row Level}
-
+\section{Implicit Locks III: Row Level Locks}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -1283,7 +1163,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1320,7 +1200,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1357,7 +1237,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -1393,7 +1273,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -1429,7 +1309,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -1464,7 +1344,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
@@ -1502,7 +1382,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1539,7 +1419,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
@@ -1578,7 +1458,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1615,12 +1495,223 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\filbreak
+\section{Implicit Locks IV: Unique constraints}
+
+%\textbf{NOTE:}
+%Insertion non-\lstinline{NULL} values into a \lstinline{UNIQUE} column acquires an \lstinline{EXCLUSIVE} lock on the transaction id.
+%\vspace{0.15in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT UNIQUE );
+BEGIN;
+INSERT INTO t VALUES (5);
+  
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+INSERT INTO t VALUES (6);
+
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT UNIQUE );
+BEGIN;
+INSERT INTO t VALUES (NULL);
+  
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+INSERT INTO t VALUES (6);
+
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT UNIQUE );
+BEGIN;
+INSERT INTO t VALUES (5);
+  
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+INSERT INTO t VALUES (NULL);
+
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT UNIQUE );
+
+BEGIN;
+INSERT INTO t VALUES (NULL);
+  
+
+INSERT INTO u VALUES (6);
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u ( a INT UNIQUE );
+
+
+BEGIN;
+INSERT INTO u VALUES (NULL);
+
+INSERT INTO t VALUES (8);
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT UNIQUE );
+
+BEGIN;
+INSERT INTO t VALUES (5);
+  
+
+INSERT INTO u VALUES (NULL);
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u ( a INT UNIQUE );
+
+
+BEGIN;
+INSERT INTO u VALUES (7);
+
+INSERT INTO t VALUES (8);
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT UNIQUE );
+
+BEGIN;
+INSERT INTO t VALUES (5);
+  
+
+INSERT INTO u VALUES (6);
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u ( a INT UNIQUE );
+
+
+BEGIN;
+INSERT INTO u VALUES (7);
+
+INSERT INTO t VALUES (NULL);
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\section{Isolation Levels II}
+\filbreak
+\section{Isolation Levels II: Row Level}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -1654,7 +1745,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1689,7 +1780,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
@@ -1727,7 +1818,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
@@ -1765,11 +1856,11 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Foreign Keys I}
+\section{Foreign Keys}
 
 
 
@@ -1803,7 +1894,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1832,11 +1923,8 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Foreign Keys II}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -1871,7 +1959,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -1906,7 +1994,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
@@ -1943,7 +2031,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -1978,7 +2066,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2014,7 +2102,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2050,7 +2138,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Deferring Constraints}
@@ -2091,7 +2179,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -2128,7 +2216,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
@@ -2167,7 +2255,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
@@ -2207,7 +2295,7 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2245,10 +2333,123 @@ COMMIT;
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
-\vspace{2.5in}
+\vspace{0.25in}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{document}
+\section{Everything at Once}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT PRIMARY KEY);
+
+
+
+BEGIN;
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO u VALUES (2);
+
+
+
+LOCK TABLE t IN EXCLUSIVE MODE;
+SELECT count(*) FORM t;
+
+
+INSERT INTO t VALUES (NULL);
+COMMIT;
+
+
+
+SELECT count(*) FROM u;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u (
+    b INT REFERENCES t(a)
+    );
+
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+SELECT count(*) FROM u;
+
+
+INSERT INTO u VALUES (1);
+SELECT count(*) FROM u;
+
+
+INSERT INTO u VALUES (NULL);
+COMMIT;
+SELECT count(*) FROM t;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT PRIMARY KEY);
+
+BEGIN;
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO u VALUES (2);
+
+
+
+LOCK TABLE u IN ROWEXCLUSIVE MODE;
+SELECT count(*) FORM t;
+
+
+INSERT INTO t VALUES (3);
+COMMIT;
+
+
+
+SELECT count(*) FROM t;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u (b INT NOT NULL);
+
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+INSERT INTO t VALUES (2);
+
+
+INSERT INTO u VALUES (1);
+SELECT count(*) FROM u;
+
+
+UPDATE u SET b=5;
+COMMIT;
+SELECT count(*) FROM t;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
 \end{document}
