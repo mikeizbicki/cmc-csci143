@@ -292,6 +292,9 @@ No quiz Wednesday (Mar 22); Transactions quiz will be Wed (Mar 29).
       and you violate the constraint, then don't throw an error;
       without this line, an error will be thrown in python
 
+      > **ASIDE:**
+      > You can tell that I'm not a "native" python programmer because I talk about "throwing" "errors" instead of "raising" "exceptions".
+
    1. `RETURNING column_list` makes the `INSERT` statement behave like a `SELECT` that returns columns from the inserted rows
 
    1. both used in the `get_id_urls` function:
@@ -308,6 +311,12 @@ No quiz Wednesday (Mar 22); Transactions quiz will be Wed (Mar 29).
 1. It is most efficient to insert in large batches (>100 rows per `INSERT` statement).
    The code in `load_tweets.py` is not very efficient since it does not do this.
 
+   1. Expect your normalized code to be 10-100x slower than your denormalized code.
+
+   1. With a more efficient implementation, this could be reduced to about 2-4x slower.
+      But no matter what, the normalized version will always be slower.
+
+<!--
 1. Practical tip:
    Whenever you delete/update information, perform 2 steps:
    
@@ -333,3 +342,4 @@ No quiz Wednesday (Mar 22); Transactions quiz will be Wed (Mar 29).
 
    Stories:
    1. Junior dev given API keys and deletes the database: <https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/>
+-->
