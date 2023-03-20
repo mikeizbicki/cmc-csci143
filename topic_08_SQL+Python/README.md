@@ -1,76 +1,122 @@
 # Modifying the Database (SQL+Python)
 
-## Announcments
+## Announcements
 
-**Monday, 07 March**
+Everything graded:
 
-1. Good to see you all again :)
+1. Midterm grades
 
-1. All assignments are graded.
+    Most people got full credit :)
 
-   1. Twitter/MapReduce
+    -4 points for hardcoding values in Problem 3
 
-      4 students missed points (between -10 to -2)
+    ```
+    WITH children_actor AS(
+        SELECT actor_id
+        FROM actor
+        JOIN film_actor USING(actor_id)
+        JOIN film USING(film_id)
+        JOIN film_category USING(film_id)
+        JOIN category USING(category_id)
+        WHERE category.category_id = 3
+    ),
 
-      The explanations are a bit complex, so see me to go over why (and possibly get points back)
+    horror_actor AS (
+        SELECT actor_id
+        FROM actor
+        JOIN film_actor USING(actor_id)
+        JOIN film USING(film_id)
+        JOIN film_category USING(film_id)
+        JOIN category USING(category_id)
+        WHERE category.category_id = 11
+    )
 
-   1. Pagila-hwX
+    SELECT DISTINCT first_name, last_name
+    FROM actor
+    WHERE actor.actor_id IN (
+        SELECT * FROM children_actor)
+    AND actor.actor_id NOT IN (
+        SELECT * FROM horror_actor)
+    ORDER BY last_name;
+    ```
 
-      1. Lots of great scores!
+    Non-semantic changes to the input shouldn't affect the results.
+    See <https://raw.githubusercontent.com/mikeizbicki/pagila-midterm/2023spring/pagila/pagila-data.sql>.
 
-   1. Overall grades
+    **ASIDE:**
+    I consider common table expressions (CTEs) to be a "code smell"
 
-      Median: 97%
+    1. Make code less readable
+        1. They can't be tested individually
+        1. They're not composable
+    1. They have historically had bad performance (although that's fixed now in postgres)
 
-      Total points: between 103-133
+    Better to use VIEW instead
 
-1. Reminder:
+    ```
+    CREATE VIEW children_actor AS (
+        SELECT actor_id
+        FROM actor
+        JOIN film_actor USING(actor_id)
+        JOIN film USING(film_id)
+        JOIN film_category USING(film_id)
+        JOIN category USING(category_id)
+    );
 
-   - Week 06 hw (twitter\_postgres) due Sunday 20 March, after spring break
+    CREATE VIEW horror_actor AS (
+        SELECT actor_id
+        FROM actor
+        JOIN film_actor USING(actor_id)
+        JOIN film USING(film_id)
+        JOIN film_category USING(film_id)
+        JOIN category USING(category_id)
+    );
 
-   - Not on midterm
+    SELECT DISTINCT first_name, last_name
+    FROM children_actor
+    WHERE actor_id NOT IN (SELECT actor_id FROM horror_actor)
+    ORDER BY last_name;
+    ```
 
-1. Midterm
+    In SQL:
+    - VIEWs are like "functions"
+    - CTEs are like "private functions"
 
-   Format:
+    Naming conventions:
+    - general to specific
 
-   - take-home; open note/computer/any other resource you'd like
+1. Overall grades
 
-   - I will distribute it Wednesday afternoon; you have until Friday@midnight
+    <img src='grades.png >
 
-   - Wednesday in-class is a review session for you to ask questions (no class Friday)
+    Everything is now worth double:
+    - Assignments: 32 points each
+    - Quizzes: 8 points each
+    - Final: 64 points
 
-   - example previous midterm available at <https://github.com/mikeizbicki/pagila-midterm>
+Tentative assignment schedule:
 
-   Content:
+1. 28 March: SQL+Python (sequential insertion)
 
-   - 5 questions, 15 points/question => 75 points
+1. 4 April: SQL+Python (parallel insertion)
 
-   - No questions on shell/docker, just postgres
+1. 11 April: SQL+Python (indexes)
 
-   - 4 questions of SQL problems based on pagila (focus on pagila-hw2/hw3 concepts)
+1. Baby due 18 April
+    1. 2 weeks paternity leave => no class after this
+    1. Over the paternity leave:
+        1. Some required (but fun!) videos to view
+        1. Final exam
 
-       - you will NOT have access to the desired output
+            Date will be flexible
 
-       - I will read your SQL manually to grade (and not do a verbatim check on the output like in the hw)
+            Expect it to be much harder than the midterm
 
-           - No penalty for incorrect answers
+            Not just write *working* SQL, but write *working+fast* SQL
 
-           - I will award partial credit
+1. 12 May: Final project (non-graduating students only)
 
-             (I'm told I'm less generous than other profs)
-
-           - If you misunderstand what the English is asking for, expect no credit on the problem
-
-           - 3 points/problem for the "readability" of your SQL code
-
-   - 1 question of column tetris; you must do both:
-
-       - find the total number of bytes/row
-
-       - rearrange the rows for optimal storage
-
-## Lecture
+## Lecture Notes
 
 1. Working with denormalized JSON data in postgres
 
