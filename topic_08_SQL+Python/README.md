@@ -238,23 +238,30 @@ No quiz Wednesday (Mar 22); Transactions quiz will be Wed (Mar 29).
            })
        ```
        the result `res` is an iterator over all of the results returned by the query.
+
+       In python, you can convert any iterator into a list with the command:
        ```
-       row = res.first()  # this is prefered
+       rows = list(res)
        ```
-       gets you the first row of the results
-       ```
-       rows = list(row)
-       ```
-       gets a list of all the rows
+       But this is very bad practice.
+       It consumes $\Theta(n)$ memory, where $n$ is the number of rows.
+       For large tables, this will result in slow programs and out of memory (OOM) errors.
+       Instead, you should loop over the results like:
        ```
        for row in res:
            # process row 
        ```
-       is a very common pattern for looping over the rows
+       Given an individual row, you can access the `i`th column like:
        ```
        row[i]
        ```
-       gets you the `i`th column from `row`
+
+       > **NOTE:**
+       > The functionality above is implemented using the `__iter__`, `__next__`, and `__getitem__` magic methods in python.
+       > How these functions work is required knowledge for a working python programmer,
+       > and a good understanding of them is necessary for efficient code.
+       > If you don't know what these are, I strongly suggest that you review.
+       > I like the [realpython tutorial](https://realpython.com/python-iterators-iterables/), but anything would be fine.
 
     1. Properly escape your inputs!!!
 
