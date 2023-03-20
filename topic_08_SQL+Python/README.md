@@ -98,6 +98,9 @@ Tentative assignment schedule:
 
 1. 28 March: SQL+Python (sequential insertion)
 
+    1. Doing the Twitter assignment, but with SQL instead of MapReduce
+    1. Harder to setup, much faster queries (>200ms), much more flexibility in queries
+
 1. 4 April: SQL+Python (parallel insertion)
 
 1. 11 April: SQL+Python (indexes)
@@ -115,6 +118,8 @@ Tentative assignment schedule:
             Not just write *working* SQL, but write *working+fast* SQL
 
 1. 12 May: Final project (non-graduating students only)
+
+No quiz Wednesday (Mar 22); Transactions quiz will be Wed (Mar 29).
 
 ## Lecture Notes
 
