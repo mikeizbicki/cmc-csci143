@@ -87,7 +87,7 @@ Everything graded:
 
 1. Overall grades
 
-    <img src='grades.png >
+    <img src=grades.png />
 
     Everything is now worth double:
     - Assignments: 32 points each
