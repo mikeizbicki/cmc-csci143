@@ -126,8 +126,6 @@ Tentative assignment schedule:
         1. There is also a `JSON` column type, but it is strictly inferior and included only for historical reasons
         1. For the full history of Postgres JSON support, see <https://www.youtube.com/watch?v=tF3Lb2BvGpk>
 
-           (You may watch this video for your culture caveat task.)
-
            Summary:
            1. JSON support is the "killer feature" of MongoDB and many other NoSQL systems
            1. For this reason, NoSQL became super popular around the 2010-2014 time frame
