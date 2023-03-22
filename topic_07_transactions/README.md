@@ -81,7 +81,18 @@
 
        https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/
 
-1. Avoid deadlocks in your `INSERT` code by avoiding `UNIQUE`/`FOREIGN KEY` constraints that aren't necessary
+1. The following queries are useful for understanding the quiz problems:
+
+    ```
+    SELECT relation::REGCLASS,mode,granted,pid FROM pg_locks;
+    ```
+
+    ```
+    SELECT pg_backend_pid();
+    ```
+
+
+1. Avoid blocking/deadlocks in your `INSERT` code by avoiding `UNIQUE`/`FOREIGN KEY` constraints that aren't necessary
 
    <img src=deadlock.jpg width=500px>
 
