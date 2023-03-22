@@ -12,7 +12,7 @@
 
     1. <https://www.postgresql.org/docs/current/view-pg-locks.html>
 
-    1. <https://www.postgresql.org/docs/current/transaction-iso.html >
+    1. <https://www.postgresql.org/docs/current/transaction-iso.html>
 
        responsible for: `READ UNCOMITTED`, `READ COMMITTED`, and `REPEATABLE READ` isolation levels
 
