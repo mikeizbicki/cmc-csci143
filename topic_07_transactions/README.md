@@ -4,7 +4,7 @@
 
 **Quiz Details:**
 
-1. Wednesday after spring break
+1. Wednesday on the 2nd week after spring break
 
 1. We won't cover everything in class, so you'll need to use the references.
 
