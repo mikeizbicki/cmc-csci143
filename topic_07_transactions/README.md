@@ -94,10 +94,10 @@
 
 1. Avoid blocking/deadlocks in your `INSERT` code by avoiding `UNIQUE`/`FOREIGN KEY` constraints that aren't necessary
 
-   <img src=deadlock.jpg width=500px>
+   <img src=deadlock.jpg width=300px>
 
    but don't remove the constraints that actually ARE necessary, or you'll corrupt your data
 
-   <img src=you-cant-have-a-deadlock-if-you-remove-the-locks.jpg width=500px>
+   <img src=you-cant-have-a-deadlock-if-you-remove-the-locks.jpg width=300px>
 
    Some data types like `UUID` are "probabilistically unique" and so don't need a constraint
