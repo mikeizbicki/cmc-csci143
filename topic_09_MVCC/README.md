@@ -6,7 +6,7 @@
 
 **Reading:**
 
-1. You are responsible for everything in chapters 1,2,5,6 in the book <http://www.interdb.jp/pg>
+1. You are responsible for everything in chapters 1,2,5,6,7 in the book <http://www.interdb.jp/pg>
 
     This covers the implementation details of MVCC.
     These details will help you understand:
