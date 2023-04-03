@@ -7,7 +7,7 @@ Indexes are data structures used for making SQL queries (typically `SELECT`) fas
     1. required for the implementation of `UNIQUE` constraints (and thus `FOREIGN KEY` constraints)
 
 1. Disadvantage:
-    1. increase the runtime of `INSERT` from $O(1)$ to $\Theta(\log n)$
+    1. increase the runtime of `INSERT` from $\Theta(1)$ to $\Theta(\log n)$
 
 1. Other highlights:
     1. Careful use of indexes will solve 99% of your SQL performance problems
@@ -125,9 +125,9 @@ WHERE condition
     1. Requirements:
         1. Can always be used
     1. Runtime:
-        1. table pages accessed = $\Theta(n)$
+        1. table pages accessed = $O(n)$, $\Omega(k)$
         1. index pages accessed = 0
-        1. comparison operations = $\Theta(n)$
+        1. comparison operations = $O(n)$, $\Omega(k)$
         1. small constant factor
     1. Used when (OR):
         1. no index is defined
@@ -143,7 +143,7 @@ WHERE condition
             1. this assumes that there are no "invisble" tuples in the table, which is checked using the visibility map
             1. this value can be non-zero if we must examine the `xmin`/`xmax` system columns to determine if the tuple is visible
             1. regular vacuuming helps keep the visibility map "clean" and ensures this scan is fast
-            1. if not vacuumed regularly, then potentially up to $O(k)$
+            1. if not vacuumed regularly, then worst case is $\Theta(k)$
         1. index pages accessed = $\Theta(\log_b n + k/b)$
         1. comparison operations = $\Theta(b\log_b n + k)$
         1. small constant factor
