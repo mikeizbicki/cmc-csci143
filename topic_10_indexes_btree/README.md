@@ -164,7 +164,7 @@ WHERE condition
         1. comparison operations = $\Theta(b\log_b n + k)$
         1. medium constant factor
     1. Used when (AND):
-        1. $k <\!\!< n/a$
+        1. $k << n/a$
         1. only one index will be consulted
 
 1. Bitmap Scan
