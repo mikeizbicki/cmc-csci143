@@ -188,6 +188,7 @@ WHERE condition
         1. Cannot return results 1 at a time (like all other scans),
            must return them as a large batch
         1. Cannot return results in sorted order
+        1. A full bitmap of size $\Theta(n/a)$ must be created even if a `LIMIT` clause means we will return only $O(1)$ results.
 
 
 ### Sorting Strategies
