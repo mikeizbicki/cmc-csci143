@@ -359,10 +359,13 @@ Three types of join strategies:
           else:
               j += 1
       ```
-   1. runtime is $Theta(m + n)$ with a small overhead
+   1. runtime is $\Theta(m + n)$ with a small overhead
         1. if we have a `LIMIT k` clause, then the runtime is $\Theta(k)$ because while loop will stop early
 
             **this is the best case scenario for joins, and what we should always try to achieve**
+
+            In particular, with this runtime, there is no performance penalty for storing data in normalized form instead of a denormalized form.
+            But every other join operation has an asymptotic overhead for storing data in a normalized form. 
 
 <!--
 1. Conclusions:
