@@ -1741,6 +1741,7 @@ BEGIN;
 
 DELETE FROM t WHERE a=10;
 COMMIT;
+SELECT count(*) FROM t;
 \end{lstlisting}
 \end{tabular}
 \vspace{-0.2in}
@@ -1776,6 +1777,7 @@ BEGIN;
 
 DELETE FROM t WHERE a=10;
 COMMIT;
+SELECT count(*) FROM t;
 \end{lstlisting}
 \end{tabular}
 \vspace{-0.2in}
