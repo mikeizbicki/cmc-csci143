@@ -179,64 +179,6 @@ Name:
 \vspace{0.15in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newpage
-%\section{True/False Questions}
-
-%For each question below, circle either True or False.
-%Each correct answer will result in +2 points,
-%each incorrect answer will result in -2 points,
-%and each blank answer in 0 points.
-
-%\begin{questions}
-%\question\TFQuestion{F}{A table that takes up 832KB on disk has 104 pages.}
-%\question\TFQuestion{F}{A denormalized representation of data tends to take up less disk space than a normalized representation.}
-%\question\TFQuestion{T}{An index only scan may have to access heap table pages to determine whether a tuple is visible.  This is likely to happen on a table that has had many recent UPDATE/DELETE operations and no recent VACUUM operation.}
-%\question\TFQuestion{T}{A btree index created on an INTEGER column will have a larger fanout than a btree index created on a BIGINT column.}
-%\question\TFQuestion{F}{Every heap page must have at least one live tuple.}
-%\question\TFQuestion{F}{If you run the TRUNCATE command to delete the contents of a table, you must run a subsequent VACUUM FULL command to free up the disk space for other processes to use.}
-%\question\TFQuestion{T}{Postgres automatically compresses large TEXT values.}
-%\question\TFQuestion{F}{Postgres documentation recommends disabling autovacuum if you encounter the transaction id wraparound problem.}
-%\question\TFQuestion{T}{Decreasing the \lstinline{fillfactor} for a table from the default value of 100 will make HOT tuple updates more likely.}
-%\question\TFQuestion{F}{The autovacuum process runs the VACUUM FULL command at regular intervals in order to automatically free up disk space from dead tuples.}
-%\question\TFQuestion{T}{A btree index created on an SMALLINT column will have higher fanout than the same index created on a BIGINT column.}
-%%\question\TFQuestion{T}{Both heap tables and indexes can have a free space map file.}
-%\question\TFQuestion{F}{In the postgres documentation, TID is an abbreviation for transaction identifier.}
-%\question\TFQuestion{F}{Dirty reads are possible in Postgres's read committed isolation level.}
-%%\question\TFQuestion{F}{If a tuple exists on disk, there is guaranteed to be some transaction that can see the tuple.}
-%%\question\TFQuestion{F}{Postgres's btree indexes contain metainfo in order to determine tuple visibility for index only scans.}
-%\question\TFQuestion{T}{For very small tables, the postgres query planner is likely to choose sequential scan instead of an index scan.}
-%\question\TFQuestion{T}{The hash index supports the bitmap scan access method.}
-%\question\TFQuestion{T}{A database stored using HDDs should have a higher value for the \lstinline{random_page_cost} system parameter than a database stored using SSDs.}
-%\question\TFQuestion{F}{A denormalized representation of data tends to take up less disk space than a normalized representation.}
-%\question\TFQuestion{T}{The nested loop join strategy can be used to join tables on an equality constraint.}
-%\question\TFQuestion{T}{The hash join strategy can be used for self joins.}
-%%\question\TFQuestion{T}{The HashAggregate strategy can be}
-
-%\question\TFQuestion{T}{A hash index can be used to speed up a nested loop join.}
-%\question\TFQuestion{F}{A btree index can be used to speed up a CHECK constraint.}
-%\question\TFQuestion{F}{It is possible to INSERT a NULL value into a column labeled as the PRIMARY KEY.}
-%\question\TFQuestion{F}{It is not possible to create a GIN index to enforce a UNIQUE constraint, but it is possible to create a RUM index to enforce a UNIQUE constraint.}
-%\question\TFQuestion{T}{One advantage of the RUM index over the GIN index is that the former supports index scans and the latter does not.  This implies that the RUM index can be used to speed up queries using the \lstinline{LIMIT} clause, but the GIN index cannot.}
-%\question\TFQuestion{F}{If postgres crashes while a DELETE/INSERT/UPDATE statement is modifying a RUM index, the index becomes corrupted and must be regenerated.}
-%\question\TFQuestion{T}{The ANALYZE command collects statistics on the values in the table which the query planner uses when selecting which scan algorithm to use for a query.}
-%%\question\TFQuestion{T}{It's always possible to use a nested loop join.}
-%\question\TFQuestion{F}{A hash index can return tuples in sorted order.}
-%\question\TFQuestion{T}{The GroupAggregate algorithm can be used if one of the SELECT columns contains COUNT(DISTINCT *).}
-%\question\TFQuestion{F}{When a table has been CLUSTERed on an index, inserting new tuples causes them to be inserted in the order specified by the index.}
-%%\question\TFQuestion{T}{In postgres, the INSERT command will never block a SELECT command, and the SELECT command will never block the INSERT command.}
-%\question\TFQuestion{F}{In the current version of postgres (versrion 14), index only scans can be parallelized, but index scans cannot be parallelized.}
-%\question\TFQuestion{F}{If you run EXPLAIN ANALYZE on an UPDATE statement, then the database is guaranteed not to modify your data.}
-%\question\TFQuestion{F}{The order of columns matters in a multi-column GIN index.}
-%%\question\TFQuestion{T}{Given the string ``C\'esar Ch\'avez'', an NFD-normalized UTF-8 encoding will require more bytes than a NFKC-normalized UTF-8 encoding.}
-%%\question\TFQuestion{F}{The UTF-16 encoding cannot represent NFKD-normalized text.}
-%%\question\TFQuestion{F}{The TSVECTOR type can be created on NFC normalized TEXT fields, but cannot be created on NFD normalized TEXT fields.}
-%%\question\TFQuestion{T}{Given any string in NFKC form, normalizing to NFC and back to NFKC is guaranteed to be an idempotent operation (i.e. you will get the same string back.)}
-
-%\end{questions}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newpage
-%\section{Integrated Questions}
 
 \newpage
 \noindent
