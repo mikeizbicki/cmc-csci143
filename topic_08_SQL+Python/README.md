@@ -173,7 +173,7 @@ No quiz Wednesday (Mar 22); Transactions quiz will be Wed (Mar 29).
        ```
        cat <JSONFILE> | sed 's/\\u0000//g' | psql <POSTGRES_DB_URL> -c "COPY <TABLENAME> (<COLUMNNAME>) FROM STDIN csv quote e'\x01' delimiter e'\x02';"
        ```
-       where everything in `<...>` needs to be replaced with approriate values.
+       where everything in `<...>` needs to be replaced with appropriate values.
 
        Reference: <http://adpgtech.blogspot.com/2014/09/importing-json-data.html>
 
@@ -257,7 +257,6 @@ No quiz Wednesday (Mar 22); Transactions quiz will be Wed (Mar 29).
        ```
        row[i]
        ```
-
        > **NOTE:**
        > The functionality above is implemented using the `__iter__`, `__next__`, and `__getitem__` magic methods in python.
        > How these functions work is required knowledge for a working python programmer,
