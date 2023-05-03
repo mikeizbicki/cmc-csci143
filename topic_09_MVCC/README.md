@@ -77,7 +77,7 @@
 
         <img src=autovacuum.jpeg />
 
-    1. `VACCUM` acquires a `SHARE UPDATE EXCLUSIVE` lock.
+    1. `VACUUM` acquires a `SHARE UPDATE EXCLUSIVE` lock.
         While a table is being vacuumed,
         most SQL operations can be performed (e.g. `SELECT`/`UPDATE`/`DELETE` are okay),
         but certain operations like creating an index are blocked.
