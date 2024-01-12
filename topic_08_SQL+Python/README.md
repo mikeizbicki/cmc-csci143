@@ -1,76 +1,127 @@
 # Modifying the Database (SQL+Python)
 
-## Announcments
+## Announcements
 
-**Monday, 07 March**
+Everything graded:
 
-1. Good to see you all again :)
+1. Midterm grades
 
-1. All assignments are graded.
+    Most people got full credit :)
 
-   1. Twitter/MapReduce
+    -4 points for hardcoding values in Problem 3
 
-      4 students missed points (between -10 to -2)
+    ```
+    WITH children_actor AS(
+        SELECT actor_id
+        FROM actor
+        JOIN film_actor USING(actor_id)
+        JOIN film USING(film_id)
+        JOIN film_category USING(film_id)
+        JOIN category USING(category_id)
+        WHERE category.category_id = 3
+    ),
 
-      The explanations are a bit complex, so see me to go over why (and possibly get points back)
+    horror_actor AS (
+        SELECT actor_id
+        FROM actor
+        JOIN film_actor USING(actor_id)
+        JOIN film USING(film_id)
+        JOIN film_category USING(film_id)
+        JOIN category USING(category_id)
+        WHERE category.category_id = 11
+    )
 
-   1. Pagila-hwX
+    SELECT DISTINCT first_name, last_name
+    FROM actor
+    WHERE actor.actor_id IN (
+        SELECT * FROM children_actor)
+    AND actor.actor_id NOT IN (
+        SELECT * FROM horror_actor)
+    ORDER BY last_name;
+    ```
 
-      1. Lots of great scores!
+    Non-semantic changes to the input shouldn't affect the results.
+    See <https://raw.githubusercontent.com/mikeizbicki/pagila-midterm/2023spring/pagila/pagila-data.sql>.
 
-   1. Overall grades
+    **ASIDE:**
+    I consider common table expressions (CTEs) to be a "code smell"
 
-      Median: 97%
+    1. Make code less readable
+        1. They can't be tested individually
+        1. They're not composable
+    1. They have historically had bad performance (although that's fixed now in postgres)
 
-      Total points: between 103-133
+    Better to use VIEW instead
 
-1. Reminder:
+    ```
+    CREATE VIEW children_actor AS (
+        SELECT actor_id
+        FROM actor
+        JOIN film_actor USING(actor_id)
+        JOIN film USING(film_id)
+        JOIN film_category USING(film_id)
+        JOIN category USING(category_id)
+    );
 
-   - Week 06 hw (twitter\_postgres) due Sunday 20 March, after spring break
+    CREATE VIEW horror_actor AS (
+        SELECT actor_id
+        FROM actor
+        JOIN film_actor USING(actor_id)
+        JOIN film USING(film_id)
+        JOIN film_category USING(film_id)
+        JOIN category USING(category_id)
+    );
 
-   - Not on midterm
+    SELECT DISTINCT first_name, last_name
+    FROM children_actor
+    WHERE actor_id NOT IN (SELECT actor_id FROM horror_actor)
+    ORDER BY last_name;
+    ```
 
-1. Midterm
+    In SQL:
+    - VIEWs are like "functions"
+    - CTEs are like "private functions"
 
-   Format:
+    Naming conventions:
+    - general to specific
 
-   - take-home; open note/computer/any other resource you'd like
+1. Overall grades
 
-   - I will distribute it Wednesday afternoon; you have until Friday@midnight
+    <img src=grades.png />
 
-   - Wednesday in-class is a review session for you to ask questions (no class Friday)
+    Everything is now worth double:
+    - Assignments: 32 points each
+    - Quizzes: 8 points each
+    - Final: 64 points
 
-   - example previous midterm available at <https://github.com/mikeizbicki/pagila-midterm>
+Tentative assignment schedule:
 
-   Content:
+1. 28 March: SQL+Python (sequential insertion)
 
-   - 5 questions, 15 points/question => 75 points
+    1. Doing the Twitter assignment, but with SQL instead of MapReduce
+    1. Harder to setup, much faster queries (>200ms), much more flexibility in queries
 
-   - No questions on shell/docker, just postgres
+1. 4 April: SQL+Python (parallel insertion)
 
-   - 4 questions of SQL problems based on pagila (focus on pagila-hw2/hw3 concepts)
+1. 11 April: SQL+Python (indexes)
 
-       - you will NOT have access to the desired output
+1. Baby due 18 April
+    1. 2 weeks paternity leave => no class after this
+    1. Over the paternity leave:
+        1. Some required (but fun!) videos to view
+        1. Final exam
 
-       - I will read your SQL manually to grade (and not do a verbatim check on the output like in the hw)
+            Date will be flexible
 
-           - No penalty for incorrect answers
+            Expect it to be much harder than the midterm
 
-           - I will award partial credit
+            Not just write *working* SQL, but write *working+fast* SQL
 
-             (I'm told I'm less generous than other profs)
+1. 12 May: Final project (non-graduating students only)
 
-           - If you misunderstand what the English is asking for, expect no credit on the problem
+No quiz Wednesday (Mar 22); Transactions quiz will be Wed (Mar 29).
 
-           - 3 points/problem for the "readability" of your SQL code
-
-   - 1 question of column tetris; you must do both:
-
-       - find the total number of bytes/row
-
-       - rearrange the rows for optimal storage
-
-## Lecture
+## Lecture Notes
 
 1. Working with denormalized JSON data in postgres
 
@@ -79,8 +130,6 @@
         1. `JSONB` stands for JSON + Binary formatted;
         1. There is also a `JSON` column type, but it is strictly inferior and included only for historical reasons
         1. For the full history of Postgres JSON support, see <https://www.youtube.com/watch?v=tF3Lb2BvGpk>
-
-           (You may watch this video for your culture caveat task.)
 
            Summary:
            1. JSON support is the "killer feature" of MongoDB and many other NoSQL systems
@@ -109,6 +158,8 @@
         1. the application needs to ensure that the data is correct, postgres won't do it for you
             1. _**this should TERRIFY you**_
             1. the database is the "ground truth" of you business logic... if it contains wrong data, there's nothing you can do
+
+            <img src=fk-meme.webp width=300px />
         1. for certain applications, it's much more convenient
 
     1. Insert data using the SQL `INSERT` command or `COPY` command.
@@ -189,23 +240,30 @@
            })
        ```
        the result `res` is an iterator over all of the results returned by the query.
+
+       In python, you can convert any iterator into a list with the command:
        ```
-       row = res.first()  # this is prefered
+       rows = list(res)
        ```
-       gets you the first row of the results
-       ```
-       rows = list(row)
-       ```
-       gets a list of all the rows
+       But this is very bad practice.
+       It consumes $\Theta(n)$ memory, where $n$ is the number of rows.
+       For large tables, this will result in slow programs and out of memory (OOM) errors.
+       Instead, you should loop over the results like:
        ```
        for row in res:
            # process row 
        ```
-       is a very common pattern for looping over the rows
+       Given an individual row, you can access the `i`th column like:
        ```
        row[i]
        ```
-       gets you the `i`th column from `row`
+
+       > **NOTE:**
+       > The functionality above is implemented using the `__iter__`, `__next__`, and `__getitem__` magic methods in python.
+       > How these functions work is required knowledge for a working python programmer,
+       > and a good understanding of them is necessary for efficient code.
+       > If you don't know what these are, I strongly suggest that you review.
+       > I like the [realpython tutorial](https://realpython.com/python-iterators-iterables/), but anything would be fine.
 
     1. Properly escape your inputs!!!
 
@@ -236,6 +294,9 @@
       and you violate the constraint, then don't throw an error;
       without this line, an error will be thrown in python
 
+      > **ASIDE:**
+      > You can tell that I'm not a "native" python programmer because I talk about "throwing" "errors" instead of "raising" "exceptions".
+
    1. `RETURNING column_list` makes the `INSERT` statement behave like a `SELECT` that returns columns from the inserted rows
 
    1. both used in the `get_id_urls` function:
@@ -252,6 +313,12 @@
 1. It is most efficient to insert in large batches (>100 rows per `INSERT` statement).
    The code in `load_tweets.py` is not very efficient since it does not do this.
 
+   1. Expect your normalized code to be 10-100x slower than your denormalized code.
+
+   1. With a more efficient implementation, this could be reduced to about 2-4x slower.
+      But no matter what, the normalized version will always be slower.
+
+<!--
 1. Practical tip:
    Whenever you delete/update information, perform 2 steps:
    
@@ -277,3 +344,4 @@
 
    Stories:
    1. Junior dev given API keys and deletes the database: <https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/>
+-->

@@ -2,52 +2,6 @@
 
 <img src=index-all-the-things-meme.jpg width=400px />
 
-## Announcements
-
-**Monday, 11 April:**
-
-Summary of remaining graded material
-
-1. Points:
-    1. Currently 238-268 points graded in sakai
-    1. About 200-250 points remain
-
-1. Final Exam
-    1. Everyone will take the same final exam at the same time
-    1. Take home exam
-    1. Complete a PDF file, not write code
-    1. You will get it Friday, 29 April; submit it Monday 02 May@midnight
-
-1. Coding assignments
-    1. before the final:
-        1. this week's twitter assignment
-        1. common crawl dataset / search engine
-        1. I'm not assigning 2 assignments due to "compressed" nature of this part of course
-    1. after the final (non-seniors only):
-        1. async programming in python project
-
-1. Written assignments/quizzes
-    1. 2-3 more
-    1. designed to help you do well on the final
-
-1. Recall: 2 "caveat tasks" that will drop your grade by 10% if you don't complete them
-    1. typespeed: 13/25 students completed this task
-    1. culture: 0/25 students completed this task
-    1. Due date: (seniors) Before Wednesday 04 May
-       
-       (non-seniors) Before Wednesday 11 May (our "final exam" timeslot)
-
-**Friday, 15 April:**
-
-Reminder:
-1. Quiz do Monday, beginning of class
-1. Use any resources you like: notes, internet, collaborate with other students
-1. Bring a printout to class; we will begin class by grading it
-
-HW deadline:
-1. Changed to Wednesday 20 April (focus on the quiz first)
-1. No collaboration extension possible
-
 ## Hash Index
 
 1. reference: <https://habr.com/ru/company/postgrespro/blog/442776/>

@@ -1,13 +1,13 @@
-# Week 11: B-Trees and Indexes
+# B-Trees and Indexes
 
 Indexes are data structures used for making SQL queries (typically `SELECT`) fast.
 
 1. Advantage:
-    1. reduce the runtime of finding a row (for `SELECT`/`UPDATE`/`DELETE` statements) from O(n) down to O(log n)
+    1. reduce the runtime of finding a row (for `SELECT`/`UPDATE`/`DELETE` statements) from $O(n)$ down to $\Theta(\log n)$
     1. required for the implementation of `UNIQUE` constraints (and thus `FOREIGN KEY` constraints)
 
 1. Disadvantage:
-    1. increase the runtime of `INSERT` from O(1) to O(log n)
+    1. increase the runtime of `INSERT` from $\Theta(1)$ to $\Theta(\log n)$
 
 1. Other highlights:
     1. Careful use of indexes will solve 99% of your SQL performance problems
@@ -125,14 +125,14 @@ WHERE condition
     1. Requirements:
         1. Can always be used
     1. Runtime:
-        1. table pages accessed = `O(n)`
+        1. table pages accessed = $O(n)$, $\Omega(k)$
         1. index pages accessed = 0
-        1. comparison operations = `O(n)`
+        1. comparison operations = $O(n)$, $\Omega(k)$
         1. small constant factor
     1. Used when (OR):
         1. no index is defined
         1. `n` is small
-        1. the `SELECT` statement will return a "significant" fraction of the data
+        1. the `SELECT` statement will return a "significant" fraction of the data (because the `WHERE` clause selects most of the data)
 
 1. Index Only Scan
     1. Requirements:
@@ -143,9 +143,9 @@ WHERE condition
             1. this assumes that there are no "invisble" tuples in the table, which is checked using the visibility map
             1. this value can be non-zero if we must examine the `xmin`/`xmax` system columns to determine if the tuple is visible
             1. regular vacuuming helps keep the visibility map "clean" and ensures this scan is fast
-            1. if not vacuumed regularly, then potentially up to `O(k)`
-        1. index pages accessed = `O(log_b n + k/b)`
-        1. comparison operations = `O(b*log_b n + k)`
+            1. if not vacuumed regularly, then worst case is $\Theta(k)$
+        1. index pages accessed = $\Theta(\log_b n + k/b)$
+        1. comparison operations = $\Theta(b\log_b n + k)$
         1. small constant factor
     1. Used when:
         1. Essentially whenever possible... this is the best case scenario for indexes
@@ -156,15 +156,15 @@ WHERE condition
     1. Requirements:
         1.  At least one column of the `WHERE` clause is present in the index... and it should be a highly selective one
     1. Runtime:
-        1. table pages accessed = `O(k)`
-            1. Note that the number of pages is `O(n/a)`, and k is only guaranteed to be <= n, so this can potentially access more pages than exist in the table!
+        1. table pages accessed = $\Theta(k)$
+            1. Note that the number of pages is $\Theta(n/a)$, and k is only guaranteed to be <= n, so this can potentially access more pages than exist in the table!
             1. No guarantee that the same page will not be accessed multiple times
             1. Caching of pages in memory somewhat mitigates this problem
-        1. index pages accessed = `O(log_b n + k/b)`
-        1. comparison operations = `O(b*log_b n + k)`
+        1. index pages accessed = $\Theta(\log_b n + k/b)$
+        1. comparison operations = $\Theta(b\log_b n + k)$
         1. medium constant factor
     1. Used when (AND):
-        1. `k << n/a`
+        1. $k << n/a$
         1. only one index will be consulted
 
 1. Bitmap Scan
@@ -175,19 +175,20 @@ WHERE condition
         1. Compute the `AND`/`OR` of the bitmaps as appropriate
         1. Scan only the pages in the final bitmap
     1. Runtime
-        1. table pages accessed = `O(k)`
+        1. table pages accessed = $O(k)$
             1. typically much less than for an index scan
             1. guaranteed to never access the same page twice; equivalent to guaranteeing that we access the minimum number of pages necessary
-        1. index pages accessed = `O(log_b n + k/b)`
-        1. comparison operations = `O(b*log_b n + k)`
+        1. index pages accessed = $\Theta(\log_b n + k/b)$
+        1. comparison operations = $\Theta(b\log_b n + k)$
         1. high constant factor
     1. Used when (OR):
         1. multiple indexes will be consulted (the bitmaps of each index get AND/ORed together)
-        1. `k` is relatively large, so the chance of multiple tuples from the same page is high
+        1. $k$ is relatively large, so the chance of multiple tuples from the same page is high
     1. Downside:
         1. Cannot return results 1 at a time (like all other scans),
            must return them as a large batch
         1. Cannot return results in sorted order
+        1. A full bitmap of size $\Theta(n/a)$ must be created even if a `LIMIT` clause means we will return only $O(1)$ results.
 
 
 ### Sorting Strategies
@@ -204,21 +205,22 @@ Two basic strategies:
         1. If the table scan data fits into `work_mem` (typically 20MB), then:
             1. Top-N Heap Sort if `LIMIT N` clause
 
-                Comparison Ops: `O(n + N log N)`
+                Comparison Ops: $\Theta(n + N \log N)$
 
             1. otherwise Quicksort
 
-                Comparison Ops: `O(n log n)`
+                Comparison Ops: $\Theta(n \log n)$ (average case only)
         1. Otherwise a specialized merge sort that saves intermediate steps to the harddrive
 
         1. Reference: <https://www.cybertec-postgresql.com/en/postgresql-improving-sort-performance/>
 
-    1. Really good/fancy code here... but it's sorting is intrinsically slow `Omega(n)`... and so you should try to avoid sorting
+    1. Really good/fancy code here... but it's sorting is intrinsically slow $\Omega(n)$... and so you should try to avoid sorting
 
-    <img src=sort.jpg width=400px />
+    <img src=sort.jpg width=300px />
 
 1. Use an index
     1. Only applicable for index only/index scan (i.e. not bitmap scan)
+    1. Complex relationship between index column order and WHERE clause conditions
 
 ### Aggregate Strategies
 
@@ -278,7 +280,7 @@ Three types of join strategies:
                     if a,b satisfy join condition:
                         output a,b
             ```
-        1. runtime is `O(mn)`, where `m` is size of `A` and `n` is size of `B`
+        1. runtime is $O(mn)$, where $m$ is size of `A` and $n$ is size of `B`
 
     1. with an index on B
         1. replace the inner for loop with an index only/index/bitmap scan:
@@ -288,8 +290,8 @@ Three types of join strategies:
                 find rows b in B satisfying join condition:    -- O(log n)
                     output a,b
             ```
-        1. runtime is `O(m log n)`
-            1. With a `LIMIT k` clause, if every row in `A` has a matching row in `B`, then `O(k log n)`
+        1. runtime is $\Theta(m \log n)$
+            1. With a `LIMIT k` clause, if every row in `A` has a matching row in `B`, then $\Theta(k \log n)$
 
     1. with an index on A
         1. Recall that joins are commutative; that is,
@@ -310,8 +312,8 @@ Three types of join strategies:
                 find rows a in A satisfying join condition:    -- O(log m)
                     output a,b
             ```
-        1. runtime is `O(n log m)`
-            1. With a `LIMIT k` clause, if every row in `B` has a matching row in `A`, then `O(k log m)`
+        1. runtime is $\Theta(n \log m)$
+            1. With a `LIMIT k` clause, if every row in `B` has a matching row in `A`, then $\Theta(k \log m)$
 
 1. Hash join
    1. requires:
@@ -329,12 +331,12 @@ Three types of join strategies:
                   output a,b
       ```
 
-   1. runtime is `O(m + n)`, with a large overhead
+   1. runtime is $\Theta(m + n)$, with a large overhead
         1. Due to commutivity, we may choose to build the hash table on A instead of B
             1. if hashing the column type is slow, then we should perform the hash step on the smallest table
-        1. With a `LIMIT k` clause, if every row in A has a matching row in B, then `O(k + n)`
+        1. With a `LIMIT k` clause, if every row in A has a matching row in B, then $\Theta(k + n)$
 
-            or due to commutivity, if every row in B has a matching row in A, then `O(k + m)`
+            or due to commutivity, if every row in B has a matching row in A, then $\Theta(k + m)$
 
 1. Merge join
    1. like the merge step in merge sort
@@ -357,10 +359,13 @@ Three types of join strategies:
           else:
               j += 1
       ```
-   1. runtime is `O(m + n)` with a small overhead
-        1. if we have a `LIMIT k` clause, then the runtime is `O(k)` because while loop will stop early
+   1. runtime is $\Theta(m + n)$ with a small overhead
+        1. if we have a `LIMIT k` clause, then the runtime is $\Theta(k)$ because while loop will stop early
 
             **this is the best case scenario for joins, and what we should always try to achieve**
+
+            In particular, with this runtime, there is no performance penalty for storing data in normalized form instead of a denormalized form.
+            But every other join operation has an asymptotic overhead for storing data in a normalized form. 
 
 <!--
 1. Conclusions:

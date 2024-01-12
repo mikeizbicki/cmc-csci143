@@ -1,0 +1,585 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}
+
+\usepackage[normalem]{ulem}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor    = blue  %Colour of citations
+}
+
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage[table]{xcolor}
+\usepackage{color}
+\usepackage{colortbl}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{gray}{rgb}{0.7,0.7,0.7}
+
+\usepackage{listings}
+\lstset {
+	basicstyle=\ttfamily,
+    ,language=SQL
+    ,showstringspaces=false
+    ,keepspaces=true
+}
+
+\usepackage {tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\definecolor {processblue}{cmyk}{0.96,0,0,0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% question definitions
+
+\printanswers
+
+\newcommand*{\hl}[1]{\colorbox{yellow}{#1}}
+
+\newcommand*{\answerLong}[2]{
+    \ifprintanswers{\hl{#1}}
+\else{#2}
+\fi
+}
+
+\newcommand*{\answer}[1]{\answerLong{#1}{~}}
+
+\newcommand*{\TrueFalse}[1]{%
+\ifprintanswers
+    \ifthenelse{\equal{#1}{T}}{%
+        \hl{\textbf{TRUE}}\hspace*{14pt}False
+    }{
+        True\hspace*{14pt}\hl{\textbf{FALSE}}
+    }
+\else
+    {True}\hspace*{20pt}False
+\fi
+} 
+%% The following code is based on an answer by Gonzalo Medina
+%% https://tex.stackexchange.com/a/13106/39194
+\newlength\TFlengthA
+\newlength\TFlengthB
+\settowidth\TFlengthA{\hspace*{1.3in}}
+\newcommand\TFQuestion[2]{%
+    \setlength\TFlengthB{\linewidth}
+    \addtolength\TFlengthB{-\TFlengthA}
+    \parbox[t]{\TFlengthA}{\TrueFalse{#1}}\parbox[t]{\TFlengthB}{#2}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\trans}[1]{{#1}^{T}}
+\newcommand{\loss}{\ell}
+\newcommand{\w}{\mathbf w}
+\newcommand{\x}{\mathbf x}
+\newcommand{\y}{\mathbf y}
+\newcommand{\ltwo}[1]{\lVert {#1} \rVert}
+
+\newcommand{\ignore}[1]{}
+
+\usepackage{listings}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            % 
+stepnumber=1,
+numbers=left
+}}
+
+\lstnewenvironment{python}[1][]
+{
+    \pythonstyle
+    \lstset{#1}
+}
+{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+    {
+\Large
+    CSCI143 Final, Spring 2023
+}
+
+    \vspace{0.1in}
+\end{center}
+
+\noindent
+\textbf{Collaboration policy:} 
+
+\vspace{0.1in}
+\noindent
+You may NOT:
+\begin{enumerate}
+    \item discuss the exam with any human other than Mike; this includes:
+        \begin{enumerate}
+            \item asking your friend for clarification about what a problem is asking
+            \item asking your friend if they've completed the exam
+            \item posting questions to github
+        \end{enumerate}
+\end{enumerate}
+
+\noindent
+You may:
+\begin{enumerate}
+    \item take as much time as needed
+    \item use any written notes / electronic resources you would like
+    \item use the lambda server
+    \item ask Mike to clarify questions via email
+\end{enumerate}
+
+
+\vspace{0.15in}
+
+\vspace{0.25in}
+\noindent
+Name: 
+
+\noindent
+\rule{\textwidth}{0.1pt}
+\vspace{0.15in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\noindent
+The questions below relate to the following simplified normalized twitter schema.
+
+\begin{lstlisting}
+CREATE TABLE users (
+    id_users BIGINT PRIMARY KEY,
+    name TEXT UNIQUE NOT NULL,
+    description TEXT
+);
+
+CREATE TABLE tweets (
+    id_tweets BIGINT PRIMARY KEY,
+    id_users BIGINT REFERENCES users(id_users),
+    created_at TIMESTAMPTZ CHECK (created_at > '2000-01-01'),
+    country_code VARCHAR(2) NOT NULL,
+    lang VARCHAR(2) NOT NULL,
+    text TEXT NOT NULL
+);
+
+CREATE TABLE tweet_tags (
+    id_tweets BIGINT,
+    tag TEXT,
+    PRIMARY KEY (id_tweets, tag),
+    FOREIGN KEY (id_tweets) REFERENCES tweets(id_tweets)
+);
+\end{lstlisting}
+
+\begin{questions}
+\question{
+    (8pts)
+    Recall that certain constraints create indexes on the appropriate columns.  List the equivalent CREATE INDEX commands that are run by the constraints above.
+}
+
+\begin{solution}
+\begin{lstlisting}
+CREATE UNIQUE INDEX ON users(id_users);
+
+CREATE UNIQUE INDEX ON users(name);
+
+CREATE UNIQUE INDEX ON tweets(id_tweets);
+
+CREATE UNIQUE INDEX ON tweet_tags(id_tweets, tag);
+\end{lstlisting}
+
+Common mistakes:
+
+\begin{enumerate}
+    \item You got full credit whether you included the UNIQUE clause or not in your commands.
+    \item (-3pts)
+        Getting the column order wrong on the last command.
+        The order of the columns in the last command has no impact on the semantics, but it does impact performance.  
+\end{enumerate}
+\end{solution}
+
+\newpage
+\question{
+(8pts)
+Create index(es) so that the following query will run as efficiently as possible.
+Do not create any unneeded indexes.
+
+HINT:
+Pay careful attention to the column list.
+
+\begin{lstlisting}
+SELECT DISTINCT tag
+FROM tweet_tags
+WHERE
+    lower(tag) LIKE 'corona%';
+\end{lstlisting}
+}
+
+\begin{solution}
+\begin{lstlisting}
+CREATE INDEX ON tweet_tags(lower(tag), tag);
+\end{lstlisting}
+OR
+\begin{lstlisting}
+CREATE INDEX ON tweet_tags(tag)
+WHERE lower(tag) LIKE 'corona%';
+\end{lstlisting}
+
+Our goal is to perform an index only scan and not have to do an explicit sort to resolve the DISTINCT clause.
+Technically, the second index will be quite a bit better than the first:
+it will use less disk space and have a better fanout.
+But I promissed in class that you wouldn't need to create a partial index for the final, and so the first index above is also acceptable.
+
+Commomn mistakes:
+
+\begin{enumerate}
+    \item (-6)
+        If you created the index
+        \begin{lstlisting}
+        CREATE INDEX ON tweet_tags(lower(tag));
+        \end{lstlisting}
+        then you took advantage of the WHERE clause, but you still needed to perform an explicit sort to resolve the DISTINCT clause.
+        (This is what the HINT was trying to get you to observe.)
+
+    \item (-8)
+        If you created the index
+        \begin{lstlisting}
+        CREATE INDEX ON tweet_tags(tag);
+        \end{lstlisting}
+        then you don't need to perform an explicit sort,
+        but you still need to scan the entire table or index in order to find which rows match the WHERE clause.
+        Recall that postgres does not take advantage of the semantics of the functions that you use in the WHERE clause in order to speed things up.
+        Instead, the WHERE clause condition must match exactly the columns in the index.
+
+    \item (-4)
+        If you wrote
+\begin{lstlisting}
+CREATE INDEX ON tweet_tags(lower(tag))
+WHERE lower(tag) LIKE 'corona%';
+\end{lstlisting}
+        including the \lstinline{lower} function both in the column list and in the WHERE clause.
+        This index won't avoid the explicit sort.
+
+\end{enumerate}
+\end{solution}
+
+\newpage
+\question{
+(16pts)
+Consider the following two queries,
+which differ only by the conjunction operation used in the WHERE clause.
+
+For each query:
+    (1) Create index(es) so that the query will run as efficiently as possible.
+    (2) State which scanning strategy you expect the Postgres query planner will use and explain why.
+    (3) Describe which clauses of the query will be sped up with the table scanning strategy you selected in (2), and which clauses (if any) will not be sped up.
+
+HINT:
+One of these queries can be implemented very efficiently with an index only scan,
+and the other query cannot.
+
+\begin{enumerate}[a.]
+    \item
+\begin{lstlisting}
+SELECT id_tweets
+FROM tweets
+WHERE country_code = :country_code
+  AND lang = :lang
+ORDER BY created_at
+LIMIT 10;
+\end{lstlisting}
+\begin{solution}
+Creating either of the following indexes
+\begin{lstlisting}
+CREATE INDEX ON tweets(
+    country_code,
+    lang,
+    created_at,
+    id_tweets
+    );
+\end{lstlisting}
+or
+\begin{lstlisting}
+CREATE INDEX ON tweets(
+    lang,
+    country_code,
+    created_at,
+    id_tweets
+    );
+\end{lstlisting}
+will result in an index only scan and take advantage of the WHERE, OORDER BY, and LIMIT clauses.
+Specifically, the index only scan will only touch the parts of the index that match the WHERE clause,
+it will return the results in the order specified by the ORDER BY clause,
+and it can stop early to take advantage of the LIMIT clause.
+
+Common mistakes:
+    \begin{enumerate}
+        \item (-4)
+            Adding more columns to the indexes above.
+            When performing a bitmap scan,
+            extra indexes do not help.
+            They actually hurt because they hurt the fanout.
+            (They help for an index scan because they can "upgrade" the algorithm to an index only scan.)
+        \item (-4)
+            Adding an additional index on \lstinline{tweets(created_at)}.
+            The idea is that this index could be used to speed up the ORDER BY clause,
+            but the ORDER BY can not be sped up with an bitmap scan,
+            and everyone who wrote this index specified a bitmap scan as the most likely traversal.
+
+            Technically, the index
+            \begin{lstlisting}
+CREATE INDEX ON tweets(
+    created_at,
+    lang,
+    country_code,
+    id_tweets
+    );
+            \end{lstlisting}
+            can be used with an index only scan.
+            (The index only scan will be used for the ORDER BY clause to avoid a sort, and the WHERE clause will use a separate filter step that doesn't take advantage of the index.)
+            For the particular data in the twitter dataset, if you specify that the \lstinline{country_code} is the US and the \lstinline{lang} is EN,
+            then about 90\% of all tweets will be returned.
+            Therefore taking advantage of the WHERE clause won't provide much benefit,
+            but taking advantage of the ORDER BY and LIMIT clauses will provide a huge benefit.
+            In this case, the index specified above will be preferred by Postgres with an index only scan.
+    \end{enumerate}
+\end{solution}
+
+\newpage
+\item
+\begin{lstlisting}
+SELECT id_tweets
+FROM tweets
+WHERE country_code = :country_code
+   OR lang = :lang
+ORDER BY created_at
+LIMIT 10;
+\end{lstlisting}
+\end{enumerate}
+}
+\begin{solution}
+We must create both of the following indexes:
+\begin{lstlisting}
+CREATE INDEX ON tweets(country_code);
+CREATE INDEX ON tweets(lang);
+\end{lstlisting}
+Because of the OR clause, the best scan method we can achieve is a bitmap scan.
+The bitmap scan will speed up the WHERE clause,
+but cannot return results in sorted order,
+and so we will need an explicit sort for the ORDER BY clause.
+Also, the bitmap scan must build up a bitmap of size $O(n)$ regardless of the presence of the LIMIT clause,
+and so the LIMIT will not significantly speed up the scan.
+The LIMIT will cause the sort used in the ORDER BY clause to go faster because the entire results list will not need to be sorted. 
+\end{solution}
+
+
+\newpage
+\question{
+(8pts)
+Create index(es) so that the following query will run as efficiently as possible.
+Do not create any unneeded indexes.
+
+\begin{lstlisting}
+SELECT count(*)
+FROM tweets
+JOIN tweet_tags USING (id_tweets)
+WHERE
+    tag = :tag;
+\end{lstlisting}
+}
+\begin{solution}
+We need to create the new index
+\begin{lstlisting}
+CREATE INDEX ON tweet_tags(tag, id_tweets);
+\end{lstlisting}
+and can re-use the existing index on \lstinline{tweet(id_tweets)}.
+This will enable an index only can on \lstinline{tweet_tags} to filter with the WHERE clause and the results will be returned in sorted order to use the merge join strategy.
+
+Common mistakes:
+\begin{enumerate}
+    \item (-6)
+        Relying on the existing index on \lstinline{tweet_tags(id_tweets, tag)} is incorrect because the column order is wrong.
+    \item (-6)
+        An index on \lstinline{tweet_tags(tag)} will not speed up the JOIN clause.
+\end{enumerate}
+
+\end{solution}
+
+
+\newpage
+\question{
+(8pts)
+Create index(es) so that the following query will run as efficiently as possible.
+Do not create any unneeded indexes.
+
+\begin{lstlisting}
+SELECT name, count(*)
+FROM users
+JOIN tweets USING (id_users)
+JOIN tweet_tags USING (id_tweets)
+WHERE tag = :tag
+GROUP BY name;
+\end{lstlisting}
+}
+
+\begin{solution}
+The correct answer is
+\begin{lstlisting}
+CREATE INDEX ON users(id_users, name);
+CREATE INDEX ON tweets(id_tweets);
+CREATE INDEX ON tweets(id_users);
+CREATE INDEX ON tag_tweets(tag, id_tweets);
+\end{lstlisting}
+Where the second index above can be (optionally) ommitted since it is created automatically by the UNIQUE constraint.
+
+To derive these indexes, first consider the following simpler query that has the column list shortened and the WHERE clause removed:
+\begin{lstlisting}
+SELECT count(*)
+FROM users
+JOIN tweets USING (id_users)
+JOIN tweet_tags USING (id_tweets)
+\end{lstlisting}
+If we first join on \lstinline{users,tweets}, then we need the following indexes:
+\begin{lstlisting}
+CREATE INDEX ON users(id_users);
+CREATE INDEX ON tweets(id_users);
+CREATE INDEX ON tag_tweets(id_tweets);
+\end{lstlisting}
+and if we first join on \lstinline{tweets,tweet_tags}, then we need
+\begin{lstlisting}
+CREATE INDEX ON users(id_users);
+CREATE INDEX ON tweets(id_tweets);
+CREATE INDEX ON tag_tweets(id_tweets);
+\end{lstlisting}
+Removing duplicates we get that we need the following four indexes:
+\begin{lstlisting}
+CREATE INDEX ON users(id_users);
+CREATE INDEX ON tweets(id_tweets);
+CREATE INDEX ON tweets(id_users);
+CREATE INDEX ON tag_tweets(id_tweets);
+\end{lstlisting}
+To take advantage of the WHERE clause, we need to modify the index on \lstinline{tag_tweets} to include the \lstinline{tag} column in the first position.
+    To perform an index only scan on \lstinline{users} and prevent us from accessing the heap table, we need to add the \lstinline{name} column in the second position to the index on \lstinline{users}.
+    Unfortunately, there is no way to come out of the JOINs with the \lstinline{name} column in sorted order,
+    and so the GROUP BY clause will have to be implemented with either a hash join or a group aggregate + explicit sort,
+    and there is no way to speed up that clause.
+
+    Common mistages:
+    \begin{enumerate}
+        \item (-6) Missing the \lstinline{tag} column in the \lstinline{tag_tweets} index.
+        \item (-2) Missing the \lstinline{name} column in the \lstinline{users} index.
+            This mistake results in fewer points missed because the performance penalty from missing this column will be only a constant-factor; whereas the performance penalty from the mistake above will result in an asymptotic slowdown.
+    \end{enumerate}
+
+\end{solution}
+
+\newpage
+\question{
+(16pts)
+The following query returns tweets where either the text or the description of the user match a full text search query.
+
+\begin{lstlisting}
+SELECT id_tweets
+FROM tweets, users
+WHERE ( to_tsvector('english', text)
+     || to_tsvector('english', description)
+      ) 
+      @@ to_tsquery('english', :query);
+\end{lstlisting}
+}
+
+\begin{enumerate}[a.]
+    \item This query cannot be sped up using an index.  Why?
+
+        \begin{solution}
+            The expression to the left of the \lstinline{@@} operator mentions two tables.
+            Indexes can only speed up expressions on single tables.
+
+            (Both portions of this problem were also givin in 2022.)
+        \end{solution}
+
+        \newpage
+    \item Rewrite the query above into an equivalent query that can be sped up with an index.  Also provide the index that would speed up the query and explain why the modified query can be sped up.
+
+        \begin{solution}
+            The key idea is to "factor out" the \lstinline{||} operator so that we have multiple conditions, each mentioning only a single table:
+\begin{lstlisting}
+SELECT id_tweets
+FROM tweets, users
+WHERE (to_tsvector('english', text) 
+    @@ to_tsquery('english', :query)
+      )
+   OR ( to_tsvector('english', description)
+     @@ to_tsquery('english', :query)
+      )
+;
+\end{lstlisting}
+We can actually further simplify the query by replacing the cross join with a UNION ALL operator:
+\begin{lstlisting}
+SELECT id_tweets
+FROM tweets
+WHERE (to_tsvector('english', text) 
+    @@ to_tsquery('english', :query)
+      )
+UNION ALL
+SELECT id_tweets
+FROM users
+WHERE ( to_tsvector('english', description)
+     @@ to_tsquery('english', :query)
+      )
+;
+\end{lstlisting}
+For either query, we can build gin indexes like so:
+\begin{lstlisting}
+CREATE INDEX ON tweets USING GIN(
+    to_tsvector('english', text)
+    );
+CREATE INDEX ON users USING GIN(
+    to_tsvector('english', description)
+    );
+\end{lstlisting}
+Note that it is not wrong to use a RUM index in this case, but there are no particular advantages to using it.
+        \end{solution}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{questions}
+
+\end{document}
