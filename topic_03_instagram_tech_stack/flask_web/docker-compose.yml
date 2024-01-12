@@ -2,8 +2,9 @@ version: '3.7'
 
 services:
   web:
-    build: .
+    build: . # folder that contains the Dockerfile for this server
     ports:
-      - 3400:5000
+      - 5501:5000 # flask by default always runs on port 5000
+        # 3400 is the port on the lambda server
     #volumes:
     #  - .:/app
