@@ -203,13 +203,12 @@ but I will provide more specific links each week.
 1. Weekly homeworks (worth `2**3` or `2**4` or `2**5` points)
 1. 2 exams (worth `2**6` points each)
     1. Non-graduating students will complete a final project due during finals week.
-1. [Occasional extra credit assignments](extra_credit/README.md)
 
-> **NOTE:**
->
-> All assignments are explicitly designed to help you get a good job after graduation.
-> They will help build your github "portfolio" and give you cool things to talk about during interviews.
-> These assignments are all very practical, and not "leetcode" or "mathy".
+All assignments are explicitly designed to help you get a good job after graduation.
+They will help build your github "portfolio" and give you cool things to talk about during interviews.
+These assignments are all very practical, and not "leetcode" or "mathy".
+
+You will receive extra credit for pull requests to this repo or any submodule.
 
 **Late Work Policy:**
 
