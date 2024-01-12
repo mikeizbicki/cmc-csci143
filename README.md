@@ -262,8 +262,6 @@ You can find the details about the caveat tasks at:
 
 1. You MAY NOT share your lambda server credentials with anyone else.
 
-Violations of any of these policies will be treated as academic integrity violations.
-
 **Collaboration Policy**
 
 1. There are no restrictions on what you can post to GitHub Issues.
