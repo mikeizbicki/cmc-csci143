@@ -1,10 +1,12 @@
-## CSCI143: Big Data
+# CSCI143: Big Data
 
 <center>
 <img width='100%' src=bigdata-knows-everything.jpg />
 </center>
 
+<!--
 [Career information](career.md)
+-->
 
 ## About the Instructor
 
@@ -26,8 +28,6 @@ Fun facts:
     1. left Navy as a [conscientious objector](https://www.nytimes.com/2011/02/23/nyregion/23objector.html)
 1. phd/postdoc at UC Riverside
 1. taught in [DPRK (i.e. North Korea)](https://pust.co)
-1. my wife is pregnant and due to have a baby April 18th
-    1. I'll be taking 2 weeks paternity leave when the baby comes
 
 ## About the Course
 
@@ -198,39 +198,26 @@ but I will provide more specific links each week.
 
 **Assignments:**
 
-<!--
-1. Occasional labs (worth 1-5 points each)
-1. Occasional quizzes (worth 10-30 points each)
-1. Weekly homeworks (worth 10-30 points each)
-    1. First 2 homeworks only for students who did not take CS46 with me
-1. One open notes midterm (80 points)
-1. One open notes final (120 points)
-1. Non-seniors will have a final project (50 points)
-1. Extra credit, as posted in [#85](https://github.com/mikeizbicki/cmc-csci143/issues/85)
-1. In total, there will be between 400-500 points in the class.
--->
-
 1. Weekly labs (worth `2**1` points)
 1. Weekly quizzes (worth `2**2` or `2**3` or `2**4` points)
-1. Weekly projects (worth `2**3` or `2**4` or `2**5` points)
+1. Weekly homeworks (worth `2**3` or `2**4` or `2**5` points)
 1. 2 exams (worth `2**6` points each)
     1. Non-graduating students will complete a final project due during finals week.
 1. [Occasional extra credit assignments](extra_credit/README.md)
 
-
-<!--
 > **NOTE:**
-> All of my assignments are explicitly designed to help you get a good job after graduation.
+>
+> All assignments are explicitly designed to help you get a good job after graduation.
 > They will help build your github "portfolio" and give you cool things to talk about during interviews.
-> These assignments are all very practical, and not "leetcode".
-> For mastering leetcode-style questions, you'll want to take CSCI148: Graph Algorithms with Prof Cannon.
--->
+> These assignments are all very practical, and not "leetcode" or "mathy".
 
 **Late Work Policy:**
 
 You lose `2**i` points on every assignment,
 where `i` is the number of days late.
-It is usually better to submit a correct assignment late than an incorrect one on time.
+
+Do not expect partial credit for incomplete assignments.
+It is much better to submit a correct assignment late than an incorrect one on time.
 
 **Grade Schedule:**
 
@@ -264,56 +251,17 @@ You can find the details about the caveat tasks at:
 1. [caveat_tasks/typespeed.md](caveat_tasks/typespeed.md)
 1. [caveat_tasks/culture.md](caveat_tasks/culture.md)
 
-
-<!--
-**Weekly Schedule:**
-
-| Day                   | Time              |
-| --------------------- | ----------------- |
-| Monday / Wednesday    | 08:10AM - 09:25AM |
-| Friday                | 11:00AM - 12:05PM |
-
-Friday meetings are "mandatory" in the same sense that Monday/Wednesday meetings are.
-That is, you won't lose points for missing class, but we will cover new material.
-
-We have Friday class meetings so that I can take a paternity leave and still cover all the material in the course.
-
-**Paternity Leave:**
-
-Class will be canceled (and I will be unavailable) for approximately 2 weeks after my new baby comes.
-The baby is due Feb 25th, but will likely come early.
-
-Therefore, we won't be exactly following the schedule above.
-We'll be ahead of schedule before the baby comes,
-and behind schedule after the baby comes,
-but we should be able to cover everything by the end of the semester.
-
-> **WARNING:**
-> We will be running this course about 25% faster than a normal course during the non-paternity leave weeks.
-> Therefore, you should anticipate putting in about 25% more work during most weeks.
-
-**Quiz/Midterm/Finals Schedule:**
-
-Unfortunately, I cannot give exact dates yet for quiz/midterm/finals because I do not know exactly when the baby will come.
-We will have a midterm "approximately" before spring break,
-and a final "approximately" on the second to last week of class.
-
-I promise to be reasonable with giving you sufficient advance notice to prepare for these exams.
--->
-
-<!-- senior grades due May 6 -->
-<!-- https://medium.com/analytics-vidhya/python-generators-coroutines-async-io-with-examples-28771b586578 -->
-
 ## Academic Integrity
 
 **Technology Policy:**
 
+1. You MAY use any AI tool without restriction.
+
 1. You MUST complete all programming assignments on the lambda server.
 
-1. You MUST use either vim or emacs to complete all programming assignments.
-   In particular, you may not use the GitHub text editor, VSCode, IDLE, or PyCharm for any reason.
+1. You MUST use either vim or emacs for all text editing.
 
-   In particular: You MAY NOT use the GitHub interface to edit files for a pull request.
+   In particular, you MAY NOT use the GitHub text editor, VSCode, IDLE, or PyCharm for any reason.
 
 1. You MAY NOT share your lambda server credentials with anyone else.
 
@@ -332,7 +280,9 @@ Violations of any of these policies will be treated as academic integrity violat
 
     1. and in office hours.
 
-1. You MAY NOT look at another student's code (or have another human look at your code) in any other context.
+    I trust you all to be reasonable and ensure that collaboration is beneficial for your learning and not mere copying work.
+
+1. You MAY NOT collaborate with students in any other context.
 
 1. You MAY NOT look at another student's code on github.
 

@@ -25,22 +25,22 @@
 	#path = week_15/wardial
 	#url = https://github.com/mikeizbicki/wardial
 [submodule "topic_04_SQL_1/pagila-hw"]
-	path = topic_04_SQL_1/pagila-hw
+	path = future/topic_04_SQL_1/pagila-hw
 	url = https://github.com/mikeizbicki/pagila-hw
 [submodule "topic_04_SQL_1/sql_quiz"]
-	path = topic_04_SQL_1/sql_quiz
+	path = future/topic_04_SQL_1/sql_quiz
 	url = https://github.com/mikeizbicki/sql_quiz
 [submodule "topic_05_SQL_2/pagila_hw2"]
-	path = topic_05_SQL_2/pagila_hw2
+	path = future/topic_05_SQL_2/pagila_hw2
 	url = https://github.com/mikeizbicki/pagila-hw2
 [submodule "topic_06_schema_design/pagila-hw3"]
-	path = topic_06_schema_design/pagila-hw3
+	path = future/topic_06_schema_design/pagila-hw3
 	url = https://github.com/mikeizbicki/pagila-hw3
 [submodule "topic_08_SQL+Python/twitter_postgres"]
-	path = topic_08_SQL+Python/twitter_postgres
+	path = future/topic_08_SQL+Python/twitter_postgres
 	url = https://github.com/mikeizbicki/twitter_postgres
 [submodule "topic_11_indexes_advanced/twitter_postgres_indexes"]
-	path = topic_11_indexes_advanced/twitter_postgres_indexes
+	path = future/topic_11_indexes_advanced/twitter_postgres_indexes
 	url = https://github.com/mikeizbicki/twitter_postgres_indexes
 [submodule "topic_00_overview/messages"]
 	path = topic_00_overview/lab0-messages
