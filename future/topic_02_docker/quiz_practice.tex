@@ -57,13 +57,20 @@
 \begin{center}
     {
 \Large
-    Quiz: POSIX Shell II (Practice Problems)
+    Quiz: POSIX Shell III (Practice Problems)
 }
 
     \vspace{0.1in}
 \end{center}
 
-\section{If statements}
+\section{Glob}
+
+\begin{note}
+    The POSIX shell has a built-in pattern matching feature for working with files.
+    The glob operator \lstinline{*} matches zero or more of any character,
+    and the question operator \lstinline{?} matches exactly one of any character.
+    The \lstinline{*} and \lstinline{?} operators do not match a dot at the beginning of the file, and so do not match hidden files.
+\end{note}
 
 \filbreak
 \begin{problem}
@@ -72,14 +79,251 @@
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<'EOF'
-foo='hello'
-if [ $foo = "hello" ]; then
-    touch if
-fi
-EOF
-$ sh quiz.sh
+$ touch hello world
+$ touch hola mundo 
+$ touch salve munde
+$ rm *e*
+$ ls | wc -l
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch hello world
+$ touch hola mundo 
+$ touch salve munde
+$ rm e*
+$ ls | wc -l
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch hello world
+$ touch hola mundo 
+$ touch salve munde
+$ rm *e
+$ ls | wc -l
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch .hello world
+$ touch .hola mundo 
+$ touch .salve munde
+$ rm *e*
+$ ls -a | wc -l
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch .hello world
+$ touch .hola mundo 
+$ touch .salve munde
+$ rm .*e
+$ ls -a | wc -l
+\end{lstlisting}
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch "hello world"
+$ touch "hola mundo"
+$ touch "salve munde"
+$ rm *d?
+$ ls | wc -l
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch "hello world"
+$ touch "hola mundo"
+$ touch "salve munde"
+$ rm *d?
+$ ls | wc -l
+\end{lstlisting}
+
+\subsection{Weirdness}
+\begin{note}
+    The glob does not expand within quotes.
+    If the glob expression has no matches,
+    then the literal expression is passed as an argument.
+\end{note}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch "hello world"
+$ touch "hola mundo"
+$ touch "salve munde"
+$ touch *
+$ ls | wc -l
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch *
+$ ls | wc -l
+\end{lstlisting}
+\filbreak
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch *
+$ ls | wc -l
+\end{lstlisting}
+\filbreak
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch "hello world"
+$ touch "hola mundo"
+$ touch "salve munde"
+$ touch "*"
+$ ls | wc -l
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch "hello world"
+$ touch "hola mundo"
+$ touch "salve munde"
+$ touch "*"
+$ ls | wc -l
+\end{lstlisting}
+
+
+\subsection{For loops}
+\begin{note}
+    Glob expansion happens after the shell processes the spaces that separate the list of strings to loop over.
+\end{note}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch "hello world"
+$ touch "hola mundo"
+$ touch "salve munde"
+$ for i in *; do echo $i; done | wc -l
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch hello world
+$ touch hola mundo
+$ touch salve munde
+$ for i in *; do echo $i; done | wc -l
+\end{lstlisting}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch hello world
+$ touch hola mundo
+$ touch salve munde
+$ for i in "*"; do echo $i; done | wc -l
+\end{lstlisting}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ for i in *; do echo $i; done | wc -l
+\end{lstlisting}
+
+\filbreak
+\subsection{Security}
+
+\begin{note}
+    Glob expansion happens in the shell,
+    before the parameters are sent to the program.
+    This can have unintended side effects.
+    If you are working in a directory where someone else is allowed to create files,
+    they can create files that will be expanded by \lstinline{*} into command line arguments.
+    This problem can be mitigated by using \lstinline{./*} instead of \lstinline{*}.
+    Command line arguments that appear after a \lstinline{--} will never be interpreted as command line arguments.
+\end{note}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ mkdir test
+$ rm *
 $ ls
 \end{lstlisting}
 
@@ -91,32 +335,9 @@ $ ls
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<'EOF'
-foo='hello'
-if [ $foo != "hello" ]; then
-    touch if
-fi
-EOF
-$ sh quiz.sh
-$ ls
-\end{lstlisting}
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<EOF
-foo='hello'
-if [ $foo = "hello" ]; then
-    touch if
-fi
-EOF
-$ sh quiz.sh
+$ mkdir test
+$ echo evil > -rf
+$ rm *
 $ ls
 \end{lstlisting}
 
@@ -128,37 +349,9 @@ $ ls
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<'EOF'
-foo='hello world'
-if [ $foo = "hello" ]; then
-    touch if
-fi
-EOF
-$ sh quiz.sh
-$ ls
-\end{lstlisting}
-
-
-\filbreak
-\subsection{The \lstinline{else} and \lstinline{elif} keywords}
-
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<'EOF'
-foo='hello world'
-if [ $foo = "hello" ]; then
-    touch if
-else
-    touch else
-fi
-EOF
-$ sh quiz.sh
+$ mkdir test
+$ echo evil > -rf
+$ rm ./*
 $ ls
 \end{lstlisting}
 
@@ -170,18 +363,8 @@ $ ls
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<EOF
-foo='hello'
-if [ "$foo" = "hello" ]; then
-    touch if
-elif [ "$foo" = "hola" ]; then
-    touch elif
-else
-    touch else
-fi
-EOF
-$ sh quiz.sh
+$ mkdir test
+$ rm -- -rf *
 $ ls
 \end{lstlisting}
 
@@ -193,65 +376,8 @@ $ ls
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<EOF
-foo='hello'
-if [ "$foo" = "hello" ]; then
-    touch if
-elif [ "$foo" = "hola" ]; then
-    touch elif
-else
-    touch else
-fi
-EOF
-$ sh quiz.sh
-$ ls
-\end{lstlisting}
-
-
-\filbreak
-\subsection{\lstinline{&&} and \lstinline{||}}
-
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<EOF
-foo='hello'
-if [ "$foo" = "hello" ] || [ "$foo" = "hola" ]; then
-    touch if
-else
-    touch else
-fi
-EOF
-$ sh quiz.sh
-$ ls
-\end{lstlisting}
-
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<'EOF'
-foo='hello'
-bar='salve'
-if [ "$foo" = "hello" ] && [ "$bar" = "salve" ]; then
-    touch if
-else
-    touch else
-fi
-EOF
-$ sh quiz.sh
+$ mkdir test
+$ rm -rf -- *
 $ ls
 \end{lstlisting}
 
@@ -262,18 +388,9 @@ $ ls
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<'EOF'
-foo='hello'
-bar='salve'
-if true && [ "$bar" = "salve" ]; then
-    touch if
-else
-    touch else
-fi
-EOF
-$ sh quiz.sh
-$ ls
+$ mkdir -- -a
+$ echo evil > -a/evil
+$ ls *
 \end{lstlisting}
 
 \filbreak
@@ -283,22 +400,13 @@ $ ls
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<'EOF'
-foo='hello'
-bar='salve'
-if false || ([ "$bar" = "salve" ] && true); then
-    touch if
-else
-    touch else
-fi
-EOF
-$ sh quiz.sh
-$ ls
+$ mkdir -- -a
+$ echo evil > -a/evil
+$ ls -- *
 \end{lstlisting}
 
 \filbreak
-\subsection{The \lstinline{!} operator}
+\section{Fun with git and glob}
 
 \begin{problem}
     Write the output of the final command in the following terminal session.
@@ -306,15 +414,20 @@ $ ls
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<'EOF'
-foo='hello'
-if ! [ $foo = "hello" ]; then
-    touch if
-fi
-EOF
-$ sh quiz.sh
-$ ls
+$ git init
+$ touch hello world
+$ touch .salve .munde
+$ git add *e*
+$ git commit -m 'first commit'
+$ git checkout -b foo
+$ git add *
+$ git commit -m 'second commit'
+$ git checkout master
+$ git checkout -b bar
+$ git add .
+$ git commit -m 'third commit'
+$ git checkout master
+$ ls -a
 \end{lstlisting}
 
 \filbreak
@@ -324,51 +437,22 @@ $ ls
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<'EOF'
-foo='hello'
-if ! [ $foo != "hello" ]; then
-    touch if
-fi
-EOF
-$ sh quiz.sh
-$ ls
-\end{lstlisting}
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ cat > quiz.sh <<'EOF'
-foo='hello'
-bar='salve'
-if ! true || [ "$bar" != "salve" ]; then
-    touch if
-else
-    touch else
-fi
-EOF
-$ sh quiz.sh
-$ ls
-\end{lstlisting}
-
-\section{Inline conditions}
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ false || echo $foo > false
-$ true || echo $foo > true
-$ ls
+$ git init
+$ touch hello world
+$ touch .salve .munde
+$ git add .
+$ git commit -m 'first commit'
+$ git checkout -b foo
+$ touch '*'
+$ git add *
+$ git commit -m 'second commit'
+$ git checkout master
+$ git checkout -b bar
+$ echo "help me" > test
+$ git add *
+$ git commit -m 'third commit'
+$ git checkout foo
+$ ls -a
 \end{lstlisting}
 
 
@@ -379,35 +463,18 @@ $ ls
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ false && echo $foo > false
-$ true && echo $foo > true
-$ ls
-\end{lstlisting}
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ (false && echo $foo) > false
-$ (true && echo $foo) > true
-$ ls
-\end{lstlisting}
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ [ "$foo" = 'hello' ] && echo $foo > false
-$ ls
+$ git init
+$ mkdir test
+$ touch test/hello world
+$ touch test/.salve .munde
+$ cd test
+$ git add .*
+$ git commit -m 'first commit'
+$ git checkout -b foo
+$ git add .
+$ git commit -m 'second commit'
+$ git checkout master
+$ ls -a
 \end{lstlisting}
 
 
@@ -418,9 +485,18 @@ $ ls
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ [ "$foo" = 'hello' ] || echo $foo > false
-$ ls
+$ git init
+$ mkdir test
+$ touch hola mundo
+$ touch test/'hello world'
+$ touch test/'.salve .munde'
+$ cd test
+$ for i in *; do git add $i; done
+$ git commit -m 'first commit'
+$ git checkout -b foo
+$ git add .
+$ git commit -m 'second commit'
+$ ls -a
 \end{lstlisting}
 
 \filbreak
@@ -430,170 +506,19 @@ $ ls
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ foo='hola'
-$ ! [ "$foo" = 'hello' ] || echo $foo > false
-$ ls
+$ git init
+$ echo evil > -a
+$ touch hola mundo
+$ touch test/'hello world'
+$ touch test/'.salve .munde'
+$ cd test
+$ git add .
+$ git commit -m 'first commit'
+$ git checkout -b foo
+$ git add ..
+$ git commit -m 'second commit'
+$ cd $HOME/quiz
+$ git checkout master
+$ ls *
 \end{lstlisting}
-
-\section{Exit codes}
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ cat > logs <<EOF
-INFO: blah
-INFO: blah
-ERROR: blah blah blah
-INFO: blah
-EOF
-$ cat logs | grep 'ERROR' || echo 'hello world' > foo
-$ ls
-\end{lstlisting}
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ cat > logs <<EOF
-INFO: blah
-INFO: blah
-WARNING: blah blah blah
-INFO: blah
-EOF
-$ cat logs | grep 'ERROR' || echo 'hello world' > foo
-$ ls
-\end{lstlisting}
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ cat > logs <<EOF
-INFO: blah
-INFO: blah
-WARNING: blah blah blah
-INFO: blah
-EOF
-$ cat logs | grep 'ERROR' && echo 'hello world' > foo
-$ ls
-\end{lstlisting}
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ cat > logs <<EOF
-INFO: blah
-INFO: blah
-ERROR: blah blah blah
-INFO: blah
-EOF
-$ cat logs | grep 'ERROR' && echo 'hello world' > foo
-$ ls
-\end{lstlisting}
-
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ cat > logs <<EOF
-INFO: blah
-INFO: blah
-ERROR: blah blah blah
-INFO: blah
-EOF
-$ cat logs | grep 'ERROR' > /dev/null && echo 'hello world' > foo
-$ ls
-\end{lstlisting}
-\subsection{Commands inside if}
-
-%\filbreak
-%\begin{problem}
-    %Write the output of the final command in the following terminal session.
-    %If the command has no output, then leave the problem blank.
-%\end{problem}
-%\begin{lstlisting}
-%$ cd; rm -rf quiz; mkdir quiz; cd quiz
-%$ cat > logs <<EOF
-%INFO: blah
-%INFO: blah
-%ERROR: blah blah blah
-%INFO: blah
-%EOF
-%$ cat > quiz.sh <<'EOF'
-%if cat logs | grep ERROR; then
-    %touch if
-%fi
-%EOF
-%$ sh quiz.sh
-%$ ls
-%\end{lstlisting}
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ cat > logs <<EOF
-INFO: blah
-INFO: blah
-ERROR: blah blah blah
-INFO: blah
-EOF
-$ cat > quiz.sh <<'EOF'
-if cat logs | grep ERROR > /dev/null; then
-    touch if
-fi
-EOF
-$ sh quiz.sh
-$ ls
-\end{lstlisting}
-
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ cat > logs <<EOF
-INFO: blah
-INFO: blah
-WARNING: blah blah blah
-INFO: blah
-EOF
-$ cat > quiz.sh <<'EOF'
-if cat logs | grep ERROR > /dev/null; then
-    touch error
-elif cat logs | grep WARNING > /dev/null; then
-    touch warning
-elif cat logs | grep INFO > /dev/null; then
-    touch info
-fi
-EOF
-$ sh quiz.sh
-$ ls
-\end{lstlisting}
-
-\filbreak
 \end{document}
