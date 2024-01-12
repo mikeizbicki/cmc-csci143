@@ -27,8 +27,6 @@ If you're not confident in all of this material, that's okay.
 We will spend the first 2 weeks reviewing.
 We will also see how SQL relates to python/shell/git. 
 
-<img src=img/map_of_cs.png width=600px>
-
 **Working Environment:**
 
 All of our work in this class will be done on the lambda server.
@@ -40,14 +38,30 @@ The lambda server has:
 1. 2 TB NVME
 1. 50 TB RAID array of 16 HDDs
 
+We will use docker and docker-compose to manage our own "virtual cloud infrastructure" from the lambda server.
+
+<img src=img/map_of_cs.png width=600px>
+
 All text editing must be done in vim.
+We will encounter many instances in this class where more familiar tools like VSCode and Jupyter Notebooks will not work.
+
+Vim is famous for having a steep learning curve,
+and has inspired lots of memes/comics:
+
+<img src=img/vim-productivity.jpg width=500px>
+
+<img src=img/vim-comic2.webp width=500px>
+
+<img src=img/vim-comic.jpg width=500px>
+
 
 **Cheat sheets:**
 
 1. [bash](https://files.fosswire.com/2007/08/fwunixref.pdf)
 1. [vim](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf)
 1. [git](https://education.github.com/git-cheat-sheet-education.pdf)
-1. [github pull requests](pull_request.png)
+1. [github pull requests](img/pull_request.png)
+1. [sql](img/SQL_Basics_For_Data_Science.pdf)
 
 **Quiz details:**
 
@@ -63,26 +77,6 @@ All text editing must be done in vim.
 **Due Date:**
 
 Labs are always due on midnight of the Sunday of the week that they are assigned (i.e. January 21 for this lab).
-
-**Background Work:**
-
-1. Log in to the lambda server and run the command
-   ```
-   $ vimtutor
-   ```
-   Complete all instructions in order to learn vim.
-   This should take 30-60 minutes.
-
-   Vim is famous for having a steep learning curve,
-   and has inspired lots of memes/comics:
-
-   <img src=img/vim-productivity.jpg width=500px>
-
-   <img src=img/vim-comic2.webp width=500px>
-
-   <img src=img/vim-comic.jpg width=500px>
-
-1. Complete the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md).
 
 **Pre-lab work:**
 
@@ -127,6 +121,8 @@ You're welcome to get started on it now if you're already familiar with github p
 If you don't yet have access to the lambda server,
 let me know and we'll get that resolved.
 
+Labs will generally be posted as [git submodules](https://www.atlassian.com/git/tutorials/git-submodule) in each topic folder.
+
 1. Visit the [messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
 
 1. [Goodreads]
@@ -152,5 +148,26 @@ let me know and we'll get that resolved.
 
 ## Homework
 
-Homeworks will generally be posted into the `homework` [git submodule](https://www.atlassian.com/git/tutorials/git-submodule) for each week.
+**Due Date:**
+
 Homeworks are always due on Tuesday of the week after they are assigned (i.e. Jan 24 for this homework).
+
+**Background Work:**
+
+You will not be able to complete the homework for this week unless you know how to use vim and git.
+I recommend everyone complete the following two tasks
+
+1. Log in to the lambda server and run the command
+   ```
+   $ vimtutor
+   ```
+   Complete all instructions in order to learn vim.
+   This should take 30-60 minutes.
+
+1. Complete the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md).
+
+**Instructions:**
+
+Like labs, homeworks will be posted into a submodule each week.
+This week's homework will teach you how to use continuous integration,
+and prepare you to submit all future assignments.
