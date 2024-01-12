@@ -2,6 +2,8 @@
 
 <img src=LinuxAdmin.jpg width=600px />
 
+## Lecture Notes
+
 1. Definitions:
     1. **Terminal** the graphical program that you type in
         1. technically, this is a **terminal emulator**

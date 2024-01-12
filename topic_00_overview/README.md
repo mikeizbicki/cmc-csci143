@@ -70,8 +70,6 @@ and has inspired lots of memes/comics:
 1. All quizzes are open note.
 1. The format follows the `practice_quiz_X.pdf` files.
 
-## Background Work
-
 ## Lab
 
 **Due Date:**
@@ -80,7 +78,10 @@ Labs are always due on midnight of the Sunday of the week that they are assigned
 
 **Pre-lab work:**
 
-You should be able to complete the following tasks without any problems.
+Everyone should be able to complete the following tasks before lab (regardless of how much background knowledge you already know).
+If you get stuck, however, that's okay.
+I can help you get unstuck during lab time.
+You won't be able to complete the homework, however, until you've completed all of these steps.
 
 1. Create a GitHub account if you do not already have one.
 
@@ -92,40 +93,7 @@ You should be able to complete the following tasks without any problems.
 1. Create a [personal access token (PAT)](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for your github account, and save the PAT to a file for future use.
     The default level of permissions is okay.
 
-1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/lambda-server.md) to update your lambda server account's settings.
-
 1. Read and follow the instructions in [the meet and greet issue](https://github.com/mikeizbicki/cmc-csci143/issues/226).
-
-Depending on you background knowledge, you may not (yet) be able to complete the following task.
-
-1. Complete the [github pull request assignment](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/github.md)
-
-<!--
-On Monday, we will go over how to complete the following task.
-You're welcome to get started on it now if you're already familiar with github pull requests, but you don't have to.
--->
-
-<!--
-1. Read/watch the following articles/videos:
-
-    1. [Ken Thompson and Dennis Ritchie Explain UNIX](https://www.youtube.com/watch?v=JoVQTPbD6UY)
-    1. (optional) [Where GREP Came From - Computerphile](https://www.youtube.com/watch?v=NTfOnGZUZDk)
-    1. (optional) [vim vs emacs: the oldest rivalry in computing](https://slate.com/technology/2014/05/oldest-software-rivalry-emacs-and-vi-two-text-editors-used-by-programmers.html)
-
-    1. (optional) Corey Schafer's [Git Tutorial for Beginners: Command-Line Fundamentals](https://www.youtube.com/watch?v=HVsySz-h9r4).
-       Corey is a really famous youtuber for programming tutorials, and you can watch his other videos too if you need more background.
-       -->
-       
-**Instructions:**
-
-If you don't yet have access to the lambda server,
-let me know and we'll get that resolved.
-
-Labs will generally be posted as [git submodules](https://www.atlassian.com/git/tutorials/git-submodule) in each topic folder.
-
-1. Visit the [messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
-
-1. [Goodreads]
 
 <!--
     1. Finally, you will begin the `typespeed` "caveat task.
@@ -146,6 +114,30 @@ Labs will generally be posted as [git submodules](https://www.atlassian.com/git/
        which will also help you review basic terminal commands.
 -->
 
+
+<!--
+1. Read/watch the following articles/videos:
+
+    1. [Ken Thompson and Dennis Ritchie Explain UNIX](https://www.youtube.com/watch?v=JoVQTPbD6UY)
+    1. (optional) [Where GREP Came From - Computerphile](https://www.youtube.com/watch?v=NTfOnGZUZDk)
+    1. (optional) [vim vs emacs: the oldest rivalry in computing](https://slate.com/technology/2014/05/oldest-software-rivalry-emacs-and-vi-two-text-editors-used-by-programmers.html)
+
+    1. (optional) Corey Schafer's [Git Tutorial for Beginners: Command-Line Fundamentals](https://www.youtube.com/watch?v=HVsySz-h9r4).
+       Corey is a really famous youtuber for programming tutorials, and you can watch his other videos too if you need more background.
+       -->
+       
+**Instructions:**
+
+If you don't yet have access to the lambda server,
+let me know and we'll get that resolved.
+
+Labs will generally be posted as [git submodules](https://www.atlassian.com/git/tutorials/git-submodule) in each topic folder.
+This week there are two labs:
+
+1. First, visit the [lab0-messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
+
+1. Then complete [lab1-goodreads](https://github.com/mikeizbicki/goodreads).
+
 ## Homework
 
 **Due Date:**
@@ -155,7 +147,7 @@ Homeworks are always due on Tuesday of the week after they are assigned (i.e. Ja
 **Background Work:**
 
 You will not be able to complete the homework for this week unless you know how to use vim and git.
-I recommend everyone complete the following two tasks
+I recommend everyone complete the following tasks.
 
 1. Log in to the lambda server and run the command
    ```
@@ -165,6 +157,10 @@ I recommend everyone complete the following two tasks
    This should take 30-60 minutes.
 
 1. Complete the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md).
+
+1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/lambda-server.md) to update your lambda server account's settings.
+
+1. Complete the [github pull request assignment](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/github.md)
 
 **Instructions:**
 
