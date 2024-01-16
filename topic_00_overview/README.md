@@ -8,6 +8,7 @@
 
 ## Lecture Notes
 
+<!--
 **Expected Background Knowledge:**
 
 General knowledge:
@@ -27,6 +28,7 @@ SQL knowledge:
 If you're not confident in all of this material, that's okay.
 We will spend the first 2 weeks reviewing.
 We will also see how SQL relates to python/shell/git. 
+-->
 
 **Working Environment:**
 
