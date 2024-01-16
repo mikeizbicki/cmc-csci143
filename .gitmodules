@@ -1,5 +1,5 @@
 [submodule "continuous-integration"]
-	path = topic_00_overview/hw-continuous-integration
+	path = topic_00_unix/hw-continuous-integration
 	url = https://github.com/mikeizbicki/continuous-integration
 
 #[submodule "twitter_coronavirus"]
@@ -43,8 +43,8 @@
 	path = future/topic_11_indexes_advanced/twitter_postgres_indexes
 	url = https://github.com/mikeizbicki/twitter_postgres_indexes
 [submodule "topic_00_overview/messages"]
-	path = topic_00_overview/lab0-messages
+	path = topic_00_unix/lab0-messages
 	url = https://github.com/mikeizbicki/messages
 [submodule "topic_00_overview/lab-goodreads"]
-	path = topic_00_overview/lab1-goodreads
+	path = topic_00_unix/lab1-goodreads
 	url = https://github.com/mikeizbicki/lab-goodreads
