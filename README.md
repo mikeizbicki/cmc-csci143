@@ -38,14 +38,15 @@ Fun facts:
 Depends entirely on the person who is talking.
 
 1. Most non-computer scientists (muggles) think "too big for excel"
-    1. >1000 rows
-    1. >10MB
+    1. $>1000$ rows
+    1. $>10$ MB
 1. Facebook considers ["tens of petabytes" to be a "SMALL data problem"](https://research.fb.com/blog/2014/10/facebook-s-top-open-data-problems/)
 1. One of the biggest problems in industry is people apply tools for "Facebook big data" to "muggle big data",
    and a major goal of this course is to teach you why this is bad and how to avoid it
 1. For us, "big data" means:
     1. too big to fit in memory
-    1. too big to use a single machine
+    1. distributed computing helps a lot
+    1. datasets in the 10GB-10TB range
     1. all the interesting/applied parts of upper division computer science compressed into a single course
 
 <!--
