@@ -11,10 +11,11 @@
 **Expected Background Knowledge:**
 
 General knowledge:
-1. basic python
-1. basic shell scripting
+1. python
+1. regular expressions
+1. shell scripting
 1. git version control system
-1. continuous integration with github actions
+1. github actions
 
 SQL knowledge:
 1. `SELECT`
@@ -77,6 +78,10 @@ and has inspired lots of memes/comics:
 
 Labs are always due on midnight of the Sunday of the week that they are assigned (i.e. January 21 for this lab).
 
+*For this lab only:*
+I will not apply late a late penalty.
+This is so that if you need extra time to review/learn the background material you can have it.
+
 **Pre-lab work:**
 
 Everyone should be able to complete the following tasks before lab (regardless of how much background knowledge you already know).
@@ -94,7 +99,7 @@ You won't be able to complete the homework, however, until you've completed all 
 1. Create a [personal access token (PAT)](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for your github account, and save the PAT to a file for future use.
     The default level of permissions is okay.
 
-1. Read and follow the instructions in [the meet and greet issue](https://github.com/mikeizbicki/cmc-csci143/issues/226).
+1. Read and follow the instructions in [the meet and greet issue](https://github.com/mikeizbicki/cmc-csci143/issues/364).
 
 <!--
     1. Finally, you will begin the `typespeed` "caveat task.
@@ -145,10 +150,14 @@ This week there are two labs:
 
 Homeworks are always due on Tuesday of the week after they are assigned (i.e. Jan 24 for this homework).
 
+*For this hw only:*
+I will not apply late a late penalty.
+
 **Background Work:**
 
 You will not be able to complete the homework for this week unless you know how to use vim and git.
-I recommend everyone complete the following tasks.
+I recommend everyone complete the following tasks,
+even if you already feel comfortable with these tools.
 
 1. Log in to the lambda server and run the command
    ```
@@ -161,7 +170,7 @@ I recommend everyone complete the following tasks.
 
 1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/lambda-server.md) to update your lambda server account's settings.
 
-1. Complete the [github pull request assignment](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/github.md)
+1. Complete the [github pull request tutorial](https://github.com/mikeizbicki/pullrequest-tutorial)
 
 **Instructions:**
 

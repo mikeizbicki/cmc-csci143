@@ -63,6 +63,12 @@
     \vspace{0.1in}
 \end{center}
 
+\begin{note}
+    I will generate new problems by:
+    (1) changing the type of quotation mark,
+    (2) removing/adding quotation marks.
+\end{note}
+
 \section{Pipes}
 
 \begin{problem}
@@ -70,10 +76,7 @@
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ echo 'hello world' >> README
 $ echo 'hola mundo' >> README
 $ echo 'salve munde' >> README
@@ -86,10 +89,7 @@ $ cat README | grep 'hello'
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ echo 'hello world' >> README
 $ echo 'hola mundo' >> README
 $ echo 'salve munde' >> README
@@ -102,10 +102,7 @@ $ cat README | grep 'h'
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ echo 'hello world' >> README
 $ echo 'hola mundo' >> README
 $ echo 'salve munde' >> README
@@ -118,10 +115,7 @@ $ cat README | grep 'h' | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ echo 'hello world' >> README
 $ echo 'hola mundo' >> README
 $ echo 'salve munde' >> README
@@ -134,10 +128,20 @@ $ cat README | grep 'h.*a'
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ echo 'hello world' >> README
+$ echo 'hola mundo' >> README
+$ echo 'salve munde' >> README
+$ cat README | grep -E 'h|a'
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ touch hello_world
 $ touch hola_mundo
 $ touch salve_munde
@@ -150,10 +154,7 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ touch hello_world
 $ touch hola_mundo
 $ touch salve_munde
@@ -161,7 +162,45 @@ $ ls | grep 'h.*a' | wc -l
 \end{lstlisting}
 \vspace{0.4in}
 
-\newpage
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch hello_world
+$ touch hola_mundo
+$ touch salve_munde
+$ ls | grep -E 'h|a' | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch hello world
+$ touch hola mundo
+$ touch salve munde
+$ ls | grep 'h.*a' | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch hello world
+$ touch hola mundo
+$ touch salve munde
+$ ls | grep -E 'h|a' | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
 \section{Variables}
 
 \begin{problem}
@@ -169,10 +208,7 @@ $ ls | grep 'h.*a' | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var="hello world"
 $ touch $var
 $ ls | wc -l
@@ -185,10 +221,7 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var="hello world"
 $ touch "$var"
 $ ls
@@ -201,10 +234,7 @@ $ ls
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var="hello world"
 $ touch '$var'
 $ ls
@@ -216,10 +246,7 @@ $ ls
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var=`echo hello world`
 $ touch "$var"
 $ ls | wc -l
@@ -231,10 +258,7 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var=$(echo hello world)
 $ touch "$var"
 $ ls | wc -l
@@ -246,10 +270,7 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var=$(echo echo echo)
 $ touch "$var"
 $ ls | wc -l
@@ -262,10 +283,7 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var="$(echo echo echo)"
 $ touch "$var"
 $ ls
@@ -277,10 +295,7 @@ $ ls
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var='$(echo echo echo)'
 $ touch "$var"
 $ ls
@@ -292,10 +307,7 @@ $ ls
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var=$(echo $(echo echo))
 $ touch "$var"
 $ ls | wc -l
@@ -303,15 +315,13 @@ $ ls | wc -l
 \vspace{0.4in}
 
 
+\newpage
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var=$(echo '$(echo echo)')
 $ touch "$var"
 $ ls
@@ -323,10 +333,7 @@ $ ls
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var=$(echo $(echo $(echo)))
 $ touch "$var"
 $ ls | wc -l
@@ -339,10 +346,7 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var=$(echo $(echo) echo)
 $ touch "$var"
 $ ls | wc -l
@@ -353,10 +357,7 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ var=echo echo echo
 $ touch "$var"
 $ ls | wc -l
@@ -369,10 +370,7 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ for file in a b c d e f; do touch $file; done
 $ ls | wc -l
 \end{lstlisting}
@@ -383,10 +381,7 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ for file in 'a b' 'c d' 'e f'; do touch $file; done
 $ ls | wc -l
 \end{lstlisting}
@@ -397,10 +392,7 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ for file in 'a b' 'c d' 'e f'; do touch "$file"; done
 $ ls | wc -l
 \end{lstlisting}
@@ -411,10 +403,7 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ for file in 'a b' 'c d' 'e f'; do touch '$file'; done
 $ ls | wc -l
 \end{lstlisting}
@@ -426,14 +415,11 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ for file in a b c $(echo hello world) d e f; do touch "$file"; done
 $ ls | wc -l
 \end{lstlisting}
-\vspace{0.4in}
+\vspace{0.1in}
 
 
 \begin{problem}
@@ -441,47 +427,32 @@ $ ls | wc -l
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ for file in 'a b' 'c $(echo hello world) d' 'e f'; do touch "$file"; done
 $ ls | wc -l
 \end{lstlisting}
-\vspace{0.4in}
+\vspace{0.1in}
 
-\newpage
+%\newpage
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ for file in "a b" "c $(echo hello world) d" "e f"; do touch "$file"; done
 $ ls | wc -l
 \end{lstlisting}
-\vspace{0.4in}
+\vspace{0.1in}
 
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
 $ for file in "a b" "c $(echo hello world) d" "e f"; do touch $file; done
 $ ls | wc -l
 \end{lstlisting}
-\vspace{0.4in}
-
-\begin{note}
-    I will generate new problems by:
-    (1) changing the type of quotation mark,
-    (2) removing/adding quotation marks.
-\end{note}
+\vspace{0.1in}
 \end{document}
