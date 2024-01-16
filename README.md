@@ -35,15 +35,20 @@ Fun facts:
 
 **What is big data?**
 
-Depends entirely on the person who is talking
-1. Most non-computer scientists (muggles) think anything bigger than 1G is big data
+Depends entirely on the person who is talking.
+
+1. Most non-computer scientists (muggles) think "too big for excel"
+    1. >1000 rows
+    1. >10MB
 1. Facebook considers ["tens of petabytes" to be a "SMALL data problem"](https://research.fb.com/blog/2014/10/facebook-s-top-open-data-problems/)
 1. One of the biggest problems in industry is people apply tools for "Facebook big data" to "muggle big data",
    and a major goal of this course is to teach you why this is bad and how to avoid it
 1. For us, "big data" means:
-    1. managing a cluster of computers to solve a computational problem; if it can be solved on a single computer, it's SMALL data
+    1. too big to fit in memory
+    1. too big to use a single machine
     1. all the interesting/applied parts of upper division computer science compressed into a single course
 
+<!--
 We will work with the following three datasets:
 
 1. All geolocated tweets sent from 2017-today, 4 terabytes
@@ -78,7 +83,6 @@ In order to make your search engine scalable, we will use the following technolo
 1. With these technologies, you can create a fully functioning, highly scalable web business
     1. former CMC student Biniyam Asnake created the business [NextDorm](https://www.nextdorm.college/cmc/browse?search=politics) as his senior thesis (slightly different tech stack, but same ideas)
 
-<!--
 Example search engines:
 1. Camas reddit search: https://camas.github.io/reddit-search/
 1. Have I Been Pwned? https://haveibeenpwned.com/

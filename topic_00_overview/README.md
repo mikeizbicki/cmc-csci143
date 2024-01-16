@@ -79,8 +79,8 @@ and has inspired lots of memes/comics:
 Labs are always due on midnight of the Sunday of the week that they are assigned (i.e. January 21 for this lab).
 
 *For this lab only:*
-I will not apply late a late penalty.
-This is so that if you need extra time to review/learn the background material you can have it.
+There will be no late penalty if you miss the due date, but please be reasonable.
+I want to ensure that everyone has sufficient time to complete the lab based on their background experience.
 
 **Pre-lab work:**
 
