@@ -130,11 +130,6 @@ I'm happy to have CS majors in this course (and I think you'll find this course 
         1. Programming web servers with the `flask` library
         1. Web scraping with the `requests` and `bs4` libraries
 
-1. Takeaway:
-    1. I am expecting that you have basic familiarity with the Linux terminal, git, and SQL joins.
-    1. If you haven't seen those concepts before, expect to spend extra time those weeks catching up.
-    1. There are also extra assignments that certain people will have to complete depending on your background.
-
 **Relation to other CS courses:**
 
 One purpose of this course is to provide DS majors with an overview of CS concepts.
