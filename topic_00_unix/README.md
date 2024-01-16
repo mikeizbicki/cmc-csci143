@@ -142,9 +142,10 @@ let me know and we'll get that resolved.
 Labs will generally be posted as [git submodules](https://www.atlassian.com/git/tutorials/git-submodule) in each topic folder.
 This week there are two labs:
 
-1. First, visit the [lab0-messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
+1. First, visit the [lab-messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
 
-1. Then complete [lab1-goodreads](https://github.com/mikeizbicki/goodreads).
+1. Then complete [lab-goodreads](https://github.com/mikeizbicki/goodreads) and [lab-goodreads-part2](https://github.com/mikeizbicki/lab-goodreads2).
+    (It's really just 1 lab split into two submodules for organization.)
 
 ## Homework
 

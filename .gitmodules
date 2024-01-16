@@ -43,8 +43,11 @@
 	path = future/topic_11_indexes_advanced/twitter_postgres_indexes
 	url = https://github.com/mikeizbicki/twitter_postgres_indexes
 [submodule "topic_00_overview/messages"]
-	path = topic_00_unix/lab0-messages
+	path = topic_00_unix/lab-messages
 	url = https://github.com/mikeizbicki/messages
 [submodule "topic_00_overview/lab-goodreads"]
-	path = topic_00_unix/lab1-goodreads
+	path = topic_00_unix/lab-goodreads-part1
 	url = https://github.com/mikeizbicki/lab-goodreads
+[submodule "topic_00_unix/lab-goodreads2"]
+	path = topic_00_unix/lab-goodreads-part2
+	url = https://github.com/mikeizbicki/lab-goodreads2
