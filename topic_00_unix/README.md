@@ -144,7 +144,7 @@ This week there are two labs:
 
 1. First, visit the [lab-messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
 
-1. Then complete [lab-goodreads](https://github.com/mikeizbicki/goodreads) and [lab-goodreads-part2](https://github.com/mikeizbicki/lab-goodreads2).
+1. Then complete [lab-goodreads](https://github.com/mikeizbicki/lab-goodreads) and [lab-goodreads-part2](https://github.com/mikeizbicki/lab-goodreads2).
     (It's really just 1 lab split into two submodules for organization.)
 
 ## Homework
