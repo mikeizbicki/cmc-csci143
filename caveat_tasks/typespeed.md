@@ -93,7 +93,7 @@ Therefore, this program will run with the permissions of group `games` for all u
 
 > **NOTE:**
 >
-> The effect above could also be achieved by setting the setuid bit instead of the setguid bit.
+> The effect above could also be achieved by setting the setuid bit instead of the setgid bit.
 > This would cause the program to run with `root` permissions for all users,
 > since the file is owned by `root`.
 > But this would be a VERY BAD IDEA.
