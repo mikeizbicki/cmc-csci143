@@ -2,9 +2,9 @@
 	path = topic_00_unix/hw-continuous-integration
 	url = https://github.com/mikeizbicki/continuous-integration
 
-#[submodule "twitter_coronavirus"]
-    #path = hw_twitter/twitter_coronavirus
-    #url = https://github.com/mikeizbicki/twitter_coronavirus
+[submodule "twitter_coronavirus"]
+    path = topic_01_mapreduce/hw-twitter
+    url = https://github.com/mikeizbicki/twitter_coronavirus
 
 #[submodule "week_07/pagila-midterm"]
 	#path = week_07/pagila-midterm
@@ -51,3 +51,6 @@
 [submodule "topic_00_unix/lab-goodreads2"]
 	path = topic_00_unix/lab-goodreads-part2
 	url = https://github.com/mikeizbicki/lab-goodreads2
+[submodule "topic_01_mapreduce/lab-pipes-twitter"]
+	path = topic_01_mapreduce/lab-pipes-twitter
+	url = https://github.com/mikeizbicki/lab-pipes-twitter

@@ -154,13 +154,16 @@ Quiz:
 
 ## Lab
 
-TBA
+**Background:**
+
+Complete the following two lab assignments from CSCI46: [lab-pipes-tutorial](https://github.com/mikeizbicki/lab-pipes-tutorial) and [lab-processes](./lab-processes.md).
+These labs have submission instructions, but there is nothing to submit for this class.
+
+**Instructions:**
+
+TBA.
 
 <!--
-**Pre-lab work:**
-
-1. Ensure that you have completed the entire lab for `topic_00` before completing this lab.
-
     1. If you don't feel 100% confident in the git terminal commands,
         then re-do the git+unix tutorial from last week.
 
