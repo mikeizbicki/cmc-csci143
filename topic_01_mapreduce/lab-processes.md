@@ -1,4 +1,4 @@
-# Tutorial: shell scripting and parallel programming
+# Lab: shell scripting 
 
 This lab will teach you the shell scripting and command line tools you will need to complete the twitter analysis homework.
 
@@ -8,6 +8,8 @@ So you should pair up with another student.
 Both of you should complete the lab on your own computers,
 but you will have to run certain commands for your partner on your own computer at different steps.
 -->
+
+## Shell scripting background
 
 ### Creating a shell script
 
@@ -197,11 +199,13 @@ $ ./script.sh > output
 ```
 You should notice that the program is running, 
 but no output is being printed to the screen.
-You know the program is running because no prompt (`$`) is printed to the screen,
-and you can't enter commands.
-The `>` symbol is called output redirection,
-and sends all of the output of your program into the `output` file.
-(`output` can be replaced with any filename you'd like, and is just an example filename.)
+
+> **RECALL:**
+> You know the program is running because no prompt (`$`) is printed to the screen,
+> and you can't enter commands.
+> The `>` symbol is called output redirection,
+> and sends all of the output of your program into the `output` file.
+> (`output` can be replaced with any filename you'd like, and is just an example filename.)
 
 After waiting a few seconds, press `^C` to end the program.
 Now open the `output` file in vim
@@ -255,11 +259,21 @@ Without the `-9`, `kill` asks the process to "politely" kill itself,
 performing a clean shutdown by (for example) saving any open files.
 When a program breaks, however, these polite killings sometimes may not happen or may take too long.
 Adding the `-9` flag forces the operating system to kill the process immediately without performing a clean shutdown.
-This should be done if you tried an ordinary `kill` and it didn't work.
+This should be done if a polite kill request didn't work.
+
+> **ASIDE:**
+> If you find the term "polite kill request" humorous, you're not alone.
+> There's lots of programming jokes about these concepts.
+> For example:
+> 
+> <img src=kill.webp width=300px />
+> <br>
+> <br>
+> <img src=kill2.webp width=300px />
 
 ### Multiple connections
 
-Create a second connection to the lambda-server. 
+Create a second connection to the lambda-server with a separate terminal window and separate `ssh` session. 
 Run the command
 ```
 $ ps
@@ -274,52 +288,34 @@ $ ps -e
 The `-e` flag causes `ps` to list "every" process on the system.
 You should see a very long list that is multiple pages long.
 
-In UNIX systems, we create these more complicated commands by combining simpler commands.
-We will combine the `ps` command with the pipe `|` and `grep` command to get the features that we want.
-Run the command:
+Now run the command
 ```
-$ ps -ef | grep username
+$ ps -ef
 ```
-where `username` is your username.
-You should see all the processes created from both of your connected sessions.
+The `-f` flag causes `ps` to print the "full" information about each process.
 
-The vertical bar `|` is called a pipe.
-Pipes connect the output (`stdout`) of the program on the left to the input (`stdin`) of the program on the right.
-The `grep` program reads one line at a time from its input and outputs only those lines containing `username`.
-To see how this works, run the command
-```
-$ grep username
-```
-and start typing some lines.
-Notice that if a line does not contain `username` then grep does nothing;
-but if the line does contain `username`, then `grep` prints that line.
+> **Note:**
+> All of the following commands are equivalent: `ps -e -f`, `ps -f -e`, `ps -fe`, and `ps -ef`.
+> By convention, parameters that take only a single `-` and a single letter can be combined together into a single command,
+> and the order that we apply them doesn't matter.
 
-Thus, when we run the command
+Importantly, the first column in the output is the username of the user who created the process.
+We can therefore combine the `ps -ef` command with the pipe `|` and `grep` to list just the processes for a single user.
+Run the command
 ```
-$ ps -ef | grep username
+$ ps -ef | grep <username>
 ```
-the `ps -ef` prints detailed information about all processes
-(the `-e` is every process, and the `-f` prints the usernames and many other aspects of the processes).
-Then the `|` passes those results into the `grep` command,
-which removes all lines that do not contain your `username` string.
+replacing `<username>` with your actual username on the lambda server.
+You should see all the processes created from both of your connected sessions,
+and none of the extra processes owned by different users.
 
-Any program can be combined with any other program using pipes.
-The `find` program, for example, lists all files in the current directory and subdirectory.
-Run it and you'll see one file per line, with LOTS of lines.
-You can find only python files by filtering the output of `find` using `grep` like so:
-```
-$ find | grep 'py$'
-```
-(The `$` symbol is a [regular expression](https://en.wikipedia.org/wiki/Regular_expression) matching the end of a line;
-grep supports arbitrary regular expressions as input.)
-
-The [UNIX Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) is that programs should "Do one thing and do it well."
-Then, programs can be combined together using pipes to generate complex behavior.
-For example, the `ps` command lists processes running on a system but doesn't provide any filtering.
-We combine `ps` with `grep` to filter the output.
-In general, whenever we want to filter a program's output, we always combine the previous program with `grep`;
-this simplifies all the programs in unix because they do not need to contain code for filtering within them.
-[Chapter 1](http://catb.org/~esr/writings/taoup/html/ch01s06.html) of ESR's famous The Art of Unix Programming goes into details.
+> **NOTE:**
+> If you have a particularly long username,
+> the command above may not work for you as written.
+> The output of `ps -ef` will truncate usernames that are too long,
+> and so the `grep` command won't be able to find them.
+> If you use the first 6 characters of your username in the grep command (instead of your full username),
+> then the command should work.
 
 Back to our `script.sh` command.
 Go ahead and run it in one terminal session:
@@ -328,17 +324,21 @@ $ ./script.sh
 ```
 then in the other, run our command for listing all of your processes:
 ```
-$ ps -ef | grep username
+$ ps -ef | grep <username>
 ```
 You can see what processes other users are running with the same command.
-Just replace `username` with their username instead.
-
+Just replace `<username>` with their username instead.
 
 ### The `HUP` signal
 
+We've seen three ways to kill processes:
+pressing `^C`, running the `kill` command, and running the `kill -9` command.
 Another way to kill processes is by sending the `HUP` signal.
-The `HUP` signal is automatically sent to all "children" processes of your shell when the connection is closed.
-This ensures that you don't accidentally leave thousands of processes running on machines that you're not actively using.
+The `HUP` signal is automatically sent to all "children" processes of your shell when the connection is closed (`HUP` stands for "hang up").
+This ensures that you don't accidentally leave processes running on machines that you're not actively using.
+If we didn't have the `HUP` signal, then everytime bad wifi disconnected you from the lambda server,
+your `vim` and `bash` processes would continue running forever,
+and eventually the lambda server would run out of resources.
 
 To see how this works,
 run the command
@@ -370,10 +370,23 @@ This is because when you closed your ssh connection,
 the `HUP` signal was sent to the `script.sh` process,
 ending the process.
 
+> **NOTE:**
+> Be default on most Linux machines, the `ssh` program sends the `HUP` signal automatically when it disconnects.
+> This is polite to do:
+> Since we know we won't be using those processes any more, we should kill them and free their resources.
+> But on some machines (especially Macs), the `ssh` program is configured to not send the `HUP` signal automatically.
+> Therefore, the programs will not be immediately terminated.
+> The lambda server waits about ten minutes before sending the `HUP` signal and terminating the processes itself.
+> (This delay is necessary to handle temporary disconnects due to things like bad wifi.)
+> If you are using a `ssh` program configured in this way,
+> then you won't immediately see your programs be killed by the `HUP` signal when you logout.
+> These programs will eventually be killed by the lambda server,
+> but you don't need to wait for the server to kill them before progressing with the lab.
+
 ### Blocking the `HUP` signal
 
-Sometimes, however, we actually do want to have long running processes that last longer than our current sessions.
-To do this, we use the `nohup` command to block the `HUP` signal.
+Sometimes we want to have long running processes that last longer than our current sessions.
+To do this, we can use the `nohup` command to block the `HUP` signal.
 (UNIX programmers like simple names :)
 
 Reconnect a second terminal to the lambda server,
@@ -403,10 +416,180 @@ again run the command
 $ ps -ef | grep username
 ```
 and notice that your `script.sh` process is still running.
+This command will run forever if it is not manually killed.
 Use the `kill` command to end your `script.sh` process.
 
 When you launch long-running processes on the lambda-server,
 you will have to use the `nohup` command to ensure that they continue to run after you have disconnected.
+
+### Automatic backgrounding with `&`
+
+In our previous experiments, we have been manually sending programs to the background by pressing `^Z` and typing `bg`.
+In our shell scripts, we will want to automate this process.
+We can do this by placing an `&` at the end of a command.
+
+Run the command
+```
+$ nohup ./script.sh > output3 &
+```
+and notice that the program seems to run and exit immediately.
+But it is in fact still running.
+You can verify this by running the
+```
+$ ps
+```
+command to view the process information,
+and you can run
+```
+$ cat output3
+```
+to watch the contents of `output3` grow as `script.sh` appends to it.
+(Try running the `cat` command multiple times, waiting a few seconds between each run.)
+
+## Twitter Analysis
+
+We now have all the tools we need to write a program to analyze terabytes of tweets massively in parallel.
+We'll start by counting how many times the word "coronavirus" was used in each month of the year 2020.
+
+<!--
+Recall that in the [pipes lab](https://github.com/mikeizbicki/lab-pipes-twitter), we created commands that counted the number of tweets sent on a particular day:
+```
+$ unzip -p '/data/Twitter dataset/geoTwitter20-04-01.zip' | grep -i "coronavirus" | wc -l
+```
+This command first unzips the file, then uses grep to remove tweets that don't contain "coronavirus", and counts the number of tweets that remain.
+Our goal is to run a command like this for the first day of each month.
+(We'll start by running on just 12 days before jumping up to all 1800 in the dataset.)
+-->
+
+Create a file called `lab.sh` with the following code inside of it:
+```
+#!/bin/sh
+for file in '/data/Twitter dataset/'geoTwitter20-*-01.zip; do
+    echo "$file" "$(unzip -p "$file" | grep -i coronavirus | wc -l)" &
+done
+```
+
+> **NOTE:**
+> Ensure that you understand what everything in the code block above does.
+> For your homework, you will have to write files like this from scratch.
+
+Give yourself execute permissions to the file by running
+```
+$ chmod u+x lab.sh
+```
+And then run the file with output redirection
+```
+$ nohup ./lab.sh > output
+```
+You'll notice that the program appears to finish immediately,
+but if you run
+```
+$ ps -ef | grep <username>
+```
+you'll see all of the running processes.
+And there's a LOT of processes.
+The output is rather complicated because there are many processes being created per file (e.g. `unzip`, `grep`, and `wc`).
+We can simplify this output to see exactly one line per file by running another grep command to display only the running `unzip` commands:
+```
+$ ps -ef | grep <username> | grep unzip
+```
+Now, you should see one (very long) line per file,
+and the line will contain the name of the file that was passed to `unzip`.
+The only way for you to know that your data analysis has finally finished is to keep running this `ps` command until you don't get any more output;
+at that point, all of the programs have terminated.
+
+> **ASIDE:**
+> Actually, you can monitor your progress with more fine-grained control using the `top` and `atop` commands.
+> Running
+> ```
+> $ top -u <username>
+> ```
+> will show you in real-time which of your processes are running and consuming the most CPU resources.
+> Running
+> ```
+> $ atop
+> ```
+> will show you what resources are being consumed on the lambda server.
+> In this case, our computation is very simple.
+> The lambda server has 80 CPUs, but only 16 hard drives (HDDs).
+> So the bottle-neck will be hard drive speed.
+> The output of `atop` will show that the HDDs are being maxed out with these commands.
+> Therefore, you are likely to not have your parallel program run 12x faster than your sequential program.
+> My parallel program ran "only" about 8x faster due to this bottleneck.
+> More CPU intensive code, however, can get up to an 80x speed up by running in parallel on the lambda server.
+
+Once your analysis is done, you can view the results that you save with output redirection:
+```
+$ cat output
+```
+Unfortunately, you'll notice that the results are not in chronological order.
+Instead, they are listed in the order that the files finished processing.
+Parallel programming is what we call *nondeterministic*,
+which means that the order of the results will change everytime you run the program due to factors outside of our control.
+
+Fortunately, we can easily recover a chronological ordering using the `sort` command:
+```
+$ cat output | sort
+```
+
+## Submission
+
+Paste the output of your
+```
+$ cat output | sort
+```
+command to sakai.
+
+If you finish early, you should start the typespeed caveat task if you have not already done so.
+At this point, you have seen all of the terminal tricks needed to understand both the main task and the extra credit.
+
+## Optional: Hacking your classmate's github accounts
+
+Recall that *hacking* in the computer world means doing something cool.
+What muggles think of as "hacking" is actually what hackers call *cracking*.
+In this last section of the lab, you will *crack* into other user's github accounts.
+
+Many of you have sored your personal access token in a file called `pat` in your home folder.
+(This is how I recommended you store your pat.)
+Unfortunately, the default permissions for files includes read permissions for all users.
+This means that everyone has access to your pat and can use it to login to github under your account name.
+
+Let's use our knowledge of UNIX commands to find all of these `pat` files so that we can steal these credentials.
+Recall that the `find` command will recursively list all of the files inside of a folder.
+We can then pipe the output to grep to search for files named `pat` with a command like
+```
+$ find /home | grep 'pat'
+```
+You'll notice that this is listing too many files, and there's 2 reasons fo this:
+1. The regex `pat` matches the string `pat` anywhere in the path name,
+    and we want to only find files that are named `pat`.
+    The regex `/pat$` will match only paths that end in the string `/pat`,
+    and so this will guarantee that the corrersponding file is named `pat`.
+1. The `find` command prints an error message to *stderr* when it encounters a path it doesn't have read permissions for.
+    These error messages are not part of *stdout*,
+    and so are not piped to the grep program for filtering;
+    they are printed directly to the screen.
+    We can disable these error messages by adding redirecting stderr for the find command to `/dev/null` with the incantation `2>/dev/null`.
+    (Notice the `2` in front of the `>` indicates we are redirecting stderr instead of stdout.)
+
+If you modify the `find`/`grep` command above to take into account these changes,
+then the resulting command will print all of the `pat` files that contain login credentials to github.
+
+**Your task:**
+Use the login credentials of someone to login to their github account and make an "innocuous" change to one of their repos.
+This will demonstrate that you have "pwned" them,
+and you will have earned the right to mock them ruthlessly.
+
+**Your other task:**
+If your github credentials are currently vulnerable this way,
+you should modify the permissions of your `pat` file with the `chmod` command so that others cannot read the file.
+You should also disable this pat and create a new one.
+I've already copied all of these credentials,
+and I may choose to have "fun" with your account later if you don't disable them.
+
+The vast majority of times when a company is hacked,
+it is because sensitive information was not stored correctly with proper access controls.
+This allows people from the public who shouldn't have access to the information (whether it be passwords, client information, or other trade secrets) to gain access.
 
 <!--
 ### Hacking your partner (2)

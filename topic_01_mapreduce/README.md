@@ -156,7 +156,7 @@ Quiz:
 
 **Background:**
 
-Complete the following two lab assignments from CSCI46: [lab-pipes-tutorial](https://github.com/mikeizbicki/lab-pipes-tutorial) and [lab-processes](./lab-processes.md).
+Complete the following two lab assignments from CSCI46: [lab-pipes-twitter](https://github.com/mikeizbicki/lab-pipes-twitter) and [lab-processes](./lab-processes.md).
 These labs have submission instructions, but there is nothing to submit for this class.
 
 **Instructions:**
