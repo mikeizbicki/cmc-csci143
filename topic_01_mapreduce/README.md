@@ -26,14 +26,15 @@ Homework:
 
 Quiz:
 1. This Thursday
-    1. 8 problems
-    1. 10 minutes during class
-    1. I will be in the classroom 10-20 minutes before class
-1. Covers both POSIX 1 and 2
+1. 4 problems from POSIX 1 ~~and 4 problems from POSIX 2~~
+1. 10 minutes during class
+1. I will be in the classroom 10-20 minutes before class
+<!--
 1. For more quiz review:
     1. CS46 POSIX 1 Lecture: <https://www.youtube.com/watch?v=5LmyskP7j7Y&t=897s>
     1. CS46 POSIX 2 Lecture (part 1): <https://www.youtube.com/watch?v=4BkIoN_8-cE&t=2420s>
     1. CS46 POSIX 2 Lecture (part 2): <https://www.youtube.com/watch?v=zjCJU5CrvZs&t=3m40s>
+-->
 
 ## Lecture Notes
 
