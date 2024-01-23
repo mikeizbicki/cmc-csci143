@@ -2,6 +2,39 @@
 
 <img src=LinuxAdmin.jpg width=600px />
 
+**Announcements 2023-01-23**
+
+Labs graded:
+1. lab-goodreads-part1
+    1. (-1) not providing queries
+    1. (-1) screenshot instead of copy/paste
+
+1. lab-goodreads-part2
+    1. (-1) something weird about your command
+
+For unsubmitted work:
+1. 0 entered in sakai
+1. Your grade will be updated when you submit
+
+Homework:
+1. Due tonight (but no late penalty)
+1. I won't be covering in class how to use git / submit pull requests.
+1. If you'd like a review, see the Spring 2023 CS46 class recording: <https://www.youtube.com/watch?v=M9qT9fOBuIA&t=1460s>.
+
+    (Video starts with a short conversation about grades, then uses a pull request to change how grading is done.)
+1. Lots of mentors at the QCL who can provide help.
+
+Quiz:
+1. This Thursday
+    1. 8 problems
+    1. 10 minutes during class
+    1. I will be in the classroom 10-20 minutes before class
+1. Covers both POSIX 1 and 2
+1. For more quiz review:
+    1. CS46 POSIX 1 Lecture: <https://www.youtube.com/watch?v=5LmyskP7j7Y&t=897s>
+    1. CS46 POSIX 2 Lecture (part 1): <https://www.youtube.com/watch?v=4BkIoN_8-cE&t=2420s>
+    1. CS46 POSIX 2 Lecture (part 2): <https://www.youtube.com/watch?v=zjCJU5CrvZs&t=3m40s>
+
 ## Lecture Notes
 
 1. Definitions:
@@ -10,14 +43,16 @@
         1. handles things like copy/paste, colorscheme, etc.
         1. runs on your computer, not the lambda server
     1. **Shell** the non-graphical program that actually runs the commands
-        1. it is a "thin wrapper" over the operating system
+        1. it is a "thin wrapper" over the operating system "kernel"
         1. runs on the lambda server, not your computer
 
 1. [Types of unix shells](https://www.multicians.org/shell.html)
     1. Ken Thompson wrote the first Unix shell called the "Thompson Shell" (`sh` for short) in 1971
+    <!--
     1. `sh` was inspired by the RUNCOM shell (`rc`), which was written in 1963
         1. `.*rc` config files were originally designed for the RUNCOM shell
         1. `.vimrc` and `.bashrc` are examples
+    -->
     1. Many shells replaced the Thompson shell in the original Unix
         1. the most famous is Stephen Bourne wrote the Bourne shell in 1979
            
@@ -118,10 +153,9 @@
 
 ## Lab
 
-In-class lab Friday 27 Jan cancelled due to data science capstone kickoff.
+TBA
 
-No late penalty for this lab, and you may collaborate however you'd like.
-
+<!--
 **Pre-lab work:**
 
 1. Ensure that you have completed the entire lab for `topic_00` before completing this lab.
@@ -141,23 +175,6 @@ No late penalty for this lab, and you may collaborate however you'd like.
 **Instructions:**
 
 1. Complete the [shell scripting and parallel programming tutorial](processes.md)
-
-<!--
-1. In the previous lab, you forked the class repository.
-    Since then, however, I have made updates to the class repo,
-    and those updates won't be reflected in your forked repo.
-    In this first task,
-    you must update your forked repo so that it has all the content of my upstream repo.
-
-    Use the following flowchart to help you get the commands correct:
-
-    <img width='100%' src=update_downstream.png />
-
-    Note that the steps with "negative numbers" are events that have already happened,
-    steps with "zero numbers" are events that you only have to run once to setup your local repo.
-    Every time you need to update your repo,
-    you will start with step 1.
--->
 
 1. For each of the tasks below, write a POSIX-compliant one line shell command that completes the task.
     Upload both the command and your result to sakai.
@@ -181,9 +198,14 @@ No late penalty for this lab, and you may collaborate however you'd like.
        > Use the `tr 'A-Z' 'a-z'` command to translate all characters into lowercase.
        > Use `grep` to extract only the lines containing `coronavirus`.
        > Use `wc` to count the number of lines.
+-->
 
 ## Homework
 
+TBA
+
+<!--
 You should start the [twitter MapReduce](./homework) homework.
 Because this homework can potentially take a very long time to run,
 this homework has a modified due date schedule.
+-->
