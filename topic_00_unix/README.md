@@ -69,7 +69,7 @@ and has inspired lots of memes/comics:
 **Quiz details:**
 
 1. There will be a quiz (almost) every Thursday.
-1. No quiz this Thursday.  Your first quiz is next week on Thursday 24 Jan.
+1. No quiz this Thursday.  Your first quiz is next week on Thursday 23 Jan.
 1. There will be 4 problems that cover the material from the `practice_quiz_X.pdf` files.
 1. All quizzes are open note.
     I strongly encourage you to complete all of the practice quiz problems and take notes on the practice sheets of paper.
@@ -78,7 +78,7 @@ and has inspired lots of memes/comics:
 
 **Due Date:**
 
-Labs are always due on midnight of the Sunday of the week that they are assigned (i.e. January 21 for this lab).
+Labs are always due at 11:55pm on the Sunday of the week that they are assigned (i.e. January 21 at 11:55pm for this lab).
 
 *For this lab only:*
 There will be no late penalty if you miss the due date, but please be reasonable.
@@ -151,7 +151,7 @@ This week there are two labs:
 
 **Due Date:**
 
-Homeworks are always due on Tuesday of the week after they are assigned (i.e. Jan 24 for this homework).
+Homeworks are always due at 11:55pm on the Tuesday of the week after they are assigned (i.e. Jan 23 at 11:55pm for this homework).
 
 *For this hw only:*
 I will not apply late a late penalty.

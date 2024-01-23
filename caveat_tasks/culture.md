@@ -23,7 +23,7 @@ so you should be able to finish this task in under 8 hours.
    with many interviews of the "founding fathers" of the movement.
 
 1. *The Internet's Own Boy: The Story of Aaron Swartz* (2014), available on [youtube](https://www.youtube.com/watch?v=9vz06QO3UkQ).
-   This documentary describes how A
+   This documentary describes how Aaron Swartz contributed to creating a free and open Internet. The film highlights his contributions to Reddit and his advocacy for open access to digital information. It also examines the events leading to his legal struggles and untimely death and showcases his impact on internet rights and freedom of information.
 
 1. *CitizenFour* (2014) (available for free from the [Internet Archive](https://archive.org/details/Citizen.Four2014)).
    This is a documentary about how and why Edward Snowden released the documents about the NSA and what those documents revealed.
@@ -49,12 +49,12 @@ so you should be able to finish this task in under 8 hours.
     Norvig is one of the founders of Artificial Intelligence and Director of Research at Google.
 
 1. Paul Graham's [what to study in college](http://www.paulgraham.com/college.html).
-    Graham is a founder of the the investment company <https://www.ycombinator.com/>,
+    Graham is a founder of the investment company <https://www.ycombinator.com/>,
     which started many famous companies like dropbox, airbnb, stripe, doordash, reddit, and twitch.
 
 1. Jeff Atwood's [How To Become a Better Programmer by Not Programming](https://blog.codinghorror.com/how-to-become-a-better-programmer-by-not-programming/).
     Atwood is the founder of <https://stackoverflow.com>.
-    He's also a Microsoft fanboi (and so provides a bit of a different perspective than everyone else on this list).
+    He's also a Microsoft fanboy (and so provides a bit of a different perspective than everyone else on this list).
 
 1. ESR's [How to become a hacker](http://www.catb.org/esr/faqs/hacker-howto.html).
     ESR is a famous hacker who started many open source projects.
@@ -63,7 +63,7 @@ so you should be able to finish this task in under 8 hours.
    Phrack is a famous hacker-zine that discusses both the philosophy of hacking and the practical aspects of "cracking."
    The most famous article is the [hacker's manifesto](http://phrack.org/issues/7/3.html).
 
-1. Each chapter of the following books count as one point:
+1. Each chapter of the following books counts as one point:
 
     1. ESR's *The Art of Unix Programming*, available online at [his webpage](http://catb.org/~esr/writings/taoup/html/context.html).
        This is the classic exposition of the Unix philosophy that underlies the technical aspects of hacker culture.
