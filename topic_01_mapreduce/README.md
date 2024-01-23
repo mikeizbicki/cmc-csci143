@@ -2,7 +2,7 @@
 
 <img src=LinuxAdmin.jpg width=600px />
 
-**Announcements 2023-01-23**
+**Announcements (Tuesday 2023-01-23)**
 
 Labs graded:
 1. lab-goodreads-part1
