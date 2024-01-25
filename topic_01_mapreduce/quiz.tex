@@ -1,0 +1,140 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{courier}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor    = blue  %Colour of citations
+}
+
+\usepackage[T1]{fontenc}
+\usepackage{upquote}
+\usepackage{listings}
+\lstset{
+    language=HTML
+    ,basicstyle=\linespread{1}\ttfamily
+    ,keywordstyle=
+    ,language=sh
+    ,showstringspaces=false
+    ,numbers=left
+    ,breaklines=true
+    }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{note}{Note}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\trans}[1]{{#1}^{T}}
+\newcommand{\loss}{\ell}
+\newcommand{\w}{\mathbf w}
+\newcommand{\mle}[1]{\hat{#1}_{\textit{mle}}}
+\newcommand{\map}[1]{\hat{#1}_{\textit{map}}}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\x}{\mathbf x}
+\newcommand{\y}{\mathbf y}
+\newcommand{\ltwo}[1]{\lVert {#1} \rVert}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{center}
+    {
+\Large
+    Quiz: POSIX 1
+}
+
+    %\vspace{0.1in}
+    %CSCI046: Data Structures
+
+    \vspace{0.1in}
+\end{center}
+
+\vspace{0.15in}
+\noindent
+\textbf{Total Score:} ~~~~~~~~~~~~~~~/$2^2$
+
+\vspace{0.2in}
+\noindent
+\textbf{Printed Name:}
+
+\noindent
+\rule{\textwidth}{0.1pt}
+\vspace{0.15in}
+
+\noindent
+\textbf{Quiz rules:}
+\begin{enumerate}
+    \item You MAY use any printed or handwritten notes.
+    \item You MAY NOT use a computer or any other electronic device.
+\end{enumerate}
+
+\noindent
+
+\vspace{0.15in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ echo hello world >> README
+$ echo hola mundo >> README
+$ echo salve munde >> README
+$ cat README | grep 'a.*m|d' | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ var="$(echo '$(echo) echo')"
+$ touch $var
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ for file in $(echo "'a b'") $(echo 'c d') 'e f'; do touch $file; done
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ for file in 'a b' "$(echo c 'd')" e f; do touch "$file"; done
+$ ls | wc -l
+\end{lstlisting}
+\vspace{0.4in}
+
+\end{document}

@@ -54,3 +54,6 @@
 [submodule "topic_01_mapreduce/lab-pipes-twitter"]
 	path = topic_01_mapreduce/lab-pipes-twitter
 	url = https://github.com/mikeizbicki/lab-pipes-twitter
+[submodule "topic_01_mapreduce/twitter_coronavirus"]
+	path = topic_01_mapreduce/hw-twitter-coronavirus
+	url = https://github.com/mikeizbicki/twitter_coronavirus
