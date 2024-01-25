@@ -97,12 +97,9 @@ Quiz:
 1. Parallel programming
     1. All of the hardest parts of an OS course compressed down into 5 minutes
 
-       > **NOTE:**
-       > We will revisit this material in more detail after the final in the non-seniors-only portion of the class.
+    1. "Trivial" to do in POSIX-compliant shells with `&` + `nohup`
 
-    1. "Trivial" to do in POSIX-compliant shells
-
-        (mod the weird #?*!ing edge cases)
+        (mod the weird `fsck`ing edge cases)
 
     1. Two techniques: Threads vs Processes
         1. Threads are "lightweight"
@@ -120,6 +117,7 @@ Quiz:
             1. processes created by "forking"
                 1. `os.fork()`
                 1. [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) built-in library
+
     1. Programming with threads/processes is HARD
         1. easy to create [memory leaks](https://en.wikipedia.org/wiki/Memory_leak), [race conditions](https://en.wikipedia.org/wiki/Race_condition), and other hard-to-debug problems
         1. easy to accidentally create [fork bombs](https://en.wikipedia.org/wiki/Fork_bomb), which were the original form of [cracking](http://www.catb.org/jargon/html/C/cracker.html)
@@ -206,8 +204,19 @@ TBA.
 
 ## Homework
 
-TBA
+The homework is posted in the [hw-twitter-mapreduce](./hw-twitter-mapreduce) git submodule.
 
+**If you took CSCI046 with me:**
+You do not need to recomplete this assignment.
+Submit `I completed this assignment in CS46` to sakai.
+The assignment will not count towards your grade.
+
+**Modified Due Date:**
+Tuesday, 13 February.
+
+You have 3 weeks to complete the assignment due to potentially long computation times.
+You should get started early.
+There will be no extensions if your code does not finish in time.
 <!--
 You should start the [twitter MapReduce](./homework) homework.
 Because this homework can potentially take a very long time to run,
