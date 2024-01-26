@@ -159,7 +159,7 @@ These labs have submission instructions, but there is nothing to submit for this
 
 **Instructions:**
 
-TBA.
+The lab is posted in the [lab-posix-mapreduce submodule](./lab-posix-mapreduce).
 
 <!--
     1. If you don't feel 100% confident in the git terminal commands,
