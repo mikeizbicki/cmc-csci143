@@ -159,7 +159,7 @@ These labs have submission instructions, but there is nothing to submit for this
 
 **Instructions:**
 
-The lab is posted in the [lab-posix-mapreduce submodule](./lab-posix-mapreduce).
+The lab is posted in the [lab-posix-mapreduce submodule](https://github.com/mikeizbicki/lab-posix-mapreduce).
 
 <!--
     1. If you don't feel 100% confident in the git terminal commands,
@@ -204,7 +204,7 @@ The lab is posted in the [lab-posix-mapreduce submodule](./lab-posix-mapreduce).
 
 ## Homework
 
-The homework is posted in the [hw-twitter-mapreduce](./hw-twitter-mapreduce) git submodule.
+The homework is posted in the [hw-twitter-mapreduce](https://github.com/mikeizbicki/twitter_coronavirus) git submodule.
 
 **If you took CSCI046 with me:**
 You do not need to recomplete this assignment.
