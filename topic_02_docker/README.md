@@ -8,14 +8,43 @@
 
     <img src=grades-lab.png>
 
-    <img src=grades-quiz.png>
-
-    <img src=grades-overall.png>
-
-1. Reminder:
+    Reminder:
     1. It is better to submit a correct assignment late than an incorrect one on time.
         Very little partial credit will be awarded for incomplete/incorrect submissions.
     1. Once you submit in sakai, you cannot modify your assignments on github.
+
+    Common errors:
+    1. Not following instructions
+    1. Not sanity checking intermediate steps
+    1. Not applying knowledge from previous sections
+
+    You will be seeing all of this material again... and again... and again.
+    1. MapReduce HW
+    1. Upcoming labs
+    1. Data Science Capstone project (DS180)
+
+    <img src=grades-quiz.png>
+
+    Quiz Thursday
+    1. 8 problems (4 POSIX II, 4 POSIX III)
+    1. Expect them to be harder than last week
+    1. Why? Bad shell commands ruin companies.
+        1. [Toy Story 2 deleted due bad shell command](https://thenextweb.com/news/how-pixars-toy-story-2-was-deleted-twice-once-by-technology-and-again-for-its-own-good)
+
+    <img src=grades-overall.png>
+
+    1. Very few overall points awarded so far
+    1. My grading philosophy:
+        1. I don't want 1 (or 2 or 3 or ...) bad days to ruin your grade
+        1. I give lots of extra credit
+            1. It's an alternative way to demonstrate you've mastered the material
+            1. It's generally harder than the regular credit
+        1. My goal is to give as many A's as possible, and have those A's actually mean something.
+
+    1. Exams
+        1. You'll have a combination of takehome and oral (one-on-one) exams
+
+*Do the required pre-lab task for class on Thursday!*
 
 ## Lecture Notes
 
