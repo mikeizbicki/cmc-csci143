@@ -33,6 +33,9 @@ so you should be able to finish this task in under 8 hours.
 1. *Zero Days - Security Leaks for Sale*, available on [youtube](https://www.youtube.com/watch?v=4BTTiWkdT8Q)).
    This documentary describes how exploits are bought and sold on an open market by companies, governments, and criminal organizations.
 
+1. *Don't Talk to the Police*, available on [youtube](https://www.youtube.com/watch?v=d-7o9xYp7eE).
+    This is a famous lecture by Law Professor James Duane about how talking to the police about anything, even if you're inoccent, can come back to haunt you.
+
 **Watching (fiction):**
 
 1. (1 point) *War Games*, available on [youtube](https://www.youtube.com/watch?v=HNLQ-O-Qx3Y) or [Amazon Prime](https://www.amazon.com/Wargames-Matthew-Broderick/dp/B083FY4CDG/).
@@ -73,6 +76,10 @@ so you should be able to finish this task in under 8 hours.
 
     1. Peter Seibel's *Coders at Work: Reflections on the Craft of Programming*.
        Seibel interviews many famous hackers about their coding setups and how their philosophy of coding.
+
+    1. [Antipoligraph.org's *The Lie Behind the Lie Detector*](
+https://antipolygraph.org/pubs.shtml)
+        This book describes why the lie detector tests used for granting security clearances is flawed, and strategies for beating the test if you have to take it.
 
 <!--
 **Reading (Fiction):** (5 points for reading the whole book, no partial credit)

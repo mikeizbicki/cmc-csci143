@@ -2,25 +2,22 @@
 
 <img src=containers_2x.png width=400px />
 
-## Docker
+**Announcements:**
 
-**Pre-lecture work:**
+1. Grades are updated.
 
-1. (optional) Watch the following videos:
+    <img src=grades-lab.png>
 
-    1. [What is GNU+Linux](https://www.youtube.com/watch?v=kb2T8hWRu8g) by RMS
+    <img src=grades-quiz.png>
 
-    1. [Virtual Machines vs Docker Containers](https://www.youtube.com/watch?v=TvnZTi_gaNc)
+    <img src=grades-overall.png>
 
-    1. [Docker vs Kubernetes vs Docker Swarm](https://www.youtube.com/watch?v=9_s3h_GVzZc)
+1. Reminder:
+    1. It is better to submit a correct assignment late than an incorrect one on time.
+        Very little partial credit will be awarded for incomplete/incorrect submissions.
+    1. Once you submit in sakai, you cannot modify your assignments on github.
 
-    1. [MapReduce - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
-
-    <!--
-    1. (optional) [Apache Spark - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
-    -->
-
-**Lecture:**
+## Lecture Notes
 
 1. Overview
 
@@ -73,22 +70,6 @@
     1. https://docs.docker.com/get-started/overview/
 
        Helps you actually understand the commands below
-
-1. Installing "rootless docker"
-
-    1. Instructions: <https://docs.docker.com/engine/security/rootless/#install>
-
-    <!--
-    1. Ensure that you:
-        1. move the contents of the `bin` folder into `.local/bin`
-        1. add the `DOCKER_HOST` environment variable to your `.bashrc` file
-    
-    1. Whenever the lambda server restarts, you must run the command
-       ```
-       $ systemctl --user start docker
-       ```
-       to restart the docker daemon.
-    -->
 
 1. Basic Commands
 
@@ -145,44 +126,6 @@
     1. `docker logs`: shows `stdout` and `stderr` of all commands run without the `-it` flags; most commonly used on containers started with the `-d` flag
         1. `-f`: follow mode
 
-<!--
-1. Parallel programming
-    1. All of the hardest parts of an OS course compressed down into 5 minutes
-
-       > **NOTE:**
-       > We will revisit this material in more detail after the final in the non-seniors-only portion of the class.
-
-    1. "Trivial" to do in POSIX-compliant shells
-
-        (mod the weird #?*!ing edge cases)
-
-    1. Two techniques: Threads vs Processes
-        1. Threads are "lightweight"
-            1. minimal overhead
-            1. each thread shares the same memory, so communication is easy
-            1. slightly less safe because a bug in one thread will cause bad behavior in every program
-            1. Python's [global interpretter lock (GIL)](https://realpython.com/python-gil/) means you cannot use threads in python for parallel programming
-        1. Processes are "heavyweight"
-            1. about 10MB of unavoidable overhead per process in the system kernel
-                1. technically, this number is application dependent
-                1. 10MB is for postgres (and other "big" programs are same order of magnitude)
-            1. additionally, each child process duplicates the memory of its parent process
-            1. processes can communicate only by reading/writing to files
-            1. processes are the only way to do parallel programming in python
-            1. processes created by "forking"
-                1. `os.fork()`
-                1. [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) built-in library
-    1. Programming with threads/processes is HARD
-        1. easy to create [memory leaks](https://en.wikipedia.org/wiki/Memory_leak), [race conditions](https://en.wikipedia.org/wiki/Race_condition), and other hard-to-debug problems
-        1. easy to accidentally create [fork bombs](https://en.wikipedia.org/wiki/Fork_bomb), which were the original form of [cracking](http://www.catb.org/jargon/html/C/cracker.html)
-        1. code is non-deterministic (everytime you run it, you get different results), resulting in lots of [heisenbugs](https://en.wikipedia.org/wiki/Heisenbug)
-            1. simple example: [I can't login standing up](https://www.reddit.com/r/talesfromtechsupport/comments/3v52pw/i_cant_log_in_when_i_stand_up/)
-            1. complicated example: [I can't send email more than 500 miles](http://www.ibiblio.org/harris/500milemail.html)
-            1. (links in the lecture notes are never required... but the "most cultured" programmers will want to read them... these two in particular)
-        1. python is not great for manipulating processes (it's very easy to create very bad bugs); bash is much better; so I always do the parallel programming parts in bash
-        1. MapReduce paradigm simplifies parallel data analysis
--->
-
 1. Basic networking
     1. Internet Protocol (IP) addresses
         1. (Almost) every device on the internet has a unique IPv4 address.
@@ -205,6 +148,44 @@
 
 ## Lab
 
+**Optional Background Videos:**
+
+<!--
+1. [What is GNU+Linux](https://www.youtube.com/watch?v=kb2T8hWRu8g) by RMS
+
+1. [MapReduce - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
+-->
+
+1. [Virtual Machines vs Docker Containers](https://www.youtube.com/watch?v=TvnZTi_gaNc)
+
+1. [Docker vs Kubernetes vs Docker Swarm](https://www.youtube.com/watch?v=9_s3h_GVzZc)
+
+**Required Pre-lab Task:**
+
+1. Install "rootless docker"
+
+    Follow the instructions in the documentation: <https://docs.docker.com/engine/security/rootless/#install>
+
+    > **Warning:**
+    > Many students do not read and follow the instructions in the output of the install command, and therefore do not have working installs.
+
+    <!--
+    1. Ensure that you:
+        1. move the contents of the `bin` folder into `.local/bin`
+        1. add the `DOCKER_HOST` environment variable to your `.bashrc` file
+    
+    1. Whenever the lambda server restarts, you must run the command
+       ```
+       $ systemctl --user start docker
+       ```
+       to restart the docker daemon.
+    -->
+
+<!--
+1. (optional) [Apache Spark - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
+-->
+
+<!--
 This is a "hello world" assignment for flask/docker that just ensures you have a sane working environment.
 
 **Part 0: terminal-based web client**
@@ -259,12 +240,10 @@ and so we would rather be able to use firefox to access the webpage.
 (But definitely not chrome/safari... bleh... that spyware crap is gross.)
 [Port forwarding](https://en.wikipedia.org/wiki/Port_forwarding) is a way for ssh to make web applications that are only available on remote servers available locally on your computer.
 
-<!--
 In order to see the webpage that you'll create in the docker tutorial (Part 2),
 you'll need to use port forwarding.
 Port forwarding can be tricky to setup,
 so this first part of the lab focuses just on understanding port forwarding without docker.
--->
 
 Port forwarding gets enabled when you login to the lambda server.
 Depending on how you login, the instructions will be slightly different.
@@ -344,15 +323,14 @@ then you should modify the `Dockerfile` to reflect these new commands.
 
 Put all your files from Part 3 into a github repo,
 and upload the url to sakai.
+-->
 
 ## Homework
 
+TBA
+
+<!--
 No homework this week :)
 
 Just work on the twitter/MapReduce homework.
-
-<!--
-You should start the [twitter MapReduce](../hw_twitter) homework.
-Because this homework can potentially take a very long time to run,
-this homework has a modified due date schedule.
 -->

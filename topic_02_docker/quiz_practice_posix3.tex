@@ -405,120 +405,120 @@ $ echo evil > -a/evil
 $ ls -- *
 \end{lstlisting}
 
-\filbreak
-\section{Fun with git and glob}
+%\filbreak
+%\section{Fun with git and glob}
 
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ git init
-$ touch hello world
-$ touch .salve .munde
-$ git add *e*
-$ git commit -m 'first commit'
-$ git checkout -b foo
-$ git add *
-$ git commit -m 'second commit'
-$ git checkout master
-$ git checkout -b bar
-$ git add .
-$ git commit -m 'third commit'
-$ git checkout master
-$ ls -a
-\end{lstlisting}
+%\begin{problem}
+    %Write the output of the final command in the following terminal session.
+    %If the command has no output, then leave the problem blank.
+%\end{problem}
+%\begin{lstlisting}
+%$ cd; rm -rf quiz; mkdir quiz; cd quiz
+%$ git init
+%$ touch hello world
+%$ touch .salve .munde
+%$ git add *e*
+%$ git commit -m 'first commit'
+%$ git checkout -b foo
+%$ git add *
+%$ git commit -m 'second commit'
+%$ git checkout master
+%$ git checkout -b bar
+%$ git add .
+%$ git commit -m 'third commit'
+%$ git checkout master
+%$ ls -a
+%\end{lstlisting}
 
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ git init
-$ touch hello world
-$ touch .salve .munde
-$ git add .
-$ git commit -m 'first commit'
-$ git checkout -b foo
-$ touch '*'
-$ git add *
-$ git commit -m 'second commit'
-$ git checkout master
-$ git checkout -b bar
-$ echo "help me" > test
-$ git add *
-$ git commit -m 'third commit'
-$ git checkout foo
-$ ls -a
-\end{lstlisting}
-
-
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ git init
-$ mkdir test
-$ touch test/hello world
-$ touch test/.salve .munde
-$ cd test
-$ git add .*
-$ git commit -m 'first commit'
-$ git checkout -b foo
-$ git add .
-$ git commit -m 'second commit'
-$ git checkout master
-$ ls -a
-\end{lstlisting}
+%\filbreak
+%\begin{problem}
+    %Write the output of the final command in the following terminal session.
+    %If the command has no output, then leave the problem blank.
+%\end{problem}
+%\begin{lstlisting}
+%$ cd; rm -rf quiz; mkdir quiz; cd quiz
+%$ git init
+%$ touch hello world
+%$ touch .salve .munde
+%$ git add .
+%$ git commit -m 'first commit'
+%$ git checkout -b foo
+%$ touch '*'
+%$ git add *
+%$ git commit -m 'second commit'
+%$ git checkout master
+%$ git checkout -b bar
+%$ echo "help me" > test
+%$ git add *
+%$ git commit -m 'third commit'
+%$ git checkout foo
+%$ ls -a
+%\end{lstlisting}
 
 
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ git init
-$ mkdir test
-$ touch hola mundo
-$ touch test/'hello world'
-$ touch test/'.salve .munde'
-$ cd test
-$ for i in *; do git add $i; done
-$ git commit -m 'first commit'
-$ git checkout -b foo
-$ git add .
-$ git commit -m 'second commit'
-$ ls -a
-\end{lstlisting}
+%\filbreak
+%\begin{problem}
+    %Write the output of the final command in the following terminal session.
+    %If the command has no output, then leave the problem blank.
+%\end{problem}
+%\begin{lstlisting}
+%$ cd; rm -rf quiz; mkdir quiz; cd quiz
+%$ git init
+%$ mkdir test
+%$ touch test/hello world
+%$ touch test/.salve .munde
+%$ cd test
+%$ git add .*
+%$ git commit -m 'first commit'
+%$ git checkout -b foo
+%$ git add .
+%$ git commit -m 'second commit'
+%$ git checkout master
+%$ ls -a
+%\end{lstlisting}
 
-\filbreak
-\begin{problem}
-    Write the output of the final command in the following terminal session.
-    If the command has no output, then leave the problem blank.
-\end{problem}
-\begin{lstlisting}
-$ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ git init
-$ echo evil > -a
-$ touch hola mundo
-$ touch test/'hello world'
-$ touch test/'.salve .munde'
-$ cd test
-$ git add .
-$ git commit -m 'first commit'
-$ git checkout -b foo
-$ git add ..
-$ git commit -m 'second commit'
-$ cd $HOME/quiz
-$ git checkout master
-$ ls *
-\end{lstlisting}
+
+%\filbreak
+%\begin{problem}
+    %Write the output of the final command in the following terminal session.
+    %If the command has no output, then leave the problem blank.
+%\end{problem}
+%\begin{lstlisting}
+%$ cd; rm -rf quiz; mkdir quiz; cd quiz
+%$ git init
+%$ mkdir test
+%$ touch hola mundo
+%$ touch test/'hello world'
+%$ touch test/'.salve .munde'
+%$ cd test
+%$ for i in *; do git add $i; done
+%$ git commit -m 'first commit'
+%$ git checkout -b foo
+%$ git add .
+%$ git commit -m 'second commit'
+%$ ls -a
+%\end{lstlisting}
+
+%\filbreak
+%\begin{problem}
+    %Write the output of the final command in the following terminal session.
+    %If the command has no output, then leave the problem blank.
+%\end{problem}
+%\begin{lstlisting}
+%$ cd; rm -rf quiz; mkdir quiz; cd quiz
+%$ git init
+%$ echo evil > -a
+%$ touch hola mundo
+%$ touch test/'hello world'
+%$ touch test/'.salve .munde'
+%$ cd test
+%$ git add .
+%$ git commit -m 'first commit'
+%$ git checkout -b foo
+%$ git add ..
+%$ git commit -m 'second commit'
+%$ cd $HOME/quiz
+%$ git checkout master
+%$ ls *
+%\end{lstlisting}
 \end{document}
