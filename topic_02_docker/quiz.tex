@@ -58,7 +58,7 @@
 \begin{center}
     {
 \Large
-    Quiz: Shell Scripting
+    Quiz: POSIX II and III
 }
 
     %\vspace{0.1in}
@@ -69,7 +69,7 @@
 
 \vspace{0.15in}
 \noindent
-\textbf{Total Score:} ~~~~~~~~~~~~~~~/$2^2$
+\textbf{Total Score:} ~~~~~~~~~~~~~~~/$2^3$
 
 \vspace{0.2in}
 \noindent
@@ -90,73 +90,144 @@
 
 \vspace{0.15in}
 
+\filbreak
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
-$ echo 'hello world' >> README
-$ echo 'hola mundo' >> README
-$ echo 'salve munde' >> README
-$ cat README | grep e
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ cat > logs <<EOF
+INFO: blah
+INFO: blah
+WARNING: blah blah blah
+INFO: blah
+EOF
+$ cat > quiz.sh <<EOF
+if cat logs | grep EOF > /dev/null; then
+    touch eof
+elif cat logs | grep ERROR > /dev/null; then
+    touch error
+elif cat logs | grep WARNING > /dev/null; then
+    touch warning
+elif cat logs | grep INFO > /dev/null; then
+    touch info
+fi
+EOF
+$ sh quiz.sh
+$ ls
 \end{lstlisting}
-\vspace{0.4in}
+\vspace{1in}
 
+\filbreak
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
-$ var=$(echo $(echo) 'echo')
-$ touch "$var"
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo=hola
+$ [ $foo = hello ] || echo '$foo' >> false
+$ ls
+\end{lstlisting}
+%\vspace{2in}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='salve'
+$ cat > quiz.sh <<EOF
+foo='hello world'
+bar='salve munde'
+if false || ([ "$bar munde" = "salve munde" ] && true); then
+    touch if
+else
+    touch else
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+\vspace{2in}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo='hola'
+$ cat > quiz.sh <<'EOF'
+foo='hello'
+if ! [ $foo != "hello" ]; then
+    touch if
+fi
+EOF
+$ sh quiz.sh
+$ ls
+\end{lstlisting}
+\vspace{1in}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch 'hello world'
+$ touch "hola mundo"
+$ touch salve munde
+$ touch '*'
+$ touch "*"
+$ touch *
 $ ls | wc -l
 \end{lstlisting}
-\vspace{0.4in}
+\vspace{2in}
 
+\filbreak
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
-$ for file in "a b $(echo c d)" 'e f'; do touch $file; done
-$ ls | wc -l
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ for i in *; do echo $i; done | wc -l
 \end{lstlisting}
-\vspace{0.4in}
+\vspace{2in}
 
+\filbreak
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
-$ cd
-$ rm -rf quiz
-$ mkdir quiz
-$ cd quiz
-$ git init
-$ echo "print('hello world')" > foo.py
-$ echo "print('hola mundo')" >> bar.py
-$ echo "print(\"hola otra vez\")" > bar.py
-$ git add foo.py
-$ git add bar.py
-$ git commit -m "first commit"
-$ git branch foo
-$ git checkout foo
-$ echo "print('hello again')" >> foo.py
-$ git add foo.py
-$ git commit -m "second commit"
-$ python3 bar.py
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ mkdir test
+$ echo evil >> -rf
+$ rm -- ./*
+$ ls
 \end{lstlisting}
+\vspace{2in}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ mkdir -- -a
+$ echo evil > -a/evil
+$ ls -- *
+\end{lstlisting}
+\vspace{2in}
 
 \end{document}
