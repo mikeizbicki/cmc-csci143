@@ -2,7 +2,7 @@
 
 <img src=containers_2x.png width=400px />
 
-**Announcements:**
+**Announcements (Tuesday):**
 
 1. Grades are updated.
 
@@ -45,6 +45,15 @@
         1. You'll have a combination of takehome and oral (one-on-one) exams
 
 *Do the required pre-lab task for class on Thursday!*
+
+**Announcements (Thursday):**
+
+1. Quiz next week
+    1. 8 problems (4 from git notes, 4 review)
+    1. We will not cover git notes in class
+    1. I recommend reviewing the CS46 unix/git tutorial: <https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md>
+
+1. QCL Mentoring schedule posted: <https://www.cmc.edu/qcl/mentoring>
 
 ## Lecture Notes
 
