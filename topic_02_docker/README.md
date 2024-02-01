@@ -130,9 +130,7 @@
         1. `--name`: provide a name for the container that will be displayed with the `docker ps` command
         1. `--rm`: delete the container after running, useful for preserving disk space
         1. `-d` run as a daemon
-        <!--
         1. `-p X:Y`: expose port `Y` in the docker image to lambda server port `X`
-        -->
     1. `docker ps`: lists currently running containers
         1. `-a`: list all containers (even those not running)
         1. `-q`: only print container ids
@@ -164,6 +162,7 @@
     1. `docker logs`: shows `stdout` and `stderr` of all commands run without the `-it` flags; most commonly used on containers started with the `-d` flag
         1. `-f`: follow mode
 
+<!--
 1. Basic networking
     1. Internet Protocol (IP) addresses
         1. (Almost) every device on the internet has a unique IPv4 address.
@@ -183,6 +182,7 @@
         1. only root can listen on ports < 1024;
            therefore, you cannot use the standard ports for your web services running on the lambda server
     1. port forwarding lets you redirect connections from one computer to another ([optional reference](https://www.ssh.com/ssh/tunneling/example))
+-->
 
 ## Lab
 
