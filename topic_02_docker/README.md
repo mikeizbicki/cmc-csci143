@@ -265,14 +265,20 @@ There are two main modifications you'll have to make:
    where `DOCKER_PORT` is whatever port you specified.
    -->
 
+**Hint 3:**
+
 Finally, there's a handful of errors that you'll get when you build the project.
 You'll find that fixing these errors only takes a very small change to the project files,
 but figuring out exactly what this change is will be quite difficult.
+You should very carefully read the contents of your error messages,
+and perform good "sanity checks" between each step to ensure that you are progressing properly.
+<!--
 The fundamental problem is that various libraries/packages have introduced breaking changes since the author of the tutorial wrote the tutorial.
 The easiest way to figure out how to get the right versions is to open up a working container with the `docker run` command,
 then manually try installing all the different versions of the libraries until you get something that successfully creates the webpage.
 Once you've figured out the correct sequence of commands,
 then you should modify the `Dockerfile` to reflect these new commands.
+-->
 
 **Submission:**
 
