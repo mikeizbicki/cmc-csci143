@@ -249,17 +249,21 @@ This is intentional in order to get you more practice adapting tutorials into di
 There are two main modifications you'll have to make:
 
 1. In the `docker run` command, you will have to change the port that docker exposes to a port other than 5000.
+   <!--
    (This is because you're all running this code at the same time, and you can't all use the same port.)
    I recommend using your user id as a port number, as this will guarantee that you don't run into conflicts with other students.
    Your userid is stored in the environment variable `$UID`.
+   -->
 
 1. In order to view your webpage from your laptop,
    you will have to connect to the lambda server with local port forwarding enabled.
+   <!--
    The command will look something like
    ```
    $ ssh username@134.173.191.241 -p 5055 -L 8080:localhost:DOCKER_PORT
    ```
    where `DOCKER_PORT` is whatever port you specified.
+   -->
 
 Finally, there's a handful of errors that you'll get when you build the project.
 You'll find that fixing these errors only takes a very small change to the project files,
