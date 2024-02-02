@@ -229,7 +229,7 @@
 
 [Flask](https://flask.palletsprojects.com/) is a popular framework for creating dynamic webpages in python.
 The startup Runnable.com helps people deploy these webpages using docker.
-They have a tutorial on developing dokcerized flask apps at: <https://runnable.com/docker/python/dockerize-your-flask-application>.
+They have a tutorial on developing dockerized flask apps at: <https://runnable.com/docker/python/dockerize-your-flask-application>.
 For this homework, you will follow the tutorial and upload your completed app to github.
 
 **Hint 1:**
