@@ -227,15 +227,24 @@
 
 ## Homework
 
-Follow these instructions to create a simple flask app running in a docker container: <https://runnable.com/docker/python/dockerize-your-flask-application>.
+[Flask](https://flask.palletsprojects.com/) is a popular framework for creating dynamic webpages in python.
+The startup Runnable.com helps people deploy these webpages using docker.
+They have a tutorial on developing dokcerized flask apps at: <https://runnable.com/docker/python/dockerize-your-flask-application>.
+For this homework, you will follow the tutorial and upload your completed app to github.
 
-> **Uh-Oh:**
-> The link above is now broken.
-> The company runnable.com has run out of business, and their website no longer works.
-> In order to view the instructions for the homework,
-> you will have to use the [Wayback Machine](https://archive.org/) to get access to an archived version.
+**Hint 1:**
 
-These instructions were not designed specifically with this class in mind, and thus you will have to modify parts of the instructions in order to get them to work.
+The link above is now broken.
+The company runnable.com has run out of business, and their website no longer works.
+In order to view the instructions for the homework,
+you will have to use the [Wayback Machine](https://archive.org/) to get access to an archived version.
+[Most startups fail](https://explodingtopics.com/blog/startup-failure-stats),
+and so it is common to use the wayback machine to reference documentation that has gone offline.
+
+**Hint 2:**
+
+These instructions were not designed for this class,
+and you will therefore have to modify parts of the instructions in order to get them to work.
 This is intentional in order to get you more practice adapting tutorials into different computational environments.
 There are two main modifications you'll have to make:
 
