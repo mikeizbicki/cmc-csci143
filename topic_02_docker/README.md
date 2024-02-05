@@ -269,7 +269,7 @@ There are two main modifications you'll have to make:
 
 Finally, there's a handful of errors that you'll get when you build the project.
 You'll find that fixing these errors only takes a very small change to the project files,
-but figuring out exactly what this change is can quite difficult.
+but figuring out exactly what this change is can be quite difficult.
 You should very carefully read the contents of your error messages,
 and perform good "sanity checks" between each step to ensure that you are progressing properly.
 
