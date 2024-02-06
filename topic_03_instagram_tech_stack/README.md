@@ -2,11 +2,7 @@
 
 ## Announcements
 
-1. Grades are updated...
-
-   If you haven't submitted the first hws/labs, you're officially behind
-    
-1. lab update
+1. homework update
 
     lots of problems with the tutorial?
    
@@ -14,25 +10,7 @@
 
     <img src='Strip-Le-déploiement-english650-final.jpg' width=400px />
 
-    <!--
     the fundamental problem was dependencies improperly specified in the `requirements.txt` file
-
-    fixed version posted in the `flask_web` folder of this repo
-    -->
-
-    Late policy:
-
-    1. No extensions
-
-    1. lose `2**(N-1)` points for each day late
-
-    1. There's lots of current submissions that are incorrect (0/4).
-
-        You will be allowed to resubmit.
-
-        In general, it is better to submit a correct assignment late than an incorrect one on time.
-
-    We will see the solution in class
 
     Takeaway:
 
@@ -49,23 +27,11 @@
         1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
         -->
 
-1. collaboration policy:
-    1. recall that you can't collaborate outside designated spaces
-    1. my hope is that this will actually encourage more collaboration by getting you all to set aside time to work together in those designated spaces
-    1. you should expect these sorts of hard problems in the future
-    1. I'm open to creating more of these designated spaces via pull requests to the collaboration policy
-
 1. hw for this week is already posted below
     1. you'll build an instagram clone
     1. this week's assignment is still a "copy+paste" assignment
     1. but it has a lot more sharp edges where things can go wrong
     1. expect to spend ~10x the amount of time on this assignment as last assignment
-
-<!--
-1. Our goal for the week:
-    1. finish docker/everything needed for the lab by Wed
-    1. start postgres/sql by Friday (maybe Wed)
--->
 
 ## Lecture
 
@@ -297,18 +263,10 @@
         1. 503: internal server error (problem in your python code)
             1. syntax errors cause the server to shutdown and it needs to be restarted
 
-<!--
-1. More unix shell
-    1. exit codes and the `$?` variable ([optional reference](https://shapeshed.com/unix-exit-codes/))
-        1. 0 = success
-        1. 1-127 = failure
-    1. the commands `true`, `false`, `test`, `[`
-    1. if statements
-    1. connecting programs with `|`, `&`, `||`, `&&`, `;` ([optional reference](https://unix.stackexchange.com/questions/24684/confusing-use-of-and-operators))
--->
-
 ## Lab
 
+TBA
+<!--
 We will use the Friday class this week to discuss the "sharp edges" in the homework assignment.
 There is no lab due.
 
@@ -317,6 +275,7 @@ I recommend you complete the first two sections of the homework ("Project Setup"
 **Update:**
 In class, I will be using the repo <https://github.com/mikeizbicki/flask-on-docker>.
 If you want to follow along with me, then you should clone this repo.
+-->
 
 ## Homework
 

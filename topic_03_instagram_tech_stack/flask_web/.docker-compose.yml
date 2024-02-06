@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  web:
+    environment:
+      - example=test
+    build: .
+    ports:
+      - 3400:5000
+    volumes:
+      - .:/app
