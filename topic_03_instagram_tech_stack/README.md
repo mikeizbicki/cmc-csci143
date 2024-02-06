@@ -10,7 +10,9 @@
 
     <img src='Strip-Le-déploiement-english650-final.jpg' width=400px />
 
-    the fundamental problem was dependencies improperly specified in the `requirements.txt` file
+    We will cover why these problems happened in class today.
+
+    1. If you've already submitted, and you realize today you made a mistake, you may resubmit without penalty by emailing me.
 
     Takeaway:
 
@@ -30,9 +32,9 @@
 
         There is no general solution
 
-        "DevOps" is the role that solves these problems
+        "DevOps" is the job title that deals with these problems
 
-    1.  Relation to jobs
+    1.  How HW relates to career:
 
         See the [career.md file in the root folder](../career.md)
 
