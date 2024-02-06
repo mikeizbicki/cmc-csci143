@@ -339,7 +339,7 @@ This is a slightly more complicated "hello world" than you did last week that in
         1. Include a "screenshot" of you uploading your image
 
             For full credit, this should be a short (5ish second) animated gif.
-            If you don't include an animated gid, then the max credit you can get is 15/16.
+            If you don't include an animated gif, then the max credit you can get is 15/16.
     1. Build Instructions
         1. Should contain a short description of the commands needed to bring your services up and how to use them           
         1. This should be complete enough that anyone can bring the service up
