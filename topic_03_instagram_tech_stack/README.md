@@ -305,6 +305,19 @@ This is a slightly more complicated "hello world" than you did last week that in
 
 1. Follow this tutorial to create the necessary files for a simple web app: <https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/>
 
+    > **Aside:**
+    > <https://testdriven.io> had a similar business model to the company <https://runnable.com> that we saw last week:
+    > They provide cloud infrastructure to other companies.
+    > They wrote these tutorials in order to encourage companies to use their infrastructure.
+    > TestDriven, however, did not go out of business and so the tutorial is still easily accessible.
+    > The tutorial doesn't contain any typos/errors like the last tutorial,
+    > which suggests to me that TestDriven had a stronger engineering culture,
+    > and that likely contributed to their business success.
+    >
+    > Nevertheless, you will find this tutorial much harder to work through than the previous,
+    > and you are still likely to encounter errors related to versions no longer working.
+    > Expect to spend at least 10x the amount of time on this homework as on last week's homework.
+
 1. Add all of your tutorial files to the `flask-on-docker` repo except your database credentials.
 
    > **IMPORTANT:**
