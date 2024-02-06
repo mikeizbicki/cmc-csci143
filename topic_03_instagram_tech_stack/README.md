@@ -26,6 +26,26 @@
         <!--
         1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
         -->
+    1. Semantic Versioning (<https://semver.org>) partially fixes these problems
+
+        There is no general solution
+
+        "DevOps" is the role that solves these problems
+
+    1.  Relation to jobs
+
+        See the [career.md file in the root folder](../career.md)
+
+        SWE/DevOps constantly "shit on" data scientists for not understanding infra
+
+        Data Scientists infamous for
+
+        1. Not getting code into production
+        1. Creating major security vulnerabilities when they do
+
+        The material this week is not strictly data science, but it's designed to:
+        1. Help you overcome those two problems above
+        1. Help you get a job
 
 1. hw for this week is already posted below
     1. you'll build an instagram clone
@@ -297,6 +317,19 @@ This is a slightly more complicated "hello world" than you did last week that in
    > I strongly recommend creating a `.gitignore` file to prevent this from happening on accident.
    > In these instructions, the production credentials are located in the file `.env.prod.db`.
    > So this file should not be uploaded to github, but all the other files should be.
+
+1. Create a README file with the following sections:
+    1. Overview
+        1. In one paragraph, describe what the repo does
+        1. Include a "screenshot" of you uploading your image
+
+            For full credit, this should be a short (5ish second) animated gif.
+            If you don't include an animated gid, then the max credit you can get is 15/16.
+    1. Build Instructions
+        1. Should contain a short description of the commands needed to bring your services up and how to use them           
+        1. This should be complete enough that anyone can bring the service up
+    
+    The idea of the README is that this is something you could show off to potential future employers, and so you should polish it accordingly. 
 
 1. Upload the url of your repo to sakai.
 

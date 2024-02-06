@@ -11,6 +11,14 @@ About layoffs:
 
 1. Which departments get affected: <https://interviewing.io/blog/2022-layoffs-engineers-vs-other-departments>
 
+Some trends in employment:
+
+1. Track the number of employees at companies
+    
+    https://www.macrotrends.net/stocks/charts/GOOG/alphabet/number-of-employees
+
+    https://www.macrotrends.net/stocks/charts/MSFT/microsoft/number-of-employees
+
 About salaries:
 
 1. basically unaffected by layoffs
@@ -31,8 +39,8 @@ Salaries are good even though [employers illegally collude to reduce salaries](h
 
 1. The [infamous Steve Jobs "smiley face email"](https://www.businessinsider.com/steve-jobs-smiley-face-email-2014-3)
 
-<!--
 1. COVID has really benefited CS employees: [the "great resignation"](https://news.ycombinator.com/item?id=27687617)
 
+<!--
 1. Good forum for CS career advice: <https://www.reddit.com/r/cscareerquestions/top/>
 -->
