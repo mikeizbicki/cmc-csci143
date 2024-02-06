@@ -265,13 +265,12 @@
 
 ## Lab
 
-TBA
-<!--
 We will use the Friday class this week to discuss the "sharp edges" in the homework assignment.
 There is no lab due.
 
 I recommend you complete the first two sections of the homework ("Project Setup" and "Docker", but not "Postgres") before Friday's class.
 
+<!--
 **Update:**
 In class, I will be using the repo <https://github.com/mikeizbicki/flask-on-docker>.
 If you want to follow along with me, then you should clone this repo.
