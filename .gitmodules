@@ -60,3 +60,6 @@
 [submodule "topic_01_mapreduce/lab-posix-mapreduce"]
 	path = topic_01_mapreduce/lab-posix-mapreduce
 	url = https://github.com/mikeizbicki/lab-posix-mapreduce
+[submodule "topic_02_docker/lab-networking"]
+	path = topic_02_docker/lab-networking
+	url = https://github.com/mikeizbicki/lab-networking
