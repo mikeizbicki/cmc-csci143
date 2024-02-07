@@ -1,0 +1,246 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{courier}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor    = blue  %Colour of citations
+}
+
+\usepackage[T1]{fontenc}
+\usepackage{upquote}
+\usepackage{listings}
+\lstset{
+    language=HTML
+    ,basicstyle=\linespread{1}\ttfamily
+    ,keywordstyle=
+    ,language=sh
+    ,showstringspaces=false
+    ,numbers=left
+    ,breaklines=true
+    }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{note}{Note}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\trans}[1]{{#1}^{T}}
+\newcommand{\loss}{\ell}
+\newcommand{\w}{\mathbf w}
+\newcommand{\mle}[1]{\hat{#1}_{\textit{mle}}}
+\newcommand{\map}[1]{\hat{#1}_{\textit{map}}}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\x}{\mathbf x}
+\newcommand{\y}{\mathbf y}
+\newcommand{\ltwo}[1]{\lVert {#1} \rVert}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{center}
+    {
+\Large
+    Quiz: git
+}
+
+    \vspace{0.1in}
+\end{center}
+
+\vspace{0.15in}
+\noindent
+\textbf{Total Score:} ~~~~~~~~~~~~~~~/$2^3$
+
+\vspace{0.2in}
+\noindent
+\textbf{Printed Name:}
+
+\noindent
+\rule{\textwidth}{0.1pt}
+\vspace{0.15in}
+
+\noindent
+\textbf{Quiz rules:}
+\begin{enumerate}
+    \item You MAY use any printed or handwritten notes.
+    \item You MAY NOT use a computer or any other electronic device.
+\end{enumerate}
+
+\noindent
+
+\vspace{0.15in}
+
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ foo=hola
+$ ([ "$foo" = hello ] && echo '$foo') > false
+$ ls
+\end{lstlisting}
+\vspace{1in}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ mkdir test
+$ echo evil > ./-rf
+$ rm *
+$ ls
+\end{lstlisting}
+\vspace{2in}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch '.hello world'
+$ for i in .*; do echo $i; done | wc -l
+\end{lstlisting}
+\vspace{2in}
+
+%\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ touch '.hello world'
+$ for i in $(ls -a); do echo $i; done | wc -l
+\end{lstlisting}
+\vspace{1in}
+
+\newpage
+
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ git init
+$ echo "print('hello world')" > foo.py
+$ git add foo.py
+$ git commit -m "added foo"
+$ git branch foo
+$ git checkout foo
+$ echo "print('hola mundo')" >> foo.py
+$ git add foo.py
+$ git commit -m "modified foo"
+$ git checkout master
+$ python3 foo.py
+\end{lstlisting}
+
+\vspace{1in}
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ git init
+$ echo "print('hello world')" > foo.py
+$ git add foo.py
+$ git commit -m "added foo"
+$ git branch foo
+$ git checkout foo
+$ echo "print('hola mundo')" >> foo.py
+$ git add foo.py
+$ git commit -m "modified foo"
+$ git checkout master
+$ python3 foo.py
+$ # everything above is the same as the previous problem
+$
+$ echo "print('salve mundo')" > foo.py
+$ git add foo.py
+$ git commit -m "modified foo"
+$ git checkout foo
+$ python3 foo.py
+\end{lstlisting}
+
+
+\newpage
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ git init
+$ echo evil > -a
+$ mkdir .test
+$ touch .test/hello world
+$ touch .test/.salve .test/munde
+$ cd .test
+$ git add *
+$ git commit -m 'first commit'
+$ git checkout -b foo
+$ git add .
+$ git commit -m 'second commit'
+$ git checkout master
+$ ls -a
+\end{lstlisting}
+\vspace{1in}
+
+\filbreak
+\begin{problem}
+    Write the output of the final command in the following terminal session.
+    If the command has no output, then leave the problem blank.
+\end{problem}
+\begin{lstlisting}
+$ cd; rm -rf quiz; mkdir quiz; cd quiz
+$ git init
+$ echo evil > -a
+$ mkdir .test
+$ touch .test/hello world
+$ touch .test/.salve .test/munde
+$ cd .test
+$ git add .*
+$ git commit -m 'first commit'
+$ git checkout -b foo
+$ git add .
+$ git commit -m 'second commit'
+$ git checkout master
+$ ls -a
+\end{lstlisting}
+
+\vspace{2in}
+\noindent
+\emph{
+\textbf{Hint:}
+The only difference between Problem 7 and 8 is on line 8.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
