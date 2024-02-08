@@ -145,6 +145,7 @@
                     1. A standard interface for python web frameworks
                     1. Ensures that the rest of the tech stack doesn't care which framework you use for you application logic
                     1. Internal to the framework libraries -> doesn't affect application developers
+                    1. [Werkzeug](https://werkzeug.palletsprojects.com/en/3.0.x/) is a simple "WSGI wrapper" used by many other libraries
                     1. [ASGI](https://asgi.readthedocs.io/en/latest/introduction.html) = Asynchronous Server Gateway Interface
                         1. replacing WSGI
                         1. Django is both WSGI/ASGI compatible
@@ -155,7 +156,11 @@
                 1. Converts a WSGI application into an actual web service that people can connect to
                 1. Handles multiple requests simultaneously and in parallel (using the `fork` syscall)
                 1. Much more efficient than flask's built-in web server
+                1. Runs in the same container as flask
+
+                    (everything else here runs in its own container)
             1. pg_bouncer + postgresql database
+                1. Much more efficient than SQLite for large scale applications with many users
                 1. Extremely complicated
                 1. Most of this class will be focused on the database
                 1. Instagram also uses other databases for parts of their website (memcached, redis, solr)
