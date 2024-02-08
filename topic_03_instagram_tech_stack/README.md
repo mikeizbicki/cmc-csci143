@@ -131,6 +131,7 @@
                     1. this is what instagram uses
                     1. the "first" python web framework
                     1. "heavyweight" and "highly opinionated"
+                    1. [a "fun" pedantic rant about the pronunciation of django and foreign languages](https://thoughtstreams.io/jtauber/the-pronunciation-of-django/)
                 1. flask
                     1. this is what we'll be using
                     1. currently the most popular python web framework
