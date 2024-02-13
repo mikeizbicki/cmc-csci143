@@ -6,6 +6,8 @@
     1. twitter coronavirus  (25/46 submitted)
     1. flask-on-docker      (13/46 submitted)
 
+    Additional office hours today from 12pm-1pm.
+
 1. Recall:
     1. ```
        late penalty = 2**(# days late - 1)
@@ -23,9 +25,9 @@
             - no integration of many concepts which have only loosely been covered in class
             - no fighting weird error messages
             - the purpose of covering docker was so that we could introduce PostgreSQL
-        - 3 hw/quizzes
         - midterm (SQL only, no docker)
-            - takehome exam (tentatively Mar 7-12)
+            - takehome exam (maybe Mar 7-11, maybe Mar 14-25)
+            - designed to take < 1 hour
             - scores usually very good
     1. 6 weeks: how to make SQL fast
 
@@ -38,13 +40,15 @@ Relational DataBase Management Systems (RDBMSs):
    <img src=dilbert2.jpeg width=80% />
 
 1. Structured Query Language (SQL) is the language for accessing the database
-    1. don't pronounce it es-cue-el; that's a shibboleth for not being a databases person
+    1. Most "real programmers" pronounce it like "sequel" not "es-cue-el"
 
-       <img src=dilbert.gif width=80% />
-
-    1. SQL was originally SEQUEL (Structured English Query Language), but shortened due to trademark reasons
-        1. You can find the official ANSI SQL standards and history at <https://blog.ansi.org/2018/10/sql-standard-iso-iec-9075-2016-ansi-x3-135/>
-        1. Invented in the 70s (just like the POSIX-shell), and so has lots of weird warts for backwards-compatibility reasons
+        <img src=dilbert.gif width=80% />
+    
+        Why?
+        1. Programmers are lazy; "sequel" is 2 syllables and "es-cue-el" is 3
+        1. SQL was originally SEQUEL (Structured English Query Language), but shortened due to trademark reasons
+            1. You can find the official ANSI SQL standards and history at <https://blog.ansi.org/2018/10/sql-standard-iso-iec-9075-2016-ansi-x3-135/>
+            1. Invented in the 70s (just like the POSIX-shell), and so has lots of weird warts for backwards-compatibility reasons
     1. Comparison to other languages:
         1. Imperative languages (e.g. Python/Shell) specify **how** to compute 
         1. Declarative languages (e.g. SQL) specify **what** to compute.
@@ -67,7 +71,7 @@ Relational DataBase Management Systems (RDBMSs):
     1. Graph databases
         1. Use SparQL instead of SQL
 
-1. Comparison of main database systems:
+1. Comparison of main RDBMSs:
     1. <http://howfuckedismydatabase.com/>
     1. [database popularity from stackoverflow](https://survey.stackoverflow.co/2022/#section-most-popular-technologies-databases)
     1. my summary:
