@@ -13,6 +13,8 @@
     1. Very little partial credit awarded.
         Usually better to submit correct work late than incorrect work on time.
 
+1. No quiz this week :)
+
 1. Outline of the rest of the class:
     1. 4 weeks: how to make SQL correct
         - most important section of the course
