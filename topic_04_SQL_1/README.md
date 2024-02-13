@@ -2,22 +2,30 @@
 
 ## Announcements
 
-1. We're about 1 week behind previous classes
-    1. due to extra focus on bash/git/lambda server
-    1. still on a good pace
-    1. probably lecture this Friday
+1. Due tonight @ midnight:
+    1. twitter coronavirus  (25/46 submitted)
+    1. flask-on-docker      (13/46 submitted)
 
-1. Assignments:
-    1. Extend flask-on-docker due date to Sunday (19 Feb)
-    1. No late penalty applied to `lab_02_docker` (everyone got 4/4)
-    1. (Almost) No more docker weirdness!!!
-    1. THERE WILL BE NO EXTENSIONS FOR THE NEXT HOMEWORK ON SQL!
+1. Recall:
+    1. ```
+       late penalty = 2**(# days late - 1)
+       ```
+    1. Very little partial credit awarded.
+        Usually better to submit correct work late than incorrect work on time.
 
 1. Outline of the rest of the class:
-    1. 3 weeks: how to make SQL correct
-        - 3 hw
+    1. 4 weeks: how to make SQL correct
+        - most important section of the course
+            - covers the SQL material commonly found in data science technical interviews
+        - material much more straightforward
+            - no integration of many concepts which have only loosely been covered in class
+            - no fighting weird error messages
+            - the purpose of covering docker was so that we could introduce PostgreSQL
+        - 3 hw/quizzes
         - midterm (SQL only, no docker)
-    1. 6 weeks: how to make SQL (and other things) fast
+            - takehome exam (tentatively Mar 7-12)
+            - scores usually very good
+    1. 6 weeks: how to make SQL fast
 
 ## Lecture
 
@@ -33,11 +41,11 @@ Relational DataBase Management Systems (RDBMSs):
        <img src=dilbert.gif width=80% />
 
     1. SQL was originally SEQUEL (Structured English Query Language), but shortened due to trademark reasons
-        1. You can find the official ANSI SQL standards and history at https://blog.ansi.org/2018/10/sql-standard-iso-iec-9075-2016-ansi-x3-135/
+        1. You can find the official ANSI SQL standards and history at <https://blog.ansi.org/2018/10/sql-standard-iso-iec-9075-2016-ansi-x3-135/>
         1. Invented in the 70s (just like the POSIX-shell), and so has lots of weird warts for backwards-compatibility reasons
     1. Comparison to other languages:
-        1. Imperative languages (e.g. Python/C/C++/Java/etc) specify **how** to compute 
-        1. Declarative languages (e.g. SQL/Prolog) specify **what** to compute.
+        1. Imperative languages (e.g. Python/Shell) specify **how** to compute 
+        1. Declarative languages (e.g. SQL) specify **what** to compute.
            A compiler will convert the declarative code into imperative code.
            The resulting code has provably guaranteed excellent performance (both asymptotically and constant factors).
     1. Object Relational Mappers (ORMs):
@@ -45,6 +53,8 @@ Relational DataBase Management Systems (RDBMSs):
         1. Make it so that you don't have to learn SQL, and can rely on your "normal" imperative programming knowledge
         1. They're easy to get started with, but much harder once you need to scale
             1. reddit uses the SQLAlchemy ORM
+
+                (the flask-on-docker homework also used SQLAlchemy)
             1. twitter started with Ruby on Rails, but left due to bad performance
         1. [What ORMs have taught me: Just learn SQL](https://news.ycombinator.com/item?id=24845300)
 
@@ -80,15 +90,13 @@ What you must know for the homework/midterm
 
 1. `JOIN`
     1. section 3 of <https://www.postgresqltutorial.com/>
-    1. for this homework, you will only need inner joins; next homework will need all types of joins
-    <!--
+    1. for this quiz/homework, you will only need inner joins; next homework will need all types of joins
     1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/
     1. joins memes
 
        <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg /></a>
 
        <img src=cmcqtycmbmg51.jpg width=600px />
-       -->
 
 1. weird syntax
     1. whitespace doesn't matter, every command must end in a semicolon
@@ -108,3 +116,11 @@ References:
     1. https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-Cheat-Sheet.pdf
 
 1. psql command reference: https://www.postgresqltutorial.com/psql-commands/
+
+## Lab
+
+TBA
+
+## Homework
+
+TBA

@@ -25,10 +25,10 @@
 	#path = week_15/wardial
 	#url = https://github.com/mikeizbicki/wardial
 [submodule "topic_04_SQL_1/pagila-hw"]
-	path = future/topic_04_SQL_1/pagila-hw
+	path = topic_04_SQL_1/pagila-hw
 	url = https://github.com/mikeizbicki/pagila-hw
 [submodule "topic_04_SQL_1/sql_quiz"]
-	path = future/topic_04_SQL_1/sql_quiz
+	path = topic_04_SQL_1/sql_quiz
 	url = https://github.com/mikeizbicki/sql_quiz
 [submodule "topic_05_SQL_2/pagila_hw2"]
 	path = future/topic_05_SQL_2/pagila_hw2
