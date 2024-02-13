@@ -123,4 +123,4 @@ TBA
 
 ## Homework
 
-TBA
+The homework is posted in the [pagila-hw](https://github.com/mikeizbicki/pagila-hw) github submodule.
