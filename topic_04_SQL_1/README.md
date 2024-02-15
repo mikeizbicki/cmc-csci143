@@ -100,7 +100,9 @@ What you must know for the homework/midterm
     1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/
     1. joins memes
 
+       <!--
        <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg /></a>
+       -->
 
        <img src=cmcqtycmbmg51.jpg width=600px />
 
