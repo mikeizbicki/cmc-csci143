@@ -127,7 +127,9 @@ References:
 
 ## Lab
 
-TBA
+There will be no separate lab assignment this week.
+During lab time, I will complete several problems in class for everyone to follow along with,
+and ensure that everyone has a "sane" working environment for the homework.
 
 ## Homework
 
