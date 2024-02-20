@@ -2,15 +2,17 @@
 
 ## Announcements
 
-1. I forgot to mention when we covered the glob:
-    1. A Pixar employee accidentally deleted Toy Story 2 by a bad `*` operator
-    1. They only recovered portions of the movie because a dev was on parental leave and had "accidentally" taken some work home with them
-    1. Details: <https://thenextweb.com/news/how-pixars-toy-story-2-was-deleted-twice-once-by-technology-and-again-for-its-own-good>
+1. Grades:
+    
+    <img src='grades_twitter_coronavirus.png' />
 
-1. Friday:
-    1. No lab assignment
-    1. Finish up whatever we don't cover today (will be recorded)
-    1. The rest of the time available to work
+    <br/>
+
+    <img src='grades_flask-on-docker.png' />
+
+    <br/>
+
+    <img src='grades_overall.png' />
 
 1. Get a good workflow going for your assignments
 
@@ -20,17 +22,12 @@
 
     <img src=the-three-chief-virtues-of-a-programmer-are-laziness-impatience-and-hubris-larry-wall.jpg width=600px />
 
-## Lecture
+## Lecture Notes
 
-What you must know for the homework/midterm/quiz
-
-1. skipping section 6 of <https://www.postgresqltutorial.com/>
-    1. syntactic sugar for complicated GROUP BY clauses
-    1. good to know, but they're not "hard" concepts
-    1. "less technical" technical interviews often ask about these topics
+What you need to know for your quiz/homework/midterm:
 
 1. subqueries
-    1. section 7 of https://www.postgresqltutorial.com/
+    1. section 7 of <https://www.postgresqltutorial.com/>
     1. compared to joins (power):
         1. every join can be written as a cross join + subquery
         1. some subqueries can be written as joins
@@ -38,16 +35,16 @@ What you must know for the homework/midterm/quiz
     1. compared to joins (general):
         1. subqueries are easier for beginners to understand than joins
         1. joins are easier for experts to understand
-        1. which is faster depends
-    1. alternative reference on subqueries vs joins: https://learnsql.com/blog/subquery-vs-join/
+        1. there is no performance difference (in theory)
+    1. alternative reference on subqueries vs joins: <https://learnsql.com/blog/subquery-vs-join/>
 
 1. set operations
-    1. section 5 of https://www.postgresqltutorial.com/
+    1. section 5 of <https://www.postgresqltutorial.com/>
     1. most important operation is `union` vs `union all`
 
 1. joins
-    1. sections 3 of https://www.postgresqltutorial.com/
-    1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/
+    1. sections 3 of <https://www.postgresqltutorial.com/>
+    1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: <https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/>
 
        <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg width=300px /></a>
 
@@ -63,6 +60,16 @@ What you must know for the homework/midterm/quiz
     1. https://www.postgresqltutorial.com/postgresql-array/
     1. `unnest` is the only array function you'll want to use (for this week's homework)
 
+We will not cover the following topics in class (but you need to know for homework):
+
+1. section 6 of <https://www.postgresqltutorial.com/>
+    1. syntactic sugar for complicated GROUP BY clauses
+    1. good to know, but they're not "hard" concepts
+    1. "less technical" technical interviews often ask about these topics
+
+1. window functions <https://www.postgresqltutorial.com/postgresql-window-function/>
+    1. later homework problems walk you through some basic usage
+
 <!--
 1. `CREATE TABLE`
     1. https://www.postgresqltutorial.com/postgresql-create-table/
@@ -75,3 +82,11 @@ What you must know for the homework/midterm/quiz
     1. <img src=Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg width=60%/>
     1. sections 9 of https://www.postgresqltutorial.com/
 -->
+
+## Lab
+
+TBA
+
+## Homework
+
+See <https://gitlab.com/mikeizbicki/pagila-hw2>.
