@@ -4,15 +4,20 @@
 
 1. Grades:
     
-    <img src='grades_twitter_coronavirus.png' />
+
+    twitter\_coronavirus
+
+    <img src='grades_twitter_coronavirus.png' width=400px/>
 
     <br/>
 
-    <img src='grades_flask-on-docker.png' />
+    flask-on-docker
+
+    <img src='grades_flask-on-docker.png' width=400px/>
 
     <br/>
 
-    <img src='grades_overall.png' />
+    <img src='grades_overall.png' width=400px/>
 
 1. Get a good workflow going for your assignments
 
