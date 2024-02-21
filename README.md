@@ -210,7 +210,7 @@ You will receive extra credit for pull requests to this repo or any submodule.
 
 **Late Work Policy:**
 
-You lose `2**i` points on every assignment,
+You lose `2**(i-1)` points on every assignment,
 where `i` is the number of days late.
 
 Do not expect partial credit for incomplete assignments.
