@@ -63,3 +63,6 @@
 [submodule "topic_02_docker/lab-networking"]
 	path = topic_02_docker/lab-networking
 	url = https://github.com/mikeizbicki/lab-networking
+[submodule "topic_05_SQL_2/lab-sqlite-joins"]
+	path = topic_05_SQL_2/lab-sqlite-joins
+	url = https://github.com/mikeizbicki/lab-sqlite-joins

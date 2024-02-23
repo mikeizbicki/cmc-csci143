@@ -90,8 +90,11 @@ We will not cover the following topics in class (but you need to know for homewo
 
 ## Lab
 
-TBA
+Posted at <https://github.com/mikeizbicki/lab-sqlite-joins>.
 
 ## Homework
 
 See <https://gitlab.com/mikeizbicki/pagila-hw2>.
+
+> **NOTE:**
+> Modified due date of Thursday 29 Feb.
