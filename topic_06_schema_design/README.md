@@ -12,64 +12,60 @@ Window functions
 
 ## Announcements
 
-1. no class on Friday
+1. Course Logistics:
+    1. Reminder
+        1. pagila-hw2 due Thursday instead of Tuesday
+        1. quiz this Thursday
+    1. We will spend 2 weeks on topic 06 schema design
+        1. pagila-hw3 due next ~~Tuesday (5 Mar)~~ Thursday (7 Mar)
+            will post before class Thursday
+        1. quiz next Thursday (7 Mar)
+        1. takehome midterm (7-17 Mar)
+            - no lab Friday 8 Mar
+            - midterm designed to take < 1hr
+            - suggestion: use the lab time to complete midterm
 
-    (I'll be in my office for people who want to ask questions)
-
-1. upcoming assignments
-
-    1. pagila-hw3 due next Tuesday
-
-        1. most problems like problems from pagila 1-2, but no hints
-
-            Fred Brooks, [*The Mythical Man Month* (1975)](https://en.wikipedia.org/wiki/The_Mythical_Man-Month)
-
-            > Show me your code and conceal your tables, and I shall continue to be mystified. Show me your tables, and I won't usually need your code; it'll be obvious.
-
-            Linus Torvalds: [on git mailing list archive](https://lwn.net/Articles/193245/)
-
-            > I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
-
-        1. some problems you'll have to look up new techniques
-        1. I will (probably) add 1-2 more problems to it tonight
-           
-           (but if I don't add anything tonight, there will be no new problems)
-
-    1. twitter homework due next Tuesday
-
-    1. quiz next Wednesday
-
-    1. midterm posted next Wednesday after class, due Sunday@midnight
+1. We will finish covering outer joins from SQL 2 before covering this topic's material
 
 <!--
-
-**Wed 16 Feb:**
-
-1. pagila-hw graded; all but 2 students got 17/17; those 2 students need to resubmit to get credit, so everyone should check your grade
-
-    1. [solutions posted](https://github.com/mikeizbicki/pagila-hw/tree/solution)
-
-    1. [Google's VP in charge of hiring people says "GPA’s are worthless as a criteria for hiring, and test scores are worthless" because they don’t predict how productive an employee will be.](https://www.nytimes.com/2014/02/23/opinion/sunday/friedman-how-to-get-a-job-at-google.html)
+    1. [Google's VP in charge of hiring people says "GPA's are worthless as a criteria for hiring, and test scores are worthless" because they don’t predict how productive an employee will be.](https://www.nytimes.com/2014/02/23/opinion/sunday/friedman-how-to-get-a-job-at-google.html)
 -->
-
 
 ## Lecture
 
 <img src=when-people-ask-me-to-explain-my-database-design-its-58698602.png width=400px />
 
 Goals:
-1. measure the disk usage of a database
+
+1. understand why pagila database is designed the way it is
+    1. what the alternatives are
+    1. how this affects thinking about writing SQL queries
+
+1. measure the disk usage of a database, and how this affects database design
 
    disk space usage can be large because:
     1. of overhead that doesn't store data
-        1. multiple types: row, page
+
+       two main types:
+       1. row overhead (what we'll cover in this topic)
+       1. page overhead (covered later)
     1. redundant data stored multiple times
 
-1. other misc. database design decisions
+1. understand how the database schema specifies what "correct" data should look like
+
+Important quotes:
+
+1. Fred Brooks, [*The Mythical Man Month* (1975)](https://en.wikipedia.org/wiki/The_Mythical_Man-Month)
+
+    > Show me your code and conceal your tables, and I shall continue to be mystified. Show me your tables, and I won't usually need your code; it'll be obvious.
+
+1. Linus Torvalds: [on git mailing list archive](https://lwn.net/Articles/193245/)
+
+    > I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
 
 ### Row Overhead
 
-1. you are responsible for being able to calculate the number of bytes used by a row of data
+1. you are responsible for being able to calculate the number of bytes used by a row of data in Postgres
 
    references:
     1. basic tutorial: <https://www.2ndquadrant.com/en/blog/on-rocks-and-sand/>
@@ -95,12 +91,14 @@ Goals:
                        c INTEGER NOT NULL       -- not nullable
                    );
                    ```
+                <!--
                 1. why do nullable columns require an entry in the null bitmap?
 
                    so that we can add/remove `NULL`/`NOT NULL` constraints in O(1) time with a command like
                    ```
                    ALTER TABLE example ALTER COLUMN a SET NOT NULL;
                    ```
+                -->
 
         1. the header must be padded to be a multiple of 8
             1. any table with <= 8 columns will have 24 bytes overhead (the null bitmap is 1 byte)
@@ -146,8 +144,7 @@ Goals:
            > and these aliases are not defined in the `typname` table.
            > For example, the `SMALLINT` type is not listed in the table.
            > In order to find out the necessary information about a `SMALLINT`, you must find the name of the type that it aliases.
-           > The easiest way to find these aliases is to google the type you are looking for restricted to the postgres webpage.
-           > For example: [site:postgresql.org SMALLINT](https://www.google.com/search?hl=en&q=site%3Apostgresql.org%20SMALLINT)
+           > [Table 8.1 in the postgres documentation](https://www.postgresql.org/docs/current/datatype.html) contains an almost complete list of these aliases.
 
     1. padding section:
         1. all rows are padded so that their total number of bytes is divisible by 8
@@ -466,6 +463,14 @@ Goals:
     1. Good overview <https://relinx.io/2020/09/14/old-good-database-design/>
     1. Database Modelization Anti-Patterns: <https://tapoueh.org/blog/2018/03/database-modelization-anti-patterns/>
     1. Building a scalable e-commerce data model: <https://news.ycombinator.com/item?id=25353148>
+
+## Lab
+
+TBA
+
+## Homework
+
+TBA
 
 <!--
 ## Lab
