@@ -22,7 +22,8 @@ Window functions
 
 1. We will spend 2 weeks on topic 06 schema design
     1. pagila-hw3 due next ~~Tuesday (5 Mar)~~ Thursday (7 Mar)
-        will post before class Thursday
+
+        I will post the hw before class Thursday.
     1. quiz next Thursday (7 Mar)
     1. takehome midterm (7-17 Mar)
         - format will be similar to pagila assignments (only SQL, no docker/shell/git/etc)
