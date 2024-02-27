@@ -14,23 +14,25 @@ Window functions
 
 ## Announcements
 
-1. Course Logistics:
-    1. Reminder
-        1. pagila-hw2 due Thursday instead of Tuesday
-        1. quiz this Thursday
-    1. We will spend 2 weeks on topic 06 schema design
-        1. pagila-hw3 due next ~~Tuesday (5 Mar)~~ Thursday (7 Mar)
-            will post before class Thursday
-        1. quiz next Thursday (7 Mar)
-        1. takehome midterm (7-17 Mar)
-            - no lab Friday 8 Mar
-            - midterm designed to take < 1hr
-            - suggestion: use the lab time to complete midterm
+1. Reminder
+    1. pagila-hw2 due Thursday instead of Tuesday
+    1. quiz this Thursday
+       
+       We will finish covering outer joins from SQL 2 before covering this topic's material
 
-1. We will finish covering outer joins from SQL 2 before covering this topic's material
+1. We will spend 2 weeks on topic 06 schema design
+    1. pagila-hw3 due next ~~Tuesday (5 Mar)~~ Thursday (7 Mar)
+        will post before class Thursday
+    1. quiz next Thursday (7 Mar)
+    1. takehome midterm (7-17 Mar)
+        - format will be similar to pagila assignments (only SQL, no docker/shell/git/etc)
+        - midterm designed to take < 1hr, but there is no time limit
+        - suggestion: use the lab time to complete midterm
+        - no lab Friday 8 Mar
+        - no assignments over spring break (unless you choose to delay your midterm submission)
+
 
 <!--
-    1. [Google's VP in charge of hiring people says "GPA's are worthless as a criteria for hiring, and test scores are worthless" because they don’t predict how productive an employee will be.](https://www.nytimes.com/2014/02/23/opinion/sunday/friedman-how-to-get-a-job-at-google.html)
 -->
 
 ## Lecture
@@ -64,6 +66,10 @@ Important quotes:
 1. Linus Torvalds: [on git mailing list archive](https://lwn.net/Articles/193245/)
 
     > I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
+
+1. (unrelated to class) Google's VP in charge of hiring says: [in the NYTimes](https://www.nytimes.com/2014/02/23/opinion/sunday/friedman-how-to-get-a-job-at-google.html) 
+
+    > GPA's are worthless as a criteria for hiring, and test scores are worthless [because they don’t predict how productive an employee will be].
 
 ### Row Overhead
 
