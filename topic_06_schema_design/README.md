@@ -28,13 +28,11 @@ Window functions
     1. takehome midterm (7-17 Mar)
         - format will be similar to pagila assignments (only SQL, no docker/shell/git/etc)
         - midterm designed to take < 1hr, but there is no time limit
-        - suggestion: use the lab time to complete midterm
         - no lab Friday 8 Mar
-        - no assignments over spring break (unless you choose to delay your midterm submission)
 
-
-<!--
--->
+          suggestion:
+          - use the lab time to complete midterm
+          - no assignments over spring break
 
 ## Lecture
 
