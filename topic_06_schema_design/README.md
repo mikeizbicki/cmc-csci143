@@ -80,6 +80,11 @@ Important quotes:
     1. references contain sql queries that will solve all problems for you automatically
 
 1. postgres has more overhead per row than other dbs
+
+    1. this is partly due to postgres's emphasis on simplicity and correctness over efficiency
+
+    1. you will not be responsible for the details of other databases (e.g. SQLite)
+
 1. each row is divided into a header, data, and padding section
     1. header section:
         1. contains a 23 byte [`HeapTupleHeaderData`](https://www.postgresql.org/docs/current/storage-page-layout.html#HEAPTUPLEHEADERDATA-TABLE) struct + an optional "null bitmap"
