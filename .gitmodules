@@ -34,7 +34,7 @@
 	path = topic_05_SQL_2/pagila_hw2
 	url = https://gitlab.com/mikeizbicki/pagila-hw2
 [submodule "topic_06_schema_design/pagila-hw3"]
-	path = future/pagila-hw3
+	path = topic_06_schema_design/pagila-hw3
 	url = https://github.com/mikeizbicki/pagila-hw3
 [submodule "topic_08_SQL+Python/twitter_postgres"]
 	path = future/topic_08_SQL+Python/twitter_postgres

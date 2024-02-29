@@ -482,7 +482,7 @@ TBA
 
 ## Homework
 
-TBA
+<https://github.com/mikeizbicki/pagila-hw3/>
 
 <!--
 ## Lab
