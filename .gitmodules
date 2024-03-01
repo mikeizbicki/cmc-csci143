@@ -66,3 +66,6 @@
 [submodule "topic_05_SQL_2/lab-sqlite-joins"]
 	path = topic_05_SQL_2/lab-sqlite-joins
 	url = https://github.com/mikeizbicki/lab-sqlite-joins
+[submodule "topic_06_schema_design/lab-consistency"]
+	path = topic_06_schema_design/lab-consistency
+	url = https://github.com/mikeizbicki/lab-consistency

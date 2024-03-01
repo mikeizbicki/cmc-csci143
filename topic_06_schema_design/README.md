@@ -478,7 +478,7 @@ Important quotes:
 
 ## Lab
 
-TBA
+<https://github.com/mikeizbicki/lab-consistency>
 
 ## Homework
 
