@@ -133,16 +133,6 @@ Important quotes:
 
         1. null values consume 0 bytes disk space
             1. postgres knows they're not present due to the null bitmap
-
-        1. every type has an "alignment", which specifies hardware addresses the type is allowed to start on
-            1. required due to hardware implementation details
-            1. similar to byte alignment in C structs
-            1. every hardware address is represented by a 64-bit (8-byte) integer
-            1. for fixed-width types, the type is typically required to "align" onto a hardware address satisfying the following formula:
-               ```
-               size in byte % 8
-               ```
-               but not always
         1. to find information about a type, use the query
            ```
            select typname,typalign,typlen from pg_type;
@@ -157,6 +147,16 @@ Important quotes:
            > For example, the `SMALLINT` type is not listed in the table.
            > In order to find out the necessary information about a `SMALLINT`, you must find the name of the type that it aliases.
            > [Table 8.1 in the postgres documentation](https://www.postgresql.org/docs/current/datatype.html) contains an almost complete list of these aliases.
+
+        1. every type has an "alignment", which specifies hardware addresses the type is allowed to start on
+            1. required due to hardware implementation details
+            1. similar to byte alignment in C structs
+            1. every hardware address is represented by a 64-bit (8-byte) integer
+            1. for fixed-width types, the type is typically required to "align" onto a hardware address satisfying the following formula:
+               ```
+               size in byte % 8
+               ```
+               but not always
 
     1. padding section:
         1. all rows are padded so that their total number of bytes is divisible by 8
