@@ -167,7 +167,7 @@ Important quotes:
 1. "column tetris" is ordering table columns optimally:
     1. do not order columns "logically"
     1. order columns fixed length (largest to smallest), then variable length
-    1. gitlab policy: <https://docs.gitlab.com/ee/development/ordering_table_columns.html#real-example>
+    1. gitlab policy: <https://docs.gitlab.com/ee/development/database/ordering_table_columns.html>
     1. postgres devs are aware of this "code smell"/"wart", and are working to fix it... but it's super complicated for lots of obnoxious technical reasons: <https://wiki.postgresql.org/index.php?title=Alter_column_position&oldid=23469>
 
 1. TOAST used for variable sized columns
@@ -183,6 +183,15 @@ Important quotes:
            1. there's 2 string types defined by the SQL standard: `CHAR(n)`, `VARCHAR(n)` where `n` is the length of text
 
               postgres also supports `TEXT`, which is strictly better and should almost always be used: <https://www.depesz.com/2010/03/02/charx-vs-varcharx-vs-varchar-vs-text/>
+
+              [mysql supports](https://dev.mysql.com/doc/refman/8.0/en/blob.html)
+
+              | type | max len | size |
+              | ---- | ------- | ---- |
+              | TINYTEXT | $2^8$ | 256B |
+              | TEXT | $2^16$ | 65kB |
+              | MEDIUMTEXT | $2^24$ | 16 MB |
+              | LONGTEXT | $2^32$ | 4 GB |
 
         1. automatically/transparently compresses "large" (typically >2kb) data
 
@@ -221,9 +230,11 @@ Important quotes:
         1. "Making liberal use of views is a key aspect of good SQL database design."
            
            <https://www.postgresql.org/docs/13/tutorial-views.html>
-        1. [create_view.sql](create_view.sql)
         1. a common use is to provide a denormalized interface to a normalized table
         1. by default, every view can support the `select` statement; special work is needed to support `insert`/`update` commands; for details, see: <https://arjanvandergaag.nl/blog/postgresql-updatable-views.html>
+        <!--
+        1. [create_view.sql](create_view.sql)
+        -->
 
 ### Other considerations
 
