@@ -178,7 +178,9 @@ Important quotes:
     1. advantages:
         1. allows storage of arbitrarily large variable length columns (most commonly text)
            
+           <!--
            1. one of the major advantages of postgres vs other rdbms, since they don't support arbitrarily large columns
+           -->
 
            1. there's 2 string types defined by the SQL standard: `CHAR(n)`, `VARCHAR(n)` where `n` is the length of text
 
@@ -189,9 +191,9 @@ Important quotes:
               | type | max len | size |
               | ---- | ------- | ---- |
               | TINYTEXT | $2^8$ | 256B |
-              | TEXT | $2^16$ | 65kB |
-              | MEDIUMTEXT | $2^24$ | 16 MB |
-              | LONGTEXT | $2^32$ | 4 GB |
+              | TEXT | $2^{16}$ | 65kB |
+              | MEDIUMTEXT | $2^{24}$ | 16 MB |
+              | LONGTEXT | $2^{32}$ | 4 GB |
 
         1. automatically/transparently compresses "large" (typically >2kb) data
 
@@ -207,7 +209,7 @@ Important quotes:
 
 1. database normalization:
 
-   <img src=1swabl.jpg />
+   <img src=1swabl.jpg width=400px />
 
     1. denormalization: combining information into a single relation
     1. normalization: splitting information up into multiple different relations
