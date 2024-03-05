@@ -224,23 +224,23 @@ Important quotes:
            the total data stored is the realdata+metadata, which may go up or down
 
     1. [at least 11 different "normal forms" are in use](https://en.wikipedia.org/wiki/Database_normalization#Normal_forms)
-        1. these 11 forms could be furthur divided into an arbitrary number of subcategories, and db researchers semi-regularly propose new forms
+        1. these 11 forms could be furthur divided into an arbitrary number of subcategories, and db researchers regularly propose new forms
         1. database classes often spend a lot of time covering the different forms (we're not going to)
         1. the subtle differences can be important for db implementers
         1. db practitioners basically never talk about specific db forms, usually preferring to talk about "more" or "less" normalized in informal terms
-    1. views
+    1. VIEWs
         1. "Making liberal use of views is a key aspect of good SQL database design."
            
            <https://www.postgresql.org/docs/13/tutorial-views.html>
         1. a common use is to provide a denormalized interface to a normalized table
-        1. by default, every view can support the `select` statement; special work is needed to support `insert`/`update` commands; for details, see: <https://arjanvandergaag.nl/blog/postgresql-updatable-views.html>
+        1. by default, every view can support the SELECT statement; special work is needed to support INSERT/UPDATE commands; for details, see: <https://arjanvandergaag.nl/blog/postgresql-updatable-views.html>
         <!--
         1. [create_view.sql](create_view.sql)
         -->
 
 ### Other considerations
 
-1. tools for enforcing table correctness:
+1. tools for enforcing table consistency:
     1. `NULL` / `NOT NULL`
         1. reference: https://www.postgresqltutorial.com/postgresql-not-null-constraint/
     1. `UNIQUE` constraints
@@ -258,6 +258,13 @@ Important quotes:
     1. `REFERENCES` (often called "foreign key")
         1. typically used to reference columns (usually primary keys) in another table that you want to join
         1. reference: https://www.postgresqltutorial.com/postgresql-foreign-key/
+
+    > **Lab Takeaway:**
+    > Postgres is the only DB that supports all consistency checks by default.
+    > 
+    > SQLite/MySQL can be made to enforce these constraints,
+    > but they do not enforce them by default.
+    > Older versions of SQLite/MySQL did not support any of these constraints at all.
  
 1. Entity-Relationship (ER) diagram
     1. example: the diagram from the pagila hw
@@ -266,12 +273,10 @@ Important quotes:
     1. the ending of the lines represents the type of relation
         1. <img src=ERD-Notation.PNG />
         1. reference: <https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning>
-        1. **WARNING:** Many of the ERD symbols in the pagila diagram are wrong
-        1. these endings are often wrong and I don't personally find them useful; good table/column names should make the relationship "obvious"
     1. Typical real world database: <https://anna.voelkl.at/wp-content/uploads/2016/12/ce2.1.3.png>
 
 1. common table structures
-    1. 1-1 relationships (more formally O(1) - O(1) relationships)
+    1. 1-1 relationships
         1. denormalized representation: different columns in the same table with unique constraint
             1. every film has exactly 1 title, and every title corresponds to exactly 1 film
                 ```
@@ -283,9 +288,9 @@ Important quotes:
                 );
                 ```
                 
-                **ASIDE:**
-                This `UNIQUE` constraint is probably bad business logic.
-                Movie remakes can have the same title but be different movies.
+                > **Aside:**
+                > This `UNIQUE` constraint is probably bad business logic.
+                > Movie remakes can have the same title but be different movies.
 
             1. every customer has exactly 1 name, and every name corresponds to exactly one customer
                 ```
@@ -298,16 +303,23 @@ Important quotes:
                     UNIQUE (first_name, last_name)
                 );
                 ```
-                **ASIDE:** don't store people's names as `first_name` and `last_name`: <https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/>
+
+                > **Aside:**
+                > Again, bad business logic because there are many people with the same name.
+
+                > **Aside:**
+                > It is bad practice to store people's names as `first_name` and `last_name` because most people in the world do not have first and last names: <https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/>
+
             1. every payment has either 1 or 0 payment dates (nullable column)
                 ```
                 CREATE TABLE payment (
                     payment_id SERIAL PRIMARY KEY,
                     ...
-                    payment_date NOT NULL,
+                    payment_date NULL,
                     ...
                 );
                 ```
+
         1. normalized representation: create a new table with a foreign key and unique constraint
             1. rental-payment tables
 
@@ -326,9 +338,18 @@ Important quotes:
 
                ```
 
-               notice that every payment must have a rental,
-               but not every rental must have a payment
-        1. when to use each:
+               The REFERENCES constraint on `rental_id` enforces that every payment must have a rental.
+
+               There is no corresponding REFERENCES constraint in the `rental` table,
+               so not every rental must have a payment.
+
+               The UNIQUE constraint on `rental_id` enforces that every rental has at most one payment for it.
+
+               > **Note:**
+               > The table uses `NUMERIC` to store money.
+               > This is considered best practice.
+
+        1. when to use each (IMNSHO):
             1. always prefer the denormalized representation when possible
             1. the normalized representation is slightly more powerful in that it can force us to have two columns inserted `null`/`not null` together
 
@@ -356,6 +377,7 @@ Important quotes:
                24 bytes standard overhead + 4 bytes for rental_id + 4 bytes for rental_id
                ```
                The denormalized representation + `CHECK` constraint has none of this overhead.
+
         1. IMNSHO, the pagila table is excessively normalized
             1. rental-payment should be combined
             1. film-language
@@ -363,20 +385,23 @@ Important quotes:
             1. country-city-address-customer
                 1. combine all of these into a single `address` field inside the `customer` table
 
-    1. 1-many or O(1)-O(n) relationships
-        1. denormalized representation: arrays
-            1. film-special_features
+    1. 1-many relationships
+        1. denormalized representation:
+            ```
+            CREATE TABLE film (
+                film_id SERIAL PRIMARY KEY,
+                ...
+                release_year INTEGER NOT NULL,
+                ...
+            );
+            ```
+            No UNIQIUE constraint on the column.
 
-               ```
-               CREATE TABLE film (
-                   ...
-                   special_features TEXT[],
-                   ...
-               );
-               ```
+            One film will have exactly one `release_year`,
+            but each `release_year` can correspond to many `film_id`s.
+
         1. normalized representation: create a new table with a foreign key
             1. film-inventory
-               
                ```
                CREATE TABLE film (
                    film_id SERIAL PRIMARY KEY,
@@ -390,47 +415,29 @@ Important quotes:
                    last_update TIMESTAMPTZ
                );
                ```
-            1. customer-rental
-            1. store-staff
-        1. disadvantages of the denormalized representation:
-            1. arrays not a sql standard feature
-                1. arrays not supported in MySQL/MSSQL, are supported in Oracle
-                1. many people believe you should never use arrays for this reason
-            1. can only have a single column as the many
-                1. the film-special_features split could be normalized,
-                1. no easy way to denormalize film-inventory, customer-rental, or store-staff
-            1. confusing to work with
-                1. you should always use the `unnest` function with arrays,
-                   as this is guaranteed to give asymptotically optimal performance
-                1. it is possible to index directly into an array like in standard python,
-                   but this is sometimes an O(1) operation and sometimes an O(n) operation,
-                   and it is very difficult to predict which situation you're in
-                1. see: https://heap.io/blog/engineering/dont-iterate-over-a-postgres-array-with-a-loop
-        1. advantages of the denormalized representation:
-            1. disk usage of the denormalized representation is significantly less:
-               ```
-               24 bytes overhead + (len array) * (bytes for the type)
-               ```
-               and this data can be TOASTed (i.e. compressed) when large
 
-               disk usage of the normalized representation is
-               ```
-               (number of rows)*(24 bytes overhead per row + bytes for type)
-               ```
-               this data cannot be TOASTed
-        1. personally, I use arrays (denormalization) if the following conditions are met:
-            1. only 1 column in the many (i.e. it's possible to use the denormalized form)
-            1. joins on the array will be rare
-            1. updates/deletes to entries in the array are rare
+               The lack of a UNIQUE constraint on `inventory(film_id` makes this a 1-many relationship instead of 1-1.
+
+        <!--
         1. method: enums
             1. film-rating (the rating column is restricted to be of the `mpaa_enum` type)
             1. supported in postgres, but strongly discouraged; see e.g. https://tapoueh.org/blog/2018/05/postgresql-data-types-enum/
+        -->
 
-    1. many-many or O(n)-O(n) relationships
+    1. many-many relationships
         1. think bipartite graph
 
            <img src=bipartite.png width=500px />
-        1. no good denormalized representations
+        1. denormalized representation: arrays
+            1. film-special_features
+               ```
+               CREATE TABLE film (
+                   ...
+                   special_features TEXT[],
+                   ...
+               );
+               ```
+
         1. normalized representation: create "connector tables" that represent the edges of the bipartite graph
             1. actor-film
 
@@ -454,6 +461,32 @@ Important quotes:
             1. customer-film (the join of rental and inventory acts as the connector table)
 
             <!--1. anti-pattern: category-film are given a many-many table structure, but they actually have a 1-1 relationship-->
+        1. disadvantages of the denormalized representation:
+            1. arrays not a sql standard feature
+                1. arrays not supported in MySQL/MSSQL, are supported in Oracle
+                1. many people believe you should never use arrays for this reason
+            1. can only have a single column as the many
+                1. the film-special_features split could be normalized,
+                1. no easy way to denormalize film-actor
+            1. confusing to work with
+                1. performance *footguns* that can lead to $O(n)$ runtime instead of $O(1)$
+                1. see: https://heap.io/blog/engineering/dont-iterate-over-a-postgres-array-with-a-loop
+        1. advantages of the denormalized representation:
+            1. disk usage of the denormalized representation is significantly less:
+               ```
+               24 bytes overhead + (len array) * (bytes for the type)
+               ```
+               and this data can be TOASTed (i.e. compressed) when large
+
+               disk usage of the normalized representation is
+               ```
+               (number of rows)*(24 bytes overhead per row + bytes for type)
+               ```
+               this data cannot be TOASTed
+        1. personally, I use arrays (denormalization) if the following conditions are met:
+            1. only 1 column in the many (i.e. it's possible to use the denormalized form)
+            1. joins on the array will be rare
+            1. updates/deletes to entries in the array are rare
 
     1. general graph structures
         1. no good denormalized representations
