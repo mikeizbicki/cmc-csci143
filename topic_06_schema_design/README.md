@@ -427,7 +427,7 @@ Important quotes:
     1. many-many relationships
         1. think bipartite graph
 
-           <img src=bipartite.png width=500px />
+           <img src=./bipartite.png width=500px />
         1. denormalized representation: arrays
             1. film-special_features
                ```
