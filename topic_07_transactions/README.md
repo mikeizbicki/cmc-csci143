@@ -20,12 +20,42 @@
 
     1. For writing data, this is HARD.
 
-        1. We will only scratch the surface of why it is hard in this course.
+        1. Widely considered the hardest problem in computer science.
 
             1. Concurrency is a major source of *nondeterminism*.
                 This makes reproducing bugs very difficult.
 
             1. Impossibility theorems prove that there are certain things you want to do but cannot.
+
+        1. Lots of ongoing research, very little "best practices".
+
+        1. In this course, we will only scratch the surface.
+
+1. There are many tools to manage concurrency
+
+    1. These tools usually introduced in an Operating Systems course
+
+        1. Semaphores
+        1. Barriers
+        1. Spinlocks
+        1. Mutexes
+        1. See wikipedia for more: <https://en.wikipedia.org/wiki/Synchronization_(computer_science)>
+
+    1. Because OS-level concurrency primitives are so hard to work with, modern programming languages have introduced language-specific behavior.
+        1. Common techniques include:
+            1. [callbacks](https://en.wikipedia.org/wiki/Callback_(computer_programming))
+            1. [async/await pattern](https://en.wikipedia.org/wiki/Async/await)
+            1. [coroutines](https://en.wikipedia.org/wiki/Coroutine)
+        1. In python: [asyncio module](https://docs.python.org/3/library/asyncio-sync.html)
+
+            1. Initially added in 2015 (python 3.5)
+            1. Every new version of python has been backwards incompatible
+            1. We briefly covered async programming in CSCI046.
+
+                (See the [Wardialing homework](https://github.com/mikeizbicki/wardial).)
+
+    1. We will focus on Transactions and Locks,
+        which are the tools used by databases.
 
 **Quiz Details:**
 
