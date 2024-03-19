@@ -14,7 +14,48 @@
 
 <img src=concurrency-why-did-it-have-to-be-concurrency.jpg width=400px>
 
-1. [ACID](https://en.wikipedia.org/wiki/ACID)
+1. Concurrency is when multiple programs use the database at the same time.
+
+    1. For reading data, this is "trivial".
+
+    1. For writing data, this is HARD.
+
+        1. We will only scratch the surface of why it is hard in this course.
+
+            1. Concurrency is a major source of *nondeterminism*.
+                This makes reproducing bugs very difficult.
+
+            1. Impossibility theorems prove that there are certain things you want to do but cannot.
+
+**Quiz Details:**
+
+1. Because this topic is so hard (and important),
+    there will be no homework this week.
+    You should spend all of your time preparing for the quiz, which will be worth 16 points.
+
+1. The quiz will be next week Thursday (28 Mar).
+
+1. See the files <quiz_notes.pdf> and <quiz_example.pdf>.
+
+1. We won't cover everything in class, so you'll need to use the following references:
+
+    1. <https://www.postgresql.org/docs/current/view-pg-locks.html>
+
+    1. <https://www.postgresql.org/docs/current/transaction-iso.html>
+
+       responsible for: `READ UNCOMITTED`, `READ COMMITTED`, and `REPEATABLE READ` isolation levels
+
+       not responsible for: `SERIALIZABLE` isolation level (because the differences `REPEATABLE READ` and `SERIALIZABLE` can't be realistically tested)
+
+    1. <https://www.postgresql.org/docs/current/explicit-locking.html>
+
+       responsible for: table/row-level locks, deadlocks
+       
+       not responsible for: page-level locks, advisory locks 
+
+**ACID Guarantees**
+
+1. RDBMSs are famous for their [ACID](https://en.wikipedia.org/wiki/ACID) guarantees.
 
     1. Atomicity: In a transaction involving two or more discrete pieces of information, either all of the pieces are committed or none are.
 
@@ -50,26 +91,6 @@
     Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
 
     <img src=nosql.jpeg width=500px />
-
-**Quiz Details:**
-
-1. We won't cover everything in class, so you'll need to use the references.
-
-1. References:
-
-    1. <https://www.postgresql.org/docs/current/view-pg-locks.html>
-
-    1. <https://www.postgresql.org/docs/current/transaction-iso.html>
-
-       responsible for: `READ UNCOMITTED`, `READ COMMITTED`, and `REPEATABLE READ` isolation levels
-
-       not responsible for: `SERIALIZABLE` isolation level (because the differences `REPEATABLE READ` and `SERIALIZABLE` can't be realistically tested)
-
-    1. <https://www.postgresql.org/docs/current/explicit-locking.html>
-
-       responsible for: table/row-level locks, deadlocks
-       
-       not responsible for: page-level locks, advisory locks 
 
 **Life Pro Tips:**
 
