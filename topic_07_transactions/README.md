@@ -1,10 +1,20 @@
 # Transactions and Locks
 
+## Announcements
+
+1. Midterms Graded
+
+    <img src=grades-midterm.png>
+
+    <img src=grades-overall.png>
+
+    Anser key posted to <https://github.com/mikeizbicki/csci143-midterm/blob/2024spring/sql/midterm-key.sql>.
+
+## Lecture Notes
+
 <img src=concurrency-why-did-it-have-to-be-concurrency.jpg width=400px>
 
 **Quiz Details:**
-
-1. Wednesday after spring break
 
 1. We won't cover everything in class, so you'll need to use the references.
 
@@ -23,8 +33,6 @@
        responsible for: table/row-level locks, deadlocks
        
        not responsible for: page-level locks, advisory locks 
-
-## Lecture Notes
 
 1. [ACID](https://en.wikipedia.org/wiki/ACID)
 
