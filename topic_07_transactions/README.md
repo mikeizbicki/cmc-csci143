@@ -8,7 +8,7 @@
 
     <img src=grades-overall.png width=400px>
 
-    Anser key posted to <https://github.com/mikeizbicki/csci143-midterm/blob/2024spring/sql/midterm-key.sql>.
+    Answer key posted to <https://github.com/mikeizbicki/csci143-midterm/blob/2024spring/sql/midterm-key.sql>.
 
 ## Lecture Notes
 
