@@ -4,35 +4,15 @@
 
 1. Midterms Graded
 
-    <img src=grades-midterm.png>
+    <img src=grades-midterm.png width=400px>
 
-    <img src=grades-overall.png>
+    <img src=grades-overall.png width=400px>
 
     Anser key posted to <https://github.com/mikeizbicki/csci143-midterm/blob/2024spring/sql/midterm-key.sql>.
 
 ## Lecture Notes
 
 <img src=concurrency-why-did-it-have-to-be-concurrency.jpg width=400px>
-
-**Quiz Details:**
-
-1. We won't cover everything in class, so you'll need to use the references.
-
-1. References:
-
-    1. <https://www.postgresql.org/docs/current/view-pg-locks.html>
-
-    1. <https://www.postgresql.org/docs/current/transaction-iso.html>
-
-       responsible for: `READ UNCOMITTED`, `READ COMMITTED`, and `REPEATABLE READ` isolation levels
-
-       not responsible for: `SERIALIZABLE` isolation level (because the differences `REPEATABLE READ` and `SERIALIZABLE` can't be realistically tested)
-
-    1. <https://www.postgresql.org/docs/current/explicit-locking.html>
-
-       responsible for: table/row-level locks, deadlocks
-       
-       not responsible for: page-level locks, advisory locks 
 
 1. [ACID](https://en.wikipedia.org/wiki/ACID)
 
@@ -70,6 +50,26 @@
     Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
 
     <img src=nosql.jpeg width=500px />
+
+**Quiz Details:**
+
+1. We won't cover everything in class, so you'll need to use the references.
+
+1. References:
+
+    1. <https://www.postgresql.org/docs/current/view-pg-locks.html>
+
+    1. <https://www.postgresql.org/docs/current/transaction-iso.html>
+
+       responsible for: `READ UNCOMITTED`, `READ COMMITTED`, and `REPEATABLE READ` isolation levels
+
+       not responsible for: `SERIALIZABLE` isolation level (because the differences `REPEATABLE READ` and `SERIALIZABLE` can't be realistically tested)
+
+    1. <https://www.postgresql.org/docs/current/explicit-locking.html>
+
+       responsible for: table/row-level locks, deadlocks
+       
+       not responsible for: page-level locks, advisory locks 
 
 **Life Pro Tips:**
 
