@@ -27,6 +27,7 @@
 
 \theoremstyle{definition}
 \newtheorem{problem}{Problem}
+\newtheorem{note}{Note}
 \newcommand{\E}{\mathbb E}
 \newcommand{\R}{\mathbb R}
 \DeclareMathOperator{\Var}{Var}
@@ -328,7 +329,10 @@ SELECT count(*) FROM t;
 \vspace{-0.2in}
 \end{tcolorbox}
 \vspace{0.25in}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{note}
+    From here on out, you should understand all of the examples as if any transaction was in any isolation level.
+\end{note}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
 \begin{tcolorbox}
@@ -412,7 +416,7 @@ SELECT count(*) FROM t;
 \vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+%\newpage
 \section{Explicit Locks}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -924,7 +928,7 @@ INSERT INTO t VALUES (1);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+%\newpage
 \section{Implicit Locks II: More interesting commands}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1125,7 +1129,7 @@ COMMIT;
 \vspace{0.25in}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+%\newpage
 \section{Implicit Locks III: Row Level Locks}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
