@@ -67,13 +67,16 @@
 
 1. See the files `quiz_notes.pdf` and `quiz_example.pdf`.
 
-1. We won't cover everything in class, so you'll need to use the following references:
+1. We won't cover everything in class, so you'll need to reference the postgres documentation.
+    
+    Postgres documentation is famously "excellent".
+    Part of the purpose of this class is to get you familiar with using realworld documentation.
 
     1. <https://www.postgresql.org/docs/current/transaction-iso.html>
 
        responsible for: `READ UNCOMITTED`, `READ COMMITTED`, and `REPEATABLE READ` isolation levels
 
-       not responsible for: `SERIALIZABLE` isolation level (because the differences `REPEATABLE READ` and `SERIALIZABLE` can't be realistically tested)
+       not (for this quiz) responsible for: `SERIALIZABLE` isolation level <!-- (because the differences `REPEATABLE READ` and `SERIALIZABLE` can't be realistically tested) -->
 
     1. <https://www.postgresql.org/docs/current/explicit-locking.html>
 
