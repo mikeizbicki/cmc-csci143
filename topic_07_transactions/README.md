@@ -10,6 +10,8 @@
 
     Answer key posted to <https://github.com/mikeizbicki/csci143-midterm/blob/2024spring/sql/midterm-key.sql>.
 
+1. If you're not satisfied with your grade, check out the [SQL extra credit github issue](https://github.com/mikeizbicki/cmc-csci143/issues/472).
+
 ## Lecture Notes
 
 <img src=concurrency-why-did-it-have-to-be-concurrency.jpg width=400px>
