@@ -65,11 +65,9 @@
 
 1. The quiz will be next week Thursday (28 Mar).
 
-1. See the files <quiz_notes.pdf> and <quiz_example.pdf>.
+1. See the files `quiz_notes.pdf` and `quiz_example.pdf`.
 
 1. We won't cover everything in class, so you'll need to use the following references:
-
-    1. <https://www.postgresql.org/docs/current/view-pg-locks.html>
 
     1. <https://www.postgresql.org/docs/current/transaction-iso.html>
 
@@ -82,6 +80,10 @@
        responsible for: table/row-level locks, deadlocks
        
        not responsible for: page-level locks, advisory locks 
+
+    1. <https://www.postgresql.org/docs/current/view-pg-locks.html>
+
+        this reference is useful for debugging
 
 **ACID Guarantees**
 
