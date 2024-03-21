@@ -77,7 +77,7 @@
     >
     > <img src=read-docs.png width=250px >
     
-    Postgres documentation is famously "excellent".
+    Postgres documentation is famously excellent.
     Part of the purpose of this class is to get you familiar with using realworld documentation.
 
     1. <https://www.postgresql.org/docs/current/transaction-iso.html>
