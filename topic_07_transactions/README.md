@@ -75,7 +75,7 @@
     > Part of the reason there is no homework this week is so you have time to properly learn this quiz material.
     > I strongly recommend you read (not just skim) the references.
     >
-    > <img src=read-docs.png width=400px >
+    > <img src=read-docs.png width=300px >
     
     Postgres documentation is famously "excellent".
     Part of the purpose of this class is to get you familiar with using realworld documentation.
