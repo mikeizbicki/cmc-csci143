@@ -70,6 +70,10 @@
 1. See the files `quiz_notes.pdf` and `quiz_example.pdf`.
 
 1. We won't cover everything in class, so you'll need to reference the postgres documentation.
+
+    > **NOTE:**
+    > Part of the reason there is no homework this week is so you have time to properly learn this quiz material.
+    > I strongly recommend you read (not just skim) the references.
     
     Postgres documentation is famously "excellent".
     Part of the purpose of this class is to get you familiar with using realworld documentation.
@@ -116,13 +120,13 @@
         CREATE EXTENSION pgrowlocks;
         ```
 
-    1. (optional) <https://dev.to/techschoolguru/understand-isolation-levels-read-phenomena-in-mysql-postgres-c2e>
+    The following two tutorial-style references might be more approachable:
 
-        a tutorial on how isolation levels behave in postgres
+    1. for isolation levels: <https://dev.to/techschoolguru/understand-isolation-levels-read-phenomena-in-mysql-postgres-c2e>
 
-    1. (optional) <https://postgrespro.com/blog/pgsql/5967999>
+    1. for locks: <https://postgrespro.com/blog/pgsql/5967999>
 
-        a tutorial on how locks behave in postgres 
+    1. for UNIQUE constraints and deadlocks: <https://rcoh.me/posts/postgres-unique-constraints-deadlock/>
 
 **ACID Guarantees**
 
