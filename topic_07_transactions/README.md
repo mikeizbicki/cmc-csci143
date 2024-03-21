@@ -116,6 +116,14 @@
         CREATE EXTENSION pgrowlocks;
         ```
 
+    1. (optional) <https://dev.to/techschoolguru/understand-isolation-levels-read-phenomena-in-mysql-postgres-c2e>
+
+        a tutorial on how isolation levels behave in postgres
+
+    1. (optional) <https://postgrespro.com/blog/pgsql/5967999>
+
+        a tutorial on how locks behave in postgres 
+
 **ACID Guarantees**
 
 1. RDBMSs are famous for their [ACID](https://en.wikipedia.org/wiki/ACID) guarantees.
