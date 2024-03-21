@@ -82,13 +82,39 @@
 
     1. <https://www.postgresql.org/docs/current/explicit-locking.html>
 
-       responsible for: table/row-level locks, deadlocks
+       responsible for: table-level locks, row-level locks, deadlocks
        
-       not responsible for: page-level locks, advisory locks 
+       not (for this quiz) responsible for: page-level locks, advisory locks 
 
     1. <https://www.postgresql.org/docs/current/view-pg-locks.html>
 
-        this reference is useful for debugging
+        this reference explains the following useful queries for table-level locks
+
+        ```
+        SELECT relation::REGCLASS,mode,granted,pid FROM pg_locks;
+        SELECT pg_backend_pid(); 
+        ```
+
+        they can be combined to get
+
+        ```
+        SELECT relation::REGCLASS,mode,granted,pid=pg_backend_pid() AS this_pid FROM pg_locks;
+        ```
+
+    1. <https://www.postgresql.org/docs/current/pgrowlocks.html>
+
+        this reference explains the following useful query for row-level locks
+        ```
+        SELECT *
+        FROM t, pgrowlocks('t') AS p
+        WHERE p.locked_row = t.ctid;
+        ```
+
+        note that pgrowlocks is an "extension" and you must enable that extension before you can run this query
+
+        ```
+        CREATE EXTENSION pgrowlocks;
+        ```
 
 **ACID Guarantees**
 
@@ -102,9 +128,11 @@
 
     1. Durability: Committed data is saved by the system such that, even in the event of a failure and system restart, the data is available in its correct state.
 
-1. Implementing durability is a hard CS problem that we will ignore.
-   The fact that Postgres has these properties ensures that even when hardware fails,
-   the data in the database will not be corrupted.
+        1. Implementing durability is a CS problem that combines understanding of hardware and operating systems with databases.
+            It has few DS implications, so we will not discuss it in detail.
+
+        1. The fact that Postgres (and MySQL/SQLite) has this durability properties ensures that even when hardware fails,
+           the data in the database will not be corrupted.
 
 1. NoSQL databases (e.g. MongoDB, CassandraDB, etc.) are typically not ACID compliant,
     and so the data can be corrupted.
@@ -117,18 +145,21 @@
 
     How/why *The Guardian* switched from MongoDB to Postgres: <https://www.theguardian.com/info/2018/nov/30/bye-bye-mongo-hello-postgres>
 
-1. NoSQL databases can be faster than Postgres because they do not implement ACID...
+1. NoSQL databases can be faster than RDBMSs (e.g. Postgres/MySQL/SQLite) because they do not have ACID guarantees...
     but it's possible to selectively turn off these features in Postgres in order to speed it up.
     (You almost certainly shouldn't do this in a real world scenario... but it's possible.)
 
-    Unlogged tables: https://www.compose.com/articles/faster-performance-with-unlogged-tables-in-postgresql/
+    Example is Postgres:
 
-    Disable fsync: https://www.2ndquadrant.com/en/blog/postgresql-fsync-off-warning-in-config-file/
+    1. Unlogged tables: https://www.compose.com/articles/faster-performance-with-unlogged-tables-in-postgresql/
 
-    Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
+    1. Disable fsync: https://www.2ndquadrant.com/en/blog/postgresql-fsync-off-warning-in-config-file/
+
+    1. Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
 
     <img src=nosql.jpeg width=500px />
 
+<!--
 **Life Pro Tips:**
 
 1. Wrap all of your SQL scripts in a transaction.
@@ -147,16 +178,6 @@
 
        https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/
 
-1. The following queries are useful for understanding the quiz problems:
-
-    ```
-    SELECT relation::REGCLASS,mode,granted,pid FROM pg_locks;
-    ```
-
-    ```
-    SELECT pg_backend_pid();
-    ```
-
 
 1. Avoid blocking/deadlocks in your `INSERT` code by avoiding `UNIQUE`/`FOREIGN KEY` constraints that aren't necessary
 
@@ -167,3 +188,12 @@
    <img src=you-cant-have-a-deadlock-if-you-remove-the-locks.jpg width=300px>
 
    Some data types like `UUID` are "probabilistically unique" and so don't need a constraint
+-->
+
+## Lab
+
+TBA
+
+## Homework
+
+None :)
