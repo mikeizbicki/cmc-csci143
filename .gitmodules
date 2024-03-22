@@ -69,3 +69,6 @@
 [submodule "topic_06_schema_design/lab-consistency"]
 	path = topic_06_schema_design/lab-consistency
 	url = https://github.com/mikeizbicki/lab-consistency
+[submodule "topic_07_transactions/lab-transactions"]
+	path = topic_07_transactions/lab-transactions
+	url = https://github.com/mikeizbicki/lab-transactions
