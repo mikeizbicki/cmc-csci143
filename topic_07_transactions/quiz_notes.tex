@@ -960,9 +960,13 @@ CREATE INDEX ON t(a);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
 \begin{note}
-    You are not responsible for the problem below.
-    The CREATE INDEX CONCURRENTLY command creates a lock on a ``virtualxid'', which is something that you're not responsible for.
-    I made a mistake including it in this packet.
+If you work through the procedure to check if the problem below blocks, you will see that the problem does not block.
+But if you run the problem, it will look like it blocks.
+Technically, the problem does not block anywhere,
+the command just runs for a long time.
+
+This is admittedly very confusing and not something I intended for you all to be exposed to yet.
+You can feel free to ignore this problem.
 \end{note}
 \begin{tcolorbox}
 \begin{tabular}{p{3.25in}p{3in}}
@@ -1749,6 +1753,7 @@ BEGIN;
 
 DELETE FROM t WHERE a=10;
 COMMIT;
+
 SELECT count(*) FROM t;
 \end{lstlisting}
 \end{tabular}

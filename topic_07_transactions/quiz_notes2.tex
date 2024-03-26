@@ -1,0 +1,560 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor    = blue  %Colour of citations
+}
+
+\usepackage{courier}
+\usepackage{listings}
+\lstset{numbers=left}
+\lstset{basicstyle=\ttfamily}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{note}{Note}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\trans}[1]{{#1}^{T}}
+\newcommand{\loss}{\ell}
+\newcommand{\w}{\mathbf w}
+\newcommand{\mle}[1]{\hat{#1}_{\textit{mle}}}
+\newcommand{\map}[1]{\hat{#1}_{\textit{map}}}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\x}{\mathbf x}
+\newcommand{\y}{\mathbf y}
+\newcommand{\ltwo}[1]{\lVert {#1} \rVert}
+
+\newcounter{ProblemCounter}
+\newcommand{\nextproblem}{\filbreak\stepcounter{ProblemCounter} \noindent\textbf{Problem \theProblemCounter}:}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+{
+\Large
+    More Example Problems (Transactions and Locks)
+}
+
+    \vspace{0.1in}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Implicit Locks III: Row Level}
+
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT  UNIQUE );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+BEGIN;
+DELETE FROM t WHERE a=9;
+
+
+
+INSERT INTO t VALUES (9);
+DELETE FROM t;
+
+ABORT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+UPDATE t SET a=11 WHERE a=9;
+DELETE FROM t;
+
+
+INSERT INTO t VALUES (8);
+
+INSERT INTO t VALUES (9);
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Implicit Locks IV: Unique Constraints}
+
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT  UNIQUE );
+
+BEGIN;
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+
+INSERT INTO t VALUES (8);
+
+
+
+ABORT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u ( a INT UNIQUE
+
+
+
+BEGIN;
+INSERT INTO t VALUES (8);
+
+INSERT INTO t VALUES (9);
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Isolation Levels II: Row Level}
+
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+UPDATE t SET a = a+1;
+
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+
+UPDATE t SET a = a+1;
+
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+SELECT count(*) FROM  t;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+
+
+UPDATE t SET a = a+1;
+
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN ISOLATION LEVEL
+READ COMMITTED;
+SELECT count(*) FROM  t;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+
+
+UPDATE t SET a = a+1;
+
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN ISOLATION LEVEL
+READ UNCOMMITTED;
+SELECT count(*) FROM  t;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+
+
+UPDATE t SET a = a+1;
+
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+SELECT count(*) FROM  t;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Foreign Keys (+Isolation Levels)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+BEGIN;
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+BEGIN;
+
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+\section{Foreign Keys (+Isolation Levels +Deferred Constraints)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(
+    b INT REFERENCES t(a)
+    DEFFERABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(
+    b INT REFERENCES t(a)
+    DEFFERABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(
+    a INT UNIQUE
+    DEFFERABLE INITIALLY DEFERRED
+    );
+CREATE TABLE u(b INT REFERENCES t(a));
+BEGIN;
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(
+    a INT UNIQUE
+    DEFFERABLE INITIALLY DEFERRED
+    );
+CREATE TABLE u(b INT REFERENCES t(a));
+BEGIN;
+
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+\end{document}
+
