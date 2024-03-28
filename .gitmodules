@@ -37,7 +37,7 @@
 	path = topic_06_schema_design/pagila-hw3
 	url = https://github.com/mikeizbicki/pagila-hw3
 [submodule "topic_08_SQL+Python/twitter_postgres"]
-	path = topic_08_SQL+Python/hw-twitter-postgres
+	path = topic_08_SQL_and_Python/hw-twitter-postgres
 	url = https://github.com/mikeizbicki/twitter_postgres
 [submodule "topic_11_indexes_advanced/twitter_postgres_indexes"]
 	path = future/topic_11_indexes_advanced/twitter_postgres_indexes
