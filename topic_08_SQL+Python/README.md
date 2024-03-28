@@ -19,7 +19,7 @@ Outline of end of semester:
                 - hard part is getting the data into postgres
                 - writing SQL queries/making them fast "easy"
         - Due dates:
-            - Tuesday 2 April (inserting data correctly)
+            - ~~Tuesday 2 April~~ Thursday 4 April (inserting data correctly)
             - Tuesday 9 April (inserting data faster)
             - Tuesday 16 April (querying data faster)
     - Some more labs/quizzes
