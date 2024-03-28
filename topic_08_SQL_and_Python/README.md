@@ -72,7 +72,7 @@ Outline of end of semester:
             1. _**this should TERRIFY you**_
             1. the database is the "ground truth" of you business logic... if it contains wrong data, there's nothing you can do
 
-            <img src="fk-meme.webp" width=300px />
+            <img src="topic_08_SQL_and_Python/fk-meme.webp" width=300px />
         1. for certain applications, it's much more convenient
 
     1. Insert data using the SQL `INSERT` command or `COPY` command.
@@ -185,11 +185,11 @@ Outline of end of semester:
 
        https://twitter.com/RachelTrue/status/1365461618977476610
 
-       <img src=su7tsddd0fl61.jpg width=400px />
+       <img src=topic_08_SQL_and_Python/su7tsddd0fl61.jpg width=400px />
 
        SQL injection is when those weird inputs perform malicious behavior.
 
-       <img src=exploits_of_a_mom.png />
+       <img src=topic_08_SQL_and_Python/exploits_of_a_mom.png />
 
        Examples:
 
