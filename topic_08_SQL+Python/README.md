@@ -2,124 +2,37 @@
 
 ## Announcements
 
-Everything graded:
+No lab this Friday (29 Mar) due to Cesar Chavez Day.
 
-1. Midterm grades
+Outline of end of semester:
 
-    Most people got full credit :)
+- For all students:
+    - 3 homeworks
+        - Basic idea:
+            - analyze twitter data inside postgres
+            - previously, we used shell+MapReduce
+                - "easy" to code
+                - faster than non-parallel code
+                - still slow
+            - now we will use postgres to do it
+                - run queries in milliseconds
+                - hard part is getting the data into postgres
+                - writing SQL queries/making them fast "easy"
+        - Due dates:
+            - Tuesday 2 April (inserting data correctly)
+            - Tuesday 9 April (inserting data faster)
+            - Tuesday 16 April (querying data faster)
+    - Some more labs/quizzes
 
-    -4 points for hardcoding values in Problem 3
+- For graduating students:
+    - Week of 22-26 April we will have oral 1-1 final exams
+    - Signup sheet at: <https://docs.google.com/spreadsheets/d/1axeCxjA8i8koFtmPWlzSbos108D8XAtXbGEkiU63E30/edit>
+    - One hour in length
+    - 64 points (approximately 20% of final grade)
 
-    ```
-    WITH children_actor AS(
-        SELECT actor_id
-        FROM actor
-        JOIN film_actor USING(actor_id)
-        JOIN film USING(film_id)
-        JOIN film_category USING(film_id)
-        JOIN category USING(category_id)
-        WHERE category.category_id = 3
-    ),
-
-    horror_actor AS (
-        SELECT actor_id
-        FROM actor
-        JOIN film_actor USING(actor_id)
-        JOIN film USING(film_id)
-        JOIN film_category USING(film_id)
-        JOIN category USING(category_id)
-        WHERE category.category_id = 11
-    )
-
-    SELECT DISTINCT first_name, last_name
-    FROM actor
-    WHERE actor.actor_id IN (
-        SELECT * FROM children_actor)
-    AND actor.actor_id NOT IN (
-        SELECT * FROM horror_actor)
-    ORDER BY last_name;
-    ```
-
-    Non-semantic changes to the input shouldn't affect the results.
-    See <https://raw.githubusercontent.com/mikeizbicki/pagila-midterm/2023spring/pagila/pagila-data.sql>.
-
-    **ASIDE:**
-    I consider common table expressions (CTEs) to be a "code smell"
-
-    1. Make code less readable
-        1. They can't be tested individually
-        1. They're not composable
-    1. They have historically had bad performance (although that's fixed now in postgres)
-
-    Better to use VIEW instead
-
-    ```
-    CREATE VIEW children_actor AS (
-        SELECT actor_id
-        FROM actor
-        JOIN film_actor USING(actor_id)
-        JOIN film USING(film_id)
-        JOIN film_category USING(film_id)
-        JOIN category USING(category_id)
-    );
-
-    CREATE VIEW horror_actor AS (
-        SELECT actor_id
-        FROM actor
-        JOIN film_actor USING(actor_id)
-        JOIN film USING(film_id)
-        JOIN film_category USING(film_id)
-        JOIN category USING(category_id)
-    );
-
-    SELECT DISTINCT first_name, last_name
-    FROM children_actor
-    WHERE actor_id NOT IN (SELECT actor_id FROM horror_actor)
-    ORDER BY last_name;
-    ```
-
-    In SQL:
-    - VIEWs are like "functions"
-    - CTEs are like "private functions"
-
-    Naming conventions:
-    - general to specific
-
-1. Overall grades
-
-    <img src=grades.png />
-
-    Everything is now worth double:
-    - Assignments: 32 points each
-    - Quizzes: 8 points each
-    - Final: 64 points
-
-Tentative assignment schedule:
-
-1. 28 March: SQL+Python (sequential insertion)
-
-    1. Doing the Twitter assignment, but with SQL instead of MapReduce
-    1. Harder to setup, much faster queries (>200ms), much more flexibility in queries
-
-1. 4 April: SQL+Python (parallel insertion)
-
-1. 11 April: SQL+Python (indexes)
-
-1. Baby due 18 April
-    1. 2 weeks paternity leave => no class after this
-    1. Over the paternity leave:
-        1. Some required (but fun!) videos to view
-        1. Final exam
-
-            Date will be flexible
-
-            Expect it to be much harder than the midterm
-
-            Not just write *working* SQL, but write *working+fast* SQL
-
-1. 12 May: Final project (non-graduating students only)
-
-No quiz Wednesday (Mar 22); Transactions quiz will be Wed (Mar 29).
+- For non-graduating students:
+    - You will have an additional project
+    - You will also have an oral 1-1 exam during finals week
 
 ## Lecture Notes
 
@@ -294,8 +207,10 @@ No quiz Wednesday (Mar 22); Transactions quiz will be Wed (Mar 29).
       and you violate the constraint, then don't throw an error;
       without this line, an error will be thrown in python
 
+      <!--
       > **ASIDE:**
       > You can tell that I'm not a "native" python programmer because I talk about "throwing" "errors" instead of "raising" "exceptions".
+      -->
 
    1. `RETURNING column_list` makes the `INSERT` statement behave like a `SELECT` that returns columns from the inserted rows
 
