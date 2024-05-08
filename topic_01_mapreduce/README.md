@@ -48,19 +48,19 @@ Quiz:
         1. runs on the lambda server, not your computer
 
 1. [Types of unix shells](https://www.multicians.org/shell.html)
-    1. Ken Thompson wrote the first Unix shell called the "Thompson Shell" (`sh` for short) in 1971
+    1. Ken Thompson wrote the first Unix shell, called the "Thompson Shell" (`sh` for short), in 1971
     <!--
     1. `sh` was inspired by the RUNCOM shell (`rc`), which was written in 1963
         1. `.*rc` config files were originally designed for the RUNCOM shell
         1. `.vimrc` and `.bashrc` are examples
     -->
     1. Many shells replaced the Thompson shell in the original Unix
-        1. the most famous is Stephen Bourne wrote the Bourne shell in 1979
+        1. the most famous is Stephen Bourne, who wrote the Bourne shell in 1979
            
            the Bourne shell was the default for UNIX version 7+
     1. Open Source shells:
-        1. Almquist shell (`ash`) written by Kenneth Almquist in 1980; BSD-licensed
-        1. The Bourne-Again shell (`bash`) written by Brian Fox in 1989; GPL-licensed
+        1. Almquist shell (`ash`), which was written by Kenneth Almquist in 1980; BSD-licensed
+        1. The Bourne-Again shell (`bash`), which was written by Brian Fox in 1989; GPL-licensed
 
            Bash is the GNU project's shell and by far the most popular (interactive) shell
 
@@ -71,7 +71,7 @@ Quiz:
            <img src=gnu+linux.jpg width=600px />
 
            See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
-        1. The Debian-Almquist shell (`dash`) written by Herbert Xu ini 1997; GPL-licensed
+        1. The Debian-Almquist shell (`dash`), written by Herbert Xu in 1997; GPL-licensed
 
             Dash is used on all Debian-based systems (including the lambda server) for system-wide scripts.
             it has fewer features than bash but is much faster.
@@ -79,7 +79,7 @@ Quiz:
 
     1. POSIX (= Portible Operating System Interface)
         1. All the shells above have slightly different behaviors
-        1. POSIX defines the a universal standard of minimal features that all shells must have
+        1. POSIX defines the universal standard of minimal features that all shells must have
         1. It's best to try to write POSIX-compliant scripts to ensure portability (and speed, since you can use `dash` to run the script)
         1. Lots of weird behaviors that result from needing backwards compatibilty
             1. These make programming seem easy, but actually super #?*!ing hard
