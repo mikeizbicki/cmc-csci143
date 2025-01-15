@@ -69,7 +69,7 @@ and has inspired lots of memes/comics:
 **Quiz details:**
 
 1. There will be a quiz (almost) every Thursday.
-1. No quiz this Thursday.  Your first quiz is next week on Thursday 23 Jan.
+1. No quiz this Thursday.  Your first quiz is next week on Thursday 30 Jan.
 1. There will be 4 problems that cover the material from the `practice_quiz_X.pdf` files.
 1. All quizzes are open note.
     I strongly encourage you to complete all of the practice quiz problems and take notes on the practice sheets of paper.

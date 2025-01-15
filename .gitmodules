@@ -25,22 +25,22 @@
 	#path = week_15/wardial
 	#url = https://github.com/mikeizbicki/wardial
 [submodule "topic_04_SQL_1/pagila-hw"]
-	path = topic_04_SQL_1/pagila-hw
+	path = future/topic_04_SQL_1/pagila-hw
 	url = https://github.com/mikeizbicki/pagila-hw
 [submodule "topic_04_SQL_1/sql_quiz"]
-	path = topic_04_SQL_1/sql_quiz
+	path = future/topic_04_SQL_1/sql_quiz
 	url = https://github.com/mikeizbicki/sql_quiz
 [submodule "topic_05_SQL_2/pagila_hw2"]
-	path = topic_05_SQL_2/pagila_hw2
+	path = future/topic_05_SQL_2/pagila_hw2
 	url = https://gitlab.com/mikeizbicki/pagila-hw2
 [submodule "topic_06_schema_design/pagila-hw3"]
-	path = topic_06_schema_design/pagila-hw3
+	path = future/topic_06_schema_design/pagila-hw3
 	url = https://github.com/mikeizbicki/pagila-hw3
 [submodule "topic_08_SQL+Python/twitter_postgres"]
-	path = topic_08_SQL_and_Python/hw-twitter-postgres
+	path = future/topic_08_SQL_and_Python/hw-twitter-postgres
 	url = https://github.com/mikeizbicki/twitter_postgres
 [submodule "topic_11_indexes_advanced/twitter_postgres_indexes"]
-	path = topic_11_indexes_advanced/twitter_postgres_indexes
+	path = future/topic_11_indexes_advanced/twitter_postgres_indexes
 	url = https://github.com/mikeizbicki/twitter_postgres_indexes
 [submodule "topic_00_overview/messages"]
 	path = topic_00_unix/lab-messages
@@ -52,32 +52,32 @@
 	path = topic_00_unix/lab-goodreads-part2
 	url = https://github.com/mikeizbicki/lab-goodreads2
 [submodule "topic_01_mapreduce/lab-pipes-twitter"]
-	path = topic_01_mapreduce/lab-pipes-twitter
+	path = future/topic_01_mapreduce/lab-pipes-twitter
 	url = https://github.com/mikeizbicki/lab-pipes-twitter
 [submodule "topic_01_mapreduce/twitter_coronavirus"]
-	path = topic_01_mapreduce/hw-twitter-coronavirus
+	path = future/topic_01_mapreduce/hw-twitter-coronavirus
 	url = https://github.com/mikeizbicki/twitter_coronavirus
 [submodule "topic_01_mapreduce/lab-posix-mapreduce"]
-	path = topic_01_mapreduce/lab-posix-mapreduce
+	path = future/topic_01_mapreduce/lab-posix-mapreduce
 	url = https://github.com/mikeizbicki/lab-posix-mapreduce
 [submodule "topic_02_docker/lab-networking"]
-	path = topic_02_docker/lab-networking
+	path = future/topic_02_docker/lab-networking
 	url = https://github.com/mikeizbicki/lab-networking
 [submodule "topic_05_SQL_2/lab-sqlite-joins"]
-	path = topic_05_SQL_2/lab-sqlite-joins
+	path = future/topic_05_SQL_2/lab-sqlite-joins
 	url = https://github.com/mikeizbicki/lab-sqlite-joins
 [submodule "topic_06_schema_design/lab-consistency"]
-	path = topic_06_schema_design/lab-consistency
+	path = future/topic_06_schema_design/lab-consistency
 	url = https://github.com/mikeizbicki/lab-consistency
 [submodule "topic_07_transactions/lab-transactions"]
-	path = topic_07_transactions/lab-transactions
+	path = future/topic_07_transactions/lab-transactions
 	url = https://github.com/mikeizbicki/lab-transactions
 [submodule "topic_10_indexes_btree/twitter_postgres_parallel"]
-	path = topic_10_indexes_btree/hw-twitter_postgres_parallel
+	path = future/topic_10_indexes_btree/hw-twitter_postgres_parallel
 	url = https://github.com/mikeizbicki/twitter_postgres_parallel
 [submodule "topic_10_indexes_btree/lab-diskusage"]
-	path = topic_10_indexes_btree/lab-diskusage
+	path = future/topic_10_indexes_btree/lab-diskusage
 	url = https://github.com/mikeizbicki/lab-diskusage
 [submodule "topic_10_indexes_btree/lab-indexes"]
-	path = topic_10_indexes_btree/lab-indexes
+	path = future/topic_10_indexes_btree/lab-indexes
 	url = https://github.com/mikeizbicki/lab-indexes
