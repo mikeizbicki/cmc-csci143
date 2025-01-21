@@ -1,7 +1,7 @@
 # CSCI143: Big Data
 
 <center>
-<img width='100%' src=bigdata-knows-everything.jpg />
+<img width='100%' src=img/bigdata-knows-everything.jpg />
 </center>
 
 ## About the Instructor
