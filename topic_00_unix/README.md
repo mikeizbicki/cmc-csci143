@@ -101,7 +101,7 @@ You won't be able to complete the homework, however, until you've completed all 
 1. Create a [personal access token (PAT)](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for your github account, and save the PAT to a file for future use.
     The default level of permissions is okay.
 
-1. Read and follow the instructions in [the meet and greet issue](https://github.com/mikeizbicki/cmc-csci143/issues/364).
+1. Read and follow the instructions in [the meet and greet issue](https://github.com/mikeizbicki/cmc-csci143/issues/573).
 
 <!--
     1. Finally, you will begin the `typespeed` "caveat task.
