@@ -1,6 +1,6 @@
 # Career Information
 
-<img src=img/jobs.jpg width=400px />
+<img src=img/jobs.jpg width=500px />
 
 Trends in employment:
 
