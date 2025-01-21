@@ -4,10 +4,6 @@
 <img width='100%' src=bigdata-knows-everything.jpg />
 </center>
 
-<!--
-[Career information](career.md)
--->
-
 ## About the Instructor
 
 |||
@@ -15,6 +11,8 @@
 | Name | Mike Izbicki (call me Mike) |
 | Email | mizbicki@cmc.edu |
 | Office | Adams 216 |
+| Office Hours | See [Issue #574](https://github.com/mikeizbicki/cmc-csci143/issues/574) |
+| Zoom | TBA |
 | Webpage | [izbicki.me](https://izbicki.me) |
 | Research | Machine Learning (see [izbicki.me/research.html](https://izbicki.me/research.html) for some past projects) |
 
@@ -29,9 +27,11 @@ Fun facts:
 
 ## About the Course
 
+<!--
 <center>
 <img width='100%' src=map_of_cs.png />
 </center>
+-->
 
 **What is big data?**
 
@@ -40,54 +40,23 @@ Depends entirely on the person who is talking.
 1. Most non-computer scientists (muggles) think "too big for excel"
     1. $>1000$ rows
     1. $>10$ MB
-1. Facebook considers ["tens of petabytes" to be a "SMALL data problem"](https://research.fb.com/blog/2014/10/facebook-s-top-open-data-problems/)
-1. One of the biggest problems in industry is people apply tools for "Facebook big data" to "muggle big data",
-   and a major goal of this course is to teach you why this is bad and how to avoid it
+1. Facebook considered ["tens of petabytes" to be a "SMALL data problem" in 2014](https://research.fb.com/blog/2014/10/facebook-s-top-open-data-problems/)
+    1. a major problem in industry is people apply tools for "Facebook big data" to "muggle big data"
+    1. a major goal of this course is to teach you why this is bad and how to avoid it
 1. For us, "big data" means:
-    1. too big to fit in memory
-    1. distributed computing helps a lot
     1. datasets in the 10GB-10TB range
+        1. too big to fit in memory
+        1. need $O(1)$ memory and $O(n)$ time algorithms
+        1. no pandas
     1. all the interesting/applied parts of upper division computer science compressed into a single course
-
-<!--
-We will work with the following three datasets:
-
-1. All geolocated tweets sent from 2017-today, 4 terabytes
-1. ~~The [common crawl](https://commoncrawl.org/) of the web since 2008, >1 petabyte~~
-1. ~~The [internet archive](https://archive.org/web/petabox.php), >50 petabytes as of 2014~~
-
-By the end of this course, you will build your own "google" search engine.
-You will manage a cluster of machines that work together to:
-1. download all the data from the internet
-1. extract key information from the HTML
-1. store it in a format suitable for [sub 200ms queries](https://developers.google.com/speed/docs/insights/Server)
-1. and serve the data in a webpage
-
-In order to make your search engine scalable, we will use the following technologies:
-
-1. Docker containers
-    1. used to easily deploy code to thousands of computers
-    1. requires concepts from operating systems, networks, architecture; closely related to "virtual machines"
-    1. widely used in industry, see https://stackshare.io/docker
-
-1. Databases
-    1. stores and accesses the data efficiently
-        1. application and database on same computer (SQLite, covered in CS40)
-        1. application and database on different computers (Postgres), **our focus**
-        1. database on a cluster of computers in the same datacenter (Postgres + extensions like Citus)
-        1. database on a cluster of computers spread throughout the world ([YugabyteDB](https://docs.yugabyte.com/), [CocroachDB](https://www.cockroachlabs.com/docs/stable/))
-    1. SQL to manipulate data, python to build applications
-    1. NoSQL (e.g. MongoDB, CouchDB) sucks and you should probably never use it (strongly held personal opinion)
-    1. Postgres implements full text search in 70+ languages using custom libraries I've written
-    1. Postgres widely used in industry, see https://stackshare.io/postgresql
-
-1. With these technologies, you can create a fully functioning, highly scalable web business
-    1. former CMC student Biniyam Asnake created the business [NextDorm](https://www.nextdorm.college/cmc/browse?search=politics) as his senior thesis (slightly different tech stack, but same ideas)
-
-Example search engines:
-1. Camas reddit search: https://camas.github.io/reddit-search/
-1. Have I Been Pwned? https://haveibeenpwned.com/
--->
+        1. shell scripting
+        1. mapreduce
+        1. git
+        1. continuous integration / test driven development
+        1. docker / docker-compose
+        1. (**50% of course**) SQL using sqlite3 / postgres
+        1. Instagram tech stack
+        1. large language models (LLMs)
 
 **Who should take this course?**
 
@@ -170,7 +139,7 @@ Therefore, there is a lot of material in this course that is covered in other up
 
 1. BigData concepts from a CS perspective that we will not talk about:
     1. Frameworks for distributed computation (e.g. Apache Hadoop, Apache Spark)
-    1. Distributed Filesystems (e.g. HDFS, IPFS); we will talk about S3
+    1. Distributed Filesystems (e.g. HDFS, IPFS, S3)
     1. Geo-distributed databases
 
 **Textbook:**
@@ -196,15 +165,19 @@ but I will provide more specific links each week.
 
 **Assignments:**
 
-1. Weekly labs (worth `2**1` points)
+1. Weekly labs (worth `2**1` or `2**2` or `2**3` points)
 1. Weekly quizzes (worth `2**2` or `2**3` or `2**4` points)
 1. Weekly homeworks (worth `2**3` or `2**4` or `2**5` points)
-1. 2 exams (worth `2**6` points each)
-    1. Non-graduating students will complete a final project due during finals week.
+1. No exams!
+1. Non-graduating students
+    1. will have a final project, and
+    1. will have the option of doing a mock technical interview.
 
-All assignments are explicitly designed to help you get a good job after graduation.
-They will help build your github "portfolio" and give you cool things to talk about during interviews.
-These assignments are all very practical, and not "leetcode" or "mathy".
+All assignments are designed to help you get a good job.
+1. All code, no math.
+1. You will build your github portfolio.
+1. You will do cool stuff to talk about in interviews (analyze ALL tweets about covid, build an Instagram clone).
+1. The assignments will help you with SQL technical interview questions.
 
 You will receive extra credit for pull requests to this repo or any submodule.
 
@@ -216,31 +189,11 @@ where `i` is the number of days late.
 Do not expect partial credit for incomplete assignments.
 It is much better to submit a correct assignment late than an incorrect one on time.
 
-**Grade Schedule:**
-
-Your final grade will be computed according to the following standard table,
-with the caveats described below.
-
-| If your grade satisfies          | then you earn |
-| -------------------------------- | ------------- |
-| 95 &le; grade                    | A             |
-| 90 &le; grade < 95               | A-            |
-| 87 &le; grade < 90               | B+            |
-| 83 &le; grade < 87               | B             |
-| 80 &le; grade < 83               | B-            |
-| 77 &le; grade < 80               | C+            |
-| 73 &le; grade < 77               | C             |
-| 70 &le; grade < 73               | C-            |
-| 67 &le; grade < 70               | D+            |
-| 63 &le; grade < 67               | D             |
-| 60 &le; grade < 63               | D-            |
-| 60 > grade                       | F             |
-
 **Caveats:**
 
 There are 2 "caveat tasks" in this course.
 These tasks should be easy, and everyone will get full credit on the task just for completing the task.
-If you don't complete one of the tasks, however, your grade (from the table above) will be docked 10%.
+If you don't complete one of the tasks, however, your grade will be docked 10%.
 (For example, an A- grade would become a B- grade.) 
 You have the entire semester (until I submit grades) to complete these tasks.
 
@@ -297,18 +250,6 @@ If you need any further accommodations, please ask.
 I want you to succeed and I'll make every effort to ensure that you can.
 
 <!--
-## Meta
-
-1. CMC's intro programming sequence 
-
-1. This course is designed to get you a good job
-
-1. Second time this course is being offered
-
-    1. I want to add about 50% new material
-
-    1. I'm adding about 25% new material
-
 # topic change
 Need to cover TTY vs non-TTY stdin/stdout in the first 2 weeks of class on bash.
 
