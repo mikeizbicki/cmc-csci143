@@ -173,7 +173,7 @@ but I will provide more specific links each week.
     1. will have a final project, and
     1. will have the option of doing a mock technical interview.
 
-All assignments are designed to help you get a good job.
+All assignments are designed to help you get a good job.  (See [career.md](career.md).)
 1. All code, no math.
 1. You will build your github portfolio.
 1. You will do cool stuff to talk about in interviews (analyze ALL tweets about covid, build an Instagram clone).
