@@ -61,8 +61,11 @@ and has inspired lots of memes/comics:
 1. [bash](https://files.fosswire.com/2007/08/fwunixref.pdf)
 1. [vim](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf)
 1. [git](https://education.github.com/git-cheat-sheet-education.pdf)
+
+<!--
 1. [github pull requests](img/pull_request.png)
 1. [sql](img/SQL_Basics_For_Data_Science.pdf)
+-->
 
 **Quiz details:**
 
