@@ -209,7 +209,7 @@ You can find the details about the caveat tasks at:
 
 1. You MUST complete all programming assignments on the lambda server.
 
-1. You MUST use either vim or emacs for all text editing.
+1. You MUST use either Vim or Emacs for all text editing.
 
    In particular, you MAY NOT use the GitHub text editor, VSCode, IDLE, or PyCharm for any reason.
 

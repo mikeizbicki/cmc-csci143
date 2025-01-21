@@ -399,9 +399,9 @@ This is a slightly more complicated "hello world" than you did last week that in
     1. the `Dockerfile` for flask contains the command `RUN pip install --upgrade pip`.
        why is this bad?
 
-1. vim copy/paste doesn't work because your clipboard is different from the server's clipboard;
+1. Vim copy/paste doesn't work because your clipboard is different from the server's clipboard;
    need to use the terminal's pasting features;
-   in vim `:set paste`
+   in Vim `:set paste`
    (linux systems have 2 clipboards, the `*` and `+`)
 
 1. docker compose version numbers are wrong in the tutorial; change 3.7 -> 3.3
