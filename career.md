@@ -28,11 +28,22 @@ Salaries:
 
 1. <https://www.levels.fyi/>
 
+    Focus on top-tier/FAANG companies.
+    Salaries slightly high due to reporting bias.
+
+    Example salaries:
+
     1. [data scientist](https://www.levels.fyi/t/data-scientist?countryId=254)
     1. [software engineer](https://www.levels.fyi/t/software-engineer?countryId=254)
         1. [devops](https://www.levels.fyi/Salaries/Software-Engineer/DevOps/)
         1. [site reliability engineer](https://www.levels.fyi/t/software-engineer/title/site-reliability-engineer?country=254)
         1. [distributed systems engineer](https://www.levels.fyi/Salaries/Software-Engineer/Distributed-Systems/)
+
+1. BLS data:
+
+    <https://www.bls.gov/ooh/math/data-scientists.htm>
+
+    <https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm>
 
 1. Also great benefits
 
