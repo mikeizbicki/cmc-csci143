@@ -46,10 +46,10 @@
 	path = topic_00_unix/lab0-messages
 	url = https://github.com/mikeizbicki/messages
 [submodule "topic_00_overview/lab-goodreads"]
-	path = topic_00_unix/lab-goodreads-part1
+	path = topic_00_unix/lab1-goodreads-part1
 	url = https://github.com/mikeizbicki/lab-goodreads
 [submodule "topic_00_unix/lab-goodreads2"]
-	path = topic_00_unix/lab-goodreads-part2
+	path = topic_00_unix/lab2-goodreads-part2
 	url = https://github.com/mikeizbicki/lab-goodreads2
 [submodule "topic_01_mapreduce/lab-pipes-twitter"]
 	path = future/topic_01_mapreduce/lab-pipes-twitter
