@@ -8,7 +8,6 @@
 
 ## Lecture Notes
 
-<!--
 **Expected Background Knowledge:**
 
 General knowledge:
@@ -28,7 +27,6 @@ SQL knowledge:
 If you're not confident in all of this material, that's okay.
 We will spend the first 2 weeks reviewing.
 We will also see how SQL relates to python/shell/git. 
--->
 
 **Working Environment:**
 
@@ -70,7 +68,10 @@ and has inspired lots of memes/comics:
 
 1. There will be a quiz (almost) every Thursday.
 1. No quiz this Thursday.  Your first quiz is next week on Thursday 30 Jan.
-1. There will be 4 problems that cover the material from the `practice_quiz_X.pdf` files.
+1. The quiz will cover:
+    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic00_redirection.pdf>
+    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic01_variables.pdf>
+    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic02_environment_variables.pdf>
 1. All quizzes are open note.
     I strongly encourage you to complete all of the practice quiz problems and take notes on the practice sheets of paper.
 
@@ -78,7 +79,7 @@ and has inspired lots of memes/comics:
 
 **Due Date:**
 
-Labs are always due at 11:55pm on the Sunday of the week that they are assigned (i.e. January 21 at 11:55pm for this lab).
+Labs are always due at 11:55pm on the Sunday of the week that they are assigned (i.e. January 26 at 11:55pm for this lab).
 
 *For this lab only:*
 There will be no late penalty if you miss the due date, but please be reasonable.
@@ -102,6 +103,21 @@ You won't be able to complete the homework, however, until you've completed all 
     The default level of permissions is okay.
 
 1. Read and follow the instructions in [the meet and greet issue](https://github.com/mikeizbicki/cmc-csci143/issues/573).
+
+1. Log in to the lambda server and run the command
+   ```
+   $ vimtutor
+   ```
+   Complete all instructions in order to learn vim.
+   This should take 30-60 minutes.
+
+   1. (optional) There is a videogame-style tutorial for vim at <https://vim-adventures.com/> that you might find more enjoyable.
+        You are welcome to complete that videogame instead.
+        The first three levels are free, but then you must pay $25 for the full game.
+
+1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/lambda-server.md) to update your lambda server account's settings.
+
+1. Follow [these instructions](https://github.com/mikeizbicki/lab-llm) to get a nice terminal interface to LLMs on the lambda server.
 
 <!--
     1. Finally, you will begin the `typespeed` "caveat task.
@@ -129,9 +145,6 @@ You won't be able to complete the homework, however, until you've completed all 
     1. [Ken Thompson and Dennis Ritchie Explain UNIX](https://www.youtube.com/watch?v=JoVQTPbD6UY)
     1. (optional) [Where GREP Came From - Computerphile](https://www.youtube.com/watch?v=NTfOnGZUZDk)
     1. (optional) [vim vs emacs: the oldest rivalry in computing](https://slate.com/technology/2014/05/oldest-software-rivalry-emacs-and-vi-two-text-editors-used-by-programmers.html)
-
-    1. (optional) Corey Schafer's [Git Tutorial for Beginners: Command-Line Fundamentals](https://www.youtube.com/watch?v=HVsySz-h9r4).
-       Corey is a really famous youtuber for programming tutorials, and you can watch his other videos too if you need more background.
        -->
        
 **Instructions:**
@@ -151,7 +164,7 @@ This week there are two labs:
 
 **Due Date:**
 
-Homeworks are always due at 11:55pm on the Tuesday of the week after they are assigned (i.e. Jan 23 at 11:55pm for this homework).
+Homeworks are always due at 11:55pm on the Tuesday of the week after they are assigned (i.e. Jan 28 at 11:55pm for this homework).
 
 *For this hw only:*
 I will not apply late a late penalty.
@@ -162,21 +175,16 @@ You will not be able to complete the homework for this week unless you know how 
 I recommend everyone complete the following tasks,
 even if you already feel comfortable with these tools.
 
-1. Log in to the lambda server and run the command
-   ```
-   $ vimtutor
-   ```
-   Complete all instructions in order to learn vim.
-   This should take 30-60 minutes.
-
 1. Complete the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md).
 
-1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/lambda-server.md) to update your lambda server account's settings.
-
 1. Complete the [github pull request tutorial](https://github.com/mikeizbicki/pullrequest-tutorial)
+
+If you like youtube tutorials, I recommend Corey Schafer's [Git Tutorial for Beginners: Command-Line Fundamentals](https://www.youtube.com/watch?v=HVsySz-h9r4).
+Corey is a famous youtuber for programming tutorials, and you can watch his other videos too if you need more background.
 
 **Instructions:**
 
 Like labs, homeworks will be posted into a submodule each week.
 This week's homework will teach you how to use continuous integration,
 and prepare you to submit all future assignments.
+You can find the homework at <https://github.com/mikeizbicki/continuous-integration>.
