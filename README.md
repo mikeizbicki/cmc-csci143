@@ -12,7 +12,7 @@
 | Email | mizbicki@cmc.edu |
 | Office | Adams 216 |
 | Office Hours | See [Issue #574](https://github.com/mikeizbicki/cmc-csci143/issues/574) |
-| Zoom | TBA |
+| Zoom | See [Issue #576](https://github.com/mikeizbicki/cmc-csci143/issues/576) |
 | Webpage | [izbicki.me](https://izbicki.me) |
 | Research | Machine Learning (see [izbicki.me/research.html](https://izbicki.me/research.html) for some past projects) |
 
