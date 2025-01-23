@@ -36,14 +36,14 @@ The lambda server has:
 1. 80 processors
 1. 8 GPU
 1. 256 GB RAM
-1. 2 TB NVME
-1. 50 TB RAID array of 16 HDDs
+1. 2 TB NVME mounted on `/` (you have 10GB of space)
+1. 50 TB RAID array of 16 HDDs mounted on `/data` (you have 250GB of space)
 
 We will use docker and docker-compose to manage our own "virtual cloud infrastructure" from the lambda server.
 
 <img src=img/map_of_cs.png width=600px>
 
-All text editing must be done in vim.
+All text editing must be done in Vim.
 We will encounter many instances in this class where more familiar tools like VSCode and Jupyter Notebooks will not work.
 
 Vim is famous for having a steep learning curve,
