@@ -36,14 +36,14 @@ The lambda server has:
 1. 80 processors
 1. 8 GPU
 1. 256 GB RAM
-1. 2 TB NVME
-1. 50 TB RAID array of 16 HDDs
+1. 2 TB NVME mounted on `/` (you have 10GB of space)
+1. 50 TB RAID array of 16 HDDs mounted on `/data` (you have 250GB of space)
 
 We will use docker and docker-compose to manage our own "virtual cloud infrastructure" from the lambda server.
 
 <img src=img/map_of_cs.png width=600px>
 
-All text editing must be done in vim.
+All text editing must be done in Vim.
 We will encounter many instances in this class where more familiar tools like VSCode and Jupyter Notebooks will not work.
 
 Vim is famous for having a steep learning curve,
@@ -59,7 +59,7 @@ and has inspired lots of memes/comics:
 **Cheat sheets:**
 
 1. [bash](https://files.fosswire.com/2007/08/fwunixref.pdf)
-1. [vim](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf)
+1. [Vim](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf)
 1. [git](https://education.github.com/git-cheat-sheet-education.pdf)
 
 <!--
@@ -111,10 +111,10 @@ You won't be able to complete the homework, however, until you've completed all 
    ```
    $ vimtutor
    ```
-   Complete all instructions in order to learn vim.
+   Complete all instructions in order to learn Vim.
    This should take 30-60 minutes.
 
-   1. (optional) There is a videogame-style tutorial for vim at <https://vim-adventures.com/> that you might find more enjoyable.
+   1. (optional) There is a videogame-style tutorial for Vim at <https://vim-adventures.com/> that you might find more enjoyable.
         You are welcome to complete that videogame instead.
         The first three levels are free, but then you must pay $25 for the full game.
 
@@ -147,7 +147,7 @@ You won't be able to complete the homework, however, until you've completed all 
 
     1. [Ken Thompson and Dennis Ritchie Explain UNIX](https://www.youtube.com/watch?v=JoVQTPbD6UY)
     1. (optional) [Where GREP Came From - Computerphile](https://www.youtube.com/watch?v=NTfOnGZUZDk)
-    1. (optional) [vim vs emacs: the oldest rivalry in computing](https://slate.com/technology/2014/05/oldest-software-rivalry-emacs-and-vi-two-text-editors-used-by-programmers.html)
+    1. (optional) [Vim vs Emacs: the oldest rivalry in computing](https://slate.com/technology/2014/05/oldest-software-rivalry-emacs-and-vi-two-text-editors-used-by-programmers.html)
        -->
        
 **Instructions:**
@@ -156,7 +156,7 @@ If you don't yet have access to the lambda server,
 let me know and we'll get that resolved.
 
 Labs will generally be posted as [git submodules](https://www.atlassian.com/git/tutorials/git-submodule) in each topic folder.
-This week there are two labs:
+This week there are three submodules:
 
 1. First, visit the [lab-messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
 
@@ -174,7 +174,7 @@ I will not apply late a late penalty.
 
 **Background Work:**
 
-You will not be able to complete the homework for this week unless you know how to use vim and git.
+You will not be able to complete the homework for this week unless you know how to use Vim and git.
 I recommend everyone complete the following tasks,
 even if you already feel comfortable with these tools.
 

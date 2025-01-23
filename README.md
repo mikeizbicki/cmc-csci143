@@ -12,7 +12,7 @@
 | Email | mizbicki@cmc.edu |
 | Office | Adams 216 |
 | Office Hours | See [Issue #574](https://github.com/mikeizbicki/cmc-csci143/issues/574) |
-| Zoom | TBA |
+| Zoom | See [Issue #576](https://github.com/mikeizbicki/cmc-csci143/issues/576) |
 | Webpage | [izbicki.me](https://izbicki.me) |
 | Research | Machine Learning (see [izbicki.me/research.html](https://izbicki.me/research.html) for some past projects) |
 
@@ -179,7 +179,7 @@ All assignments are designed to help you get a good job.  (See [career.md](caree
 1. You will do cool stuff to talk about in interviews (analyze ALL tweets about covid, build an Instagram clone).
 1. The assignments will help you with SQL technical interview questions.
 
-You will receive extra credit for pull requests to this repo or any submodule.
+See <https://github.com/mikeizbicki/cmc-csci143/issues/577> for extra credit opportunities.
 
 **Late Work Policy:**
 
@@ -209,7 +209,7 @@ You can find the details about the caveat tasks at:
 
 1. You MUST complete all programming assignments on the lambda server.
 
-1. You MUST use either vim or emacs for all text editing.
+1. You MUST use either Vim or Emacs for all text editing.
 
    In particular, you MAY NOT use the GitHub text editor, VSCode, IDLE, or PyCharm for any reason.
 

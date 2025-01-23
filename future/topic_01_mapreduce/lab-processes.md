@@ -65,7 +65,7 @@ $ chmod a+w /home/username/script.sh
 ```
 again, where `username` is replaced by their real username.
 Now you have write permission on the file,
-and you can edit it in vim.
+and you can edit it in Vim.
 
 **TASK:**
 Change the permissions of your home folder so that other users cannot read the contents of your files.
@@ -208,7 +208,7 @@ but no output is being printed to the screen.
 > (`output` can be replaced with any filename you'd like, and is just an example filename.)
 
 After waiting a few seconds, press `^C` to end the program.
-Now open the `output` file in vim
+Now open the `output` file in Vim
 ```
 $ vim output
 ```
@@ -225,10 +225,10 @@ $ bg
 to run it in the background.
 Now, the `output` file is being continually written to.
 To verify this:
-open the file in vim;
+open the file in Vim;
 check how many lines have been written;
 close the file;
-reopen the file in vim;
+reopen the file in Vim;
 now there should be more lines in the file.
 
 Alternatively, the command `wc -l` shows how many lines are in a file.
