@@ -179,7 +179,7 @@ All assignments are designed to help you get a good job.  (See [career.md](caree
 1. You will do cool stuff to talk about in interviews (analyze ALL tweets about covid, build an Instagram clone).
 1. The assignments will help you with SQL technical interview questions.
 
-You will receive extra credit for pull requests to this repo or any submodule.
+See <https://github.com/mikeizbicki/cmc-csci143/issues/577> for extra credit opportunities.
 
 **Late Work Policy:**
 
