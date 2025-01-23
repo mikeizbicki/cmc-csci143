@@ -156,7 +156,7 @@ If you don't yet have access to the lambda server,
 let me know and we'll get that resolved.
 
 Labs will generally be posted as [git submodules](https://www.atlassian.com/git/tutorials/git-submodule) in each topic folder.
-This week there are two labs:
+This week there are three submodules:
 
 1. First, visit the [lab-messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
 
