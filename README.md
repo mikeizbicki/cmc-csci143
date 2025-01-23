@@ -9,7 +9,7 @@
 |||
 |-|-|
 | Name | Mike Izbicki (call me Mike) |
-| Email | mizbicki@cmc.edu |
+| Email | ~~mizbicki@cmc.edu~~ You probably should [post an issue](https://github.com/mikeizbicki/cmc-csci143/issues) instead of emailing. |
 | Office | Adams 216 |
 | Office Hours | See [Issue #574](https://github.com/mikeizbicki/cmc-csci143/issues/574) |
 | Zoom | See [Issue #576](https://github.com/mikeizbicki/cmc-csci143/issues/576) |
