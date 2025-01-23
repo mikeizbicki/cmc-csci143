@@ -168,7 +168,7 @@ The lab is posted in the [lab-posix-mapreduce submodule](https://github.com/mike
         (It's okay if you don't feel confident in these commands at this point.
         I expect most of the class would benefit from redoing the tutorial.)
 
-1. Spend at least 20 minutes reviewing how to use vim effectively.
+1. Spend at least 20 minutes reviewing how to use Vim effectively.
     You can either:
     
     1. re-do the vimtutor tutorial from last pre-lab, or
@@ -196,7 +196,7 @@ The lab is posted in the [lab-posix-mapreduce submodule](https://github.com/mike
        > **HINT:**
        > Use the `unzip` command to extract the contents of the zip archive;
        > you will have to read the man page in order to figure out the correct option to get the output printed on stdout.
-       > (Use the command `man unzip` to open the manpage, then type the forward slash key `/` to search; `/` is also used the hotkey for searching in vim, firefox, and other open source programs.)
+       > (Use the command `man unzip` to open the manpage, then type the forward slash key `/` to search; `/` is also used the hotkey for searching in Vim, firefox, and other open source programs.)
        > Use the `tr 'A-Z' 'a-z'` command to translate all characters into lowercase.
        > Use `grep` to extract only the lines containing `coronavirus`.
        > Use `wc` to count the number of lines.
