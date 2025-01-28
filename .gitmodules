@@ -52,7 +52,7 @@
 	path = topic_00_unix/lab2-goodreads-part2
 	url = https://github.com/mikeizbicki/lab-goodreads2
 [submodule "topic_01_mapreduce/lab-pipes-twitter"]
-	path = topic_01_mapreduce/lab-pipes-twitter
+	path = topic_01_mapreduce/prelab0-pipes-twitter
 	url = https://github.com/mikeizbicki/lab-pipes-twitter
 [submodule "topic_01_mapreduce/twitter_coronavirus"]
 	path = topic_01_mapreduce/hw-twitter-coronavirus
@@ -85,5 +85,5 @@
 	path = topic_00_unix/prelab-llm
 	url = https://github.com/mikeizbicki/lab-llm
 [submodule "future/topic_01_mapreduce/lab-processes"]
-	path = topic_01_mapreduce/lab-processes
+	path = topic_01_mapreduce/prelab1-processes
 	url = https://github.com/mikeizbicki/lab-processes
