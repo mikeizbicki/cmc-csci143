@@ -1,32 +1,26 @@
 # MapReduce (via shell scripting)
 
-<img src=LinuxAdmin.jpg width=600px />
+<img src=img/LinuxAdmin.jpg width=600px />
 
-**Announcements (Tuesday 2023-01-23)**
+**Announcements (Tuesday 2025-01-28)**
 
-Labs graded:
-1. lab-goodreads-part1
-    1. (-1) not providing queries
-    1. (-1) screenshot instead of copy/paste
-
-1. lab-goodreads-part2
-    1. (-1) something weird about your command
-
-For unsubmitted work:
-1. 0 entered in sakai
-1. Your grade will be updated when you submit
+Labs:
+1. "Due" last night.
+1. 28/38 submitted.
+1. 10 non-submitted students:
+    1. No late penalty, but be reasonable.
+    1. Reach out if you need help.
 
 Homework:
 1. Due tonight (but no late penalty)
-1. I won't be covering in class how to use git / submit pull requests.
+1. I won't be covering in class how to submit pull requests.
 1. If you'd like a review, see the Spring 2023 CS46 class recording: <https://www.youtube.com/watch?v=M9qT9fOBuIA&t=1460s>.
 
     (Video starts with a short conversation about grades, then uses a pull request to change how grading is done.)
-1. Lots of mentors at the QCL who can provide help.
 
 Quiz:
 1. This Thursday
-1. 4 problems from POSIX 1 ~~and 4 problems from POSIX 2~~
+1. 4 problems from Shell Topics 00-02
 1. 10 minutes during class
 1. I will be in the classroom 10-20 minutes before class
 <!--
@@ -54,38 +48,37 @@ Quiz:
         1. `.*rc` config files were originally designed for the RUNCOM shell
         1. `.vimrc` and `.bashrc` are examples
     -->
-    1. Many shells replaced the Thompson shell in the original Unix
-        1. the most famous is Stephen Bourne, who wrote the Bourne shell in 1979
-           
-           the Bourne shell was the default for UNIX version 7+
-    1. Open Source shells:
-        1. Almquist shell (`ash`), which was written by Kenneth Almquist in 1980; BSD-licensed
-        1. The Bourne-Again shell (`bash`), which was written by Brian Fox in 1989; GPL-licensed
+    1. Many newer shells
+        1. The Bourne shell (named after author Stephen Bourne) became the standard in UNIX in 1979
+        1. Open Source shells:
+            1. Almquist shell (`ash`), which was written by Kenneth Almquist in 1980; BSD-licensed
+            1. The Bourne-Again shell (`bash`), which was written by Brian Fox in 1989; GPL-licensed
 
-           Bash is the GNU project's shell and by far the most popular (interactive) shell
+               Bash is the GNU project's shell and by far the most popular (interactive) shell
 
-           <!--
-           and therefore people often (incorrectly) say they are writing a "bash" script when they are writing a generic "POSIX" script
-           -->
+               <!--
+               and therefore people often (incorrectly) say they are writing a "bash" script when they are writing a generic "POSIX" script
+               -->
 
-           <img src=gnu+linux.jpg width=600px />
+               <img src=img/gnu+linux.jpg width=600px />
 
-           See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
-        1. The Debian-Almquist shell (`dash`), written by Herbert Xu in 1997; GPL-licensed
+               See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
+            1. The Debian-Almquist shell (`dash`), written by Herbert Xu in 1997; GPL-licensed
 
-            Dash is used on all Debian-based systems (including the lambda server) for system-wide scripts.
-            it has fewer features than bash but is much faster.
-        1. Z shell (`zsh`) is the default on Mac; BSD-licensed
+                Dash is used on all Debian-based systems (including the lambda server, which runs Ubuntu) for system-wide scripts.
+                It has fewer features than bash but is much faster.
+            1. Z shell (`zsh`) is the default on Mac; BSD-licensed
 
     1. POSIX (= Portible Operating System Interface)
         1. All the shells above have slightly different behaviors
         1. POSIX defines the universal standard of minimal features that all shells must have
         1. It's best to try to write POSIX-compliant scripts to ensure portability (and speed, since you can use `dash` to run the script)
         1. Lots of weird behaviors that result from needing backwards compatibilty
-            1. These make programming seem easy, but actually super #?*!ing hard
-               <img src=bash-meme.jpg width=600px />
-            1. Your quiz will scratch the surface of these hard edge cases
+            1. These make programming hard tasks easy, but easy tasks super &?*!ing hard
+
+               <img src=img/bash-meme.jpg width=600px />
             <!--
+            1. Your quiz will scratch the surface of these hard edge cases
             1. (optional) for detailed examples, see https://dwheeler.com/essays/fixing-unix-linux-filenames.html
             -->
     1. Non-POSIX shells 
@@ -152,73 +145,51 @@ Quiz:
 
 ## Lab
 
-**Background:**
+**Prelab Tasks:**
 
-Complete the following two lab assignments from CSCI46: [lab-pipes-twitter](https://github.com/mikeizbicki/lab-pipes-twitter) and [lab-processes](./lab-processes.md).
-These labs have submission instructions, but there is nothing to submit for this class.
+1. Spend at least 20 minutes reviewing how to use Vim effectively.
+    You can either:
+    
+    1. redo the `vimtutor` tutorial from last pre-lab, or
+    2. try the more interactive tutorial at <https://www.openvim.com/>.
+
+    > **Warning:**
+    > It will be tempting to skip this task.
+    > But recall that you will be using Vim throughout the semester.
+    > That's 10 hours/week times 15 weeks = 150 hours.
+    > If you actually learn how to use the tool,
+    > then the rest of the semester will be much more pleasant for you.
+
+1. If you don't feel 100% confident in the git terminal commands,
+    then redo [CSCSI046's git+unix tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md) that was assigned for last week's homework.
+
+    (It's okay if you don't feel confident in these commands at this point.
+    I expect most of the class would benefit from redoing the tutorial.)
+
+1. Complete the following two lab assignments from CSCI046.
+    Both labs have tasks you will have to submit on sakai.
+
+    1. [lab-pipes-twitter](https://github.com/mikeizbicki/lab-pipes-twitter)
+    1. [lab-processes](https://github.com/mikeizbicki/lab-processes).
+
+    > **Note:**
+    > If you took CSCI046 with me, then you've already completed these labs.
+    > You are still required to complete them again.
 
 **Instructions:**
 
 The lab is posted in the [lab-posix-mapreduce submodule](https://github.com/mikeizbicki/lab-posix-mapreduce).
 
-<!--
-    1. If you don't feel 100% confident in the git terminal commands,
-        then re-do the git+unix tutorial from last week.
-
-        (It's okay if you don't feel confident in these commands at this point.
-        I expect most of the class would benefit from redoing the tutorial.)
-
-1. Spend at least 20 minutes reviewing how to use Vim effectively.
-    You can either:
-    
-    1. re-do the vimtutor tutorial from last pre-lab, or
-    2. try the more interactive tutorial at <https://www.openvim.com/>.
-
-**Instructions:**
-
-1. Complete the [shell scripting and parallel programming tutorial](processes.md)
-
-1. For each of the tasks below, write a POSIX-compliant one line shell command that completes the task.
-    Upload both the command and your result to sakai.
-    The command should be able to run from any directory,
-    and so should use absolute and not relative paths.
-
-    1. Count the total number of days in the geolocated tweets dataset.
-       The dataset is located in the folder `/data/Twitter dataset` and has
-
-    1. Count the number of geolocated tweets sent on 2020-12-25 that contain the word "coronavirus".
-       The file `/data/Twitter dataset/geoTwitter20-12-25.zip` contains all geolocated tweets sent on that day,
-       and you should be able to count tweets that write the word "coronavirus" with any capitalization.
-       (For example, you should include both `coronavirus` and `cOrOnAvIrUs`.)
-
-       My command took 51 seconds to run, and I got 3143 tweets.
-       
-       > **HINT:**
-       > Use the `unzip` command to extract the contents of the zip archive;
-       > you will have to read the man page in order to figure out the correct option to get the output printed on stdout.
-       > (Use the command `man unzip` to open the manpage, then type the forward slash key `/` to search; `/` is also used the hotkey for searching in Vim, firefox, and other open source programs.)
-       > Use the `tr 'A-Z' 'a-z'` command to translate all characters into lowercase.
-       > Use `grep` to extract only the lines containing `coronavirus`.
-       > Use `wc` to count the number of lines.
--->
-
 ## Homework
 
+TBA
+<!--
 The homework is posted in the [hw-twitter-mapreduce](https://github.com/mikeizbicki/twitter_coronavirus) git submodule.
 
-**If you took CSCI046 with me:**
-You do not need to recomplete this assignment.
-Submit `I completed this assignment in CS46` to sakai.
-The assignment will not count towards your grade.
-
 **Modified Due Date:**
-Tuesday, 13 February.
+Tuesday, 18 February.
 
 You have 3 weeks to complete the assignment due to potentially long computation times.
 You should get started early.
 There will be no extensions if your code does not finish in time.
-<!--
-You should start the [twitter MapReduce](./homework) homework.
-Because this homework can potentially take a very long time to run,
-this homework has a modified due date schedule.
 -->
