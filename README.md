@@ -217,29 +217,7 @@ You can find the details about the caveat tasks at:
 
 **Collaboration Policy**
 
-1. There are no restrictions on what you can post to GitHub Issues.
-    In particular, you are highly encouraged to post detailed questions/answers/comments with lots of code.
-
-1. You are highly encouraged to collaborate with students
-
-    1. in class/lab,
-
-    1. in the QCL,
-
-    1. and in office hours.
-
-    I trust you all to be reasonable and ensure that collaboration is beneficial for your learning and not mere copying work.
-
-1. You MAY NOT collaborate with students in any other context.
-
-1. You MAY NOT look at another student's code on github.
-
-    All projects are developed as open source projects,
-    and so the code is published openly online.
-    The benefits of this model include:
-    (1) you actually learn how to develop/contribute to open source projects;
-    (2) future employers see you have github activity.
-    Please do not abuse this privilege.
+See <https://github.com/mikeizbicki/cmc-csci143/issues/592>.
 
 ## Accommodations
 

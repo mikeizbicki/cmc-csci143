@@ -4,6 +4,10 @@
 
 **Announcements (Tuesday 2025-01-28)**
 
+Issues:
+1. Overall great use of github issues :)
+1. Do not post issues to submodules (i.e. repos that are not the main class repo)
+
 Labs:
 1. "Due" last night.
 1. 28/38 submitted.
@@ -20,7 +24,7 @@ Homework:
 
 Quiz:
 1. This Thursday
-1. 4 problems from Shell Topics 00-02
+1. 4 problems from Shell Topics 00-02.
 1. 10 minutes during class
 1. I will be in the classroom 10-20 minutes before class
 <!--
@@ -29,6 +33,23 @@ Quiz:
     1. CS46 POSIX 2 Lecture (part 1): <https://www.youtube.com/watch?v=4BkIoN_8-cE&t=2420s>
     1. CS46 POSIX 2 Lecture (part 2): <https://www.youtube.com/watch?v=zjCJU5CrvZs&t=3m40s>
 -->
+
+**Announcements (Thursday 2025-01-30)**
+
+Grades:
+1. All grades updated in sakai.
+1. I have entered 0 for unsubmitted hw/labs.
+
+    Once you submit, I will regrade without a penalty.
+
+This week assignments:
+1. Lab no penalty for late submission this week.
+    But to qualify, you must email me before the due date explaining why you didn't finish in time and what you'll do differently in the future.
+1. Homework not yet posted.  (We will continue working on this topic next week.)
+
+Quiz:
+1. Next week covers Shell topics 03-05
+1. Future quizzes will not have as much material
 
 ## Lecture Notes
 
