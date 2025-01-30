@@ -49,7 +49,9 @@ This week assignments:
 
 Quiz:
 1. Next week covers Shell topics 03-05
-1. Future quizzes will not have as much material
+1. Will have 4 review problems + 4 new problems
+1. Option to retake this week's quiz (new problems) with no penalty.  You will keep whatever grade you get on the retake.
+1. Future notes packets will not have as much material
 
 ## Lecture Notes
 
