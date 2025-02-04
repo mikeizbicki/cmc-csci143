@@ -165,9 +165,9 @@ but I will provide more specific links each week.
 
 **Assignments:**
 
-1. Weekly labs (worth `2**1` or `2**2` or `2**3` points)
+1. Weekly labs (worth `2**1` or `2**2` or `2**3` points, due Monday)
 1. Weekly quizzes (worth `2**2` or `2**3` or `2**4` points)
-1. Weekly homeworks (worth `2**3` or `2**4` or `2**5` points)
+1. Weekly homeworks (worth `2**3` or `2**4` or `2**5` points, due Wednesday)
 1. No exams!
 1. Non-graduating students
     1. will have a final project, and
