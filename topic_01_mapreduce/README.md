@@ -108,24 +108,22 @@ Quiz:
         1. runs on the lambda server, not your computer
 
 1. [Types of unix shells](https://www.multicians.org/shell.html)
-    1. Ken Thompson wrote the first Unix shell, called the "Thompson Shell" (`sh` for short), in 1971
+    1. [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson) wrote the first Unix shell, called the "Thompson Shell" (`sh` for short), in 1971
 
         <img src=img/Ken_Thompson_and_Dennis_Ritchie--1973.jpg width=400px />
 
-    1. `sh` was inspired by the RUNCOM shell (`rc`), which was written in 1963
+    1. `sh` was inspired by RUNCOM (short for *run commands*, also abbreviated as `rc`), which was written in 1963
         1. `.*rc` config files were originally designed for the RUNCOM shell
         1. `.vimrc` and `.bashrc` are examples
     1. Many newer shells
         1. The Bourne shell (named after author Stephen Bourne) became the standard in UNIX in 1979
         1. Open Source shells:
             1. Almquist shell (`ash`), which was written by Kenneth Almquist in 1980; BSD-licensed
-            1. The Bourne-Again shell (`bash`), which was written by Brian Fox in 1989; GPL-licensed
+            1. The Bourne-Again shell (`bash`), which was written by [Brian Fox](https://en.wikipedia.org/wiki/Brian_Fox_(programmer)) in 1989; GPL-licensed
 
                 <img src=img/330px-BrianJFox.png width=240px />
 
                 Bash is the GNU project's shell and by far the most popular (interactive) shell
-
-                and therefore people often (incorrectly) say they are writing a "bash" script when they are writing a generic "POSIX" script
 
                 <img src=img/gnu+linux.jpg width=600px />
 
