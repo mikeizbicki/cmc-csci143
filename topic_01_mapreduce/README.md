@@ -48,10 +48,51 @@ This week assignments:
 1. Homework not yet posted.  (We will continue working on this topic next week.)
 
 Quiz:
-1. Next week covers Shell topics 03-05
+1. Next week covers Shell topics 03, 04, ~~05~~
 1. Will have 4 review problems + 4 new problems
 1. Option to retake this week's quiz (new problems) with no penalty.  You will keep whatever grade you get on the retake.
 1. Future notes packets will not have as much material
+
+**Announcements (Tuesday 2025-02-04)**
+
+1. Everything updated in sakai.
+
+    Overall grades:
+
+    <img src=img/grades.png />
+
+    Quiz grades:
+
+    <img src=img/grades-quiz.png />
+
+1. Many people received zeros on submitted assignments.
+    1. You may fix the mistake and resubmit for full credit.
+    1. Check sakai to see if this applies to you.
+
+1. Too many people taking advantage of the no late penalty policy.
+
+    | Assignment                            | Submissions Received |
+    | ------------------------------------- | ----- |
+    | topic01 lab: posix-mapreduce          | 24/37 |
+    | topic01 prelab: processes             | 31/37 |
+    | topic01 prelab: pipes-twitter         | 31/37 |
+    | topic00 lab: goodreads2               | 34/37 |
+    | topic00 lab: goodreads1               | 35/37 |
+    | topic00 hw: continuous-integration    | 33/37 |
+
+    1. Later portions of this course assume perfect understanding of the topic00/topic01 review material.
+
+    1. Grace period ends this Sunday (9 Feb).
+        Any submissions received after this time period will receive late penalties.
+
+1. As a cohort, you all are behind previous iterations of this class.
+
+   Course modifications:
+    1. We'll be spending another week on review material.
+        (A new lab will be posted below later this week.)
+    1. Quiz Thursday will cover Shell Topics 03 and 04 only (not 05).
+    1. I've hired a TA for this class (Ainslee Archibald).
+        Expect an announcement about her availability soon.
 
 ## Lecture Notes
 
@@ -66,26 +107,28 @@ Quiz:
 
 1. [Types of unix shells](https://www.multicians.org/shell.html)
     1. Ken Thompson wrote the first Unix shell, called the "Thompson Shell" (`sh` for short), in 1971
-    <!--
+
+        <img src=img/Ken_Thompson_and_Dennis_Ritchie--1973.jpg width=400px />
+
     1. `sh` was inspired by the RUNCOM shell (`rc`), which was written in 1963
         1. `.*rc` config files were originally designed for the RUNCOM shell
         1. `.vimrc` and `.bashrc` are examples
-    -->
     1. Many newer shells
         1. The Bourne shell (named after author Stephen Bourne) became the standard in UNIX in 1979
         1. Open Source shells:
             1. Almquist shell (`ash`), which was written by Kenneth Almquist in 1980; BSD-licensed
             1. The Bourne-Again shell (`bash`), which was written by Brian Fox in 1989; GPL-licensed
 
-               Bash is the GNU project's shell and by far the most popular (interactive) shell
+                <img src=img/330px-BrianJFox.png />
 
-               <!--
-               and therefore people often (incorrectly) say they are writing a "bash" script when they are writing a generic "POSIX" script
-               -->
+                Bash is the GNU project's shell and by far the most popular (interactive) shell
 
-               <img src=img/gnu+linux.jpg width=600px />
+                and therefore people often (incorrectly) say they are writing a "bash" script when they are writing a generic "POSIX" script
 
-               See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
+                <img src=img/gnu+linux.jpg width=600px />
+
+                See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
+
             1. The Debian-Almquist shell (`dash`), written by Herbert Xu in 1997; GPL-licensed
 
                 Dash is used on all Debian-based systems (including the lambda server, which runs Ubuntu) for system-wide scripts.
@@ -108,6 +151,10 @@ Quiz:
         1. Fix POSIX problems, but not backwards compatible, so not popular
         1. The [friendly interactive shell](https://github.com/fish-shell/fish-shell) (`fish`)
         1. The [OIL Shell](https://www.oilshell.org/)
+
+        1. Non-POSIX shells are not [Lindy](https://en.wikipedia.org/wiki/Lindy_effect)
+
+            > The Lindy effect proposes the longer a period something has survived to exist or be used in the present, the longer its remaining life expectancy.
 
 
 1. Parallel programming
@@ -166,7 +213,7 @@ Quiz:
     1. port forwarding lets you redirect connections from one computer to another ([optional reference](https://www.ssh.com/ssh/tunneling/example))
 -->
 
-## Lab
+## Lab (31 Jan)
 
 **Prelab Tasks:**
 
@@ -202,6 +249,10 @@ Quiz:
 **Instructions:**
 
 The lab is posted in the [lab-posix-mapreduce submodule](https://github.com/mikeizbicki/lab-posix-mapreduce).
+
+## Lab (7 Feb)
+
+TBA
 
 ## Homework
 
