@@ -121,7 +121,7 @@ Quiz:
             1. Almquist shell (`ash`), which was written by Kenneth Almquist in 1980; BSD-licensed
             1. The Bourne-Again shell (`bash`), which was written by Brian Fox in 1989; GPL-licensed
 
-                <img src=img/330px-BrianJFox.png />
+                <img src=img/330px-BrianJFox.png width=240px />
 
                 Bash is the GNU project's shell and by far the most popular (interactive) shell
 
