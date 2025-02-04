@@ -80,6 +80,8 @@ Quiz:
     | topic00 lab: goodreads1               | 35/37 |
     | topic00 hw: continuous-integration    | 33/37 |
 
+    1. It's bad to fall behind in this course.
+
     1. Later portions of this course assume perfect understanding of the topic00/topic01 review material.
 
     1. Grace period ends this Sunday (9 Feb).
