@@ -59,11 +59,11 @@ Quiz:
 
     Overall grades:
 
-    <img src=img/grades.png width=200px />
+    <img src=img/grades.png width=250px />
 
     Quiz grades:
 
-    <img src=img/grades-quiz.png width=200px />
+    <img src=img/grades-quiz.png width=250px />
 
 1. Many people received zeros on submitted assignments.
     1. You may fix the mistake and resubmit for full credit.
