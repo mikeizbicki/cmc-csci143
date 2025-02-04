@@ -93,6 +93,8 @@ Quiz:
     1. We'll be spending another week on review material.
         (A new lab will be posted below later this week.)
     1. Quiz Thursday will cover Shell Topics 03 and 04 only (not 05).
+
+        Recall that you can retake the first quiz during this same time period.
     1. I've hired a TA for this class (Ainslee Archibald).
         Expect an announcement about her availability soon.
 
