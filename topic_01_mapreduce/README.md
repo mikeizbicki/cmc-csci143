@@ -258,14 +258,16 @@ TBA
 
 ## Homework
 
-TBA
-<!--
 The homework is posted in the [hw-twitter-mapreduce](https://github.com/mikeizbicki/twitter_coronavirus) git submodule.
 
 **Modified Due Date:**
-Tuesday, 18 February.
+Tuesday, 25 February.
 
 You have 3 weeks to complete the assignment due to potentially long computation times.
 You should get started early.
 There will be no extensions if your code does not finish in time.
--->
+
+> **Students who took CS46 with me:**
+> You completed this assignment in CS46.
+> You are required to  re-run the assignment with a different set of hashtags and a different time frame.
+> You should select hashtags and a time frame that is interesting for some reason.
