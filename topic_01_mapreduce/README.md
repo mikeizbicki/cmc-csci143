@@ -254,7 +254,7 @@ The lab is posted in the [lab-posix-mapreduce submodule](https://github.com/mike
 
 ## Lab (7 Feb)
 
-See [lab2-productivity](https://github.com/mikeizbicki/lab2-productivity).
+See [lab2-productivity](https://github.com/mikeizbicki/lab-productivity).
 
 ## Homework
 
