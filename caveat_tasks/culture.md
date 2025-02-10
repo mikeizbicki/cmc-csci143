@@ -8,7 +8,7 @@ According to [wikipedia](https://en.wikipedia.org/wiki/Hacker_culture),
 > Hacker Culture is a subculture of individuals who enjoy the intellectual challenge of creatively overcoming the limitations of software systems to achieve novel and clever outcomes.
 
 The purpose of this assignment is to ~~brainwash you into the hacker cult~~ introduce you to this hacker culture.
-It will also help you pass the [culture fit test](https://www.linkedin.com/advice/0/what-best-ways-demonstrate-company-culture-fit-during-zcjbe) in CS job interviews.
+It will also help you pass the [culture fit test](https://web.archive.org/web/20180920214042/https://triplebyte.com/blog/what-companies-mean-by-culture-fit) in CS job interviews.
 
 ## Task
 
