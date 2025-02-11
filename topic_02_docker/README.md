@@ -1,7 +1,7 @@
 
 <img src=img/containers_2x.png width=400px />
 
-**Announcements (Tuesday):**
+**Announcements (Tuesday 2025-02-11):**
 
 1. Grades are updated.
 
@@ -17,11 +17,11 @@
 
     1. Quiz topics 03/04
 
-        <img src=img/grades-quiz.png />
+        <img src=img/grades-quiz.png width=300px />
 
     1. Overall grades
 
-        <img src=img/grades-overall.png />
+        <img src=img/grades-overall.png width=300px />
 
         Currently 27 points total.
         Expect 200-300 points by end of semester.
@@ -31,7 +31,15 @@
 
     1. Quiz this Thursday on shell Topics 05 (glob) and 06 (git)
 
-1. Before class Thursday, complete [prelab tasks](#lab)
+        1. Electrongic copies available at <https://github.com/mikeizbicki/quiz/tree/master/quiz_shell>.
+        1. If you don't feel 100% confident in git, I recommend recompleting [the unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md) 
+            1. The answers to all git quiz questions are explained there
+            1. The git quiz focuses on branching/merging, not pushing/pulling
+
+                (so not github, only git)
+
+1. New concept (Docker)
+    1. Before class Thursday, complete [prelab tasks](#lab) to install it
 
 ## Lecture Notes
 
@@ -52,11 +60,11 @@
 
            <br/>
            <br/>
-           <img src=img/works-on-my-machine2.jpeg width=400px />
+           <img src=img/works-on-my-machine2.jpeg width=300px />
            <br/>
            <br/>
 
-           <img src=img/works-on-my-machine.jpeg width=400px />
+           <img src=img/works-on-my-machine.jpeg width=300px />
 
     1. Hard to learn
         1. Lots of different concepts that all work together
