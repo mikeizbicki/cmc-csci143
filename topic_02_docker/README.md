@@ -9,13 +9,11 @@
 
         12 submissions
 
-        4 students lost 1 point
+        4 students lost 1 point :(
 
-        4 students gained 1 point
+        4 students gained >1 point :)
 
-        1 student gained 4 points!
-
-        3 students same grade
+        4 students same grade
 
     1. Quiz topics 03/04
 
@@ -30,6 +28,10 @@
 
         If you submitted something something and I marked it wrong,
         you have until Thursday to resubmit for full credit.
+
+    1. Quiz this Thursday on shell Topics 05 (glob) and 06 (git)
+
+1. Before class Thursday, complete [prelab tasks](#lab)
 
 ## Lecture Notes
 
