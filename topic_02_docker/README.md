@@ -31,7 +31,7 @@
 
     1. Quiz this Thursday on shell Topics 05 (glob) and 06 (git)
 
-        1. Electrongic copies available at <https://github.com/mikeizbicki/quiz/tree/master/quiz_shell>.
+        1. Electronic copies available at <https://github.com/mikeizbicki/quiz/tree/master/quiz_shell>.
         1. If you don't feel 100% confident in git, I recommend recompleting [the unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md) 
             1. The answers to all git quiz questions are explained there
             1. The git quiz focuses on branching/merging, not pushing/pulling
