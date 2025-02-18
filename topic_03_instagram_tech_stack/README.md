@@ -2,13 +2,14 @@
 
 ## Announcements
 
+<!--
 1. homework update
 
     lots of problems with the tutorial?
    
     (it was intentional... muahaha...)
 
-    <img src='Strip-Le-déploiement-english650-final.jpg' width=400px />
+    <img src='img/Strip-Le-déploiement-english650-final.jpg' width=400px />
 
     We will cover why these problems happened in class today.
 
@@ -25,9 +26,6 @@
         1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
         1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
         1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
-        <!--
-        1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
-        -->
     1. Semantic Versioning (<https://semver.org>) partially fixes these problems
 
         There is no general solution
@@ -54,12 +52,16 @@
     1. this week's assignment is still a "copy+paste" assignment
     1. but it has a lot more sharp edges where things can go wrong
     1. expect to spend ~10x the amount of time on this assignment as last assignment
+-->
+        <!--
+        1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
+        -->
 
 ## Lecture
 
 1. We're still setting up our "working environment" this week
 
-   <a href=https://dilbert.com/strip/2017-01-02><img width=600px src=dt170102.gif /></a>
+   <a href=https://dilbert.com/strip/2017-01-02><img width=600px src=img/dt170102.gif /></a>
 
     1. the "boring" / "old" technologies are the most useful
         1. [choose boring technology](https://news.ycombinator.com/item?id=20323246)
@@ -115,7 +117,7 @@
             1. 25 django
             1. 1 pg\_bouncer
             1. 12 postgres
-        1. <img width=100% src=webapp.png />
+        1. <img width=100% src=img/webapp.png />
         1. services
             1. nginx
                 1. technically a "reverse proxy" https://www.nginx.com/resources/glossary/reverse-proxy-server/
@@ -183,7 +185,7 @@
 
 1. More docker containers
 
-    <a href=https://xkcd.com/1988/><img width=600px src=containers_2x.png /></a>
+    <a href=https://xkcd.com/1988/><img width=600px src=img/containers_2x.png /></a>
 
     1. docker-compose
 
@@ -207,23 +209,36 @@
 
            other tools (docker swarm/kubernetes) are more powerful declarative systems
 
-           <img src=galaxy-brain.jpg width=400px />
+           <img src=img/galaxy-brain.jpg width=400px />
 
-        1. It's a python program.
-           First, you need to make sure that your `PATH` is setup to allow `pip` to install programs.
-           Run the following commands:
-           ```
-           $ which pip3
-           $ pip3 install pip --upgrade
-           $ which pip3
-           /home/user/.local/bin/pip3
-           ```
-           Assuming you get output similar to the above, you can now install the program:
-           ```
-           $ pip3 install docker-compose
-           $ which docker-compose
-           /home/user/.local/bin/docker-compose
-           ```
+        1. `docker-compose` used to be a standalone program (written in python)
+
+            It has now been integrated directly into `docker` (written in golang)
+
+            This means that wherever you see `docker-compose` in a tutorial, you should substitute `docker compose` without a space
+
+            See the docker documentation for migration details: <https://docs.docker.com/compose/releases/migrate/>
+
+            <img src=img/5589031.jpg />
+
+           <!--
+           > **Note:**
+           > It's a python program.
+           > First, you need to make sure that your `PATH` is setup to allow `pip` to install programs.
+           > Run the following commands:
+           > ```
+           > $ which pip3
+           > $ pip3 install pip --upgrade
+           > $ which pip3
+           > /home/user/.local/bin/pip3
+           > ```
+           > Assuming you get output similar to the above, you can now install the program:
+           > ```
+           > $ pip3 install docker-compose
+           > $ which docker-compose
+           > /home/user/.local/bin/docker-compose
+           > ```
+           -->
 
         1. important commands
             1. `docker-compose build`: builds the container
