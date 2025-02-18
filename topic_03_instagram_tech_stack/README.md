@@ -6,9 +6,13 @@
 
     <img width=400px src=img/quiz_grades.png />
 
+1. new shell extra credit: <https://github.com/mikeizbicki/cmc-csci143/issues/577#issuecomment-2666359945>
+
 1. review quiz this Thursday
 
     1. 8 problems, 2 points / problem = 16 points total
+
+    1. last shell quiz (for now); start SQL next week
 
     1. expect problems that:
         1. lots of people missed on previous quizzes
@@ -16,35 +20,39 @@
 
 1. homework update
 
-    lots of problems with the tutorial?
-   
-    (it was intentional... muahaha...)
+    1. collaboration policy update: <https://github.com/mikeizbicki/cmc-csci143/issues/592#issuecomment-2666337562>
 
-    <img src='img/Strip-Le-déploiement-english650-final.jpg' width=400px />
+    1. docker not working:
+        
+        see: <https://github.com/mikeizbicki/cmc-csci143/issues/626>
 
-    We will cover why these problems happened in class today.
+    1. other problems with the tutorial:
 
-    1. If you've already submitted, and you realize today you made a mistake, you may resubmit without penalty by emailing me.
+        <img src='img/Strip-Le-déploiement-english650-final.jpg' width=400px />
 
-    Takeaway:
+        We will cover why these problems happened in class today.
 
-    1. getting versions right is HARD
+        1. If you've already submitted, and you realize today you made a mistake, you may resubmit without penalty by emailing me.
 
-    1. the best solution we have is hard-coding the versions
+        Takeaway:
 
-    1. but this leaves you open to security vulnerabilities:
+        1. getting versions right is HARD
 
-        1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
-        1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
-        1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
-    1. Semantic Versioning (<https://semver.org>) partially fixes these problems
+        1. the best solution we have is hard-coding the versions
 
-        There is no general solution
+        1. but this leaves you open to security vulnerabilities:
 
-        Some job titles that deal with these problems:
-        1. devops: <https://www.levels.fyi/t/software-engineer/focus/devops?countryId=254&country=254>
-        1. site reliability engineer (SRE): <https://www.levels.fyi/t/software-engineer/title/site-reliability-engineer?country=254>
-        1. backend software engineer: <https://www.levels.fyi/t/software-engineer/title/backend-software-engineer?country=254>
+            1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
+            1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
+            1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
+        1. Semantic Versioning (<https://semver.org>) partially fixes these problems
+
+            There is no general solution
+
+            Some job titles that deal with these problems:
+            1. devops: <https://www.levels.fyi/t/software-engineer/focus/devops?countryId=254&country=254>
+            1. site reliability engineer (SRE): <https://www.levels.fyi/t/software-engineer/title/site-reliability-engineer?country=254>
+            1. backend software engineer: <https://www.levels.fyi/t/software-engineer/title/backend-software-engineer?country=254>
 
     1.  How HW relates to career:
 
