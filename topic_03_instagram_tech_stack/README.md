@@ -2,7 +2,18 @@
 
 ## Announcements
 
-<!--
+1. quiz grades
+
+    <img width=400px src=img/quiz_grades.png />
+
+1. review quiz this Thursday
+
+    1. 8 problems, 2 points / problem = 16 points total
+
+    1. expect problems that:
+        1. lots of people missed on previous quizzes
+        1. will help you with docker
+
 1. homework update
 
     lots of problems with the tutorial?
@@ -30,11 +41,12 @@
 
         There is no general solution
 
-        "DevOps" is the job title that deals with these problems
+        Some job titles that deal with these problems:
+        1. devops: <https://www.levels.fyi/t/software-engineer/focus/devops?countryId=254&country=254>
+        1. site reliability engineer (SRE): <https://www.levels.fyi/t/software-engineer/title/site-reliability-engineer?country=254>
+        1. backend software engineer: <https://www.levels.fyi/t/software-engineer/title/backend-software-engineer?country=254>
 
     1.  How HW relates to career:
-
-        See the [career.md file in the root folder](../career.md)
 
         SWE/DevOps constantly "shit on" data scientists for not understanding infra
 
