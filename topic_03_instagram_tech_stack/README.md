@@ -176,7 +176,9 @@
                         1. We'll talk about how ASGI relates to multiprocessing in the non-seniors only portion of the class
             1. [gunicorn webserver](https://gunicorn.org/)
                 1. Converts a WSGI application into an actual web service that people can connect to
-                1. Handles multiple requests simultaneously and in parallel (using the `fork` syscall)
+                1. Handles multiple requests simultaneously and in parallel
+                    1. Uses processes (cannot use threads because of Python's GIL)
+                    1. Processes managed by python instead of the shell => More room for bugs
                 1. Much more efficient than flask's built-in web server
                 1. Runs in the same container as flask
 
