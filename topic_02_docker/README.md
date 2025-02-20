@@ -26,7 +26,7 @@
         Currently 27 points total.
         Expect 200-300 points by end of semester.
 
-        If you submitted something something and I marked it wrong,
+        If you submitted something and I marked it wrong,
         you have until Thursday to resubmit for full credit.
 
     1. Quiz this Thursday on shell Topics 05 (glob) and 06 (git)
