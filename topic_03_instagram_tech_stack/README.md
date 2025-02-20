@@ -77,6 +77,10 @@
         1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
         -->
 
+1. Bad use of the glob deleted Toy Story 2
+
+    <https://thenextweb.com/news/how-pixars-toy-story-2-was-deleted-twice-once-by-technology-and-again-for-its-own-good>
+
 ## Lecture
 
 1. We're still setting up our "working environment" this week
