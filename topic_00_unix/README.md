@@ -170,7 +170,7 @@ This week there are three submodules:
 Homeworks are always due at 11:55pm on the Tuesday of the week after they are assigned (i.e. Jan 28 at 11:55pm for this homework).
 
 *For this hw only:*
-I will not apply late a late penalty.
+I will not apply a late penalty.
 
 **Background Work:**
 
