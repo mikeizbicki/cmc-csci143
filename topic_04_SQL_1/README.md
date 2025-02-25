@@ -65,6 +65,8 @@ Relational DataBase Management Systems (RDBMSs):
     1. Graph databases
         1. Use SparQL instead of SQL
         1. Have (rare, but real) use cases that RDBMSes not a good fit for
+            1. Example: [SparQL tutorial for querying wikidata](https://www.wikidata.org/wiki/Wikidata:SPARQL_tutorial)
+            1. But ongoing work is extending postgres to support even these use cases: <https://github.com/lacanoid/pgsparql>
 
 1. Comparison of main RDBMSs:
     1. <http://howfuckedismydatabase.com/>
@@ -97,8 +99,11 @@ What you must know for the homework/quizzes
 
 1. `JOIN`
     1. section 3 of <https://www.postgresqltutorial.com/>
-    1. for this quiz/homework, you will only need inner joins; next homework will need all types of joins
-    1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/
+    1. for this quiz/homework, you will only need cross/inner joins
+    1. we will cover other join types later
+    <!--
+    1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: <https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/>
+    -->
     1. joins memes
 
        <!--
@@ -107,18 +112,22 @@ What you must know for the homework/quizzes
 
        <img src=img/cmcqtycmbmg51.jpg width=350px />
 
+<!--
 References:
 1. cheatsheets
     1. https://postgresql-backup.com/postgresql-blog/wp-content/uploads/2016/06/PostgreSQL-Cheat-Sheet_-String-Functions.pdf
     1. https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-Cheat-Sheet.pdf
-
 1. psql command reference: https://www.postgresqltutorial.com/psql-commands/
+-->
 
 ## Lab
 
+TBA
+<!--
 There will be no separate lab assignment this week.
 During lab time, I will complete several problems in class for everyone to follow along with,
 and ensure that everyone has a "sane" working environment for the homework.
+-->
 
 ## Homework
 
