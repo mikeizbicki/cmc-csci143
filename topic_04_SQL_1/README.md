@@ -1,6 +1,8 @@
 # Topic 04: Basic SQL
 
-## Announcements
+<img src=img/sql-meme.png width=350px>
+
+**Announcements**
 
 1. Due (nominally) tonight @ midnight:
     1. twitter coronavirus
