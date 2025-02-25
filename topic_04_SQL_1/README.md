@@ -2,33 +2,25 @@
 
 ## Announcements
 
-1. Due tonight @ midnight:
-    1. twitter coronavirus  (25/46 submitted)
-    1. flask-on-docker      (13/46 submitted)
-
-    Additional office hours today from 12pm-1pm.
+1. Due (nominally) tonight @ midnight:
+    1. twitter coronavirus
+    1. flask-on-docker
 
 1. Recall:
-    1. ```
-       late penalty = 2**(# days late - 1)
-       ```
+    1. late penalty = `2**(# days late - 1)`
     1. Very little partial credit awarded.
         Usually better to submit correct work late than incorrect work on time.
 
 1. No quiz this week :)
 
 1. Outline of the rest of the class:
-    1. 4 weeks: how to make SQL correct
+    1. ~~4 weeks~~ 3 weeks: how to make SQL correct
         - most important section of the course
             - covers the SQL material commonly found in data science technical interviews
         - material much more straightforward
             - no integration of many concepts which have only loosely been covered in class
             - no fighting weird error messages
             - the purpose of covering docker was so that we could introduce PostgreSQL
-        - midterm (SQL only, no docker)
-            - takehome exam (maybe Mar 7-11, maybe Mar 14-25)
-            - designed to take < 1 hour
-            - scores usually very good
     1. 6 weeks: how to make SQL fast
 
 ## Lecture
@@ -37,18 +29,19 @@ Relational DataBase Management Systems (RDBMSs):
 
 1. It doesn't matter what the problem is, a database is the solution
 
-   <img src=dilbert2.jpeg width=80% />
+   <img src=img/dilbert2.jpeg width=400px />
 
 1. Structured Query Language (SQL) is the language for accessing the database
     1. Most "real programmers" pronounce it like "sequel" not "es-cue-el"
 
-        <img src=dilbert.gif width=80% />
+        <img src=img/dilbert.gif width=400px />
     
         Why?
         1. Programmers are lazy; "sequel" is 2 syllables and "es-cue-el" is 3
         1. SQL was originally SEQUEL (Structured English Query Language), but shortened due to trademark reasons
             1. You can find the official ANSI SQL standards and history at <https://blog.ansi.org/2018/10/sql-standard-iso-iec-9075-2016-ansi-x3-135/>
             1. Invented in the 70s (just like the POSIX-shell), and so has lots of weird warts for backwards-compatibility reasons
+
     1. Comparison to other languages:
         1. Imperative languages (e.g. Python/Shell) specify **how** to compute 
         1. Declarative languages (e.g. SQL) specify **what** to compute.
@@ -68,8 +61,10 @@ Relational DataBase Management Systems (RDBMSs):
     1. NoSQL databases (MongoDB, CassandraDB, etc.)
         1. No standard language for accessing them
         1. No guarantees that the data will actually be in the database
+        1. SQL databases like Postgres support a strict superset of features
     1. Graph databases
         1. Use SparQL instead of SQL
+        1. Have (rare, but real) use cases that RDBMSes not a good fit for
 
 1. Comparison of main RDBMSs:
     1. <http://howfuckedismydatabase.com/>
@@ -79,15 +74,21 @@ Relational DataBase Management Systems (RDBMSs):
         1. otherwise, use postgresql
     1. [Even Microsoft uses Postgres instead of SQLServer for large scale database needs](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/architecting-petabyte-scale-analytics-by-scaling-out-postgres-on/ba-p/969685)
 
+    1. [A quote from Richard Hipp (author of sqlite)](https://sqlite.org/forum/forumpost/2d2720461b82f2fd) in a discussion about alternatives to SQL syntax:
+
+        > **My goal is to keep SQLite relevant and viable through the year 2050.** That's a long time from now. If I knew that standard SQL was not going to change any between now and then, I'd go ahead and make non-standard extensions that allowed for FROM-clause-first queries, as that seems like a useful extension. The problem is that standard SQL will not remain static. Probably some future version of "standard SQL" will support some kind of FROM-clause-first query format. I need to ensure that whatever SQLite supports will be compatible with the standard, whenever it drops. And the only way to do that is to support nothing until after the standard appears.
+        >
+        > ...
+        >
+        > **I'll probably take my cue from PostgreSQL.** If PostgreSQL adds support for FROM-clause-first queries, then I'll do the same with SQLite, copying the PostgreSQL syntax. Until then, I'm afraid you are stuck with only traditional SELECT-first queries in SQLite.
+
 <!--
 Important stories:
 
 1. Junior dev given API keys and deletes the database: https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/
 -->
 
-What you must know for the homework/midterm
-
-1. midterm questions will be the sorts of SQL questions found in data science technical interviews
+What you must know for the homework/quizzes
 
 1. `SELECT`
     1. sections 1,2,4 of <https://www.postgresqltutorial.com/>
@@ -101,22 +102,10 @@ What you must know for the homework/midterm
     1. joins memes
 
        <!--
-       <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg /></a>
+       <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=img/joins.jpg /></a>
        -->
 
-       <img src=cmcqtycmbmg51.jpg width=600px />
-
-1. weird syntax
-    1. whitespace doesn't matter, every command must end in a semicolon
-    1. case insensitive
-    1. `'` is for quoting literals, `"` is for quoting table/column names
-    1. escape quotes by doubling them, not a backslash `'isn''t'` not `'isn\'t'`
-    1. dollar sign quotes
-        1. `$$this is a quote$$` is equivalent to `'this is a quote'`
-        1. useful to avoid having to escape quotes in complex strings: you can write `$$isn't$$` instead of `'isn''t'`
-        1. you can "name" the quotation marker: `$blah$isn't$blah$` instead of `$$isn't$$`
-    1. concatenate strings with `||` not `+`
-
+       <img src=img/cmcqtycmbmg51.jpg width=350px />
 
 References:
 1. cheatsheets
