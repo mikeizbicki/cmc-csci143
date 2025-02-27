@@ -2,7 +2,7 @@
 
 <img src=img/sql-meme.png width=350px>
 
-**Announcements**
+**Announcements (Tuesday 25 Feb)**
 
 1. Due (nominally) tonight @ midnight:
     1. twitter coronavirus
@@ -24,6 +24,22 @@
             - no fighting weird error messages
             - the purpose of covering docker was so that we could introduce PostgreSQL
     1. 6 weeks: how to make SQL fast
+
+**Announcements (Tuesday 27 Feb)**
+
+1. Deepseek
+
+    Two major security incidents
+
+    1. Website down due to DDOS
+
+        <https://status.deepseek.com/>
+
+        <https://nsfocusglobal.com/the-undercurrent-behind-the-rise-of-deepseek-ddos-attacks-in-the-global-ai-technology-game/>
+
+    1. Internal database exposed due to bad port management
+
+        <https://www.wiz.io/blog/wiz-research-uncovers-exposed-deepseek-database-leak>
 
 ## Lecture
 
