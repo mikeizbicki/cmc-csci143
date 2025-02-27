@@ -27,6 +27,12 @@
 
 **Announcements (Tuesday 27 Feb)**
 
+1. SQLite
+
+    legal notice: <https://www.sqlite.org/different.html>
+
+    code of ethics: <https://sqlite.org/codeofethics.html>
+
 1. Deepseek
 
     Two major security incidents
