@@ -31,7 +31,7 @@
 	path = topic_04_SQL_1/sql_quiz
 	url = https://github.com/mikeizbicki/sql_quiz
 [submodule "topic_05_SQL_2/pagila_hw2"]
-	path = future/topic_05_SQL_2/pagila_hw2
+	path = topic_05_SQL_2/pagila_hw2
 	url = https://gitlab.com/mikeizbicki/pagila-hw2
 [submodule "topic_06_schema_design/pagila-hw3"]
 	path = future/topic_06_schema_design/pagila-hw3
@@ -64,7 +64,7 @@
 	path = topic_02_docker/lab-networking
 	url = https://github.com/mikeizbicki/lab-networking
 [submodule "topic_05_SQL_2/lab-sqlite-joins"]
-	path = future/topic_05_SQL_2/lab-sqlite-joins
+	path = topic_05_SQL_2/lab-sqlite-joins
 	url = https://github.com/mikeizbicki/lab-sqlite-joins
 [submodule "topic_06_schema_design/lab-consistency"]
 	path = future/topic_06_schema_design/lab-consistency

@@ -2,34 +2,53 @@
 
 ## Announcements
 
+**Tuesday 04 Mar 2025**
+
+<!--
 1. Grades:
     
 
     twitter\_coronavirus
 
-    <img src='grades_twitter_coronavirus.png' width=400px/>
+    <img src='img/grades_twitter_coronavirus.png' width=400px/>
+
+    Missed points:
+
+    -4: mappers didn't finish running on all of the data
+
+    -2: something weird with your plot
+
+    -8: no line plots / alternative reduce
+
+    3 no submissions
 
     <br/>
 
     flask-on-docker
 
-    <img src='grades_flask-on-docker.png' width=400px/>
+    <img src='img/grades_flask-on-docker.png' width=400px/>
+
+
+    Both assignments:
+
+    - much emoji
 
     <br/>
 
-    <img src='grades_overall.png' width=400px/>
+    <img src='img/grades_overall.png' width=400px/>
+-->
 
 1. Get a good workflow going for your assignments
 
-    <img src=gates.jpg width=600px />
+    <img src=img/gates.jpg width=600px />
 
     <br/>
 
-    <img src=the-three-chief-virtues-of-a-programmer-are-laziness-impatience-and-hubris-larry-wall.jpg width=600px />
+    <img src=img/the-three-chief-virtues-of-a-programmer-are-laziness-impatience-and-hubris-larry-wall.jpg width=600px />
 
 ## Lecture Notes
 
-What you need to know for your quiz/homework/midterm:
+What you need to know for your quiz/homework:
 
 1. subqueries
     1. section 7 of <https://www.postgresqltutorial.com/>
@@ -51,11 +70,13 @@ What you need to know for your quiz/homework/midterm:
     1. sections 3 of <https://www.postgresqltutorial.com/>
     1. the "standard" explanation of joins uses venn diagrams, but this is technically not correct since relations are not sets; see: <https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/>
 
-       <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=joins.jpg width=300px /></a>
+       <a href=https://www.reddit.com/r/ProgrammerHumor/comments/a0qp9x/this_ones_for_all_the_sql_developers_out_there/><img src=img/joins.jpg width=300px /></a>
 
     1. if this all seems weird/hard/confusing... that's because it is
 
-       <img src=cmcqtycmbmg51.jpg width=300px />
+       <img src=img/cmcqtycmbmg51.jpg width=300px />
+
+We will not cover the following topics in class (but you need to know for homework):
 
 1. arrays
     1. postgresql specific extension, not on quiz
@@ -64,8 +85,6 @@ What you need to know for your quiz/homework/midterm:
         1. for now, just focus on using arrays to get the right answer
     1. https://www.postgresqltutorial.com/postgresql-array/
     1. `unnest` is the only array function you'll want to use (for this week's homework)
-
-We will not cover the following topics in class (but you need to know for homework):
 
 1. section 6 of <https://www.postgresqltutorial.com/>
     1. syntactic sugar for complicated GROUP BY clauses
@@ -84,17 +103,17 @@ We will not cover the following topics in class (but you need to know for homewo
        See: https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_varchar.28n.29_by_default
 
 1. `INSERT` / `UPDATE` / `DELETE`
-    1. <img src=Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg width=60%/>
+    1. <img src=img/Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg width=60%/>
     1. sections 9 of https://www.postgresqltutorial.com/
 -->
 
 ## Lab
 
+TBA
+<!--
 Posted at <https://github.com/mikeizbicki/lab-sqlite-joins>.
+-->
 
 ## Homework
 
 See <https://gitlab.com/mikeizbicki/pagila-hw2>.
-
-> **NOTE:**
-> Modified due date of Thursday 29 Feb.
