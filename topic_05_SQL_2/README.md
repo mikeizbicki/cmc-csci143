@@ -4,9 +4,7 @@
 
 **Tuesday 04 Mar 2025**
 
-<!--
 1. Grades:
-    
 
     twitter\_coronavirus
 
@@ -20,23 +18,21 @@
 
     -8: no line plots / alternative reduce
 
-    3 no submissions
-
     <br/>
 
     flask-on-docker
 
     <img src='img/grades_flask-on-docker.png' width=400px/>
 
-
+    <!--
     Both assignments:
 
     - much emoji
+    -->
 
     <br/>
 
     <img src='img/grades_overall.png' width=400px/>
--->
 
 1. Get a good workflow going for your assignments
 
