@@ -120,4 +120,7 @@ Posted at <https://github.com/mikeizbicki/lab-sqlite-joins>.
 
 ## Homework
 
+TBA
+<!--
 See <https://gitlab.com/mikeizbicki/pagila-hw2>.
+-->
