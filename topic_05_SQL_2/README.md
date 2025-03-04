@@ -42,6 +42,14 @@
 
     <img src=img/the-three-chief-virtues-of-a-programmer-are-laziness-impatience-and-hubris-larry-wall.jpg width=600px />
 
+1. Quiz Thursday on `quiz_notes_1.sql`
+
+    4 problems
+
+    Each worth 2 points (1 point for sqlite result, 1 point for postgres result)
+
+    See example quizzes at `quiz_example_1*.sql` for practice
+
 ## Lecture Notes
 
 What you need to know for your quiz/homework:
