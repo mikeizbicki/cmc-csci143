@@ -60,7 +60,11 @@
 
     <img src=img/meme2.jpg width=400px />
 
+    <br/>
+
     <img src=img/meme1.png width=400px />
+
+    <br/>
 
     <img src=img/meme3.png width=400px />
 
