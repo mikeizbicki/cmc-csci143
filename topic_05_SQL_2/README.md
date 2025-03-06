@@ -50,6 +50,20 @@
 
     See example quizzes at `quiz_example_1*.sql` for practice
 
+**Tuesday 04 Mar 2025**
+
+1. Reminder:
+    
+    There will be content in pagila homeworks not covered in class.
+
+1. How to use LLMs:
+
+    <img src=img/meme2.jpg width=400px />
+
+    <img src=img/meme1.png width=400px />
+
+    <img src=img/meme3.png width=400px />
+
 ## Lecture Notes
 
 What you need to know for your quiz/homework:
@@ -120,7 +134,4 @@ Posted at <https://github.com/mikeizbicki/lab-sqlite-joins>.
 
 ## Homework
 
-TBA
-<!--
 See <https://gitlab.com/mikeizbicki/pagila-hw2>.
--->
