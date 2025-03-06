@@ -52,21 +52,25 @@
 
 **Tuesday 04 Mar 2025**
 
+1. SQL Extra Credit:
+
+    <https://github.com/mikeizbicki/cmc-csci143/issues/577#issuecomment-2704525002>
+
 1. Reminder:
     
     There will be content in pagila homeworks not covered in class.
 
 1. How to use LLMs:
 
+    <img src=img/meme3.png width=400px />
+
+    <br/>
+
     <img src=img/meme2.jpg width=400px />
 
     <br/>
 
     <img src=img/meme1.png width=400px />
-
-    <br/>
-
-    <img src=img/meme3.png width=400px />
 
 ## Lecture Notes
 
