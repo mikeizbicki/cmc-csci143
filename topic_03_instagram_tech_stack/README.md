@@ -383,9 +383,8 @@ This is a slightly more complicated "hello world" than you did last week that in
 1. Create a README file with the following sections:
     1. Overview
         1. In one paragraph, describe what the repo does
-        1. Include a "screenshot" of you uploading your image
+        1. Include an animated gif that records you running your webpage, uploading an image, and then viewing the image.
 
-            For full credit, this should be a short (5ish second) animated gif.
             If you don't include an animated gif, then the max credit you can get is 15/16.
     1. Build Instructions
         1. Should contain a short description of the commands needed to bring your services up and how to use them           
