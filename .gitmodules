@@ -34,7 +34,7 @@
 	path = topic_05_SQL_2/pagila_hw2
 	url = https://gitlab.com/mikeizbicki/pagila-hw2
 [submodule "topic_06_schema_design/pagila-hw3"]
-	path = future/topic_06_schema_design/pagila-hw3
+	path = topic_06_schema_design/pagila-hw3
 	url = https://github.com/mikeizbicki/pagila-hw3
 [submodule "topic_08_SQL+Python/twitter_postgres"]
 	path = future/topic_08_SQL_and_Python/hw-twitter-postgres
@@ -67,7 +67,7 @@
 	path = topic_05_SQL_2/lab-sqlite-joins
 	url = https://github.com/mikeizbicki/lab-sqlite-joins
 [submodule "topic_06_schema_design/lab-consistency"]
-	path = future/topic_06_schema_design/lab-consistency
+	path = topic_06_schema_design/lab-consistency
 	url = https://github.com/mikeizbicki/lab-consistency
 [submodule "topic_07_transactions/lab-transactions"]
 	path = future/topic_07_transactions/lab-transactions

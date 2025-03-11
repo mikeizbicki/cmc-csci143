@@ -15,28 +15,17 @@ Window functions
 ## Announcements
 
 1. Reminder
-    1. pagila-hw2 due Thursday instead of Tuesday
     1. quiz this Thursday
        
-       We will finish covering outer joins from SQL 2 before covering this topic's material
+       We will finish covering outer joins from SQL 2 today
 
-1. We will spend 2 weeks on topic 06 schema design
-    1. pagila-hw3 due next ~~Tuesday (5 Mar)~~ Thursday (7 Mar)
+1. Upcoming assignments
+    1. pagila-hw3 due 25 Mar (Tuesday after spring break)
+    1. lab-consistency due Sunday 23 Mar
 
-        I will post the hw before class Thursday.
-    1. quiz next Thursday (7 Mar)
-    1. takehome midterm (7-17 Mar)
-        - format will be similar to pagila assignments (only SQL, no docker/shell/git/etc)
-        - midterm designed to take < 1hr, but there is no time limit
-        - no lab Friday 8 Mar
+## Lecture Notes
 
-          suggestion:
-          - use the lab time to complete midterm
-          - no assignments over spring break
-
-## Lecture
-
-<img src=when-people-ask-me-to-explain-my-database-design-its-58698602.png width=400px />
+<img src=img/when-people-ask-me-to-explain-my-database-design-its-58698602.png width=400px />
 
 Goals:
 
@@ -209,7 +198,7 @@ Important quotes:
 
 1. database normalization:
 
-   <img src=1swabl.jpg width=400px />
+   <img src=img/1swabl.jpg width=400px />
 
     1. denormalization: combining information into a single relation
     1. normalization: splitting information up into multiple different relations
@@ -271,7 +260,7 @@ Important quotes:
     1. `*` represents primary key
     1. lines represent foreign keys
     1. the ending of the lines represents the type of relation
-        1. <img src=ERD-Notation.PNG />
+        1. <img src=img/ERD-Notation.PNG />
         1. reference: <https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning>
     1. Typical real world database: <https://anna.voelkl.at/wp-content/uploads/2016/12/ce2.1.3.png>
 
@@ -427,7 +416,7 @@ Important quotes:
     1. many-many relationships
         1. think bipartite graph
 
-           <img src=./bipartite.png width=500px />
+           <img src=img/bipartite.png width=500px />
         1. denormalized representation: arrays
             1. film-special_features
                ```
