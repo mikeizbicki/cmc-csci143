@@ -2,7 +2,6 @@
 
 <img src=img/when-people-ask-me-to-explain-my-database-design-its-58698602.png width=400px />
 
-Schema roughly means the CREATE TABLE commands.
 <!--
 FUTURE NOTE:
 Implementing the word_ladder game in SQL would be a fantastic assignment!!!
