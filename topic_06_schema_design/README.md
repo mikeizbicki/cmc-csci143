@@ -1,5 +1,7 @@
 # Topic 06: Designing the Database Schema
 
+<img src=img/when-people-ask-me-to-explain-my-database-design-its-58698602.png width=400px />
+
 Schema roughly means the CREATE TABLE commands.
 <!--
 FUTURE NOTE:
@@ -12,7 +14,7 @@ Cube/rollup
 Window functions
 -->
 
-## Announcements
+**Announcements: Tuesday, 11 Mar**
 
 1. Reminder
     1. quiz this Thursday
@@ -24,8 +26,6 @@ Window functions
     1. lab-consistency due Sunday 23 Mar
 
 ## Lecture Notes
-
-<img src=img/when-people-ask-me-to-explain-my-database-design-its-58698602.png width=400px />
 
 Goals:
 
