@@ -46,15 +46,29 @@ Goals:
 
 Important quotes:
 
-1. Fred Brooks, [*The Mythical Man Month* (1975)](https://en.wikipedia.org/wiki/The_Mythical_Man-Month)
+1. <img src=img/330px-Fred_Brooks.jpg width=300px />
+
+    Fred Brooks, first person to study how to build large software projects
+
+    [*The Mythical Man Month* (1975)](https://en.wikipedia.org/wiki/The_Mythical_Man-Month):
 
     > Show me your code and conceal your tables, and I shall continue to be mystified. Show me your tables, and I won't usually need your code; it'll be obvious.
 
-1. Linus Torvalds: [on git mailing list archive](https://lwn.net/Articles/193245/)
+1. <img src=Linus-bird.png width=300px />
+
+    Linus Torvalds, author of Linux
+
+    [on git mailing list archive](https://lwn.net/Articles/193245/):
 
     > I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
 
-1. (unrelated to class) Google's VP in charge of hiring says: [in the NYTimes](https://www.nytimes.com/2014/02/23/opinion/sunday/friedman-how-to-get-a-job-at-google.html) 
+1. <img src=img/Laszlo_Bock_2014.jpg width=300px />
+
+    (unrelated to class)
+
+    Laszlo Bock, Google's VP in charge of hiring and Pomona grad
+
+    [in the NYTimes](https://www.nytimes.com/2014/02/23/opinion/sunday/friedman-how-to-get-a-job-at-google.html):
 
     > GPA's are worthless as a criteria for hiring, and test scores are worthless [because they don’t predict how productive an employee will be].
 
