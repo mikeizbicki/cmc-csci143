@@ -46,7 +46,7 @@ Goals:
 
 Important quotes:
 
-1. <img src=img/330px-Fred_Brooks.jpg width=200px align=left />
+1. <img src=img/330px-Fred_Brooks.jpg width=200px />
 
     Fred Brooks, first person to study how to build large software projects
 
@@ -54,7 +54,7 @@ Important quotes:
 
     > Show me your code and conceal your tables, and I shall continue to be mystified. Show me your tables, and I won't usually need your code; it'll be obvious.
 
-1. <img src=img/Linus-bird.png width=200px align=left />
+1. <img src=img/Linus-bird.png width=200px />
 
     Linus Torvalds, author of Linux
 
@@ -62,7 +62,7 @@ Important quotes:
 
     > I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
 
-1. <img src=img/Laszlo_Bock_2014.jpg width=200px align=left />
+1. <img src=img/Laszlo_Bock_2014.jpg width=200px />
 
     (unrelated to class)
 
