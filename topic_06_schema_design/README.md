@@ -501,7 +501,7 @@ Important quotes:
                ```
             1. no easy way to enforce acyclical references (i.e. make the graph a tree)
         1. all graph algorithms (DFS, BFS, Dijkstra, Prim, Kruskal, A*, etc.) can be implemented with optimal asymptotic efficiency using recursive sql queries
-            1. https://www.postgresqltutorial.com/postgresql-recursive-view/
+            1. https://neon.tech/postgresql/postgresql-views/postgresql-recursive-view
             1. https://www.postgresqltutorial.com/postgresql-recursive-query/
         
         1. **NOTE:**
