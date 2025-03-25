@@ -2,25 +2,55 @@
 
 ## Announcements
 
-1. Midterms Graded
+For this week:
+1. Quiz Thursday (row overhead)
+1. No lab this Friday (29 Mar) due to Cesar Chavez Day.
+1. No homework this week :)
 
-    <img src=grades-midterm.png width=400px>
+Outline of end of semester:
 
-    <img src=grades-overall.png width=400px>
+- For all students:
+    - 3 homeworks
+        - Basic idea:
+            - analyze twitter data inside postgres
+            - previously, we used shell+MapReduce
+                - "easy" to code
+                - faster than non-parallel code
+                - still slow
+            - now we will use postgres to do it
+                - run queries in milliseconds
+                - hard part is getting the data into postgres
+                - writing SQL queries/making them fast "easy"
+        - Due dates:
+            - Tuesday 5 April (inserting data correctly)
+            - Tuesday 12 April (inserting data faster)
+            - Tuesday 19 April (querying data faster)
+    - More weekly labs/quizzes
 
-    Answer key posted to <https://github.com/mikeizbicki/csci143-midterm/blob/2024spring/sql/midterm-key.sql>.
-
-1. If you're not satisfied with your grade, check out the [SQL extra credit github issue](https://github.com/mikeizbicki/cmc-csci143/issues/472).
+- For non-graduating students:
+    - You will have an additional project
 
 ## Lecture Notes
 
-<img src=concurrency-why-did-it-have-to-be-concurrency.jpg width=400px>
+<img src=img/concurrency-why-did-it-have-to-be-concurrency.jpg width=400px>
 
 1. Concurrency is when multiple programs use the database at the same time.
 
     1. For reading data, this is "trivial".
 
+        1. As a user, there is nothing special to worry about.
+
+        1. All major RDBMSes support concurrent reads.
+
     1. For writing data, this is HARD.
+
+        1. Embedded databases (sqlite3) do not support concurrent writes.
+
+            Non-embedded databases (Postgres/MySQL/etc) do.
+
+            (And that's why they are more complicated to setup.)
+
+        1. As a user, there is a lot to worry about.
 
         1. Widely considered the hardest problem in computer science.
 
@@ -71,11 +101,7 @@
 
 1. We won't cover everything in class, so you'll need to reference the postgres documentation.
 
-    > **NOTE:**
-    > Part of the reason there is no homework this week is so you have time to properly learn this quiz material.
-    > I strongly recommend you read (not just skim) the references.
-    >
-    > <img src=read-docs.png width=250px >
+    <img src=img/read-docs.png width=250px >
     
     Postgres documentation is famously excellent.
     Part of the purpose of this class is to get you familiar with using realworld documentation.
@@ -171,7 +197,7 @@
 
     1. Impact of full page writes: https://www.2ndquadrant.com/en/blog/on-the-impact-of-full-page-writes/
 
-<img src=nosql.jpeg width=300px />
+<img src=img/nosql.jpeg width=300px />
 
 <!--
 **Life Pro Tips:**
@@ -186,7 +212,7 @@
 
 1. Wrap all of your `DELETE` calls within a transaction, especially in psql.
 
-    <img src=Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg width=500px/>
+    <img src=img/Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg width=500px/>
 
     1. The Junior Dev who deleted the production database:
 
@@ -195,18 +221,18 @@
 
 1. Avoid blocking/deadlocks in your `INSERT` code by avoiding `UNIQUE`/`FOREIGN KEY` constraints that aren't necessary
 
-   <img src=deadlock.jpg width=300px>
+   <img src=img/deadlock.jpg width=300px>
 
    but don't remove the constraints that actually ARE necessary, or you'll corrupt your data
 
-   <img src=you-cant-have-a-deadlock-if-you-remove-the-locks.jpg width=300px>
+   <img src=img/you-cant-have-a-deadlock-if-you-remove-the-locks.jpg width=300px>
 
    Some data types like `UUID` are "probabilistically unique" and so don't need a constraint
 -->
 
 ## Lab
 
-<https://github.com/mikeizbicki/lab-transactions>
+TBA
 
 ## Homework
 
