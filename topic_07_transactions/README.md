@@ -2,9 +2,9 @@
 
 ## Announcements
 
-Grades:
+Grades updated in sakai.
 
-<img src=img/grades.png >
+<img src=img/grades.png width=400px>
 
 For this week:
 1. Quiz Thursday (row overhead)
