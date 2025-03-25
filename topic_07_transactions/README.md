@@ -33,6 +33,7 @@ Outline of end of semester:
             - Tuesday 12 April (inserting data faster)
             - Tuesday 19 April (querying data faster)
     - More weekly labs/quizzes
+    - About half of the points in the class still remaining.
 
 - For non-graduating students:
     - You will have an additional project
