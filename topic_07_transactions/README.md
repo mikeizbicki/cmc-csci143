@@ -102,7 +102,7 @@ Outline of end of semester:
     there will be no homework this week.
     You should spend all of your time preparing for the quiz, which will be worth 16 points.
 
-1. The quiz will be next week Thursday (28 Mar).
+1. The quiz will be next week Thursday (3 Apr).
 
 1. See the files `quiz_notes.pdf` and `quiz_example.pdf`.
 
