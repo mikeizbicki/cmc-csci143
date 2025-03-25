@@ -2,9 +2,16 @@
 
 ## Announcements
 
+Grades:
+
+<img src=img/grades.png >
+
 For this week:
 1. Quiz Thursday (row overhead)
-1. No lab this Friday (29 Mar) due to Cesar Chavez Day.
+    1. 8 points
+    1. Easier than the previous SQL quizzes if you prepare
+    1. Computer allowed
+1. No lab this Friday (28 Mar) due to Cesar Chavez Day.
 1. No homework this week :)
 
 Outline of end of semester:
