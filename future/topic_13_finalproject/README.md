@@ -39,9 +39,9 @@ The project is worth 32 points total.
 There are 8 required tasks, each worth 4 points.
 
 **Task 1:** The project structure should follow the structure of the [flask-on-docker homework](https://github.com/mikeizbicki/cmc-csci143/tree/2024spring/topic_03_instagram_tech_stack#homework).  In particular:
-1. There should be a development `docker-compose.yml` file with a web service and postgres service.
-1. There should be a production `docker-compose.yml` file with a web service, postgres service, and nginx service.
-1. You should be able to start your web page by running `docker-compose up` with either of these yml files.
+1. There should be a development `docker compose.yml` file with a web service and postgres service.
+1. There should be a production `docker compose.yml` file with a web service, postgres service, and nginx service.
+1. You should be able to start your web page by running `docker compose up` with either of these yml files.
 1. You must have appropriate volumes defined so that bringing the containers down does not delete the database.
 1. You must store all (non-sensitive) project files in a git repo.
     It should be trivial to bring your project up/down from only the files in the repo.

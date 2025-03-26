@@ -53,7 +53,7 @@ Depends entirely on the person who is talking.
         1. mapreduce
         1. git
         1. continuous integration / test driven development
-        1. docker / docker-compose
+        1. docker / docker compose
         1. (**50% of course**) SQL using sqlite3 / postgres
         1. Instagram tech stack
         1. large language models (LLMs)
@@ -231,7 +231,7 @@ I want you to succeed and I'll make every effort to ensure that you can.
 # topic change
 Need to cover TTY vs non-TTY stdin/stdout in the first 2 weeks of class on bash.
 
-In particular, docker exec defaults to non-TTY and must add -it to get TTY, but docker-compose defaults to TTY and must add -T to get non-tty
+In particular, docker exec defaults to non-TTY and must add -it to get TTY, but docker compose defaults to TTY and must add -T to get non-tty
 
 Properly escape the \x00 in the twitter_postgres assignment
 

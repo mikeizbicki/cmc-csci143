@@ -1,4 +1,4 @@
-# Docker, docker-compose, the Instagram tech stack
+, docker compose, the Instagram tech stack
 
 ## Announcements
 
@@ -213,7 +213,7 @@
 
     <a href=https://xkcd.com/1988/><img width=600px src=img/containers_2x.png /></a>
 
-    1. docker-compose
+    1. docker compose
 
         1. a convenient "declarative" interface for managing docker commands
 
@@ -229,7 +229,7 @@
            declarative => specify WHAT, the computer figures out HOW
 
            1. adv: easier to use (fewer sharp edges)
-           1. adv: automatically figure out different HOWs depending on the environment (deploying to laptop? lambda server? AWS? Azure?  docker-compose will figure out the details for you)
+           1. adv: automatically figure out different HOWs depending on the environment (deploying to laptop? lambda server? AWS? Azure?  docker compose will figure out the details for you)
            1. dis: less control
            1. dis: works only for docker
 
@@ -237,11 +237,11 @@
 
            <img src=img/galaxy-brain.jpg width=400px />
 
-        1. `docker-compose` used to be a standalone program (written in python)
+        1. `docker compose` used to be a standalone program (written in python)
 
             It has now been integrated directly into `docker` (written in golang)
 
-            This means that wherever you see `docker-compose` in a tutorial, you should substitute `docker compose` without a space
+            This means that wherever you see `docker compose` in a tutorial, you should substitute `docker compose` without a space
 
             See the docker documentation for migration details: <https://docs.docker.com/compose/releases/migrate/>
 
@@ -260,20 +260,20 @@
            > ```
            > Assuming you get output similar to the above, you can now install the program:
            > ```
-           > $ pip3 install docker-compose
-           > $ which docker-compose
-           > /home/user/.local/bin/docker-compose
+           > $ pip3 install docker compose
+           > $ which docker compose
+           > /home/user/.local/bin/docker compose
            > ```
            -->
 
         1. important commands
-            1. `docker-compose build`: builds the container
-            1. `docker-compose up`: start all the services
+            1. `docker compose build`: builds the container
+            1. `docker compose up`: start all the services
                 1. `-d` in deamon mode
-            1. `docker-compose down`: stop all the services (equivalent to `docker stop` and `docker rm`
-            1. `docker-compose exec`: run a command on an already running docker container
-            1. `docker-compose run`: (probably don't want to use this for this class) brings up a container and runs a 1-off command; useful for admin tasks
-            1. `docker-compose logs [container]`: view the logs of `[container]` or all containers if not specified
+            1. `docker compose down`: stop all the services (equivalent to `docker stop` and `docker rm`
+            1. `docker compose exec`: run a command on an already running docker container
+            1. `docker compose run`: (probably don't want to use this for this class) brings up a container and runs a 1-off command; useful for admin tasks
+            1. `docker compose logs [container]`: view the logs of `[container]` or all containers if not specified
                 1. `-f` follow mode
     1. docker volumes
         1. allow "persistent state" in a docker container
@@ -281,10 +281,10 @@
         1. two types of volumes we'll use
             1. bind mounts (you manage where the data is stored)
             1. named volumes (docker manages where the data is stored)
-        1. docker-compose will handle all of the (rather complicated) underlying docker commands for us automatically
+        1. docker compose will handle all of the (rather complicated) underlying docker commands for us automatically
         1. references:
             1. docker's official docs: https://docs.docker.com/storage/volumes/
-            1. good tutorial that also references docker-compose: https://devopsheaven.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html
+            1. good tutorial that also references docker compose: https://devopsheaven.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html
     1. differences between docker image and docker container
         1. image:
             1. defined by a docker file
@@ -298,20 +298,20 @@
                 1. changes do not affect the base image, or any other containers created from the image
         1. remove stopped containers with the command
            ```
-           $ docker-compose rm
+           $ docker compose rm
            ```
            1. the command
               ```
-              $ docker-compose down
+              $ docker compose down
               ```
               is a shortcut for the following two commands
               ```
-              $ docker-compose stop
-              $ docker-compose rm
+              $ docker compose stop
+              $ docker compose rm
               ```
            1. if you choose to just run the `stop` command, then you can restart the non-deleted content by running
               ```
-              $ docker-compose start
+              $ docker compose start
               ```
     1. More Dockerfile 
         1. [overlay filesystems](https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/)
@@ -406,9 +406,9 @@ This is a slightly more complicated "hello world" than you did last week that in
     1. production:
         1. to update the contents of your image, run the commands
            ```
-           $ docker-compose -f docker-compose.prod.yml down
-           $ docker-compose -f docker-compose.prod.yml build
-           $ docker-compose -f docker-compose.prod.yml up 
+           $ docker compose -f docker compose.prod.yml down
+           $ docker compose -f docker compose.prod.yml build
+           $ docker compose -f docker compose.prod.yml up 
            ```
            takes a little while, but generates a much faster/more secure image
 -->
@@ -422,7 +422,7 @@ This is a slightly more complicated "hello world" than you did last week that in
 
     see: https://www.ssh.com/ssh/tunneling/example
 
-    docker-compose.yml ports needs to change to 3400:5000 instead of 5000:5000
+    docker compose.yml ports needs to change to 3400:5000 instead of 5000:5000
 
     nginx ports should be 3400:80 NOT 1337:80
 
@@ -446,11 +446,11 @@ This is a slightly more complicated "hello world" than you did last week that in
 
 1. docker compose version numbers are wrong in the tutorial; change 3.7 -> 3.3
 
-    EDIT: instead, pip3 install docker-compose
+    EDIT: instead, pip3 install docker compose
 
 1. sqlalchemy managed vs raw mode
 
-1. for debugging, run `docker-compose up` without the `-d` flag or `docker-compose logs`
+1. for debugging, run `docker compose up` without the `-d` flag or `docker compose logs`
 
 1. psql commands `\l`, `\c`, `\dt`, `\q`
 
@@ -458,9 +458,9 @@ This is a slightly more complicated "hello world" than you did last week that in
 
 1. must understand: `netcat -z` = `nc -z`
 
-1. instructions never use the `docker-compose down` command
+1. instructions never use the `docker compose down` command
 
-1. the volumes in the docker-compose.yml file lets us modify the source code locally without rebuilding the docker images
+1. the volumes in the docker compose.yml file lets us modify the source code locally without rebuilding the docker images
 
 1. postgres docker container must have usernames/passwords specified
 
