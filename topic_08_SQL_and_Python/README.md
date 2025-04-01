@@ -8,6 +8,7 @@ Quiz this Thursday
 
 - only on Sections 1-7 (up to, but not including Implicit Locks IV: Unique Constraints)
 - 4 problems, 2 points each
+- rest of problems on quiz next week
 
 ## Lecture Notes
 
