@@ -209,7 +209,7 @@ Important quotes:
 
 1. database normalization:
 
-   <img src=img/1swabl.jpg width=300px />
+   <img src=img/1swabl.jpg width=250px />
 
     1. denormalization: combining information into a single relation
     1. normalization: splitting information up into multiple different relations
