@@ -11,6 +11,8 @@ Quiz this Thursday
 
 1. Working with denormalized JSON data in postgres
 
+    <img src=img/json.jpg width=350px />
+
     1. store data in `JSONB` columns
 
         1. `JSONB` stands for JSON + Binary formatted;
@@ -47,6 +49,10 @@ Quiz this Thursday
 
             <img src="img/fk-meme.webp" width=300px />
         1. for certain applications, it's much more convenient
+        
+            > **MY RECOMENDATION:**
+            > If you are generating the data directly, use a highly normalized schema.
+            > If you are ingesting someone else's data, use their schema (or JSONB if they use JSON).
 
     1. Insert data using the SQL `INSERT` command or `COPY` command.
 
@@ -71,11 +77,11 @@ Quiz this Thursday
        > but this is an annoying thing about postgres.
        > The problem is known, but fixing the problem is too hard and will probably never happen (similar to fixing column tetris).
 
-    <!--
     1. NoSQL:
         1. Last week we mentioned that one "advantage" of NoSQL databases over postgres is that they are faster because they do not offer ACID guarantees. (I put advantage in scare quotes because it's possible to turn off Postgres's ACID guarantees to improve performance.)
         1. The other killer feature of NoSQL databases is the ability to store raw JSON documents... but Postgres can do that too!  (And Postgres let's you combine these documents using arbitrary SQL, which NoSQL dbs cannot do.)
-    -->
+
+        <img src=img/keep-calm-and-use-postgres.png width=300px />
 
 1. When to store data in postgres in a denormalized form?
 

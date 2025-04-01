@@ -70,7 +70,7 @@
 	path = topic_06_schema_design/lab-consistency
 	url = https://github.com/mikeizbicki/lab-consistency
 [submodule "topic_07_transactions/lab-transactions"]
-	path = topic_07_transactions/img/lab-transactions
+	path = topic_08_SQL_and_Python/lab-transactions
 	url = https://github.com/mikeizbicki/lab-transactions
 [submodule "topic_10_indexes_btree/twitter_postgres_parallel"]
 	path = future/topic_10_indexes_btree/hw-twitter_postgres_parallel
