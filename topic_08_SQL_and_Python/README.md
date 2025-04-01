@@ -2,37 +2,10 @@
 
 ## Announcements
 
-No lab this Friday (29 Mar) due to Cesar Chavez Day.
+Quiz this Thursday
 
-Outline of end of semester:
-
-- For all students:
-    - 3 homeworks
-        - Basic idea:
-            - analyze twitter data inside postgres
-            - previously, we used shell+MapReduce
-                - "easy" to code
-                - faster than non-parallel code
-                - still slow
-            - now we will use postgres to do it
-                - run queries in milliseconds
-                - hard part is getting the data into postgres
-                - writing SQL queries/making them fast "easy"
-        - Due dates:
-            - ~~Tuesday 2 April~~ Thursday 4 April (inserting data correctly)
-            - Tuesday 9 April (inserting data faster)
-            - Tuesday 16 April (querying data faster)
-    - Some more labs/quizzes
-
-- For graduating students:
-    - Week of 22-26 April we will have oral 1-1 final exams
-    - Signup sheet at: <https://docs.google.com/spreadsheets/d/1axeCxjA8i8koFtmPWlzSbos108D8XAtXbGEkiU63E30/edit>
-    - One hour in length
-    - 64 points (approximately 20% of final grade)
-
-- For non-graduating students:
-    - You will have an additional project
-    - You will also have an oral 1-1 exam during finals week
+- only on Sections 1-7 (up to, but not including Implicit Locks IV: Unique Constraints)
+- 4 problems, 2 points each
 
 ## Lecture Notes
 
@@ -72,7 +45,7 @@ Outline of end of semester:
             1. _**this should TERRIFY you**_
             1. the database is the "ground truth" of you business logic... if it contains wrong data, there's nothing you can do
 
-            <img src="topic_08_SQL_and_Python/fk-meme.webp" width=300px />
+            <img src="img/fk-meme.webp" width=300px />
         1. for certain applications, it's much more convenient
 
     1. Insert data using the SQL `INSERT` command or `COPY` command.
@@ -185,11 +158,11 @@ Outline of end of semester:
 
        https://twitter.com/RachelTrue/status/1365461618977476610
 
-       <img src=topic_08_SQL_and_Python/su7tsddd0fl61.jpg width=400px />
+       <img src=img/su7tsddd0fl61.jpg width=400px />
 
        SQL injection is when those weird inputs perform malicious behavior.
 
-       <img src=topic_08_SQL_and_Python/exploits_of_a_mom.png />
+       <img src=img/exploits_of_a_mom.png />
 
        Examples:
 
@@ -207,10 +180,8 @@ Outline of end of semester:
       and you violate the constraint, then don't throw an error;
       without this line, an error will be thrown in python
 
-      <!--
       > **ASIDE:**
-      > You can tell that I'm not a "native" python programmer because I talk about "throwing" "errors" instead of "raising" "exceptions".
-      -->
+      > You can tell that I'm not a "native" python programmer because I talk about "throwing errors" instead of "raising exceptions".
 
    1. `RETURNING column_list` makes the `INSERT` statement behave like a `SELECT` that returns columns from the inserted rows
 
@@ -255,7 +226,7 @@ Outline of end of semester:
    Postgres will happily delete everything in the database if you have a typo in your delete/update statements,
    and these tips will ensure that you don't accidentally have this happen to you.
 
-   <img src=Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg width=400px />
+   <img src=img/Strip-Bas-ed-eonnée-effacée-650-finalenglish.jpg width=400px />
 
    Stories:
    1. Junior dev given API keys and deletes the database: <https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/>
