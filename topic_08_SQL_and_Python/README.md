@@ -50,10 +50,6 @@ Quiz this Thursday
             <img src="img/fk-meme.webp" width=300px />
         1. for certain applications, it's much more convenient
         
-            > **MY RECOMENDATION:**
-            > If you are generating the data directly, use a highly normalized schema.
-            > If you are ingesting someone else's data, use their schema (or JSONB if they use JSON).
-
     1. Insert data using the SQL `INSERT` command or `COPY` command.
 
        `COPY` is much faster and supports directly importing CSV and JSON data (and a few other formats I've never used before).
@@ -81,7 +77,7 @@ Quiz this Thursday
         1. Last week we mentioned that one "advantage" of NoSQL databases over postgres is that they are faster because they do not offer ACID guarantees. (I put advantage in scare quotes because it's possible to turn off Postgres's ACID guarantees to improve performance.)
         1. The other killer feature of NoSQL databases is the ability to store raw JSON documents... but Postgres can do that too!  (And Postgres let's you combine these documents using arbitrary SQL, which NoSQL dbs cannot do.)
 
-        <img src=img/keep-calm-and-use-postgres.png width=300px />
+        <img src=img/keep-calm-and-use-postgres.png width=400px />
 
 1. When to store data in postgres in a denormalized form?
 
