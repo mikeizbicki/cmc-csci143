@@ -1,5 +1,7 @@
 # Modifying the Database (SQL+Python)
 
+<img src=img/python-sql.png width=400px />
+
 ## Announcements
 
 Quiz this Thursday
