@@ -53,7 +53,7 @@
 \begin{center}
 {
 \Large
-    Quiz (Transactions and Locks)
+    Quiz (Transactions and Locks I)
 }
 
     \vspace{0.1in}
@@ -68,9 +68,9 @@ For each problem, you must perform all of the following tasks correctly in order
 \item If a command causes a deadlock, write \lstinline{DEADLOCK} and stop the problem.
 \item Write the output of each \lstinline{SELECT} statement.
 \end{enumerate}
-%\begin{note}
-    You are allowed to use a computer and access the internet, but you are not allowed to connect to postgres and run postgres commands.
-%\end{note}
+You are allowed to use a computer and access the internet.
+(I strongly encourage you to refer to the postgres documentation.)
+BUT YOU ARE NOT ALLOWED TO CONNECT TO POSTGRES AND RUN POSTGRES COMMANDS.
 
 \vspace{1in}
 
@@ -127,8 +127,8 @@ For each problem, you must perform all of the following tasks correctly in order
 \begin{tabular}{p{3.25in}p{3in}}
 \hspace{-0.2in}Session 1
 \begin{lstlisting}
-CREATE TABLE t(a INT PRIMARY KEY);
-CREATE TABLE u(b INT REFERENCES t(a));
+CREATE TABLE t(a);
+CREATE TABLE u(b);
 BEGIN;
 
 
@@ -136,6 +136,7 @@ INSERT INTO t VALUES (9);
 
 COMMIT;
   
+SELECT count(*) FROM u;
 \end{lstlisting}
     &
 \hspace{-0.2in}Session 2
@@ -149,6 +150,8 @@ REPEATABLE READ;
 SELECT count(*) FROM u;
 
 INSERT INTO u VALUES (9);
+
+SELECT count(*) FROM u;
 COMMIT;
 \end{lstlisting}
 \end{tabular}
@@ -161,10 +164,7 @@ COMMIT;
 \begin{tabular}{p{3.25in}p{3in}}
 \hspace{-0.2in}Session 1
 \begin{lstlisting}
-CREATE TABLE t (
-    a INT UNIQUE
-    DEFERRABLE INITIALLY DEFERRED
-    );
+CREATE TABLE t (a int);
 BEGIN ISOLATION LEVEL
 READ UNCOMITTED;
 INSERT INTO t VALUES (5);
@@ -180,9 +180,6 @@ COMMIT;
     &
 \hspace{-0.2in}Session 2
 \begin{lstlisting}
-
-
-
 
 
 
@@ -211,15 +208,10 @@ SELECT count(*) FROM t;
 \hspace{-0.2in}Session 1
 \begin{lstlisting}
 CREATE TABLE t ( a INT );
-INSERT INTO t VALUES (9);
-INSERT INTO t VALUES (10);
 BEGIN;
-
-
-UPDATE t SET a = a+1;
-
-COMMIT;
+LOCK TABLE t IN SHARE MODE;
   
+COMMIT;
 \end{lstlisting}
     &
 \hspace{-0.2in}Session 2
@@ -227,14 +219,7 @@ COMMIT;
 
 
 
-
-BEGIN ISOLATION LEVEL
-REPEATABLE READ;
-
-DELETE FROM t WHERE a=10;
-
-COMMIT;
-
+VACUUM t;
 \end{lstlisting}
 \end{tabular}
 \vspace{-0.2in}
@@ -248,49 +233,29 @@ COMMIT;
 \begin{tabular}{p{3.25in}p{3in}}
 \hspace{-0.2in}Session 1
 \begin{lstlisting}
-CREATE TABLE t (a INT PRIMARY KEY);
-
-
-
-
-BEGIN;
+CREATE TABLE t ( a INT );
 INSERT INTO t VALUES (1);
 INSERT INTO t VALUES (2);
-INSERT INTO u VALUES (2);
-
-
-
-SELECT count(*) FROM t;
-
 INSERT INTO t VALUES (3);
+
+BEGIN;
+SELECT * FROM t WHERE a=2 FOR UPDATE;
+
+
 COMMIT;
-
-
-
-SELECT count(*) FROM t;
 \end{lstlisting}
     &
 \hspace{-0.2in}Session 2
 \begin{lstlisting}
 
-CREATE TABLE u (
-    b INT REFERENCES t(a)
-    DEFERRABLE INITIALLY DEFERRED
-    );
 
 
 
-
-BEGIN ISOLATION LEVEL
-REPEATABLE READ;
-INSERT INTO u VALUES (3);
-
-INSERT INTO u VALUES (1);
+BEGIN;
 
 
-UPDATE u SET b=5;
+UPDATE t SET a=7 WHERE a=2;
 COMMIT;
-SELECT count(*) FROM t;
 
 \end{lstlisting}
 \end{tabular}
