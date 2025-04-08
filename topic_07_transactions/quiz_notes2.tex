@@ -115,7 +115,6 @@ SELECT count(*) FROM t;
 \hspace{-0.2in}Session 1
 \begin{lstlisting}
 CREATE TABLE t ( a INT  UNIQUE );
-
 BEGIN;
 INSERT INTO t VALUES (9);
 INSERT INTO t VALUES (10);
@@ -132,7 +131,6 @@ ABORT;
 \hspace{-0.2in}Session 2
 \begin{lstlisting}
 
-CREATE TABLE u ( a INT UNIQUE
 
 
 
