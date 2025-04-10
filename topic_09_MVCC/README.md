@@ -8,9 +8,9 @@ MVCC = MultiVersion Concurrency Control
 
 1. Unfortunately, there's a lot of material here.
 
-    <img src=update.jpeg width=400px >
+    <img src=img/update.jpeg width=400px >
 
-1. Fortunately, it's all much more straightforward than the transactions/locks material.
+1. Fortunately, it's more straightforward than the transactions/locks material.
 
 ## Lecture Notes
 
@@ -24,16 +24,16 @@ MVCC = MultiVersion Concurrency Control
     > I strongly recommend you read these sections.
     > I will not test you on them, however, because the knowledge is *illegible* (i.e. hard to test).
 
+<!--
 1. The `questions.pdf` file contains quiz practice problems related to the reading.
 
-    <!--
     This covers the implementation details of MVCC.
     These details will help you understand:
     
     1. why locks work the way they do
     1. the "table overhead" (we previously talked about "row overhead" only)
     1. background for understanding how to make SQL `SELECT` queries fast
-    -->
+-->
 
 **Important Highlights From the Reading:**
 
@@ -93,7 +93,7 @@ MVCC = MultiVersion Concurrency Control
         and is a relatively difficult task that requires a fairly deep understanding of db implementation details.
         For most workloads, however, the defaults work well enough.
 
-        <img src=autovacuum.jpeg />
+        <img src=img/autovacuum.jpeg />
 
     1. `VACCUM` acquires a `SHARE UPDATE EXCLUSIVE` lock.
         While a table is being vacuumed,
