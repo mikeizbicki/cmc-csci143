@@ -6,11 +6,14 @@ MVCC = MultiVersion Concurrency Control
 
 1. We will need to understand these details in order to understand how to make SELECT queries fast.
 
-1. Unfortunately, there's a lot of material here.
+1. There's a lot of material here.
 
     <img src=img/update.jpeg width=400px >
 
-1. Fortunately, it's more straightforward than the transactions/locks material.
+1. You will not be directly quizzed on this material.
+
+    > **Reminder:**
+    > Quiz on locks/transactions this Thursday.
 
 ## Lecture Notes
 
