@@ -1,6 +1,6 @@
 # B-Trees and Indexes
 
-<img src=indexes-seal.jpeg width=400px />
+<img src=img/indexes-seal.jpeg width=400px />
 
 **Overview:**
 
