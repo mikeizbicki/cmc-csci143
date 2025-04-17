@@ -137,7 +137,7 @@ numbers=left
 \begin{center}
     {
 \Large
-Final Practice Problems 1
+Indexes Notes 1
 }
 \end{center}
 
@@ -151,17 +151,17 @@ CREATE TABLE users (
 );
 
 CREATE TABLE tweets (
-	id_tweets BIGINT PRIMARY KEY,
-	id_users BIGINT REFERENCES users(id_users),
-	in_reply_to_user_id BIGINT REFERENCES users(id_users),
-	created_at TIMESTAMPTZ,
-	text TEXT
+    id_tweets BIGINT PRIMARY KEY,
+    id_users BIGINT REFERENCES users(id_users),
+    in_reply_to_user_id BIGINT REFERENCES users(id_users),
+    created_at TIMESTAMPTZ,
+    text TEXT
 );
 
 CREATE TABLE tweets_mentions (
-	id_tweets BIGINT REFERENCES tweets(id_tweets),
-	id_users BIGINT REFERENCES users(id_users),
-	PRIMARY KEY (id_tweets, id_users)
+    id_tweets BIGINT REFERENCES tweets(id_tweets),
+    id_users BIGINT REFERENCES users(id_users),
+    PRIMARY KEY (id_tweets, id_users)
 );
 \end{lstlisting}
 

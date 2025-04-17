@@ -12,6 +12,7 @@ Indexes are data structures used for making SQL queries fast.
         > **Note:**
         > I will make heavy use of $O$, $\Omega$, and $\Theta$ notation in this section.
         > You can see <https://en.wikipedia.org/wiki/Big_O_notation#Family_of_Bachmann%E2%80%93Landau_notations> for a review.
+        > The intuition is summarized in the table below.
         >
         > | asymptotic notation | non-asymptotic counterpart |
         > | ------------------- | -------------------------- |
@@ -446,9 +447,9 @@ Join Order
 
 Postgres will automatically parallelize queries
 
-<img src=img/'2015ParallelismFTW.jpg' width=300px />
+<img src='img/2015ParallelismFTW.jpg' width=300px />
 
-1. Most SQL queries can be parallelized using an internal MapReduce system
+1. Most SQL queries can be parallelized using an internal **MapReduce** implementation
 1. Parallelism incurs a (small) constant overhead to setup,
    and so very small queries will not be parallelized
 
