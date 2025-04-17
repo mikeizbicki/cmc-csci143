@@ -79,7 +79,7 @@
 	path = topic_09_MVCC/lab-diskusage
 	url = https://github.com/mikeizbicki/lab-diskusage
 [submodule "topic_10_indexes_btree/lab-indexes"]
-	path = topic_10_indexes_btree/lab-indexes
+	path = topic_10_indexes_btree/img/lab-indexes
 	url = https://github.com/mikeizbicki/lab-indexes
 [submodule "topic_00_unix/lab-llm"]
 	path = topic_00_unix/prelab-llm
