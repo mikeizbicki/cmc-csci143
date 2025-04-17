@@ -1,34 +1,5 @@
 # B-Trees and Indexes
 
-**Announcements (Thursday 4 April):**
-
-The `twitter_postgres_parallel` homework will be due ~~Tuesday 9 April~~ Thursday 11 April.
-
-**Announcements (Tuesday 9 April):**
-
-Courses for next semester:
-1. [CSCI145/MATH166 Data Mining](https://github.com/mikeizbicki/cmc-csci145-math166)
-1. [CSCI181 Languages for Computing](https://github.com/mikeizbicki/cmc-csci181-languages)
-
-    <img src=math.webp width=400px />
-
-1. Math Tea 
-
-    What: Talk to professors about upcoming courses
-
-    When: tomorrow, Wednesday April 10th
-
-    Where: Quantitative and Computing Lab (QCL), 3:45-4:45pm
-
-Remainder of this course:
-1. ~~Quiz this Thursday~~ No more quizzes in this class :)
-1. Graduating students only:
-    1. Signup for final exam timeslot: <https://docs.google.com/spreadsheets/d/1axeCxjA8i8koFtmPWlzSbos108D8XAtXbGEkiU63E30/edit#gid=0>
-1. Non-graduating students:
-    1. We will discuss your final project (basically build your own database-backed webpage from scratch) the week the graduating students are doing their final exam
-
-## Lecture Notes
-
 <img src=indexes-seal.jpeg width=400px />
 
 **Overview:**
@@ -51,11 +22,11 @@ Indexes are data structures used for making SQL queries fast.
     1. Careful use of indexes will solve 99% of your SQL performance problems
     1. Most industry devs never properly learn SQL -> don't understand indexes -> can't make their code fast
 
-<img width=400px src=Strip-magicien-du-code-650-finalenglish.jpg />
+<img width=400px src=img/Strip-magicien-du-code-650-finalenglish.jpg />
 
 <br/><br/>
 
-<img width=400px src=Strips-Fier-600-finalenglish.gif />
+<img width=400px src=img/Strips-Fier-600-finalenglish.gif />
 
 **Quiz/Final Exam Details:**
 
@@ -103,9 +74,9 @@ Vocabulary:
 
         1. HDD internals:
 
-           <img src=hdd.png />
+           <img src=img/hdd.png />
 
-           <img src=tm112_1_ol_s5_f1_5.tif.png />
+           <img src=img/tm112_1_ol_s5_f1_5.tif.png />
 
            1. HDD must load a "sector" of information at a time, cannot load individual bytes
 
@@ -147,7 +118,7 @@ Vocabulary:
         1. Shows which algorithms postgres will use for any query
         1. Used to debug all performance problems in postgres
 
-           <img src=explain_analyze.jpg />
+           <img src=img/explain_analyze.jpg />
 
 
 1. Definitions:
@@ -272,7 +243,7 @@ Two basic strategies:
     1. Only applicable for index only/index scan (i.e. not bitmap scan)
     1. Complex relationship between index column order and WHERE clause conditions
 
-<img src=sort.jpg width=300px />
+<img src=img/sort.jpg width=300px />
 
 ### Aggregate Strategies
 
@@ -466,7 +437,7 @@ Join Order
 
 Postgres will automatically parallelize queries
 
-<img src='2015ParallelismFTW.jpg' width=300px />
+<img src=img/'2015ParallelismFTW.jpg' width=300px />
 
 1. Most SQL queries can be parallelized using an internal MapReduce system
 1. Parallelism incurs a (small) constant overhead to setup,
@@ -493,16 +464,16 @@ You must know how the following concepts relate to all of the query plan strateg
 
 Creating simple indexes for simple queries is relatively straightforward once you know what's going on.
 
-<img src=fry.jpg width=400px >
+<img src=img/fry.jpg width=400px >
 
 Creating indexes for complex queries requires careful thought to avoid INSERT slowdown.
 
-<img src=index2.jpg width=400px >
+<img src=img/index2.jpg width=400px >
 
 <!--
 It's not enough to:
 
-<img src=Index_all_the_things_-_All_the_things___Meme_Generator.png width=300px >
+<img src=img/Index_all_the_things_-_All_the_things___Meme_Generator.png width=300px >
 -->
 
 <!--
