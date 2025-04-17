@@ -12,6 +12,12 @@ Indexes are data structures used for making SQL queries fast.
         > **Note:**
         > I will make heavy use of $O$, $\Omega$, and $\Theta$ notation in this section.
         > You can see <https://en.wikipedia.org/wiki/Big_O_notation#Family_of_Bachmann%E2%80%93Landau_notations> for a review.
+        >
+        > | asymptotic notation | non-asymptotic counterpart |
+        > | ------------------- | -------------------------- |
+        > | $f = O(g)$          | $f <= g$                   |
+        > | $f = \Theta(g)$     | $f = g$                    |
+        > | $f = \Omega(g)$     | $f >= g$                   |
 
     1. required for the implementation of `UNIQUE` constraints (and thus `FOREIGN KEY` constraints)
 
@@ -107,14 +113,15 @@ Vocabulary:
         1. It will re-write your SQL queries into imperative code
         1. It will choose the best algorithms for your particular combination of hardware, data, indexes, and query expressions
         1. There are various theorems that prove that no system can perform these steps optimally in all circumstances
-           1. but it still is pretty good
-           1. optimal in most practical circumstances
+           1. But it still is pretty good in practice.
+           1. It is provable optimal under various "regularity" assumptions.
 
-           <br/>
-           <img src=img/math.webp width=400px />
+               <br/>
+               <img src=img/math.webp width=400px />
 
         1. To fully understand the query planner, you should take a course on compilers
-        1. Optional Reference: <http://www.interdb.jp/pg/pgsql03.html>
+
+            (or read <http://www.interdb.jp/pg/pgsql03.html>)
 
     1. `EXPLAIN`
         1. Shows which algorithms postgres will use for any query
@@ -146,7 +153,7 @@ Reference: <https://habr.com/ru/company/postgrespro/blog/441962/>
     1. Requirements:
         1. Can always be used
     1. Runtime:
-        1. table pages accessed = $O(n)$
+        1. table pages accessed = $O(n / a)$
         1. index pages accessed = 0
         1. comparison operations = $O(n)$, $\Omega(k)$
         1. small constant factor
