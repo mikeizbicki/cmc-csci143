@@ -28,9 +28,7 @@ Indexes are data structures used for making SQL queries fast.
 
 <img width=400px src=img/Strips-Fier-600-finalenglish.gif />
 
-**Quiz/Final Exam Details:**
-
-You are responsible for the following references:
+**References:**
 
 1. The PostgresPro Index tutorial:
     1. Part 1: Indexing Engine <https://habr.com/ru/company/postgrespro/blog/441962/>
@@ -72,6 +70,8 @@ Vocabulary:
 
             1. increase the number of CPU operations in order to decrease the number of disk/IO (input-output) operations
 
+            1. disk much slower than cpu: <http://norvig.com/21-days.html#answers>
+
         1. HDD internals:
 
            <img src=img/hdd.png />
@@ -83,8 +83,6 @@ Vocabulary:
         1. A "high fan-out" reduces the number of disk seeks
 
            in practice, fanout typically 100s in postgres
-
-        1. common runtimes: http://norvig.com/21-days.html#answers
 
     1. used for:
         1. conditions involving equality and less/greater than
@@ -111,6 +109,10 @@ Vocabulary:
         1. There are various theorems that prove that no system can perform these steps optimally in all circumstances
            1. but it still is pretty good
            1. optimal in most practical circumstances
+
+           <br/>
+           <img src=img/math.webp width=400px />
+
         1. To fully understand the query planner, you should take a course on compilers
         1. Optional Reference: <http://www.interdb.jp/pg/pgsql03.html>
 
