@@ -2,6 +2,30 @@
 
 <img src=img/indexes-seal.jpeg width=400px />
 
+**Announcements Tuesday 22 April:**
+
+1. All grades updated
+    1. Please verify that I haven't made a mistake.
+    1. Do not forget the caveat tasks!
+    1. I will not be rounding grades up.
+        There is lots of available extra credit in this class you can use to "bump up" your grade.
+    1. 253 points total so far.
+
+1. Upcoming homeworks:
+    1. (32 points) twitter + parallel
+    1. (32 points) twitter + indexes
+    1. (64 points) final project (non-graduating students only)
+
+1. Upcoming labs:
+    1. (8 pts) This week
+    1. No lab Friday 2 May (capstone presentations)
+
+1. Upcoming quizzes:
+    1. (16 pts) Tuesday 29 Apr
+    1. (16 pts) Tuesday 6 May
+
+## Lecture Notes
+
 **Overview:**
 
 Indexes are data structures used for making SQL queries fast.

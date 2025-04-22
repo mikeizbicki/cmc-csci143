@@ -11,9 +11,11 @@ The default project will be a Twitter clone webpage, but you are free to create 
 1. Integrate knowledge from all parts of the course together
 1. Learn required new material "on your own"
 1. Have a production-ready project you can show off to future employers
-1. *If you took CS40:* see how much you've grown as a programmer
+1. *If you took CS40 with me:* see how much you've grown as a programmer
 
-**Due date:** During your final exam timeslot (May 6-10)
+**Due date:**
+1. Anytime during finals week (May 12-16)
+1. You will demo it to me live (all demos over zoom)
 
 <img src=crud.jpg width=400px />
 
@@ -35,8 +37,8 @@ The purpose of this assignment is to integrate your SQL knowledge (and docker kn
 
 ## Required Tasks
 
-The project is worth 32 points total.
-There are 8 required tasks, each worth 4 points.
+The project is worth 64 points total.
+There are 8 required tasks, each worth 8 points.
 
 **Task 1:** The project structure should follow the structure of the [flask-on-docker homework](https://github.com/mikeizbicki/cmc-csci143/tree/2024spring/topic_03_instagram_tech_stack#homework).  In particular:
 1. There should be a development `docker-compose.yml` file with a web service and postgres service.
@@ -92,7 +94,7 @@ There are 8 required tasks, each worth 4 points.
 
 > **Note:**
 > The requirements listed below are for the default option of making a Twitter clone.
-> If you would like to make a different type of website, let me know, and we can work out an alternative set of requirements.
+> If you would like to make a different type of website, let me know (well in advance), and we can work out an alternative set of requirements.
 
 > **Note:**
 > The requirements for tasks 3-7 are based off of the routes for the CS40 Twitter clone assignment.
@@ -185,17 +187,15 @@ There are 8 required tasks, each worth 4 points.
 
 ## Grading
 
-You will demo your webpage to me during your final exam.
+You will demo your webpage to me live instead of having a final exam.
 
-In the final exam:
+In the demo:
 
-1. You will bring a printout of your `schema.sql` file.
-    Recall that this file must contain your CREATE INDEX commands.
-1. You will have your web server already running at the start of the exam.
-1. You will tell me what port it is running on, and I will connect to the webserver using my computer.
+1. You will have your web server already running at the start of the demo.
+1. You will tell me what port it is running on, and I will connect to the web server using my computer.
 
     > **Hint:**
-    > You should ensure that someone else can connect to your webpage before the exam.
+    > You should ensure that someone else can connect to your webpage before the demo.
     > If I can't connect, this will result in a major penalty.
 
 1. I will traverse your webpages, verifying all of the functionality and checking that the SQL queries are fast by checking that the pages load in a reasonable amount of time.
@@ -204,21 +204,11 @@ In the final exam:
     1. a query with a JOIN
     1. a full text search query
 
-    I will select three of these queries for you, and then the final exam will proceed as it did for the graduating students.
-    The final exam will be graded on a separate 64 point scale.
-
 ## Recommended timeline
 
 I recommend you try to meet the following two milestones:
 
-1. Tasks 1, 2 complete by Thursday (25 April)
-1. The `/`, `/login`, and `/logout` routes (all covered in the videos above) complete by next week Tuesday (30 April)
+1. Tasks 1, 2 complete by Thursday (1 May)
+1. The `/`, `/login`, and `/logout` routes (all covered in the videos above) complete by Thursday (8 May)
 
 This will ensure that if you encounter difficulties, you will have time to ask me questions to get them resolved.
-
-**Course Timeline:**
-
-1. No more standard lectures/labs in the main lecture/lab rooms.
-1. I will be available during all lecture/lab timeslots in my office for 1-1 questions.
-    1. Only exception is no office hours Thursday (11:00am-12:30pm); but I will still be available during class hours from (9:35am - 10:50am).
-    1. If there's a large demand, we will move across the hall to the math commons room (Adams 2nd floor, east side of building).
