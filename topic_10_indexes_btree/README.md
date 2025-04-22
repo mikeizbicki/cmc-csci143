@@ -427,11 +427,11 @@ Three types of join strategies:
 Conclusions:
 1. merge/hash join faster than nested loop join when:
     1. no indexes available (merge/hash join is $O(m + n)$, nested loop join is $O(mn)$)
-    1. have indexes, but both tables are large (merge/hash join is $O(m + n)$, nested loop join is $O(m log n)$ or $O(n log m)$)
+    1. have indexes, but both tables are large (merge/hash join is $O(m + n)$, nested loop join is $O(m \log n)$ or $O(n \log m)$)
 1. nested loop join is faster when:
     1. the tables are very small (because there is less overhead)
 1. indexes:
-    1. allow faster nested loop joins $O(m log(n))$ or $O(n log (m))$
+    1. allow faster nested loop joins $O(m \log(n))$ or $O(n \log (m))$
     1. allow faster merge joins by removing the need for an explicit sort
 1. what you need to know:
     1. how to create indexes to make a specific query faster
@@ -496,13 +496,16 @@ You must know how the following concepts relate to all of the query plan strateg
 
 ### Summary
 
-Creating simple indexes for simple queries is relatively straightforward once you know what's going on.
+Creating indexes is "relatively" straightforward.
 
-<img src=img/fry.jpg width=400px >
+1. No major "foot guns" (like there are with bash / parallel coding).
+1. Lots of subtle background information needed in order to make complex queries faster.
+
+<img src=img/fry.jpg width=300px >
 
 Creating indexes for complex queries requires careful thought to avoid INSERT slowdown.
 
-<img src=img/index2.jpg width=400px >
+<img src=img/index2.jpg width=300px >
 
 <!--
 It's not enough to:
