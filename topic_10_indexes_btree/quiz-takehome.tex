@@ -87,6 +87,7 @@
 
 \theoremstyle{definition}
 \newtheorem{problem}{Problem}
+\newtheorem{note}{Note}
 \newcommand{\E}{\mathbb E}
 \newcommand{\R}{\mathbb R}
 \DeclareMathOperator{\Var}{Var}
@@ -137,9 +138,48 @@ numbers=left
 \begin{center}
     {
 \Large
-Final Practice Problems 2
+    Quiz: Indexes (1)
 }
 \end{center}
+
+\noindent
+\textbf{Collaboration policy:} 
+
+\vspace{0.1in}
+\noindent
+You may NOT:
+\begin{enumerate}
+    \item discuss the exam with any human other than Mike; this includes:
+        \begin{enumerate}
+            \item asking your friend for clarification about what a problem is asking
+            \item asking your friend if they've finished working on the quiz
+            \item posting questions to github, stackoverflow, or any other online forum
+        \end{enumerate}
+\end{enumerate}
+
+\noindent
+You may:
+\begin{enumerate}
+    \item take as much time as needed
+    \item use any written notes / electronic resources you would like (including postgres documentation and AI systems like ChatGPT)
+    \item use the lambda server and connect to a running postgres instance
+    \item ask Mike to clarify questions via email
+\end{enumerate}
+
+
+\vspace{0.15in}
+
+\vspace{0.25in}
+\noindent
+Name: 
+
+\noindent
+\rule{\textwidth}{0.1pt}
+\vspace{0.15in}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \noindent
 All of the problems assume the following schema.
@@ -173,6 +213,13 @@ CREATE TABLE tweet_tags (
 
 \begin{solution}
 \end{solution}
+
+\vspace{3in}
+    \textbf{Note:}
+    When solving all subsequent problems,
+    assume only the indexes above have been created.
+    For example, if problem 3 asks you to create an index,
+    you should not assume that index has been created when working on problem 4.
 
 \newpage
 \question{
@@ -232,9 +279,6 @@ WHERE lower(username)=:username;
 
 }
 \begin{solution}
-\begin{lstlisting}
-CREATE INDEX ON users(lower(username));
-\end{lstlisting}
 \end{solution}
 
 \newpage
@@ -252,34 +296,41 @@ LIMIT 10;
 \end{lstlisting}
 }
 \begin{solution}
-\begin{lstlisting}
-CREATE INDEX ON users(created_at, id_users);
-\end{lstlisting}
 \end{solution}
 \vspace{2in}
 
+\newpage
 \question{
 Create index(es) so that the following query will run as efficiently as possible.
 
 Do not create any unneeded indexes; if no new indexes are needed, say so.
 
 \begin{lstlisting}
-SELECT id_users,count(*)
+SELECT id_users, username
 FROM users
 JOIN tweets USING (id_users)
-JOIN tweet_tags ON (id_tweets)
-WHERE tag LIKE :tag_prefix || '%'
-GROUP BY id_users;
+WHERE in_reply_to_user_id = :in_reply_to_user_id
+LIMIT 10;
 \end{lstlisting}
 }
 \begin{solution}
+\end{solution}
+
+\vspace{3in}
+\question{
+Create index(es) so that the following query will run as efficiently as possible.
+
+Do not create any unneeded indexes; if no new indexes are needed, say so.
+
 \begin{lstlisting}
-CREATE INDEX ON tweet_tags(tag, id_tweets);
-CREATE INDEX ON tweets(id_users);
+SELECT username, count(*)
+FROM users
+JOIN tweets USING (id_users)
+WHERE in_reply_to_user_id = :in_reply_to_user_id
+GROUP BY username;
 \end{lstlisting}
-
-    The existing indexes on \lstinline{tweets(id_tweets)} and \lstinline{users(id_users)} can also be used to enable merge joins and group aggregate.
-
+}
+\begin{solution}
 \end{solution}
 \newpage
 
@@ -295,7 +346,7 @@ LIMIT 10;
 
 \begin{enumerate}[a)]
 \item
-Create index(es) so that the following query will run as efficiently as possible.
+Create index(es) so that the query will run as efficiently as possible.
 
 Do not create any unneeded indexes; if no new indexes are needed, say so.
 
@@ -309,108 +360,6 @@ Explain why/why not.
 
 \begin{solution}
 \end{solution}
-
-\newpage
-\question{
-Consider the following SQL query.
-\begin{lstlisting}
-SELECT id_tweets
-FROM tweets
-WHERE to_tsvector(text) @@ to_tsquery(:tsquery)
-  AND created_at > '2020-01-01'
-ORDER BY created_at <=> '2020-01-01'
-LIMIT 10;
-\end{lstlisting}
-}
-\begin{solution}
-\begin{lstlisting}
-CREATE INDEX ON tweets USING rum 
-    ( RUM_TSVECTOR_ADDON_OPS
-    , created_at
-    )
-    WITH (ATTACH='created_at', TO='totsvector(text)');
-\end{lstlisting}
-\end{solution}
-
-\begin{enumerate}[a)]
-\item
-Create index(es) so that the following query can use an index scan, avoid an explicit sort, and take advantage of the LIMIT clause for faster processing.
-
-Do not create any unneeded indexes; if no new indexes are needed, say so.
-
-\vspace{3.5in}
-\item
-Assume that you are unable to install the RUM extension into the database.
-(This could be because you don't have admin permissions, for example.)
-How would that change your answer above?
-\end{enumerate}
-
-\newpage
-\question{
-Consider the following SQL query.
-\begin{lstlisting}
-SELECT *
-FROM (
-    SELECT
-        id_tweets,
-        unnest(tsvector_to_array(to_tsvector(text))) as lexeme
-    FROM tweets
-) t
-WHERE lexeme = :lexeme;
-\end{lstlisting}
-\begin{enumerate}[a)]
-    \item
-The query above cannot be sped up using an index.
-Why?
-\begin{solution}
-    The \lstinline{unnest} function is set-returning, and indexes cannot be created on set-returning functions.
-\end{solution}
-        \vspace{2in}
-\item
-Rewrite the query from the previous question into an equivalent query that can be sped up using an index.
-Also provide the index that would speed up the query.
-\end{enumerate}
-}
-\begin{solution}
-The query is:
-\begin{lstlisting}
-SELECT
-    id_tweets,
-    lexeme
-FROM tweets
-WHERE to_tsvector(text) @@ to_tsquery(:lexeme);
-\end{lstlisting}
-There are many possible indexes to speed up this query, for example:
-\begin{lstlisting}
-CREATE INDEX ON tweets USING gin(to_tsvector(text));
-\end{lstlisting}
-\end{solution}
-
-\newpage
-\question{
-Consider the following SQL query that uses a cross join.
-\begin{lstlisting}
-SELECT id_tweets
-FROM users, tweets
-WHERE to_tsvector(text) @@ to_tsquery(username)
-  AND users.id_users = :id_users;
-\end{lstlisting}
-\begin{enumerate}[a)]
-    \item Which join methods can be used to implement this query?
-        \begin{solution}
-            Nested loop join.
-        \end{solution}
-        \vspace{3in}
-    \item If it is possible to construct an index that will speed up this query, do so.
-        Otherwise, state that it is impossible and explain why.
-        \begin{solution}
-            The index postgres created on \lstinline{users(id_users)} and a text search index like
-\begin{lstlisting}
-CREATE INDEX ON tweets USING gin(to_tsvector(text));
-\end{lstlisting}
-        \end{solution}
-\end{enumerate}
-}
 
 \end{questions}
 
