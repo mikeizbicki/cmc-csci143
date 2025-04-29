@@ -9,11 +9,21 @@
         examples:
         1. 100x speedup from running parallel with 10 processors
 
-    1. most likely cause: behavior of `docker volume prune` has changed :(
+    1. most likely cause:
 
-        <https://github.com/docker/cli/issues/4028>
+        1. `load_tweets*.sh` not actually inserting any data
 
-        <https://github.com/moby/moby/pull/44259>
+            1. didn't delete volumes correctly
+
+            1. so data from previous runs was never deleted
+
+            1. so new data doesn't get inserted
+
+        1. confounding factor: behavior of `docker volume prune` has changed :(
+
+            <https://github.com/docker/cli/issues/4028>
+
+            <https://github.com/moby/moby/pull/44259>
 
 1. lab-indexes:
     1. Lots of bad grades because:
@@ -33,6 +43,7 @@
 
             CREATE INDEX ON accounts (name);
             ```
+
         1. Your index/query you provided could only use a sequential scan.
             (I gave 1/4 for this error.)
 
@@ -53,12 +64,19 @@
     1. The best solution
         ```
         SELECT * FROM accounts
+        WHERE lower(reverse(name)) LIKE reverse('%management');
+
+        CREATE INDEX ON accounts(lower(reverse(name)) text_pattern_ops);
+        ```
+
+    1. Other full credit (but gross) solutions
+
+        ```
+        SELECT * FROM accounts
         WHERE left(lower(reverse(name)), 10) = 'tnemeganam';
 
         CREATE INDEX ON accounts (left(lower(reverse(name)), 10));
         ```
-
-    1. Other acceptable (but gross) solutions
 
         ```
         SELECT * FROM accounts
@@ -68,10 +86,13 @@
         ON accounts (reverse(split_part(reverse(name), ' ', 1)));
         ```
 
-1. No lab this week
+1. Upcoming assignments:
+    1. no lab this week
 
-    1. Due to datascience capstone presentations
-    1. A simple assignment posted to github issues: <https://github.com/mikeizbicki/cmc-csci143>
+        (datascience capstone presentations)
+
+    1. twitter-postgres-indexes due in 1 week
+    1. take home quiz due in 1 week
 
 ## Lecture Notes
 
@@ -79,13 +100,24 @@
 
 **Overview:**
 
-Required readings:
+More indexes references:
+
 1. ~~Hash index: <https://habr.com/ru/company/postgrespro/blog/442776/>~~
 1. GIN index: <https://habr.com/ru/company/postgrespro/blog/448746/>
 1. RUM index: <https://habr.com/ru/company/postgrespro/blog/452116/>
 1. ~~GIST Index: <https://habr.com/ru/company/postgrespro/blog/444742/>~~
 1. ~~SP-GIST Index: <https://habr.com/en/companies/postgrespro/articles/446624/>~~
 1. ~~BRIN Index: <https://habr.com/en/companies/postgrespro/articles/452900/>~~
+
+From pgvector (<https://github.com/pgvector/pgvector>):
+1. HNSW, IVFFlat
+
+Retrieval Augmented Generation:
+1. Use text search to improve accuracy of LLM queries
+1. Commonly implemented in postgres via GIN/RUM/HNSW/IVFFlat indices
+    1. <https://pgdash.io/blog/rag-with-postgresql.html>
+    1. <https://www.enterprisedb.com/blog/rag-app-postgres-and-pgvector>
+    1. <https://anyblockers.com/posts/building-rag-with-postgres>
 
 For your homework, you have to use GIN/RUM indexes to speed up:
 1. full text search
@@ -308,7 +340,6 @@ This section is background info and not required for the final exam.
             1. discussion thread: https://news.ycombinator.com/item?id=12621950
         1. No one would think it's weird if you used any of these dedicated FTS engines for a project
         1. People who don't know postgres might think it's weird to use postgres, but most people who know postgres would think it's smart, especially if you're already using postgres
-        1. We'll (eventually) talk about an extension to postgres called pspacy (that I'm currently developing) that makes postgres FTS even more powerful
 
 ### FTS in postgres
 
