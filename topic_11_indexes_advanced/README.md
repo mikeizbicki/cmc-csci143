@@ -44,14 +44,14 @@
             CREATE INDEX ON accounts (name);
             ```
 
-        1. Your index/query you provided could only use a sequential scan.
+        1. Your index/query could only use a bitmap scan.
             (I gave 1/4 for this error.)
 
             ```
             SELECT name FROM accounts
             WHERE name ~* 'management$';
 
-            CREATE INDEX ON accounts USING GIN (name gin_trgm_ops);
+            CREATE INDEX ON accounts USING gin (name gin_trgm_ops);
             ```
 
             ```
