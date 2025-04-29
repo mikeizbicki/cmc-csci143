@@ -2,35 +2,80 @@
 
 **Announcements:**
 
-1. The last lab:
+1. twitter-parallel:
+
+    1. -6 points for any "weird" timings
+
+        examples:
+        1. 100x speedup from running parallel with 10 processors
+
+    1. most likely cause: behavior of `docker volume prune` has changed :(
+
+        <https://github.com/docker/cli/issues/4028>
+
+        <https://github.com/moby/moby/pull/44259>
+
+1. lab-indexes:
     1. Lots of bad grades because:
         1. The indexes you provided would not speed up the queries.
             (I gave 0/4 for this error.)
-        1. You didn't use the EXPLAIN command to verify that your queries actually use the index.
-    1. My solution used `reverse` + `lower` + `LIKE` + `text_pattern_ops`
-    1. If you used `pg_tgrm`+GIN index:
-        1. You answered the question as asked, so I gave full credit
-        1. But it wasn't the intended solution
-        1. It's not as fast as the btree solution
-        1. My guess is that most of you who used this solution just randomly copied stuff from ChatGPT
-        1. Expect to explain to me how this works in your final exam
+
+            ```
+            SELECT name FROM accounts
+            WHERE name ILIKE '%Management';
+
+            CREATE INDEX ON accounts(name text_pattern_ops);
+            ```
+
+            ```
+            SELECT name FROM accounts
+            WHERE name ~* 'management$';
+
+            CREATE INDEX ON accounts (name);
+            ```
+        1. Your index/query you provided could only use a sequential scan.
+            (I gave 1/4 for this error.)
+
+            ```
+            SELECT name FROM accounts
+            WHERE name ~* 'management$';
+
+            CREATE INDEX ON accounts USING GIN (name gin_trgm_ops);
+            ```
+
+            ```
+            SELECT name FROM accounts
+            WHERE LOWER(name) LIKE '%management';
+
+            CREATE INDEX ON accounts USING gin (LOWER(name) gin_trgm_ops);
+            ```
+
+    1. The best solution
+        ```
+        SELECT * FROM accounts
+        WHERE left(lower(reverse(name)), 10) = 'tnemeganam';
+
+        CREATE INDEX ON accounts (left(lower(reverse(name)), 10));
+        ```
+
+    1. Other acceptable (but gross) solutions
+
+        ```
+        SELECT * FROM accounts
+        WHERE reverse(split_part(reverse(name), ' ', 1)) = 'Management';
+
+        CREATE INDEX accounts_last_word_idx
+        ON accounts (reverse(split_part(reverse(name), ' ', 1)));
+        ```
 
 1. No lab this week
 
     1. Due to datascience capstone presentations
     1. A simple assignment posted to github issues: <https://github.com/mikeizbicki/cmc-csci143>
 
-1. Lots of good github issues questions; I believe everything was resolved in office hours that is still open, but if not, then let me know.
-
-1. Thursday will be a final review session.
-
-    Today we will finish going over material.
-
-1. Non-graduating students can sign up for final exam timeslots: <https://docs.google.com/spreadsheets/d/1axeCxjA8i8koFtmPWlzSbos108D8XAtXbGEkiU63E30/edit#gid=0>
-
 ## Lecture Notes
 
-<img src=index-all-the-things-meme.jpg width=400px />
+<img src=img/index-all-the-things-meme.jpg width=400px />
 
 **Overview:**
 
@@ -190,7 +235,7 @@ This section is background info and not required for the final exam.
 
 1. FTS is a hard unsolved problem
 
-    <img src=8s90ho7un6i51.jpg width=350px />
+    <img src=img/8s90ho7un6i51.jpg width=350px />
 
 1. There is no SQL standard for FTS
 
@@ -204,11 +249,11 @@ This section is background info and not required for the final exam.
             1. Most popular FTS engine
             1. Reasonably powerful FTS, but cannot be combined with SQL
 
-                <img src=elastic-drink.jpg width=300px >
+                <img src=img/elastic-drink.jpg width=300px >
 
             1. Requires installing a full service with similar complexity of postgres => difficult to configure
 
-               <img src=one-does-not-ao1pfo.jpg width=300px />
+               <img src=img/one-does-not-ao1pfo.jpg width=300px />
 
             1. Can be embedded in postgres via [zombodb extension](https://github.com/zombodb/zombodb),
                but that's even more complicated
@@ -322,7 +367,7 @@ This section is background info and not required for the final exam.
 
     1. Reviewing the documentation may help with the homework assignment
 
-       <img src=a5skfy5y88x11.jpg width=300px />
+       <img src=img/a5skfy5y88x11.jpg width=300px />
 
        References:
 
@@ -341,7 +386,7 @@ This section is background info and not required for the final exam.
 
 Many new operators for querying `JSONB` type.
 
-<img src=json.jpg width=300px />
+<img src=img/json.jpg width=300px />
 
 Important operators/functions:
 1. `jsonb_pretty`
