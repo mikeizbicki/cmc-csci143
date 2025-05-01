@@ -98,8 +98,6 @@
 
 1. Take home quiz due next Tuesday
 
-    (8 points only)
-
 1. For non-graduating students:
     1. Deadline extended for the twitter-postgres-indexes assignment until Friday 16 May
 
