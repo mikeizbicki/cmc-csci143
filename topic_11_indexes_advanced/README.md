@@ -1,6 +1,6 @@
 # Topic 11: More Indexes, Full Text Search, JSON Search
 
-**Announcements:**
+**Announcements: (Tuesday 29 April)**
 
 1. twitter-parallel:
 
@@ -93,6 +93,39 @@
 
     1. twitter-postgres-indexes due in 1 week
     1. take home quiz due in 1 week
+
+**Announcements: (Thursday 1 May)**
+
+1. Take home quiz due next Tuesday
+
+    (8 points only)
+
+1. For non-graduating students:
+    1. Deadline extended for the twitter-postgres-indexes assignment until Friday 16 May
+
+        Purpose is to reduce load on the lambda server
+
+    1. Final project:
+
+       Submission will be on zoom:
+       1. You will have to demo your project to me 1-1 over zoom.
+       1. I will be on zoom starting at 9AM every day of finals week.
+       1. Login whichever day you would like to submit.
+       1. I will admit 1 student at a time into the meeting.
+       1. Grading will take ~10 minutes.  I will give your grade on the project + grade in the course.
+       1. You might have to wait a long time (up to 2-3 hours?) if you wait until Friday.
+
+       Alternative submission:
+       1. You can choose to demo project to me in person.
+       1. The demo will last ~1 hr, and I will ask detailed follow up questions in the style of a SQL technical interview.
+       1. Do not expect this to change your grade.
+       1. Email me to arrange a time.
+
+1. Additional office hours:
+
+    9-11AM next week (Wednesday 7 May - Friday 9 May)
+
+    9-11AM finals week (Monday 12 May - Friday 16 May) but only once zoom project demos are done
 
 ## Lecture Notes
 
