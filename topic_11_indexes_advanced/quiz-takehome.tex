@@ -292,18 +292,23 @@ The following SQL query returns tweets where either the text or the description 
 \begin{lstlisting}
 SELECT id_tweets
 FROM tweets, users
-WHERE ( to_tsvector('english', text)
+WHERE tweets.id_users == users.id_users
+  AND ( to_tsvector('english', text)
      || to_tsvector('english', description)
       ) 
       @@ to_tsquery('english', :query)
 ;
 \end{lstlisting}
 
-The query cannot be sped up using indexes because the left hand side of the @@ operator references columns from two separate tables,
-and we cannot create an index on two separate tables.
+Notice that the WHERE clause contains two operators:
+\begin{enumerate}
+    \item The equality operator can be sped up using standard btree indexes.
+    \item The @@ operator, however, cannot be sped up as written because it references columns from two separate tables,
+        and we cannot create an index on two separate tables.
+\end{enumerate}
 
-Rewrite the query above into an equivalent query that can be sped up with indexes,
-and also provide any needed indexes.
+Rewrite the query above into an equivalent query where all operators in the query can be sped up using indexes.
+Also provide any needed indexes.
 }
 
         \begin{solution}
