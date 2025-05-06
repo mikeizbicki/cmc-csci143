@@ -43,11 +43,13 @@ Announcements:
 
     <img src=img/vim.jpg width=300px />
 
-    1. Examples:
-        1. command line
-        1. tab completion
-        1. not `cd`ing into subfolders
-        1. good vim use
+    1. This class highly opinionated:
+        1. vim
+        1. command line / shell
+            1. tab completion
+            1. not `cd`ing into subfolders
+
+    1. Other tools okay, but only if you master them
 
     1. You WILL BE JUDGED by how you use your tools
 
