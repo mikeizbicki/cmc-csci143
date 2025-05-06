@@ -49,7 +49,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % question definitions
 
-%\printanswers
+\printanswers
 
 \newcommand*{\hl}[1]{\colorbox{yellow}{#1}}
 
@@ -211,8 +211,15 @@ CREATE TABLE tweet_tags (
     Recall that certain constraints create indexes on the appropriate columns.
     List the equivalent \lstinline{CREATE INDEX} commands that are run by these constraints.
 }
+\begin{solution}
+    \begin{lstlisting}
+    CREATE INDEX ON users(id_users);
+    CREATE INDEX ON tweets(id_tweets);
+    CREATE INDEX ON tweet_tags(id_tweets, tag)
+    \end{lstlisting}
+    Any variation of the above resulted in missing all points.
+\end{solution}
 
-\vspace{3in}
     \textbf{Note:}
     When solving all subsequent problems,
     assume only the indexes above have been created.
@@ -234,13 +241,12 @@ WHERE (id_users >= :min_id_users)
 }
 
 \begin{solution}
-    Sequential Scan,
-    Bitmap Scan,
-    Index Scan
-
-    If index scan is missing, the penalty is only -1 because it  is unlikely to be efficient.
-    If index only scan is present, -2.
-
+    \begin{lstlisting}
+    -- CREATE INDEX ON users(id_users); -- not needed due to unique constraint
+    CREATE INDEX ON users(username);
+    \end{lstlisting}
+    The best scanning strategy possible is a bitmap scan.
+    It is impossible with a btree to efficiently combine the results of OR commands together.
 \end{solution}
 %\vspace{3in}
 
@@ -264,7 +270,6 @@ WHERE (id_users >= :min_id_users)
 %\end{lstlisting}
     %\end{solution}
 
-\vspace{3in}
 \question{
 Create index(es) so that the following query will run as efficiently as possible.
 
@@ -278,11 +283,14 @@ WHERE username=lower(:username);
 
 }
 \begin{solution}
-    %\begin{lstlisting}
-    %CREATE INDEX ON users(lower(username));
-    %\end{lstlisting}
-    %It is important that the function call to \lstinline{lower} be present in the index.
-    %If it is not, -2 points.
+    \begin{lstlisting}
+    CREATE INDEX ON users(username);
+    \end{lstlisting}
+    The index must exactly match one side of the operator.
+    In this case the following index does not match either side of the operator and is incorrect:
+    \begin{lstlisting}
+    CREATE INDEX ON users(lower(username));
+    \end{lstlisting}
 \end{solution}
 
 \newpage
@@ -312,6 +320,8 @@ Also provide any needed indexes.
 }
 
         \begin{solution}
+            Answer to the original question (without the == operator):
+
             The key idea is to ``factor out'' the \lstinline{||} operator so that we have multiple conditions, each mentioning only a single table:
 \begin{lstlisting}
 SELECT id_tweets
@@ -333,7 +343,43 @@ CREATE INDEX ON users USING GIN(
     to_tsvector('english', description)
     );
 \end{lstlisting}
-Note that it is not wrong to use a RUM index in this case, but there are no particular advantages to using it.
+
+%\hrule
+
+            Answer to the updated question (as written above with the == operator):
+
+            The key idea is to ``factor out'' the \lstinline{||} operator so that we have multiple conditions, each mentioning only a single table:
+\begin{lstlisting}
+SELECT id_tweets
+FROM tweets
+WHERE (to_tsvector('english', text) 
+    @@ to_tsquery('english', :query)
+      )
+
+UNION ALL
+
+SELECT id_tweets
+FROM tweets
+JOIN users USING (id_users)
+WHERE ( to_tsvector('english', description)
+     @@ to_tsquery('english', :query)
+      )
+;
+\end{lstlisting}
+The following index speeds up the first GIN query maximally:
+\begin{lstlisting}
+CREATE INDEX ON tweets USING GIN(
+    to_tsvector('english', text)
+    );
+\end{lstlisting}
+Speeding up the second SELECT is a bit more complex because it involves both a JOIN and a WHERE.
+I would create the following two indexes:
+\begin{lstlisting}
+CREATE INDEX ON users USING GIN(
+    to_tsvector('english', description)
+    );
+CREATE INDEX ON tweets (id_users);
+\end{lstlisting}
         \end{solution}
 
 \end{questions}
