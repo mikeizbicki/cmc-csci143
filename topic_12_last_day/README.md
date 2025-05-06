@@ -20,6 +20,21 @@ Announcements:
 
         (but that's not a hard rule)
 
+1. Graduating students: everything must be submitted before Friday morning
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
 ## Class Takeaways
 
 **Good habits make good programmers.**
