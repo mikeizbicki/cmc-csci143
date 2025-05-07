@@ -460,7 +460,7 @@ Join Order
             1. the hash step of a hash join can be cached and reused, speeding up future hash joins
         1. The algorithms are WAY beyond the scope of this class
 
-1. Postgresql's query planner tries to pick an optimal join order for you automatically
+1. PostgreSQL's query planner tries to pick an optimal join order for you automatically
     1. If it has good statistics of the underlying tables,
        it will pick a good join order
 
