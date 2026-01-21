@@ -9,10 +9,10 @@
 |||
 |-|-|
 | Name | Mike Izbicki (call me Mike) |
-| Email | ~~mizbicki@cmc.edu~~ You probably should [post an issue](https://github.com/mikeizbicki/cmc-csci143/issues) instead of emailing. |
 | Office | Adams 216 |
-| Office Hours | See [Issue #574](https://github.com/mikeizbicki/cmc-csci143/issues/574) |
-| Zoom | See [Issue #576](https://github.com/mikeizbicki/cmc-csci143/issues/576) |
+| Office Hours | see [#712](https://github.com/mikeizbicki/cmc-csci143/issues/712) |
+| Zoom | TBA |
+| Email | mizbicki@cmc.edu (you should probably [post a github issue](https://github.com/mikeizbicki/cmc-csci143/issues) instead of emailing) |
 | Webpage | [izbicki.me](https://izbicki.me) |
 | Research | Machine Learning (see [izbicki.me/research.html](https://izbicki.me/research.html) for some past projects) |
 
@@ -24,6 +24,10 @@ Fun facts:
     1. left Navy as a [conscientious objector](https://www.nytimes.com/2011/02/23/nyregion/23objector.html)
 1. phd/postdoc at UC Riverside
 1. taught in [DPRK (i.e. North Korea)](https://pust.co)
+
+Other links:
+
+1. [My CS/DS career prospects page](https://github.com/mikeizbicki/cmc-csci143/tree/2026spring/career)
 
 ## About the Course
 
@@ -169,11 +173,9 @@ but I will provide more specific links each week.
 1. Weekly quizzes (worth `2**2` or `2**3` or `2**4` points)
 1. Weekly homeworks (worth `2**3` or `2**4` or `2**5` points)
 1. No exams!
-1. Non-graduating students
-    1. will have a final project, and
-    1. will have the option of doing a mock technical interview.
+1. Non-graduating students will have a final project.
 
-All assignments are designed to help you get a good job.  (See [career.md](career.md).)
+All assignments are designed to help you get a good job.  (See [/career/README.md](/career/README.md).)
 1. All code, no math.
 1. You will build your github portfolio.
 1. You will do cool stuff to talk about in interviews (analyze ALL tweets about covid, build an Instagram clone).

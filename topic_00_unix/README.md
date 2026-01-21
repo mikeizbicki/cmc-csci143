@@ -75,10 +75,8 @@ and has inspired lots of memes/comics:
 1. Your first quiz is next week on Wednesday 28 Jan.
 1. The quiz will cover:
     1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic00_redirection.pdf>
-    <!--
     1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic01_variables.pdf>
     1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic02_environment_variables.pdf>
-    -->
 1. All quizzes are open note.
     I strongly encourage you to complete all of the practice quiz problems and take notes on the practice sheets of paper.
 
@@ -86,7 +84,7 @@ and has inspired lots of memes/comics:
 
 **Due Date:**
 
-Labs are always due at 11:55pm on the Sunday of the week that they are assigned (i.e. January 26 at 11:55pm for this lab).
+Labs are always due at 11:59pm on the Sunday of the week that they are assigned (i.e. January 26 at 11:59pm for this lab).
 
 *For this lab only:*
 There will be no late penalty if you miss the due date, but please be reasonable.
@@ -156,6 +154,9 @@ You won't be able to complete the homework, however, until you've completed all 
        
 **Instructions:**
 
+TBA
+
+<!--
 If you don't yet have access to the lambda server,
 let me know and we'll get that resolved.
 
@@ -166,12 +167,13 @@ This week there are three submodules:
 
 1. Then complete [lab-goodreads](https://github.com/mikeizbicki/lab-goodreads) and [lab-goodreads-part2](https://github.com/mikeizbicki/lab-goodreads2).
     (It's really just 1 lab split into two submodules for organization.)
+-->
 
 ## Homework
 
 **Due Date:**
 
-Homeworks are always due at 11:55pm on the Tuesday of the week after they are assigned (i.e. Jan 28 at 11:55pm for this homework).
+Homeworks are always due at 11:59pm on the Tuesday of the week after they are assigned (i.e. Jan 27 at 11:59pm for this homework).
 
 *For this hw only:*
 I will not apply a late penalty.
