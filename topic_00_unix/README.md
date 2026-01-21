@@ -26,7 +26,7 @@ SQL knowledge:
 
 If you're not confident in all of this material, that's okay.
 We will spend the first 2 weeks reviewing.
-We will also see how SQL relates to python/shell/git. 
+We will also see how SQL relates to python/shell/git.
 
 **Working Environment:**
 
@@ -41,7 +41,9 @@ The lambda server has:
 
 We will use docker and docker-compose to manage our own "virtual cloud infrastructure" from the lambda server.
 
+<!--
 <img src=img/map_of_cs.png width=600px>
+-->
 
 All text editing must be done in Vim.
 We will encounter many instances in this class where more familiar tools like VSCode and Jupyter Notebooks will not work.
@@ -69,12 +71,14 @@ and has inspired lots of memes/comics:
 
 **Quiz details:**
 
-1. There will be a quiz (almost) every Thursday.
-1. No quiz this Thursday.  Your first quiz is next week on Thursday 30 Jan.
+1. There will be a quiz every Wednesday.
+1. Your first quiz is next week on Wednesday 28 Jan.
 1. The quiz will cover:
     1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic00_redirection.pdf>
+    <!--
     1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic01_variables.pdf>
     1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic02_environment_variables.pdf>
+    -->
 1. All quizzes are open note.
     I strongly encourage you to complete all of the practice quiz problems and take notes on the practice sheets of paper.
 
