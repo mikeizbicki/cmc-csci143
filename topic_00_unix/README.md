@@ -39,6 +39,10 @@ The lambda server has:
 1. 2 TB NVME mounted on `/` (you have 10GB of space)
 1. 50 TB RAID array of 16 HDDs mounted on `/data` (you have 250GB of space)
 
+<center>
+<img width='500px' src=../img/big-data-map.png />
+</center>
+
 We will use docker and docker-compose to manage our own "virtual cloud infrastructure" from the lambda server.
 
 <!--

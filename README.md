@@ -31,11 +31,9 @@ Other links:
 
 ## About the Course
 
-<!--
 <center>
-<img width='100%' src=map_of_cs.png />
+<img width='500px' src=img/big-data-map.png />
 </center>
--->
 
 **What is big data?**
 
