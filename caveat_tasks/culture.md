@@ -12,7 +12,9 @@ It will also help you pass the [culture fit test](https://web.archive.org/web/20
 
 ## Task
 
-You must earn 4 points by watching/reading the shows/books below.
+You must read my [programmer-english essay](https://github.com/mikeizbicki/programmer-english).
+
+You also must earn 4 points by watching/reading the shows/books below.
 Each point should take at most 2 hours to complete,
 so you should be able to finish this task in under 8 hours.
 
@@ -99,7 +101,6 @@ Reply to [this github issue](https://github.com/mikeizbicki/cmc-csci143/issues/3
 For each task, you'll need to write a 1-2 sentence summary of what you learned/liked/disliked about the task.
 
 > **NOTE:**
->
 > You must do the reading/viewing during this semester in order for it to count.
 > Thus, for example, students who have previously taken courses with me cannot just skip this assignment.
 
