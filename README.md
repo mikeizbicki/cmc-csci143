@@ -31,10 +31,6 @@ Other links:
 
 ## About the Course
 
-<center>
-<img width='500px' src=img/big-data-map.png />
-</center>
-
 **What is big data?**
 
 Depends entirely on the person who is talking.
@@ -59,6 +55,10 @@ Depends entirely on the person who is talking.
         1. (**50% of course**) SQL using sqlite3 / postgres
         1. Instagram tech stack
         1. large language models (LLMs)
+
+<center>
+<img width='500px' src=img/big-data-map.png />
+</center>
 
 **Who should take this course?**
 
