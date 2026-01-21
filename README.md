@@ -8,9 +8,12 @@
 
 |||
 |-|-|
-| Name | Mike Izbicki (please call me Mike---[titles are lowkey insults to hackers](http://www.catb.org/jargon/html/appendixb.html)) || Office | Adams 216 |
-| Office Hours | [see #712](https://github.com/mikeizbicki/cmc-csci143/issues/712) || Zoom | TBA |
-| Email | mizbicki@cmc.edu (you should probably [post a github issue](https://github.com/mikeizbicki/cmc-csci040/issues) instead of email) || Webpage | <https://izbicki.me> |
+| Name | Mike Izbicki (please call me Mike---[titles are lowkey insults to hackers](http://www.catb.org/jargon/html/appendixb.html)) |
+| Office | Adams 216 |
+| Office Hours | [see #712](https://github.com/mikeizbicki/cmc-csci143/issues/712) |
+| Zoom | TBA |
+| Email | mizbicki@cmc.edu (you should probably [post a github issue](https://github.com/mikeizbicki/cmc-csci040/issues) instead of email) |
+| Webpage | <https://izbicki.me> |
 | Research | Machine Learning (see <https://izbicki.me/research.html> for some past projects) |
 
 Fun facts:
