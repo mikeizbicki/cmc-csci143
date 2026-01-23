@@ -158,9 +158,7 @@ You won't be able to complete the homework, however, until you've completed all 
        
 **Instructions:**
 
-TBA
 
-<!--
 If you don't yet have access to the lambda server,
 let me know and we'll get that resolved.
 
@@ -171,7 +169,6 @@ This week there are three submodules:
 
 1. Then complete [lab-goodreads](https://github.com/mikeizbicki/lab-goodreads) and [lab-goodreads-part2](https://github.com/mikeizbicki/lab-goodreads2).
     (It's really just 1 lab split into two submodules for organization.)
--->
 
 ## Homework
 
