@@ -88,7 +88,7 @@ and has inspired lots of memes/comics:
 
 **Due Date:**
 
-Labs are always due at 11:59pm on the Sunday of the week that they are assigned (i.e. January 26 at 11:59pm for this lab).
+Labs are always due at 11:59pm on the Sunday of the week that they are assigned (i.e. January 25 at 11:59pm for this lab).
 
 *For this lab only:*
 There will be no late penalty if you miss the due date, but please be reasonable.
