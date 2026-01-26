@@ -26,6 +26,9 @@
     - you will have first 10 minutes of class to complete quiz
         - I will be in class >10 minutes early,
             everyone is welcome to come early and begin quiz early
+    - you will have an opportunity to retake this quiz
+
+        (but please study and take this first attempt seriously)
 
 ## Lecture Notes
 
