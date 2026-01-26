@@ -8,6 +8,7 @@
 
 **Monday 26 Jan:**
 
+- github issues / pull requests
 - lab
     - 22/31 submissions
     - most full credit
