@@ -6,6 +6,27 @@
 </a>
 </center>
 
+**Monday 26 Jan:**
+
+- lab
+    - 22/31 submissions
+    - most full credit
+    - if you didn't get full credit:
+        - you got a 0
+        - recall that very little partial credit will be given in this class
+        - you can resubmit for full credit
+        - if I didn't write any comments, your solution was totally incorrect; feel free to ask me for details
+    - DO NOT DO SPECIAL FORMATTING EVER!!!
+        - only copy/paste your terminal sessions
+        - no screenshots ever!!!
+
+- quiz (Wed 28 Jan)
+    - shell topics 00 - 02
+    - sample quiz at <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/quiz_00_01_02.pdf>
+    - you will have first 10 minutes of class to complete quiz
+        - I will be in class >10 minutes early,
+            everyone is welcome to come early and begin quiz early
+
 ## Lecture Notes
 
 **Expected Background Knowledge:**
