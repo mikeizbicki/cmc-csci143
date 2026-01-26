@@ -16,9 +16,9 @@
         - recall that very little partial credit will be given in this class
         - you can resubmit for full credit
         - if I didn't write any comments, your solution was totally incorrect; feel free to ask me for details
-    - DO NOT DO SPECIAL FORMATTING EVER!!!
+    - no special formatting
         - only copy/paste your terminal sessions
-        - no screenshots ever!!!
+        - NO SCREENSHOTS EVER!!!
 
 - quiz (Wed 28 Jan)
     - shell topics 00 - 02
