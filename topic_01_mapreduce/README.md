@@ -127,11 +127,17 @@ Quiz:
 
                 See the [GNU+Linux copypasta](https://itsfoss.com/gnu-linux-copypasta/)
 
-            1. The Debian-Almquist shell (`dash`), written by Herbert Xu in 1997; GPL-licensed
+            1. The Debian-Almquist shell (`dash`), written by [Herbert Xu](https://www.linux.com/news/30-linux-kernel-developers-30-weeks-herbert-xu/) in 1997; GPL-licensed
+
+                <img src=img/Herbert_Xu.jpg width=240px />
 
                 Dash is used on all Debian-based systems (including the lambda server, which runs Ubuntu) for system-wide scripts.
                 It has fewer features than bash but is much faster.
-            1. Z shell (`zsh`) is the default on Mac; BSD-licensed
+            1. Z shell (`zsh`) is the default on Mac (since 2019); BSD-licensed
+
+                The name comes from [`z`hong `sh`ao](https://www.cs.yale.edu/homes/shao-zhong/) (currently a professor at Yale).
+
+                But `zsh` was written by his student [Paul Falstad](https://www.falstad.com/) as an undergrad student project.
 
     1. POSIX (= Portible Operating System Interface)
         1. All the shells above have slightly different behaviors
