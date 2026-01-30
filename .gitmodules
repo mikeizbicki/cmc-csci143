@@ -52,13 +52,13 @@
 	path = topic_00_unix/lab2-goodreads-part2
 	url = https://github.com/mikeizbicki/lab-goodreads2
 [submodule "topic_01_mapreduce/lab-pipes-twitter"]
-	path = future/topic_01_mapreduce/prelab0-pipes-twitter
+	path = topic_01_mapreduce/prelab0-pipes-twitter
 	url = https://github.com/mikeizbicki/lab-pipes-twitter
 [submodule "topic_01_mapreduce/twitter_coronavirus"]
-	path = future/topic_01_mapreduce/hw-twitter-coronavirus
+	path = topic_01_mapreduce/hw-twitter-coronavirus
 	url = https://github.com/mikeizbicki/twitter_coronavirus
 [submodule "topic_01_mapreduce/lab-posix-mapreduce"]
-	path = future/topic_01_mapreduce/lab-posix-mapreduce
+	path = topic_01_mapreduce/lab-posix-mapreduce
 	url = https://github.com/mikeizbicki/lab-posix-mapreduce
 [submodule "topic_02_docker/lab-networking"]
 	path = future/topic_02_docker/lab-networking
@@ -85,8 +85,8 @@
 	path = topic_00_unix/prelab-llm
 	url = https://github.com/mikeizbicki/lab-llm
 [submodule "future/topic_01_mapreduce/lab-processes"]
-	path = future/topic_01_mapreduce/prelab1-processes
+	path = topic_01_mapreduce/prelab1-processes
 	url = https://github.com/mikeizbicki/lab-processes
 [submodule "topic_01_mapreduce/lab2-productivity"]
-	path = future/topic_01_mapreduce/lab2-productivity
+	path = topic_01_mapreduce/lab2-productivity
 	url = https://github.com/mikeizbicki/lab-productivity

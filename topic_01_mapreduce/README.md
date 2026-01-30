@@ -2,6 +2,7 @@
 
 <img src=img/LinuxAdmin.jpg width=600px />
 
+<!--
 **Announcements (Tuesday 2025-01-28)**
 
 Issues:
@@ -27,17 +28,11 @@ Quiz:
 1. 4 problems from Shell Topics 00-02.
 1. 10 minutes during class
 1. I will be in the classroom 10-20 minutes before class
-<!--
-1. For more quiz review:
-    1. CS46 POSIX 1 Lecture: <https://www.youtube.com/watch?v=5LmyskP7j7Y&t=897s>
-    1. CS46 POSIX 2 Lecture (part 1): <https://www.youtube.com/watch?v=4BkIoN_8-cE&t=2420s>
-    1. CS46 POSIX 2 Lecture (part 2): <https://www.youtube.com/watch?v=zjCJU5CrvZs&t=3m40s>
--->
 
 **Announcements (Thursday 2025-01-30)**
 
 Grades:
-1. All grades updated in sakai.
+1. All grades updated in canvas.
 1. I have entered 0 for unsubmitted hw/labs.
 
     Once you submit, I will regrade without a penalty.
@@ -97,6 +92,7 @@ Quiz:
         Recall that you can retake the first quiz during this same time period.
     1. I've hired a TA for this class (Ainslee Archibald).
         Expect an announcement about her availability soon.
+-->
 
 ## Lecture Notes
 
@@ -215,7 +211,7 @@ Quiz:
     1. port forwarding lets you redirect connections from one computer to another ([optional reference](https://www.ssh.com/ssh/tunneling/example))
 -->
 
-## Lab (31 Jan)
+## Lab
 
 **Prelab Tasks:**
 
@@ -252,12 +248,11 @@ Quiz:
 
 The lab is posted in the [lab-posix-mapreduce submodule](https://github.com/mikeizbicki/lab-posix-mapreduce).
 
-## Lab (7 Feb)
-
-See [lab2-productivity](https://github.com/mikeizbicki/lab-productivity).
-
 ## Homework
 
+TBA
+
+<!--
 The homework is posted in the [hw-twitter-mapreduce](https://github.com/mikeizbicki/twitter_coronavirus) git submodule.
 
 **Modified Due Date:**
@@ -271,3 +266,4 @@ There will be no extensions if your code does not finish in time.
 > You completed this assignment in CS46.
 > You are required to  re-run the assignment with a different set of hashtags and a different time frame.
 > You should select hashtags and a time frame that is interesting for some reason.
+-->
