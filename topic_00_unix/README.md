@@ -223,3 +223,7 @@ Like labs, homeworks will be posted into a submodule each week.
 This week's homework will teach you how to use continuous integration,
 and prepare you to submit all future assignments.
 You can find the homework at <https://github.com/mikeizbicki/continuous-integration>.
+
+## Lab (Fri 30 Jan 2026)
+
+See instructions at: <https://github.com/mikeizbicki/lab-productivity>.
