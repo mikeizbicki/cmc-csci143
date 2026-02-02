@@ -255,7 +255,7 @@ Quiz:
     I expect most of the class would benefit from redoing the tutorial.)
 
 1. Complete the following two lab assignments from CSCI046.
-    Both labs have tasks you will have to submit on sakai.
+    Both labs have tasks you will have to submit on canvas.
 
     1. [lab-pipes-twitter](https://github.com/mikeizbicki/lab-pipes-twitter)
     1. [lab-processes](https://github.com/mikeizbicki/lab-processes).
