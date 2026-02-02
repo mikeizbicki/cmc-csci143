@@ -33,6 +33,8 @@
 1. Wednesday quiz
     1. shell topics 01 - 03
 
+    1. new practice problems at: <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic03_for_loops.pdf>
+
 1. As a cohort, you all are behind previous iterations of this class.
 
    Course modifications:
