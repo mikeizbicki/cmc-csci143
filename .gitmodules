@@ -88,5 +88,5 @@
 	path = topic_01_mapreduce/prelab1-processes
 	url = https://github.com/mikeizbicki/lab-processes
 [submodule "topic_01_mapreduce/lab2-productivity"]
-	path = topic_01_mapreduce/lab2-productivity
+	path = topic_00_unix/lab2-productivity
 	url = https://github.com/mikeizbicki/lab-productivity

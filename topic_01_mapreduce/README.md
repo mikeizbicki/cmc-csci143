@@ -12,9 +12,38 @@
     1. still no late penalties have been applied
 
 1. lab-productivity / lab-cat:
-    1. 16 students need to (re)submit
+    1. 13 students need to (re)submit
     1. Screenshots are evil: <https://github.com/jessicalevin18/lab-cat>
     1. Weird formatting <https://github.com/khodge1607/lab-cat>
+
+1. quiz (shell topic 00)
+
+    | grade | # students |
+    | ----- | ---------- |
+    | 4     | 8          |
+    | 3     | 14         |
+    | <=2   | 6          | 
+
+    retake this Wednesday
+
+    1. complete during normal quiz time
+    1. everyone may take a copy
+    1. if you submit the copy, your grade on the copy will replace your existing grade
+
+1. Wednesday quiz
+    1. shell topics 01 - 03
+
+1. As a cohort, you all are behind previous iterations of this class.
+
+   Course modifications:
+    1. More time on review material.
+    1. Quiz Wednesday will cover only up to shell topic 03 (instead of 05 as originally planned)
+    1. No late penalty for last week's lab
+        (for everyone).
+
+    1. No late penalty for this week's lab
+
+        (if you email me before the deadline and explain: why it is late and why it won't happen again).
 
 <!--
 **Announcements (Tuesday 2025-01-28)**
