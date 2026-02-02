@@ -110,5 +110,5 @@ Modify the command below to output your best score instead of mine.
 ```
 $ cat /var/games/typespeed.score | grep 'Mike Izbicki' | cut -f1 | sort -nr | head -n1
 ```
-Upload the resulting command and its output to sakai.
+Upload the resulting command and its output to Canvas.
 If the output is at least `400`, then you will pass this task.
