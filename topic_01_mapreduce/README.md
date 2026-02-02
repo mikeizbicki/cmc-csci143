@@ -2,6 +2,20 @@
 
 <img src=img/LinuxAdmin.jpg width=600px />
 
+**Announcements (Monday 2025-02-02)**:
+
+1. everything graded
+    1. you have 0 as "default grade" for unsubmitted work
+
+        once you submit, I will update your grade
+
+    1. still no late penalties have been applied
+
+1. lab-productivity / lab-cat:
+    1. 16 students need to (re)submit
+    1. Screenshots are evil: <https://github.com/jessicalevin18/lab-cat>
+    1. Weird formatting <https://github.com/khodge1607/lab-cat>
+
 <!--
 **Announcements (Tuesday 2025-01-28)**
 
