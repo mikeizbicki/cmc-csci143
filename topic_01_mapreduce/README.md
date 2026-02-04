@@ -47,6 +47,26 @@
 
         (if you email me before the deadline and explain: why it is late and why it won't happen again).
 
+**Announcements (Wednesday 2025-02-04)**:
+
+All grades updated in canvas
+
+Quiz next week shell topic 04/05
+
+- review files at:
+
+    <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic04_conditionals.pdf>
+
+    <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic05_glob.pdf>
+
+- we won't discuss in class topic04 - conditionals
+
+- my favorite story in the history of computer science: <https://thenextweb.com/news/how-pixars-toy-story-2-was-deleted-twice-once-by-technology-and-again-for-its-own-good>
+
+No homework (besides the lab)
+
+- Monday we will discuss the MapReduce homework
+
 <!--
 **Announcements (Tuesday 2025-01-28)**
 
