@@ -42,7 +42,7 @@ so you should be able to finish this task in under 8 hours.
 
 1. (1 point) *War Games*, available on [youtube](https://www.youtube.com/watch?v=HNLQ-O-Qx3Y) or [Amazon Prime](https://www.amazon.com/Wargames-Matthew-Broderick/dp/B083FY4CDG/).
    This is a classic hacker movie and was quite realistic for what hacking looked like when the movie was released (1983).
-   The hacking technique [war dialing](https://en.wikipedia.org/wiki/Wardialing) were introduced by this movie.
+   The hacking technique [war dialing](https://en.wikipedia.org/wiki/Wardialing) was introduced by this movie.
 
 1. (2 points) Season 1 of *Mr. Robot*, available on [Amazon Prime](https://www.amazon.com/gp/video/detail/B00YBX664Q)).
    This is the most accurate portrayal of hacking in any modern movie, see for example [this article](https://www.pri.org/stories/how-realistic-are-hacks-mr-robot) and [this article](https://www.wired.com/2016/07/real-hackers-behind-mr-robot-get-right/).
