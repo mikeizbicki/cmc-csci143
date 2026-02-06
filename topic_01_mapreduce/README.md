@@ -53,6 +53,8 @@ All grades updated in canvas
 
 Quiz next week shell topic 04/05
 
+- another retake option for today's quiz
+
 - review files at:
 
     <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic04_conditionals.pdf>
