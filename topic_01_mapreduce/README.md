@@ -69,97 +69,31 @@ No homework (besides the lab)
 
 - Monday we will discuss the MapReduce homework
 
-<!--
-**Announcements (Tuesday 2025-01-28)**
+**Announcements (Monday 2026-02-09):**
 
-Issues:
-1. Overall great use of github issues :)
-1. Do not post issues to submodules (i.e. repos that are not the main class repo)
+1. Everything graded in canvas
 
-Labs:
-1. "Due" last night.
-1. 28/38 submitted.
-1. 10 non-submitted students:
-    1. No late penalty, but be reasonable.
-    1. Reach out if you need help.
+    | grade range | number of students |
+    | --- | --- |
+    | 100 <= grade | 10 |
+    | 90 <= grade < 100 | 4 |
+    | 80 <= grade < 90 | 5 |
+    | grade < 80 | 11 |
 
-Homework:
-1. Due tonight (but no late penalty)
-1. I won't be covering in class how to submit pull requests.
-1. If you'd like a review, see the Spring 2023 CS46 class recording: <https://www.youtube.com/watch?v=M9qT9fOBuIA&t=1460s>.
+1. Quiz Wednesday
+    1. Topic04 (conditionals) + Topic05 (glob)
+    1. Optional retake (topics 01/02/03)
+    1. As always, I will be in class early and you may start early
 
-    (Video starts with a short conversation about grades, then uses a pull request to change how grading is done.)
+1. Twitter Coronavirus Homework:
+    
+    Due: Tuesday 24 Feb (2 weeks)
 
-Quiz:
-1. This Thursday
-1. 4 problems from Shell Topics 00-02.
-1. 10 minutes during class
-1. I will be in the classroom 10-20 minutes before class
+    I recommend having everything complete by 17 Feb
 
-**Announcements (Thursday 2025-01-30)**
+    - Runtime on unloaded lambda server: 3-5 hours
 
-Grades:
-1. All grades updated in canvas.
-1. I have entered 0 for unsubmitted hw/labs.
-
-    Once you submit, I will regrade without a penalty.
-
-This week assignments:
-1. Lab no penalty for late submission this week.
-    But to qualify, you must email me before the due date explaining why you didn't finish in time and what you'll do differently in the future.
-1. Homework not yet posted.  (We will continue working on this topic next week.)
-
-Quiz:
-1. Next week covers Shell topics 03, 04, ~~05~~
-1. Will have 4 review problems + 4 new problems
-1. Option to retake this week's quiz (new problems) with no penalty.  You will keep whatever grade you get on the retake.
-1. Future notes packets will not have as much material
-
-**Announcements (Tuesday 2025-02-04)**
-
-1. Everything updated in sakai.
-
-    Overall grades:
-
-    <img src=img/grades.png width=250px />
-
-    Quiz grades:
-
-    <img src=img/grades-quiz.png width=250px />
-
-1. Many people received zeros on submitted assignments.
-    1. You may fix the mistake and resubmit for full credit.
-    1. Check sakai to see if this applies to you.
-
-1. Too many people taking advantage of the no late penalty policy.
-
-    | Assignment                            | Submissions Received |
-    | ------------------------------------- | ----- |
-    | topic01 lab: posix-mapreduce          | 24/37 |
-    | topic01 prelab: processes             | 31/37 |
-    | topic01 prelab: pipes-twitter         | 31/37 |
-    | topic00 lab: goodreads2               | 34/37 |
-    | topic00 lab: goodreads1               | 35/37 |
-    | topic00 hw: continuous-integration    | 33/37 |
-
-    1. It's bad to fall behind in this course.
-
-    1. Later portions of this course assume perfect understanding of the topic00/topic01 review material.
-
-    1. Grace period ends this Sunday (9 Feb).
-        Any submissions received after this time period will receive late penalties.
-
-1. As a cohort, you all are behind previous iterations of this class.
-
-   Course modifications:
-    1. We'll be spending another week on review material.
-        (A new lab will be posted below later this week.)
-    1. Quiz Thursday will cover Shell Topics 03 and 04 only (not 05).
-
-        Recall that you can retake the first quiz during this same time period.
-    1. I've hired a TA for this class (Ainslee Archibald).
-        Expect an announcement about her availability soon.
--->
+    - Runtime on heavily loaded lambda server: 5 hours * 30 students = 150 hours = 6.25 days 
 
 ## Lecture Notes
 
