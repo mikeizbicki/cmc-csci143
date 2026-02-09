@@ -87,14 +87,6 @@ No homework (besides the lab)
 
 1. Twitter Coronavirus Homework:
     
-    Due: Tuesday 24 Feb (2 weeks)
-
-    I recommend having everything complete by 17 Feb
-
-    - Runtime on unloaded lambda server: 3-5 hours
-
-    - Runtime on heavily loaded lambda server: 5 hours * 30 students = 150 hours = 6.25 days 
-
 ## Lecture Notes
 
 1. Definitions:
@@ -257,20 +249,17 @@ The lab is posted in the [lab-posix-mapreduce submodule](https://github.com/mike
 
 ## Homework
 
-TBA
-
-<!--
 The homework is posted in the [hw-twitter-mapreduce](https://github.com/mikeizbicki/twitter_coronavirus) git submodule.
 
 **Modified Due Date:**
-Tuesday, 25 February.
+Tuesday, 24 February.
 
-You have 3 weeks to complete the assignment due to potentially long computation times.
-You should get started early.
-There will be no extensions if your code does not finish in time.
+I recommend starting early and having everything complete by 17 Feb.
 
-> **Students who took CS46 with me:**
-> You completed this assignment in CS46.
-> You are required to  re-run the assignment with a different set of hashtags and a different time frame.
-> You should select hashtags and a time frame that is interesting for some reason.
--->
+Why?
+
+- Runtime on unloaded lambda server: 3-5 hours
+
+- Runtime on heavily loaded lambda server: 5 hours * 30 students = 150 hours = 6.25 days 
+
+There will be no extensions given for code not completing in time.
