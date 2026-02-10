@@ -1,45 +1,14 @@
+# Docker
 
 <img src=img/containers_2x.png width=400px />
 
-**Announcements (Tuesday 2025-02-11):**
+<!--
+Currently 27 points total.
+Expect 200-300 points by end of semester.
 
-1. Grades are updated.
-
-    1. Quiz retake
-
-        12 submissions
-
-        4 students lost 1 point :(
-
-        4 students gained >1 point :)
-
-        4 students same grade
-
-    1. Quiz topics 03/04
-
-        <img src=img/grades-quiz.png width=300px />
-
-    1. Overall grades
-
-        <img src=img/grades-overall.png width=300px />
-
-        Currently 27 points total.
-        Expect 200-300 points by end of semester.
-
-        If you submitted something and I marked it wrong,
-        you have until Thursday to resubmit for full credit.
-
-    1. Quiz this Thursday on shell Topics 05 (glob) and 06 (git)
-
-        1. Electronic copies available at <https://github.com/mikeizbicki/quiz/tree/master/quiz_shell>.
-        1. If you don't feel 100% confident in git, I recommend recompleting [the unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md) 
-            1. The answers to all git quiz questions are explained there
-            1. The git quiz focuses on branching/merging, not pushing/pulling
-
-                (so not github, only git)
-
-1. New concept (Docker)
-    1. Before class Thursday, complete [prelab tasks](#lab) to install it
+If you submitted something and I marked it wrong,
+you have until Thursday to resubmit for full credit.
+-->
 
 ## Lecture Notes
 
@@ -206,14 +175,23 @@
        to restart the docker daemon.
     -->
 
-**Instructions:**  Follow the instructions in the [lab-networking](https://github.com/mikeizbicki/lab-networking) submodule.
+**Instructions:*
+
+TBA
+
+<!--
+Follow the instructions in the [lab-networking](https://github.com/mikeizbicki/lab-networking) submodule.
 
 > **Note:**
 > This lab must be completed with a partner.
 > Recall that the [collaboration policy](https://github.com/mikeizbicki/cmc-csci143/issues/592) has restrictions on when/where you may work with partners outside of lab time.
+-->
 
 ## Homework
 
+TBA
+
+<!--
 **Learning Objectives:**
 
 1. Practice using docker
@@ -238,6 +216,7 @@ For this homework, you will follow the tutorial and upload your completed app to
 > These instructions were not designed for this class,
 > and you will therefore have to modify parts of the instructions in order to get them to work.
 > This is intentional in order to get you more practice adapting tutorials into different computational environments.
+-->
 
 <!--
 There are two main modifications you'll have to make:
@@ -256,6 +235,7 @@ There are two main modifications you'll have to make:
    where `DOCKER_PORT` is whatever port you specified.
 -->
 
+<!--
 > **Hint 3:**
 > Finally, there's a handful of errors that you'll get when you build the project.
 > You'll find that fixing these errors only takes a very small change to the project files,
@@ -266,6 +246,7 @@ There are two main modifications you'll have to make:
 > It is very common for realworld tutorials to not work exactly as written.
 > I've selected this tutorial specifically because it has these problems, and they are relatively minor.
 > It will give you good practice for when you encounter harder problems later.
+-->
 
 <!--
 The fundamental problem is that various libraries/packages have introduced breaking changes since the author of the tutorial wrote the tutorial.
@@ -275,8 +256,10 @@ Once you've figured out the correct sequence of commands,
 then you should modify the `Dockerfile` to reflect these new commands.
 -->
 
+<!--
 **Submission:**
 
 Put all your files for this homework into a github repo.
 Also take a screenshot of your webpage and put it into the same repo.
 Then upload the repo url to sakai.
+-->
