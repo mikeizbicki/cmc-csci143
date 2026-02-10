@@ -175,7 +175,7 @@ you have until Thursday to resubmit for full credit.
        to restart the docker daemon.
     -->
 
-**Instructions:*
+**Instructions:**
 
 TBA
 
