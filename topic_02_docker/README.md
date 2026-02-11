@@ -93,14 +93,16 @@
 
        Helps you actually understand the commands below
 
+       <img src=img/hours-minutes.jpg width=400px />
+
 1. Basic Commands
 
     1. `docker pull`: download a docker image
 
         important images include:
 
-        1. `ubuntu`: a basic install of the ubuntu distro
         1. `debian`: a basic install of the debian distro
+        1. `ubuntu`: a basic install of the ubuntu distro (like debian [but with spyware preinstalled](https://www.gnu.org/philosophy/ubuntu-spyware.en.html))
         1. `alpine`: a basic install of the alpine distro (most popular distro for containers due to extremely small size)
         1. `python`: an alpine container with latest python pre-installed
 
