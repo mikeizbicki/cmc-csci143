@@ -2,13 +2,42 @@
 
 <img src=img/containers_2x.png width=400px />
 
-<!--
-Currently 27 points total.
-Expect 200-300 points by end of semester.
+**Announcements (Wed 11 Feb 2026):**
 
-If you submitted something and I marked it wrong,
-you have until Thursday to resubmit for full credit.
--->
+- Currently 26 points total (30 with quiz)
+
+    - If you submitted something and I marked it wrong,
+        you have until Sunday midnight to resubmit for full credit.
+
+    - twitter-coronavirus worth 32 points
+
+    - expect ~256 points total in class
+
+- Quiz next week on git
+
+    - git notes at <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic06_git.pdf>
+
+    - for helpful review, see [the unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md)
+
+        (this was a pre-hw task for the continuous-integration assignment)
+
+    - 8 points (instead of 4)
+
+    - still 4 problems (each worth 2 points)
+
+    - expect 0-2 of the problems to be review from previous packets
+
+- Next two weeks on docker
+
+    - by far, hardest part of the course
+
+    - lots of weird errors
+
+      (the purpose of all our quizzes is to help you avoid these errors in the first place!)
+
+- Remainder of course on SQL
+
+    (but we need docker to setup SQL)
 
 ## Lecture Notes
 
@@ -189,9 +218,6 @@ Follow the instructions in the [lab-networking](https://github.com/mikeizbicki/l
 
 ## Homework
 
-TBA
-
-<!--
 **Learning Objectives:**
 
 1. Practice using docker
@@ -206,7 +232,7 @@ For this homework, you will follow the tutorial and upload your completed app to
 
 > **Hint 1:**
 > The link above is now broken.
-> The company runnable.com has run out of business, and their website no longer works.
+> The company Runnable.com has run out of business, and their website no longer works.
 > In order to view the instructions for the homework,
 > you will have to use the [Wayback Machine](https://archive.org/) to get access to an archived version.
 > [Most startups fail](https://explodingtopics.com/blog/startup-failure-stats),
@@ -216,26 +242,22 @@ For this homework, you will follow the tutorial and upload your completed app to
 > These instructions were not designed for this class,
 > and you will therefore have to modify parts of the instructions in order to get them to work.
 > This is intentional in order to get you more practice adapting tutorials into different computational environments.
--->
+> 
+> There are (at least) two main modifications you'll have to make:
+> 
+> 1. In the `docker run` command, you will have to change the port that docker exposes to a port other than 5000.
+>    (This is because you're all running this code at the same time, and you can't all use the same port.)
+>    I recommend using your user id as a port number, as this will guarantee that you don't run into conflicts with other students.
+>    Your userid is stored in the environment variable `$UID`.
+> 
+> 1. In order to view your webpage from your laptop,
+>    you will have to connect to the lambda server with local port forwarding enabled.
+>    The command will look something like
+>    ```
+>    $ ssh username@134.173.191.241 -p 5055 -L 8080:localhost:DOCKER_PORT
+>    ```
+>    where `DOCKER_PORT` is whatever port you specified.
 
-<!--
-There are two main modifications you'll have to make:
-
-1. In the `docker run` command, you will have to change the port that docker exposes to a port other than 5000.
-   (This is because you're all running this code at the same time, and you can't all use the same port.)
-   I recommend using your user id as a port number, as this will guarantee that you don't run into conflicts with other students.
-   Your userid is stored in the environment variable `$UID`.
-
-1. In order to view your webpage from your laptop,
-   you will have to connect to the lambda server with local port forwarding enabled.
-   The command will look something like
-   ```
-   $ ssh username@134.173.191.241 -p 5055 -L 8080:localhost:DOCKER_PORT
-   ```
-   where `DOCKER_PORT` is whatever port you specified.
--->
-
-<!--
 > **Hint 3:**
 > Finally, there's a handful of errors that you'll get when you build the project.
 > You'll find that fixing these errors only takes a very small change to the project files,
@@ -246,7 +268,6 @@ There are two main modifications you'll have to make:
 > It is very common for realworld tutorials to not work exactly as written.
 > I've selected this tutorial specifically because it has these problems, and they are relatively minor.
 > It will give you good practice for when you encounter harder problems later.
--->
 
 <!--
 The fundamental problem is that various libraries/packages have introduced breaking changes since the author of the tutorial wrote the tutorial.
@@ -256,10 +277,10 @@ Once you've figured out the correct sequence of commands,
 then you should modify the `Dockerfile` to reflect these new commands.
 -->
 
-<!--
 **Submission:**
 
 Put all your files for this homework into a github repo.
 Also take a screenshot of your webpage and put it into the same repo.
-Then upload the repo url to sakai.
--->
+Ensure that you have a "reasonable" README with a title, 1-2 sentence explanation of the project, and the image.
+
+Then upload the repo url to canvas.
