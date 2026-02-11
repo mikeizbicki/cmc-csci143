@@ -39,6 +39,8 @@
 
     (but we need docker to setup SQL)
 
+- (recommended) install rootless-docker before Friday
+
 ## Lecture Notes
 
 1. Overview
