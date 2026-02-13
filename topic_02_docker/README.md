@@ -210,15 +210,11 @@
 
 **Instructions:**
 
-TBA
-
-<!--
 Follow the instructions in the [lab-networking](https://github.com/mikeizbicki/lab-networking) submodule.
 
 > **Note:**
 > This lab must be completed with a partner.
 > Recall that the [collaboration policy](https://github.com/mikeizbicki/cmc-csci143/issues/592) has restrictions on when/where you may work with partners outside of lab time.
--->
 
 ## Homework
 
