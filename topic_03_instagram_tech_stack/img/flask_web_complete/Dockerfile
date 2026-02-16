@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:24.04
 # what does the above line mean?
 # use the latest version of ubuntu, not 16.04
 

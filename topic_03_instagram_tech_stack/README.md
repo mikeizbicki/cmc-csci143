@@ -2,9 +2,13 @@
 
 **Announcements (Mon 16 Feb):**
 
-1. homework update
+1. collaboration policy update: <https://github.com/mikeizbicki/cmc-csci143/issues/592#issuecomment-3910439538>
 
-    1. collaboration policy update: <https://github.com/mikeizbicki/cmc-csci143/issues/592#issuecomment-3910439538>
+1. `twitter_coronavirus`
+
+    I am modifying the due date to Tuesday 03 March (+1 week)
+
+1.  `flask_web`
 
     1. problems with the tutorial:
 
