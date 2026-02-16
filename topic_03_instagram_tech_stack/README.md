@@ -1,32 +1,12 @@
 # Docker, docker-compose, the Instagram tech stack
 
-## Announcements
-
-1. quiz grades
-
-    <img width=400px src=img/quiz_grades.png />
-
-1. new shell extra credit: <https://github.com/mikeizbicki/cmc-csci143/issues/577#issuecomment-2666359945>
-
-1. review quiz this Thursday
-
-    1. 8 problems, 2 points / problem = 16 points total
-
-    1. last shell quiz (for now); start SQL next week
-
-    1. expect problems that:
-        1. lots of people missed on previous quizzes
-        1. will help you with docker
+**Announcements (Mon 16 Feb):**
 
 1. homework update
 
-    1. collaboration policy update: <https://github.com/mikeizbicki/cmc-csci143/issues/592#issuecomment-2666337562>
+    1. collaboration policy update: <https://github.com/mikeizbicki/cmc-csci143/issues/592#issuecomment-3910439538>
 
-    1. docker not working:
-        
-        see: <https://github.com/mikeizbicki/cmc-csci143/issues/626>
-
-    1. other problems with the tutorial:
+    1. problems with the tutorial:
 
         <img src='img/Strip-Le-déploiement-english650-final.jpg' width=400px />
 
@@ -72,14 +52,12 @@
     1. this week's assignment is still a "copy+paste" assignment
     1. but it has a lot more sharp edges where things can go wrong
     1. expect to spend ~10x the amount of time on this assignment as last assignment
--->
-        <!--
-        1. [Threat actors targetting docker via container escape feature](https://news.ycombinator.com/item?id=26121877)
-        -->
 
-1. Bad use of the glob deleted Toy Story 2
+1. **before Wednesday class:**
 
-    <https://thenextweb.com/news/how-pixars-toy-story-2-was-deleted-twice-once-by-technology-and-again-for-its-own-good>
+    go through first 2 sections (up to, but not including Postgres)
+
+    we will walk through the Postgres section Wednesday
 
 ## Lecture
 
@@ -334,10 +312,14 @@
 
 ## Lab
 
+TBA
+
+<!--
 We will use the Friday class this week to discuss the "sharp edges" in the homework assignment.
 There is no lab due.
 
 I recommend you complete the first two sections of the homework ("Project Setup" and "Docker", but not "Postgres") before Friday's class.
+-->
 
 <!--
 **Update:**
@@ -380,19 +362,20 @@ This is a slightly more complicated "hello world" than you did last week that in
    > In these instructions, the production credentials are located in the file `.env.prod.db`.
    > So this file should not be uploaded to github, but all the other files should be.
 
-1. Create a README file with the following sections:
+1. Create a README file.
+    1. The idea of the README is that this is something you could show off to potential future employers, and so you should polish it accordingly. 
+    1. Include a github action (and appropriate badge) that shows that your repo builds.
     1. Overview
         1. In one paragraph, describe what the repo does
         1. Include an animated gif that records you running your webpage, uploading an image, and then viewing the image.
 
-            If you don't include an animated gif, then the max credit you can get is 15/16.
+            If you don't include an animated gif, then the max credit you can get is 14/16.
     1. Build Instructions
         1. Should contain a short description of the commands needed to bring your services up and how to use them           
         1. This should be complete enough that anyone can bring the service up
     
-    The idea of the README is that this is something you could show off to potential future employers, and so you should polish it accordingly. 
 
-1. Upload the url of your repo to sakai.
+1. Upload the url of your repo to canvas.
 
    There are no specific test cases that you need to pass,
    just by uploading the files, you'll get full credit.
