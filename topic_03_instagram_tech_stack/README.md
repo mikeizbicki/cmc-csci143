@@ -8,6 +8,14 @@
 
     I am modifying the due date to Tuesday 03 March (+1 week)
 
+1. **before Wednesday class:**
+
+    1. go through first 2 sections of homework tutorial
+
+        (up to, but not including Postgres)
+
+    1. we will walk through the Postgres section Wednesday
+
 1.  `flask_web`
 
     1. problems with the tutorial:
@@ -56,12 +64,6 @@
     1. this week's assignment is still a "copy+paste" assignment
     1. but it has a lot more sharp edges where things can go wrong
     1. expect to spend ~10x the amount of time on this assignment as last assignment
-
-1. **before Wednesday class:**
-
-    go through first 2 sections (up to, but not including Postgres)
-
-    we will walk through the Postgres section Wednesday
 
 ## Lecture
 
@@ -368,7 +370,7 @@ This is a slightly more complicated "hello world" than you did last week that in
 
 1. Create a README file.
     1. The idea of the README is that this is something you could show off to potential future employers, and so you should polish it accordingly. 
-    1. Include a github action (and appropriate badge) that shows that your repo builds.
+    1. Include a github action (and appropriate badge) that shows that your repo builds in the development version of the webpage.
     1. Overview
         1. In one paragraph, describe what the repo does
         1. Include an animated gif that records you running your webpage, uploading an image, and then viewing the image.
@@ -377,7 +379,6 @@ This is a slightly more complicated "hello world" than you did last week that in
     1. Build Instructions
         1. Should contain a short description of the commands needed to bring your services up and how to use them           
         1. This should be complete enough that anyone can bring the service up
-    
 
 1. Upload the url of your repo to canvas.
 
