@@ -65,6 +65,10 @@
     1. but it has a lot more sharp edges where things can go wrong
     1. expect to spend ~10x the amount of time on this assignment as last assignment
 
+**Announcements (Wed 18 Feb):**
+1. No quiz next week :)
+1. Lab this week: just work on hw (no separate assignment)
+
 ## Lecture
 
 1. We're still setting up our "working environment" this week
@@ -318,7 +322,7 @@
 
 ## Lab
 
-TBA
+Just work on hw :)
 
 <!--
 We will use the Friday class this week to discuss the "sharp edges" in the homework assignment.
