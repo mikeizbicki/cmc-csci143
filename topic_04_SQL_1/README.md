@@ -2,21 +2,19 @@
 
 <img src=img/sql-meme.png width=350px>
 
-**Announcements (Tuesday 25 Feb)**
+**Announcements (Mon Feb 23)**
 
-1. Due (nominally) tonight @ midnight:
+1. Due Tuesday March 3rd:
     1. twitter coronavirus
     1. flask-on-docker
-
-1. Recall:
-    1. late penalty = `2**(# days late - 1)`
-    1. Very little partial credit awarded.
-        Usually better to submit correct work late than incorrect work on time.
+    1. (added this week) pagila-hw
 
 1. No quiz this week :)
 
+    Lab class, but no lab assignment this week :)
+
 1. Outline of the rest of the class:
-    1. ~~4 weeks~~ 3 weeks: how to make SQL correct
+    1. 3 weeks: how to make SQL correct
         - most important section of the course
             - covers the SQL material commonly found in data science technical interviews
         - material much more straightforward
@@ -24,7 +22,9 @@
             - no fighting weird error messages
             - the purpose of covering docker was so that we could introduce PostgreSQL
     1. 6 weeks: how to make SQL fast
+        - redo the twitter coronavirus assignment so that you can answer queries in <200ms
 
+<!--
 **Announcements (Tuesday 27 Feb)**
 
 1. SQLite
@@ -46,6 +46,7 @@
     1. Internal database exposed due to bad port management
 
         <https://www.wiz.io/blog/wiz-research-uncovers-exposed-deepseek-database-leak>
+-->
 
 ## Lecture
 
