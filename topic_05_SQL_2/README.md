@@ -1,5 +1,26 @@
-# Topic 05: SQL II
+# SQL II
 
+**Monday 2 Mar 2026:**
+
+1. Get a good workflow going for your assignments
+
+    <img src=img/gates.jpg width=600px />
+
+    <br/>
+
+    <img src=img/the-three-chief-virtues-of-a-programmer-are-laziness-impatience-and-hubris-larry-wall.jpg width=600px />
+
+1. Quiz Wednesday on `quiz_notes_1.sql`
+
+    4 problems
+
+    Each worth 2 points (1 point for sqlite result, 1 point for postgres result)
+
+    See example quizzes at `quiz_example_1*.sql` for practice
+
+1. Handout: <https://github.com/mikeizbicki/sql_quiz/blob/master/quiz_notes_2.sql>
+
+<!--
 ## Announcements
 
 **Tuesday 04 Mar 2025**
@@ -24,31 +45,9 @@
 
     <img src='img/grades_flask-on-docker.png' width=400px/>
 
-    <!--
-    Both assignments:
-
-    - much emoji
-    -->
-
     <br/>
 
     <img src='img/grades_overall.png' width=400px/>
-
-1. Get a good workflow going for your assignments
-
-    <img src=img/gates.jpg width=600px />
-
-    <br/>
-
-    <img src=img/the-three-chief-virtues-of-a-programmer-are-laziness-impatience-and-hubris-larry-wall.jpg width=600px />
-
-1. Quiz Thursday on `quiz_notes_1.sql`
-
-    4 problems
-
-    Each worth 2 points (1 point for sqlite result, 1 point for postgres result)
-
-    See example quizzes at `quiz_example_1*.sql` for practice
 
 **Tuesday 04 Mar 2025**
 
@@ -71,6 +70,7 @@
     <br/>
 
     <img src=img/meme1.png width=400px />
+-->
 
 ## Lecture Notes
 
