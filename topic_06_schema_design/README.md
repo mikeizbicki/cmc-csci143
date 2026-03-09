@@ -13,16 +13,29 @@ Cube/rollup
 Window functions
 -->
 
-**Announcements: Tuesday, 11 Mar**
+**Announcements: Tuesday, 09 Mar**
+
+1. Grades
+
+    | grade range       | num students |
+    | ----------------- | ------------ |
+    | 100 <= grade      | 3            |
+    | 90 <= grade < 100 | 19           |
+    | 80 <= grade < 90  | 2            |
+    | grade < 80        | 4            |
 
 1. Reminder
-    1. quiz this Thursday
-       
-       We will finish covering outer joins from SQL 2 today
+    1. quiz this Wednesday on sql topic 2
+
+        (subqueries / outer joins)
 
 1. Upcoming assignments
-    1. pagila-hw3 due 25 Mar (Tuesday after spring break)
-    1. lab-consistency due Sunday 23 Mar
+    1. pagila-hw3 due 24 Mar (Tuesday after spring break)
+    1. lab-consistency due Sunday 22 Mar
+
+1. No lab session this Friday
+
+    (I will be in my office during lab time if anyone wants to ask questions)
 
 ## Lecture Notes
 
