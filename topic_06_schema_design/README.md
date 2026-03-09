@@ -237,7 +237,7 @@ Important quotes:
            the total data stored is the realdata+metadata, which may go up or down
 
     1. [at least 11 different "normal forms" are in use](https://en.wikipedia.org/wiki/Database_normalization#Normal_forms)
-        1. these 11 forms could be furthur divided into an arbitrary number of subcategories, and db researchers regularly propose new forms
+        1. these 11 forms could be further divided into an arbitrary number of subcategories, and db researchers regularly propose new forms
         1. database classes often spend a lot of time covering the different forms (we're not going to)
         1. the subtle differences can be important for db implementers
         1. db practitioners basically never talk about specific db forms, usually preferring to talk about "more" or "less" normalized in informal terms
