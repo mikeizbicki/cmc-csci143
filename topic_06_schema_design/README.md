@@ -286,7 +286,10 @@ Important quotes:
     1. the ending of the lines represents the type of relation
         1. <img src=img/ERD-Notation.PNG />
         1. reference: <https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning>
-    1. Typical real world database: <https://anna.voelkl.at/wp-content/uploads/2016/12/ce2.1.3.png>
+    1. Typical real world database:
+        1. <https://anna.voelkl.at/wp-content/uploads/2016/12/ce2.1.3.png>
+        2. <https://dataedo.com/asset/img/blog/huge_erd.jpg>
+
 
 1. common table structures
     1. 1-1 relationships
