@@ -374,7 +374,7 @@ Important quotes:
                CREATE TABLE rental (
                    rental_id SERIAL PRIMARY KEY,
                    ...
-                   amount numeric(5,2),         -- notice these collumns are NULLable
+                   amount numeric(5,2),         -- notice these columns are NULLable
                    payment_date timestamptz
                );
                ```
@@ -411,7 +411,7 @@ Important quotes:
                 ...
             );
             ```
-            No UNIQIUE constraint on the column.
+            No UNIQUE constraint on the column.
 
             One film will have exactly one `release_year`,
             but each `release_year` can correspond to many `film_id`s.
@@ -432,7 +432,7 @@ Important quotes:
                );
                ```
 
-               The lack of a UNIQUE constraint on `inventory(film_id` makes this a 1-many relationship instead of 1-1.
+               The lack of a UNIQUE constraint on `inventory(film_id)` makes this a 1-many relationship instead of 1-1.
 
         <!--
         1. method: enums
