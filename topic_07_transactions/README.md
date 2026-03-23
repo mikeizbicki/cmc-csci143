@@ -4,14 +4,12 @@
 
 Grades updated in sakai.
 
-<img src=img/grades.png width=400px>
-
 For this week:
-1. Quiz Thursday (row overhead)
-    1. 8 points
+1. Quiz Wednesday (row overhead)
+    1. 4 points
     1. Easier than the previous SQL quizzes if you prepare
     1. Computer allowed
-1. No lab this Friday (28 Mar) due to Cesar Chavez Day.
+1. No lab this Friday (27 Mar) due to Cesar Chavez Day.
 1. No homework this week :)
 
 Outline of end of semester:
@@ -23,12 +21,15 @@ Outline of end of semester:
             - previously, we used shell+MapReduce
                 - "easy" to code
                 - faster than non-parallel code
+                    - runtime is $O(n/p)$, where $n$ is size of problem and $p$ number of processors
                 - still slow
             - now we will use postgres to do it
                 - run queries in milliseconds
+                    - postgres will generate tree structures "automatically"
+                    - query runtimes will be $O(\log n)$
                 - hard part is getting the data into postgres
                 - writing SQL queries/making them fast "easy"
-        - Due dates:
+        - hw due no sooner than
             - Tuesday 5 April (inserting data correctly)
             - Tuesday 12 April (inserting data faster)
             - Tuesday 19 April (querying data faster)
@@ -37,6 +38,8 @@ Outline of end of semester:
 
 - For non-graduating students:
     - You will have an additional project
+        - live demo during finals week
+        - may be demoed over zoom
 
 ## Lecture Notes
 
@@ -71,6 +74,13 @@ Outline of end of semester:
 
         1. In this course, we will only scratch the surface.
 
+        1. Modern LLMs:
+            1. Good-ish at concurrency in the hands of an expert.
+                - expert can steer the LLM away from pitfalls
+            1. Very bad at concurrency in the hands of non-experts.
+                - vibe coders don't know what they don't know
+                - LLMs often require >1 million lines of context to avoiding concurrency traps
+
 1. There are many tools to manage concurrency
 
     1. These tools usually introduced in an Operating Systems course
@@ -103,7 +113,7 @@ Outline of end of semester:
     there will be no homework this week.
     You should spend all of your time preparing for the quiz, which will be worth 16 points.
 
-1. The quiz will be next week Thursday (3 Apr).
+1. The quiz will be next week Wednesday (1 Apr).
 
 1. See the files `quiz_notes.pdf` and `quiz_example.pdf`.
 
@@ -116,9 +126,7 @@ Outline of end of semester:
 
     1. <https://www.postgresql.org/docs/current/transaction-iso.html>
 
-       responsible for: `READ UNCOMMITTED`, `READ COMMITTED`, and `REPEATABLE READ` isolation levels
-
-       not (for this quiz) responsible for: `SERIALIZABLE` isolation level <!-- (because the differences `REPEATABLE READ` and `SERIALIZABLE` can't be realistically tested) -->
+       responsible for: `READ UNCOMMITTED`, `READ COMMITTED`, `REPEATABLE READ`, `SERIALIZABLE` isolation levels
 
     1. <https://www.postgresql.org/docs/current/explicit-locking.html>
 
@@ -240,7 +248,7 @@ Outline of end of semester:
 
 ## Lab
 
-TBA
+None :)
 
 ## Homework
 
