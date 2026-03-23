@@ -1,6 +1,6 @@
 # Transactions and Locks
 
-## Announcements
+**Announcements (Mon 23 Mar)**
 
 Grades updated in sakai.
 
