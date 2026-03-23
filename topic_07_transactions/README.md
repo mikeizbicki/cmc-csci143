@@ -126,7 +126,9 @@ Outline of end of semester:
 
     1. <https://www.postgresql.org/docs/current/transaction-iso.html>
 
-       responsible for: `READ UNCOMMITTED`, `READ COMMITTED`, `REPEATABLE READ`, `SERIALIZABLE` isolation levels
+       responsible for: `READ UNCOMMITTED`, `READ COMMITTED`, `REPEATABLE READ`
+
+       not responsible for: `SERIALIZABLE`
 
     1. <https://www.postgresql.org/docs/current/explicit-locking.html>
 
