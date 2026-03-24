@@ -2,7 +2,7 @@
 
 **Announcements (Mon 23 Mar)**
 
-Grades updated in sakai.
+Grades updated in canvas.
 
 For this week:
 1. Quiz Wednesday (row overhead)
