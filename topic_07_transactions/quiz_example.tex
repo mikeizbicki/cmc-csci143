@@ -53,7 +53,7 @@
 \begin{center}
 {
 \Large
-    Quiz (Transactions and Locks)
+    Example Quiz (Transactions and Locks Part I)
 }
 
     \vspace{0.1in}
@@ -121,7 +121,6 @@ COMMIT;
 \begin{lstlisting}
 CREATE TABLE t (
     a INT PRIMARY KEY
-    DEFERRABLE INITIALLY DEFERRED
     );
 BEGIN ISOLATION LEVEL
 REPEATABLE READ;
@@ -137,7 +136,6 @@ COMMIT;
     &
 \hspace{-0.2in}Session 2
 \begin{lstlisting}
-
 
 
 
@@ -202,54 +200,41 @@ COMMIT;
 \begin{tabular}{p{3.25in}p{3in}}
 \hspace{-0.2in}Session 1
 \begin{lstlisting}
-CREATE TABLE t (a INT PRIMARY KEY);
-
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO t VALUES (3);
 
 
 
 BEGIN;
+UPDATE t SET a=6 WHERE a=1;
+
+
 INSERT INTO t VALUES (1);
-INSERT INTO t VALUES (2);
-INSERT INTO u VALUES (2);
-
-
-
-SELECT count(*) FROM t;
-
-INSERT INTO t VALUES (3);
 COMMIT;
-
-
-
-SELECT count(*) FROM t;
 \end{lstlisting}
     &
 \hspace{-0.2in}Session 2
 \begin{lstlisting}
-
-CREATE TABLE u (
-    b INT REFERENCES t(a)
-    DEFERRABLE INITIALLY DEFERRED
-    );
 
 
 
 
 BEGIN ISOLATION LEVEL
 REPEATABLE READ;
-INSERT INTO u VALUES (3);
-
-INSERT INTO u VALUES (1);
+SELECT count(*);
 
 
-UPDATE u SET b=5;
+DELETE FROM t;
 COMMIT;
-SELECT count(*) FROM t;
+
+
+SELECT count(*) FROM t WHERE a=1;
 
 \end{lstlisting}
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
 \vspace{0.25in}
-
 \end{document}
