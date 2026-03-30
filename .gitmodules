@@ -37,7 +37,7 @@
 	path = topic_06_schema_design/pagila-hw3
 	url = https://github.com/mikeizbicki/pagila-hw3
 [submodule "topic_08_SQL+Python/twitter_postgres"]
-	path = future/topic_08_SQL_and_Python/hw-twitter-postgres
+	path = topic_08_SQL_and_Python/hw-twitter-postgres
 	url = https://github.com/mikeizbicki/twitter_postgres
 [submodule "topic_11_indexes_advanced/twitter_postgres_indexes"]
 	path = future/topic_10_indexes_btree/twitter_postgres_indexes
@@ -70,7 +70,7 @@
 	path = topic_06_schema_design/lab-consistency
 	url = https://github.com/mikeizbicki/lab-consistency
 [submodule "topic_07_transactions/lab-transactions"]
-	path = future/topic_08_SQL_and_Python/lab-transactions
+	path = topic_08_SQL_and_Python/lab-transactions
 	url = https://github.com/mikeizbicki/lab-transactions
 [submodule "topic_10_indexes_btree/twitter_postgres_parallel"]
 	path = future/topic_09_MVCC/hw-twitter_postgres_parallel

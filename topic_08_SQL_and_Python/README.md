@@ -2,11 +2,11 @@
 
 <img src=img/python-sql.png width=400px />
 
-## Announcements
+**Announcements (30 Mar 2026)**
 
-Quiz this Thursday
+Quiz this Wednesday
 
-- only on Sections 1-7 (up to, but not including Implicit Locks IV: Unique Constraints)
+- only on Sections 1-9 (up to, and including, Isolation Levels II: Row Level)
 - 4 problems, 2 points each
 - rest of problems on quiz next week
 
