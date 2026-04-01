@@ -106,6 +106,51 @@ SELECT count(*) FROM t;
 \end{tcolorbox}
 \vspace{0.25in}
 
+%%%%%%%%%%%%%%%%%%%%
+
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+BEGIN;
+DELETE FROM t WHERE a=9;
+
+
+
+INSERT INTO t VALUES (9);
+DELETE FROM t;
+
+ABORT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+UPDATE t SET a=11 WHERE a=9;
+DELETE FROM t;
+
+
+INSERT INTO t VALUES (8);
+
+INSERT INTO t VALUES (9);
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implicit Locks IV: Unique Constraints}
 
