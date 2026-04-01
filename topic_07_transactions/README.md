@@ -189,7 +189,7 @@ Outline of end of semester:
         1. Implementing durability is a CS problem that combines understanding of hardware and operating systems with databases.
             It has few DS implications, so we will not discuss it in detail.
 
-        1. The fact that Postgres (and MySQL/SQLite) has this durability properties ensures that even when hardware fails,
+        1. The fact that Postgres (and MySQL/SQLite) has this durability property ensures that even when hardware fails,
            the data in the database will not be corrupted.
 
 1. NoSQL databases (e.g. MongoDB, CassandraDB, etc.) are typically not ACID compliant,
