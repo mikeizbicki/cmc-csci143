@@ -73,10 +73,10 @@
 	path = topic_08_SQL_and_Python/lab-transactions
 	url = https://github.com/mikeizbicki/lab-transactions
 [submodule "topic_10_indexes_btree/twitter_postgres_parallel"]
-	path = future/topic_09_MVCC/hw-twitter_postgres_parallel
+	path = topic_09_MVCC/hw-twitter_postgres_parallel
 	url = https://github.com/mikeizbicki/twitter_postgres_parallel
 [submodule "topic_10_indexes_btree/lab-diskusage"]
-	path = future/topic_09_MVCC/lab-diskusage
+	path = topic_09_MVCC/lab-diskusage
 	url = https://github.com/mikeizbicki/lab-diskusage
 [submodule "topic_10_indexes_btree/lab-indexes"]
 	path = future/topic_10_indexes_btree/lab-indexes

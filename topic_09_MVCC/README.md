@@ -13,7 +13,7 @@ MVCC = MultiVersion Concurrency Control
 1. You will not be directly quizzed on this material.
 
     > **Reminder:**
-    > Quiz on locks/transactions this Thursday.
+    > Quiz on locks/transactions this Wednesday.
 
 ## Lecture Notes
 
