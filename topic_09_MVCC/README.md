@@ -14,6 +14,10 @@ MVCC = MultiVersion Concurrency Control
 
     > **Reminder:**
     > Quiz on locks/transactions this Wednesday.
+    >
+    > I've added a new example problems practice sheet at <https://github.com/mikeizbicki/cmc-csci143/blob/2026spring/topic_07_transactions/quiz_notes2.pdf>.
+    >
+    > There are no new concepts here, but lots of practice problems that combine material in new weird ways.
 
 ## Lecture Notes
 
