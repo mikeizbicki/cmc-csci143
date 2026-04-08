@@ -37,11 +37,15 @@ Indexes are data structures used for making SQL queries fast.
         > | $f = O(g)$          | $f <= g$                   |
         > | $f = \Theta(g)$     | $f = g$                    |
         > | $f = \Omega(g)$     | $f >= g$                   |
+        >
+        > It is common to confuse $O/\Theta/\Omega$ notation with worst/average/best case runtimes, but these are orthoganal concepts.
+        > It is possible, for example, to describe a worst case runtime with both $O$ and $\Omega$ bounds.
 
     1. required for the implementation of `UNIQUE` constraints (and thus `FOREIGN KEY` constraints)
 
 1. Disadvantage:
     1. increase the runtime of `INSERT` from $\Theta(1)$ to $\Theta(\log n)$
+    1. increase disk usage by $\Theta(n)$
 
 1. Other highlights:
     1. Careful use of indexes will solve 99% of your SQL performance problems
