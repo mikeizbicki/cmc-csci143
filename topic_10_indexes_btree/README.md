@@ -2,14 +2,7 @@
 
 <img src=img/indexes-seal.jpeg width=400px />
 
-**Announcements Tuesday 22 April:**
-
-1. All grades updated
-    1. Please verify that I haven't made a mistake.
-    1. Do not forget the caveat tasks!
-    1. I will not be rounding grades up.
-        There is lots of available extra credit in this class you can use to "bump up" your grade.
-    1. 253 points total so far.
+**Announcements Wed 08 April:**
 
 1. Upcoming homeworks:
     1. (32 points) twitter + parallel
@@ -17,12 +10,11 @@
     1. (64 points) final project (non-graduating students only)
 
 1. Upcoming labs:
-    1. (8 pts) This week
-    1. No lab Friday 2 May (capstone presentations)
+    1. (8 pts) x3
+    1. No lab Friday 1 May (capstone presentations)
 
 1. Upcoming quizzes:
-    1. (16 pts) Tuesday 29 Apr
-    1. (16 pts) Tuesday 6 May
+    1. (16 pts) x3
 
 ## Lecture Notes
 
@@ -81,7 +73,7 @@ Built-in Indexes (data structures) in postgres:
 
 Common user-added indexes:
 1. RUM <https://github.com/postgrespro/rum>
-1. ivfflat <https://github.com/pgvector/pgvector>
+1. ivfflat / HNSW <https://github.com/pgvector/pgvector>
 
 Vocabulary:
 1. "access method" = "index"
@@ -126,7 +118,7 @@ Vocabulary:
     1. the official docs are very terse: <https://www.postgresql.org/docs/13/btree.html>
     1. **our main reference**: <https://habr.com/ru/company/postgrespro/blog/443284/>
 
-    1. `README` in the source for real details: https://git.postgresql.org/gitweb/?p=postgresql.git;a=tree;f=src/backend/access/nbtree;h=2e3fb91ac5930dbcc0c6fc9b8b0659d9aa71bbd2;hb=HEAD
+    1. `README` in the source for real details: <https://git.postgresql.org/gitweb/?p=postgresql.git;a=tree;f=src/backend/access/nbtree;h=2e3fb91ac5930dbcc0c6fc9b8b0659d9aa71bbd2;hb=HEAD>
     1. postgres uses the [Lehman & Yao Algorithm from 1981](https://www.csd.uoc.gr/~hy460/pdf/p650-lehman.pdf)
 
 ## Algorithms for using Indexes

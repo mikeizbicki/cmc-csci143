@@ -40,7 +40,7 @@
 	path = topic_08_SQL_and_Python/hw-twitter-postgres
 	url = https://github.com/mikeizbicki/twitter_postgres
 [submodule "topic_11_indexes_advanced/twitter_postgres_indexes"]
-	path = future/topic_10_indexes_btree/twitter_postgres_indexes
+	path = topic_10_indexes_btree/twitter_postgres_indexes
 	url = https://github.com/mikeizbicki/twitter_postgres_indexes
 [submodule "topic_00_overview/messages"]
 	path = topic_00_unix/lab0-messages
@@ -79,7 +79,7 @@
 	path = topic_09_MVCC/lab-diskusage
 	url = https://github.com/mikeizbicki/lab-diskusage
 [submodule "topic_10_indexes_btree/lab-indexes"]
-	path = future/topic_10_indexes_btree/lab-indexes
+	path = topic_10_indexes_btree/img/lab-indexes
 	url = https://github.com/mikeizbicki/lab-indexes
 [submodule "topic_00_unix/lab-llm"]
 	path = topic_00_unix/prelab-llm
