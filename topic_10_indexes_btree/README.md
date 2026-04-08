@@ -16,6 +16,8 @@
 1. Upcoming quizzes:
     1. (16 pts) x3
 
+1. Currently 194 points possible, so about 1/3 (graduating) - 1/2 (non-graduating) of your grade remains.
+
 ## Lecture Notes
 
 **Overview:**
