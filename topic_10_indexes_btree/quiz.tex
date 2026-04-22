@@ -138,7 +138,7 @@ numbers=left
 \begin{center}
     {
 \Large
-    Example Quiz: Indexes (1)
+    Quiz: Indexes (1)
 }
 \end{center}
 
@@ -170,13 +170,13 @@ Name:
 All of the problems assume the following schema.
 \begin{lstlisting}
 CREATE TABLE users (
-    id_users BIGINT PRIMARY KEY,
+    id_users BIGINT UNIQUE NOT NULL,
     created_at TIMESTAMPTZ,
-    username TEXT UNIQUE NOT NULL
+    username TEXT NOT NULL
 );
 
 CREATE TABLE tweets (
-    id_tweets BIGINT UNIQUE NOT NULL,
+    id_tweets BIGINT PRIMARY KEY,
     id_users BIGINT REFERENCES users(id_users),
     in_reply_to_user_id BIGINT REFERENCES users(id_users),
     created_at TIMESTAMPTZ,
@@ -186,7 +186,7 @@ CREATE TABLE tweets (
 CREATE TABLE tweet_tags (
     id_tweets BIGINT REFERENCES tweets(id_tweets),
     tag TEXT,
-    PRIMARY KEY(id_tweets, tag)
+    UNIQUE(id_tweets, tag)
 );
 \end{lstlisting}
 
@@ -195,23 +195,6 @@ CREATE TABLE tweet_tags (
     Recall that certain constraints create indexes on the appropriate columns.
     List the equivalent \lstinline{CREATE INDEX} commands that are run by these constraints.
 }
-
-\begin{solution}
-    \begin{lstlisting}
-    CREATE UNIQUE INDEX users(id_users);
-    CREATE UNIQUE INDEX users(username);
-    CREATE UNIQUE INDEX tweets(id_tweets);
-    CREATE UNIQUE INDEX tweet_tags(it_tweets, tag);
-    \end{lstlisting}
-    Missing any of the indexes or adding any not appearing here resulted in -2 penalty.
-    In particular, the REFERENCES constraint never creates an index.
-    So the following indexes are wrong.
-    \begin{lstlisting}
-    CREATE INDEX tweets(id_users);
-    CREATE INDEX tweets(in_reply_to_user_id);
-    CREATE INDEX tweet_tags(it_tweets);
-    \end{lstlisting}
-\end{solution}
 
 \vspace{3in}
     \textbf{Note:}
@@ -226,22 +209,12 @@ List the scan methods applicable for the following SQL query.
 
 \begin{lstlisting}
 SELECT count(*)
-FROM users
-WHERE id_users >= :min_id_users
-  AND username >= :min_username
-  AND username <  :max_username
+FROM tweets
+WHERE in_reply_to_user_id IS NOT NULL
+  AND id_users = :input_user_id
 \end{lstlisting}
 }
 
-\begin{solution}
-    Sequential Scan,
-    Bitmap Scan,
-    Index Scan
-
-    If index scan is missing, the penalty is only -1 because it  is unlikely to be efficient.
-    If index only scan is present, -2.
-
-\end{solution}
 \vspace{3in}
 
 %\question{
@@ -271,18 +244,11 @@ Do not create any unneeded indexes; if no new indexes are needed, say so.
 
 \begin{lstlisting}
 SELECT count(*)
-FROM users
-WHERE lower(username)=:username; 
+FROM tweet_tags
+WHERE lower(tag)=:tag; 
 \end{lstlisting}
 
 }
-\begin{solution}
-    \begin{lstlisting}
-    CREATE INDEX ON users(lower(username));
-    \end{lstlisting}
-    It is important that the function call to \lstinline{lower} be present in the index.
-    If it is not, -2 points.
-\end{solution}
 
 \newpage
 \question{
@@ -291,28 +257,15 @@ Create index(es) so that the following query can use an index only scan, avoid a
 Do not create any unneeded indexes; if no new indexes are needed, say so.
 
 \begin{lstlisting}
-SELECT id_users
-FROM users
-WHERE created_at<=:created_at
-ORDER BY created_at DESC
-LIMIT 10;
+SELECT tag
+FROM tweet_tags
+WHERE id_tweets = :id_tweets
+  AND tag >= :start_tag
+  AND tag <= :end_tag
+ORDER BY tag ASC
+LIMIT 2;
 \end{lstlisting}
 }
-\begin{solution}
-    \begin{lstlisting}
-    CREATE INDEX ON users(created_at, id_users);
-    \end{lstlisting}
-    The \lstinline{id_users} column is necessary for the index to be covering and allow an index only scan.
-    The ORDER BY clause does not require an explicit sort because it is ordering by the column in the index.
-    It does not matter whether we order by DESC or ASC.
-    There would be no way to efficiently do both the ORDER BY and WHERE clause if they used different columns.
-
-    You got -1 point if you wrote:
-    \begin{lstlisting}
-    CREATE INDEX ON users(created_at) INCLUDE (id_users);
-    \end{lstlisting}
-    The INCLUDE syntax is intended for UNIQUE indexes only to indicate that there is a UNIQUE constraint on some columns but not others.
-\end{solution}
 \vspace{2in}
 
 \newpage
@@ -322,28 +275,15 @@ Create index(es) so that the following query will run as efficiently as possible
 Do not create any unneeded indexes; if no new indexes are needed, say so.
 
 \begin{lstlisting}
-SELECT id_users, username
-FROM users
-JOIN tweets USING (id_users)
-WHERE in_reply_to_user_id = :in_reply_to_user_id
+SELECT created_at
+FROM tweet_tags
+JOIN tweets USING (id_tweets)
+WHERE tag = :tag
+  AND id_users = :id_users
+ORDER BY id_tweets DESC
 LIMIT 10;
 \end{lstlisting}
 }
-\begin{solution}
-    \begin{lstlisting}
-    CREATE INDEX ON tweets(in_reply_to_user_id, id_users);
-    CREATE INDEX ON users(id_users, username);
-    \end{lstlisting}
-    The second index is needed to allow an index only scan on the users table.
-    Whether the second index is actually used or not will depend on the structure of the data.
-    With the index, we can do an index only scan;
-    but the index has a much lower fanout due to the additional \lstinline{username} column.
-    Depending on the length of usernames (which affects the number of tuples per index page and hence fanout),
-    it may be faster to do an index scan on the original index.
-    In either case, the difference will be only a small number of page accesses.
-
-    You got -1 point if you did not include the second index.
-\end{solution}
 
 \vspace{3in}
 \end{questions}
