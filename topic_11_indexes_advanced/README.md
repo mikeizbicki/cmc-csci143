@@ -1,10 +1,17 @@
 # Topic 11: More Indexes, Full Text Search, JSON Search
 
-**Announcements: (Tuesday 22 April)**
-
-1. no lab this week
-1. if you don't have data loaded into your twitter database,
-    you are behind
+**Announcements (Monday 27 Apr):**
+1. No lab this week (DS Capstone Friday)
+1. No quiz Wednesday
+    1. Final quiz on the last day of class (Wed 6 May)
+    1. Expect 8 questions (half review indexes, half new)
+    1. 30 minutes of class time
+1. Next 2 classes:
+    1. Live coding for final project
+    1. I will focus on AI-assisted coding (using custom scripts I use for coding)
+    1. No need to download anything before class:
+        1. My techniques all based around the `llm` command
+        1. For best experience, you will want to have one of openrouter.ai / OpenAI / Anthropic API keys available and connected to you `llm` command
 
 ## Lecture Notes
 
@@ -21,8 +28,8 @@ More indexes references:
 1. ~~SP-GIST Index: <https://habr.com/en/companies/postgrespro/articles/446624/>~~
 1. ~~BRIN Index: <https://habr.com/en/companies/postgrespro/articles/452900/>~~
 
-From pgvector (<https://github.com/pgvector/pgvector>):
-1. HNSW, IVFFlat
+~~From pgvector (<https://github.com/pgvector/pgvector>):~~
+~~1. HNSW, IVFFlat~~
 
 Retrieval Augmented Generation:
 1. Use text search to improve accuracy of LLM queries
