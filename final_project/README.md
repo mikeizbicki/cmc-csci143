@@ -7,7 +7,6 @@ The default project will be a Twitter clone webpage, but you are free to create 
 1. Create a CRUD website from scratch
     
    CRUD = Create Read Update Destroy (everything you might want to do to a database)
-1. Design your own database schema
 1. Integrate knowledge from all parts of the course together
 1. Learn required new material "on your own"
 1. Have a production-ready project you can show off to future employers
@@ -40,7 +39,9 @@ The purpose of this assignment is to integrate your SQL knowledge (and docker kn
 The project is worth 64 points total.
 There are 8 required tasks, each worth 8 points.
 
-**Task 1:** The project structure should follow the structure of the [flask-on-docker homework](https://github.com/mikeizbicki/cmc-csci143/tree/2024spring/topic_03_instagram_tech_stack#homework).  In particular:
+**Task 1:**
+The project structure should follow the structure of the [flask-on-docker homework](https://github.com/mikeizbicki/cmc-csci143/tree/2024spring/topic_03_instagram_tech_stack#homework).
+In particular:
 1. There should be a development `docker-compose.yml` file with a web service and postgres service.
 1. There should be a production `docker-compose.yml` file with a web service, postgres service, and nginx service.
 1. You should be able to start your web page by running `docker-compose up` with either of these yml files.
@@ -50,7 +51,6 @@ There are 8 required tasks, each worth 8 points.
 1. You must create your own github actions test case that:
     1. builds the containers,
     1. brings the containers up,
-    1. loads test data into the database,
     1. and passes (i.e. turns green) only when there are no errors in this process.
 
 > **Hint:**
@@ -76,19 +76,19 @@ There are 8 required tasks, each worth 8 points.
         1. appropriate indexes
 
         > **Hint:**
-        > The easiest database to build would be based on the `pg_normalized` database, with the `tweets`, `users`, and `urls` tables.
+        > The easiest database to build would be based on the `pg_normalized` database, with the `tweets`, and `users` tables.
+        > Then add another table `credentials` that associates users and passwords.
 
         > **Important:**
         > All indexes that you will need for making your routes fast must be included in the `schema.sql` file.
 
 1. You should have a script that loads test data into the database.  After running the script:
-    1. Every table should have at least 1,000,000 rows
-    1. At least one table must have 10,000,000 rows
+    1. 2 tables should have at least 1,000,000 rows
 
     > **HINT:**
-    > Write your script so that it takes a parameter of the number of rows to add to the tables.
-    > In your test cases (and as you're developing in general), you should use a small number of rows (say 100) so that all of your SQL queries will always run fast.
-    > Then once you have a basic prototype working, rerun the script in your "production" environment with the full amount of data.
+    > Do your debugging work on a smaller version of this database that doesn't have all of the data loaded.
+    > You could use your `twitter_parallel` data for the debugging database,
+    > and the `twitter_indexes` data for the full database.
 
 **Task 3-8:** The remaining 6 tasks each correspond to an individual route on your webpage.
 
@@ -179,7 +179,7 @@ There are 8 required tasks, each worth 8 points.
 **Other Notes:**
 1. Good front end styling is not required, but it might make the development experience "more fun", so it might be worth spending 20 minutes to do
 1. If any route results in an error (404, 503, etc.), then you will not get any credit for that route.
-1. If any route has a SQL injection vulnerability, then you will get -2/4 points for the route.
+1. If any route has a SQL injection vulnerability, then you will get -8 points for the route.  (That is negative points overall, not a zero.)
 
     <img src=sqlinjection.png width=500px />
 
@@ -208,7 +208,7 @@ In the demo:
 
 I recommend you try to meet the following two milestones:
 
-1. Tasks 1, 2 complete by Thursday (1 May)
-1. The `/`, `/login`, and `/logout` routes (all covered in the videos above) complete by Thursday (8 May)
+1. Tasks 1, 2 complete by Monday (4 May)
+1. The `/`, `/login`, and `/logout` routes (all covered in the videos above) complete by Thursday (7 May)
 
 This will ensure that if you encounter difficulties, you will have time to ask me questions to get them resolved.
