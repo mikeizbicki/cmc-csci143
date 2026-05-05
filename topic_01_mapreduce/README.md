@@ -136,7 +136,7 @@ No homework (besides the lab)
         1. All the shells above have slightly different behaviors
         1. POSIX defines the universal standard of minimal features that all shells must have
         1. It's best to try to write POSIX-compliant scripts to ensure portability (and speed, since you can use `dash` to run the script)
-        1. Lots of weird behaviors that result from needing backwards compatibilty
+        1. Lots of weird behaviors that result from needing backwards compatibility
             1. These make programming hard tasks easy, but easy tasks super &?*!ing hard
 
                <img src=img/bash-meme.jpg width=600px />
@@ -166,7 +166,7 @@ No homework (besides the lab)
             1. minimal overhead
             1. each thread shares the same memory, so communication is easy
             1. slightly less safe because a bug in one thread will cause bad behavior in every program
-            1. Python's [global interpretter lock (GIL)](https://realpython.com/python-gil/) means you cannot use threads in python for parallel programming
+            1. Python's [global interpreter lock (GIL)](https://realpython.com/python-gil/) means you cannot use threads in python for parallel programming
         1. Processes are "heavyweight"
             1. about 10MB of unavoidable overhead per process in the system kernel
                 1. technically, this number is application dependent
@@ -181,7 +181,7 @@ No homework (besides the lab)
     1. Programming with threads/processes is HARD
         1. easy to create [memory leaks](https://en.wikipedia.org/wiki/Memory_leak), [race conditions](https://en.wikipedia.org/wiki/Race_condition), and other hard-to-debug problems
         1. easy to accidentally create [fork bombs](https://en.wikipedia.org/wiki/Fork_bomb), which were the original form of [cracking](http://www.catb.org/jargon/html/C/cracker.html)
-        1. code is non-deterministic (everytime you run it, you get different results), resulting in lots of [heisenbugs](https://en.wikipedia.org/wiki/Heisenbug)
+        1. code is non-deterministic (every time you run it, you get different results), resulting in lots of [heisenbugs](https://en.wikipedia.org/wiki/Heisenbug)
             1. simple example: [I can't login standing up](https://www.reddit.com/r/talesfromtechsupport/comments/3v52pw/i_cant_log_in_when_i_stand_up/)
             1. complicated example: [I can't send email more than 500 miles](http://www.ibiblio.org/harris/500milemail.html)
             1. (links in the lecture notes are never required... but the "most cultured" programmers will want to read them... these two in particular)

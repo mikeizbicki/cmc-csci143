@@ -64,7 +64,7 @@ Quiz this Wednesday
        ```
        cat <JSONFILE> | sed 's/\\u0000//g' | psql <POSTGRES_DB_URL> -c "COPY <TABLENAME> (<COLUMNNAME>) FROM STDIN csv quote e'\x01' delimiter e'\x02';"
        ```
-       where everything in `<...>` needs to be replaced with approriate values.
+       where everything in `<...>` needs to be replaced with appropriate values.
 
        Reference: <http://adpgtech.blogspot.com/2014/09/importing-json-data.html>
 
@@ -90,7 +90,7 @@ Quiz this Wednesday
 1. Connecting to Postgres from Python
 
     1. SQLAlchemy library provides a generic interface for connecting to many RDBMs.
-       SQLAlchemy contains both a basic interfact for using raw SQL (which we'll use),
+       SQLAlchemy contains both a basic interface for using raw SQL (which we'll use),
        and an ORM for "hiding" the SQL behind python classes.
        The SQLAlchemy ORM is fairly popular (the reddit source code uses it, and you used it in your flask app from week2),
        but we won't use it.
