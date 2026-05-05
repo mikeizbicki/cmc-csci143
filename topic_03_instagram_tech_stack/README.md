@@ -164,7 +164,7 @@
                         1. replacing WSGI
                         1. Django is both WSGI/ASGI compatible
                         1. Flask is only WSGI
-                        1. FastAPI is the "spritual successor" of flask and ASGI compatible
+                        1. FastAPI is the "spiritual successor" of flask and ASGI compatible
                         1. We'll talk about how ASGI relates to multiprocessing in the non-seniors only portion of the class
             1. [gunicorn webserver](https://gunicorn.org/)
                 1. Converts a WSGI application into an actual web service that people can connect to
@@ -257,7 +257,7 @@
         1. important commands
             1. `docker-compose build`: builds the container
             1. `docker-compose up`: start all the services
-                1. `-d` in deamon mode
+                1. `-d` in daemon mode
             1. `docker-compose down`: stop all the services (equivalent to `docker stop` and `docker rm`
             1. `docker-compose exec`: run a command on an already running docker container
             1. `docker-compose run`: (probably don't want to use this for this class) brings up a container and runs a 1-off command; useful for admin tasks

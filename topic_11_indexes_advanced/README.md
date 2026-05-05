@@ -232,7 +232,7 @@ This section is background info and not required for the final exam.
                 1. Doesn't respect some postgres settings about memory/disk usage
 
     1. Advantages of postgres:
-        1. Can use full SQL capabilites (i.e. joins)
+        1. Can use full SQL capabilities (i.e. joins)
         1. Postgres FTS generally considered superior to all other RDBMs FTS (MySQL, SQL Server, Oracle, etc.)
 
     1. Disadvantages of postgres:
@@ -262,7 +262,7 @@ This section is background info and not required for the final exam.
 
 ### FTS in postgres
 
-1. All of the basic theory we'll discus will apply to all other FTS solutions
+1. All of the basic theory we'll discuss will apply to all other FTS solutions
 
 1. Two important types:
     1. `tsvector` represents text that can be searched

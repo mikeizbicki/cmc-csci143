@@ -38,7 +38,7 @@ Indexes are data structures used for making SQL queries fast.
         > | $f = \Theta(g)$     | $f = g$                    |
         > | $f = \Omega(g)$     | $f >= g$                   |
         >
-        > It is common to confuse $O/\Theta/\Omega$ notation with worst/average/best case runtimes, but these are orthoganal concepts.
+        > It is common to confuse $O/\Theta/\Omega$ notation with worst/average/best case runtimes, but these are orthogonal concepts.
         > It is possible, for example, to describe a worst case runtime with both $O$ and $\Omega$ bounds.
 
     1. required for the implementation of `UNIQUE` constraints (and thus `FOREIGN KEY` constraints)
@@ -374,7 +374,7 @@ Three types of join strategies:
    1. requires:
       1. equality join condition
       1. hash table must fit inside `work_mem` parameter
-      1. large initial overhead to build the hash table before we can start outputing tuples
+      1. large initial overhead to build the hash table before we can start outputting tuples
 
    1. pseudocode looks like
       ```
