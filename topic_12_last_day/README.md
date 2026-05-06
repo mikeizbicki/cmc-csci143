@@ -104,6 +104,13 @@ Announcements:
 
     <img src=img/sql-meme.png width=300px />
 
+    **BIG TAKEAWAY:**
+
+    If you are ever tempted to store something in a file,
+    you should probably store it in a sqlite3 database instead.
+
+    <img src=img/sqlite-meme.jpg width=300px />
+
 <br/>
 <br/>
 <br/>
@@ -124,7 +131,7 @@ Announcements:
 
         `docker-compose` vs `docker compose`
 
-        `master` vs `main`
+        `master` vs `main` <https://github.com/mikeizbicki/cmc-csci143/issues/750>
 
     1. unintentional breaking changes are a sign of incompentence:
 
