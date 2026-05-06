@@ -93,7 +93,7 @@ Announcements:
 
     <img src=img/lindy.png width=300px />
 
-    Examples: shell, SQL
+    Examples: shell (POSIX/bash/zsh/dash), SQL
 
     Goal for sqlite3: Remain relavent past 2050.
 
@@ -101,8 +101,15 @@ Announcements:
 
     1. Whatever you learn will still be valuable throughout your whole career.
     1. AI will have good answers for you.
+    1. These tools much more powerful than 1-off custom big data tools.
 
-    <img src=img/sql-meme.png width=300px />
+        (And they're free!)
+
+        <img src=img/bash-meme.jpg width=300px />
+
+        <br/>
+
+        <img src=img/sql-meme.png width=300px />
 
     **BIG TAKEAWAY:**
 
@@ -157,6 +164,7 @@ Announcements:
 
 Please fill out course surveys :)
 
-Specifics are useful about:
-- the best/worst/hardest/funnest assignments
+Specifics about the following particularly useful:
+- the most interesting/fun/boring/hard/etc assignments
 - the best sources of help you found (AI/QCL/classmates/office hours/etc)
+- ways to adapt the course for AI
