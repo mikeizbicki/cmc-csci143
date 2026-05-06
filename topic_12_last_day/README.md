@@ -4,6 +4,9 @@ Announcements:
 
 1. Quizzes will be graded in canvas by end of day
 
+1. I will be in my office most of the day Thurs/Fri this week
+    1. if you want to guarantee my availability, post a github issue
+
 1. Graduating students: everything must be submitted before Friday morning 9AM
 
 <br/>
