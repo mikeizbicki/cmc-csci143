@@ -105,7 +105,7 @@ Announcements:
 
     Examples: shell (POSIX/bash/zsh/dash), SQL
 
-    Goal for sqlite3: Remain relavent past 2050.
+    Goal for sqlite3: Remain relevant past 2050.
 
     Why?
 
