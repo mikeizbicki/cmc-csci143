@@ -66,6 +66,13 @@ Announcements:
 
     1. don't upload credentials though
 
+    1. **MORE EXTRACREDIT:**
+        
+        For each game below you complete, I will give +2 points of extra credit.
+
+        1. <https://github.com/git-game/git-game>
+        1. <https://github.com/git-game/git-game-v2>
+
 1. Use docker in *almost* everything.
     1. reproducibility! reproducibility! reproducibility!
 
