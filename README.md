@@ -22,7 +22,7 @@ Fun facts:
     1. nuclear submarine officer, personally converted >10g of uranium into pure energy
     1. worked at National Security Agency (NSA)
     1. left Navy as a [conscientious objector](https://www.nytimes.com/2011/02/23/nyregion/23objector.html)
-1. phd/postdoc at UC Riverside
+1. PhD/postdoc at UC Riverside
 1. taught in [DPRK (i.e. North Korea)](https://pust.co)
 
 Other links:
@@ -81,7 +81,7 @@ I'm happy to have CS majors in this course (and I think you'll find this course 
 1. Foundations of data science: CSCI 036, ECON 122, or ECON 160
 
     1. Basic machine learning
-    1. Basic SQL (also covered in  CSCI040 Computing for the Web; not covered in any computer science class except CSCI133 Databases, which you should not take if you take this course)
+    1. Basic SQL (also covered in CSCI040 Computing for the Web; not covered in any computer science class except CSCI133 Databases, which you should not take if you take this course)
     1. Regular expressions (for CS majors, typically covered in a theory of computing or compilers class)
 
 1. Data structures: CSCI046 or CSCI70 (Mudd) or CSCI62 (Pomona)
@@ -108,7 +108,7 @@ Therefore, there is a lot of material in this course that is covered in other up
 
 1. Overlapping concepts
     1. CSCI105 Computer Systems (10% overlap)
-        1. types of storage: tape vs HDD vs SDD vs NVME vs RAM
+        1. types of storage: tape vs HDD vs SSD vs NVME vs RAM
         1. RAID
         1. parallel vs distributed architectures
     1. CSCI135 Operating Systems (10% overlap)
@@ -173,7 +173,7 @@ but I will provide more specific links each week.
 1. No exams!
 1. Non-graduating students will have a final project.
 
-All assignments are designed to help you get a good job.  (See [/career/README.md](/career/README.md).)
+All assignments are designed to help you get a good job. (See [/career/README.md](/career/README.md).)
 1. All code, no math.
 1. You will build your github portfolio.
 1. You will do cool stuff to talk about in interviews (analyze ALL tweets about covid, build an Instagram clone).
