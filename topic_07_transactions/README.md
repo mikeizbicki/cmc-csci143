@@ -111,7 +111,7 @@ Outline of end of semester:
 
 1. Because this topic is so hard (and important),
     there will be no homework this week.
-    You should spend all of your time preparing for the quiz, which will be worth 16 points.
+    You should spend all of your time preparing for the quiz, which will be worth 8 points.
 
 1. The quiz will be next week Wednesday (1 Apr).
 
