@@ -82,7 +82,7 @@
 	path = future/topic_10_indexes_btree/lab-indexes
 	url = https://github.com/mikeizbicki/lab-indexes
 [submodule "topic_00_unix/lab-llm"]
-	path = topic_00_unix/prelab-llm
+	path = topic_00_unix/notes/prelab-llm
 	url = https://github.com/mikeizbicki/lab-llm
 [submodule "future/topic_01_mapreduce/lab-processes"]
 	path = future/topic_01_mapreduce/prelab1-processes
