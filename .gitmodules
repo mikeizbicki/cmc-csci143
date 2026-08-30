@@ -1,5 +1,5 @@
 [submodule "continuous-integration"]
-	path = topic_00_unix/hw-continuous-integration
+	path = topic_00_unix/notes/hw-continuous-integration
 	url = https://github.com/mikeizbicki/continuous-integration
 
 [submodule "twitter_coronavirus"]
@@ -43,13 +43,13 @@
 	path = future/topic_10_indexes_btree/twitter_postgres_indexes
 	url = https://github.com/mikeizbicki/twitter_postgres_indexes
 [submodule "topic_00_overview/messages"]
-	path = topic_00_unix/lab0-messages
+	path = topic_00_unix/notes/lab0-messages
 	url = https://github.com/mikeizbicki/messages
 [submodule "topic_00_overview/lab-goodreads"]
-	path = topic_00_unix/lab1-goodreads-part1
+	path = topic_00_unix/notes/lab1-goodreads-part1
 	url = https://github.com/mikeizbicki/lab-goodreads
 [submodule "topic_00_unix/lab-goodreads2"]
-	path = topic_00_unix/lab2-goodreads-part2
+	path = topic_00_unix/notes/lab2-goodreads-part2
 	url = https://github.com/mikeizbicki/lab-goodreads2
 [submodule "topic_01_mapreduce/lab-pipes-twitter"]
 	path = future/topic_01_mapreduce/prelab0-pipes-twitter
@@ -88,5 +88,5 @@
 	path = future/topic_01_mapreduce/prelab1-processes
 	url = https://github.com/mikeizbicki/lab-processes
 [submodule "topic_01_mapreduce/lab2-productivity"]
-	path = topic_00_unix/lab2-productivity
+	path = topic_00_unix/notes/lab2-productivity
 	url = https://github.com/mikeizbicki/lab-productivity
