@@ -6,31 +6,6 @@
 </a>
 </center>
 
-**Monday 26 Jan:**
-
-- github issues / pull requests
-- lab
-    - 22/31 submissions
-    - most full credit
-    - if you didn't get full credit:
-        - you got a 0
-        - recall that very little partial credit will be given in this class
-        - you can resubmit for full credit
-        - if I didn't write any comments, your solution was totally incorrect; feel free to ask me for details
-    - no special formatting
-        - only copy/paste your terminal sessions
-        - NO SCREENSHOTS EVER!!!
-
-- quiz (Wed 28 Jan)
-    - shell topics 00 - 02
-    - sample quiz at <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/quiz_00_01_02.pdf>
-    - you will have first 10 minutes of class to complete quiz
-        - I will be in class >10 minutes early,
-            everyone is welcome to come early and begin quiz early
-    - you will have an opportunity to retake this quiz
-
-        (but please study and take this first attempt seriously)
-
 ## Lecture Notes
 
 **Expected Background Knowledge:**
@@ -77,14 +52,13 @@ We will use docker and docker-compose to manage our own "virtual cloud infrastru
 All text editing must be done in Vim.
 We will encounter many instances in this class where more familiar tools like VSCode and Jupyter Notebooks will not work.
 
-Vim is famous for having a steep learning curve,
-and has inspired lots of memes/comics:
-
 <img src=img/vim-productivity.jpg width=500px>
 
+<!--
 <img src=img/vim-comic2.webp width=500px>
 
 <img src=img/vim-comic.jpg width=500px>
+-->
 
 
 **Cheat sheets:**
@@ -128,10 +102,10 @@ You won't be able to complete the homework, however, until you've completed all 
 
 1. Create a GitHub account if you do not already have one.
 
-1. Press the "watch" button at the top of this page.
+1. Press the watch button on both this repo and <https://github.com/mikeizbicki/about-me>.
     This will ensure you get email notifications whenever a new issue is posted to github.
     All class related communications will happen through github,
-    and not through email or sakai.
+    and not through email or canvas.
 
 1. Create a [personal access token (PAT)](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for your github account, and save the PAT to a file for future use.
     The default level of permissions is okay.
@@ -145,44 +119,13 @@ You won't be able to complete the homework, however, until you've completed all 
    Complete all instructions in order to learn Vim.
    This should take 30-60 minutes.
 
-   1. (optional) There is a videogame-style tutorial for Vim at <https://vim-adventures.com/> that you might find more enjoyable.
-        You are welcome to complete that videogame instead.
-        The first three levels are free, but then you must pay $25 for the full game.
-
 1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/lambda-server.md) to update your lambda server account's settings.
 
 1. Follow [these instructions](https://github.com/mikeizbicki/lab-llm) to get a nice terminal interface to LLMs on the lambda server.
 
-<!--
-    1. Finally, you will begin the `typespeed` "caveat task.
-       
-       Log in to the lambda server, and run the command
-       ```
-       $ typespeed
-       ```
-       Follow the command prompts to test your typing speed on the "Unix commands" task.
-       (Press `1` then `Enter` in the menu to enter the task.)
+1. (Optional) Watch a short video where the creators of UNIX Ken Thompson and Dennis Ritchie explain the UNIX philosophy <https://www.youtube.com/watch?v=JoVQTPbD6UY>
 
-       Programmers spend lots of time at the keyboard,
-       and so it pays to actually be able to type well.
-       Anyone who beats my high score will have my undying admiration :)
-
-       Performing well at `typespeed` is one of the "caveat tasks" in this class.
-       You should [work through the task instructions](../caveat_tasks/typespeed.md),
-       which will also help you review basic terminal commands.
--->
-
-
-<!--
-1. Read/watch the following articles/videos:
-
-    1. [Ken Thompson and Dennis Ritchie Explain UNIX](https://www.youtube.com/watch?v=JoVQTPbD6UY)
-    1. (optional) [Where GREP Came From - Computerphile](https://www.youtube.com/watch?v=NTfOnGZUZDk)
-    1. (optional) [Vim vs Emacs: the oldest rivalry in computing](https://slate.com/technology/2014/05/oldest-software-rivalry-emacs-and-vi-two-text-editors-used-by-programmers.html)
-       -->
-       
 **Instructions:**
-
 
 If you don't yet have access to the lambda server,
 let me know and we'll get that resolved.
@@ -199,10 +142,10 @@ This week there are three submodules:
 
 **Due Date:**
 
-Homeworks are always due at 11:59pm on the Tuesday of the week after they are assigned (i.e. Jan 27 at 11:59pm for this homework).
+Homeworks are always due at 11:59pm on the Tuesday of the week after they are assigned (i.e. 8 Sep at 11:59pm for this homework).
 
 *For this hw only:*
-I will not apply a late penalty.
+I will not apply a late penalty, but please be reasonable.
 
 **Background Work:**
 
@@ -223,7 +166,3 @@ Like labs, homeworks will be posted into a submodule each week.
 This week's homework will teach you how to use continuous integration,
 and prepare you to submit all future assignments.
 You can find the homework at <https://github.com/mikeizbicki/continuous-integration>.
-
-## Lab (Fri 30 Jan 2026)
-
-See instructions at: <https://github.com/mikeizbicki/lab-productivity>.
