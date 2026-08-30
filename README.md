@@ -6,28 +6,7 @@
 
 ## About the Instructor
 
-|||
-|-|-|
-| Name | Mike Izbicki (please call me Mike---[titles are lowkey insults to hackers](http://www.catb.org/jargon/html/appendixb.html)) |
-| Office | Adams 216 |
-| Office Hours | [see #712](https://github.com/mikeizbicki/cmc-csci143/issues/712) |
-| Zoom | [see #713](https://github.com/mikeizbicki/cmc-csci143/issues/713) | |
-| Email | mizbicki@cmc.edu (you should probably [post a github issue](https://github.com/mikeizbicki/cmc-csci040/issues) instead of email) |
-| Webpage | <https://izbicki.me> |
-| Research | Machine Learning (see <https://izbicki.me/research.html> for some past projects) |
-
-Fun facts:
-1. grew up in San Clemente (~1hr south of Claremont, on the beach)
-1. 7 years in the navy
-    1. nuclear submarine officer, personally converted >10g of uranium into pure energy
-    1. worked at National Security Agency (NSA)
-    1. left Navy as a [conscientious objector](https://www.nytimes.com/2011/02/23/nyregion/23objector.html)
-1. phd/postdoc at UC Riverside
-1. taught in [DPRK (i.e. North Korea)](https://pust.co)
-
-Other links:
-
-1. [My CS/DS career prospects page](https://github.com/mikeizbicki/cmc-csci143/tree/2026spring/career)
+See <https://github.com/mikeizbicki/about-me>
 
 ## About the Course
 
@@ -46,6 +25,13 @@ Depends entirely on the person who is talking.
         1. too big to fit in memory
         1. need $O(1)$ memory and $O(n)$ time algorithms
         1. no pandas
+
+            <img width=400px src=img/pandas1.jpg />
+
+            <br/>
+
+            <img width=400px src=img/anakin-padme-pandas-large-dataframe-meme.jpg />
+
     1. all the interesting/applied parts of upper division computer science compressed into a single course
         1. shell scripting
         1. mapreduce
@@ -56,95 +42,39 @@ Depends entirely on the person who is talking.
         1. Instagram tech stack
         1. large language models (LLMs)
 
+<img src=https://raw.githubusercontent.com/mikeizbicki/cmc-advising/master/courses-map.png width=100% />
+
+<br/>
+
 <center>
 <img width='500px' src=img/big-data-map.png />
 </center>
 
-**Who should take this course?**
+The lambda server has:
+1. 80 processors
+1. 8 GPU
+1. 256 GB RAM
+1. 2 TB NVME
+1. 50 TB RAID array of 16 HDDs
 
-This course is designed for **data science majors**,
-not computer science majors.
-I'm happy to have CS majors in this course (and I think you'll find this course fun), but know that:
+<br/>
 
-1. you probably have not fully met the prereqs for this course
-1. some material in this course will duplicate material in your other CS courses
-    1. this is especially true of CSCI133 Databases
-    1. the course number CSCI143 comes from the fact that all CMC upper division CS courses start with CSCI14, and the 3 is for databases
+<img src=https://raw.githubusercontent.com/mikeizbicki/cmc-advising/master/iceberg/icebe    rg.png width=100% />
 
-**Prerequisites:**
+**Out of scope:**
 
-1. Discrete math: CSCI055 or MATH055
-
-    1. Basic probability / counting
-    1. Basic graph theory
-
-1. Foundations of data science: CSCI 036, ECON 122, or ECON 160
-
-    1. Basic machine learning
-    1. Basic SQL (also covered in  CSCI040 Computing for the Web; not covered in any computer science class except CSCI133 Databases, which you should not take if you take this course)
-    1. Regular expressions (for CS majors, typically covered in a theory of computing or compilers class)
-
-1. Data structures: CSCI046 or CSCI70 (Mudd) or CSCI62 (Pomona)
-
-    1. All courses cover:
-        1. Big-oh notation
-        1. Balanced binary search trees
-    1. CSCI046 covers:
-        1. Basic Unix shell commands
-        1. Advanced git
-        1. Vim text editor
-        1. Analyzing multi-gigabyte Twitter datasets
-    1. Data structures pre-req CSCI040:
-        1. Markdown
-        1. HTML / CSS
-        1. Basic SQL
-        1. Programming web servers with the `flask` library
-        1. Web scraping with the `requests` and `bs4` libraries
-
-**Relation to other CS courses:**
-
-One purpose of this course is to provide DS majors with an overview of CS concepts.
-Therefore, there is a lot of material in this course that is covered in other upper division CS courses required for CS majors.
-
-1. Overlapping concepts
-    1. CSCI105 Computer Systems (10% overlap)
-        1. types of storage: tape vs HDD vs SDD vs NVME vs RAM
-        1. RAID
-        1. parallel vs distributed architectures
-    1. CSCI135 Operating Systems (10% overlap)
-        1. permissions systems
-        1. processes vs threads
-        1. virtual machines vs containers
-    1. CSCI125 Networking (10% overlap)
-        1. private vs public networks
-        1. IP addresses
-        1. TCP ports
-        1. virtual networks
-    1. CSCI121 Software Development (10% overlap)
-        1. version control systems (i.e. git)
-        1. test driven development / continuous integration
-        1. microservices vs monolithic architectures
-        1. 12 factor applications
-    1. CSCI133 Databases (50% overlap)
-        1. SQL
-        1. ACID/MVCC/transactions
-        1. indexing techniques
-    1. A lot of the concepts we'll be covering "should" be covered in other CS courses,
-       but because CS professors are often more theory minded than practice minded,
-       they don't get covered.
-       In that sense, this course is similar to the [Missing Semester of Your CS Education](https://missing.csail.mit.edu/) course taught at MIT.
-
-1. Concepts we don't cover from CSCI133 Databases
+1. concepts from CSCI133 databases
     1. relational algebra
     1. technical implementation details / C programming
-    1. relationship between the database and operating system
 
-1. BigData concepts from a CS perspective that we will not talk about:
-    1. Frameworks for distributed computation (e.g. Apache Hadoop, Apache Spark)
-    1. Distributed Filesystems (e.g. HDFS, IPFS, S3)
-    1. Geo-distributed databases
+1. other programming concepts
+    1. frameworks for distributed computation (e.g. Apache Hadoop, Apache Spark)
+    1. distributed Filesystems (e.g. HDFS, IPFS, S3)
+    1. geo-distributed databases
 
 **Textbook:**
+
+<img src=img/free.jpg width=400px />
 
 Big data is a rapidly changing field,
 and all currently printed textbooks are both incomplete and already out of date.
@@ -165,15 +95,15 @@ but I will provide more specific links each week.
 
 ## Grades
 
-**Assignments:**
+| Assignment Type | Points | Approximate Percentage |
+| --------------- | ------ | ---------------------- |
+| weekly labs     | `2**1` or `2**2` or `2**3` | 20% |
+| weekly projects | `2**2` or `2**3` or `2**4` | 30% |
+| weekly quizzes  | `2**2` or `2**3` or `2**4` | 30% |
+| 4 midterms      | `2**5` each                | 40% |
+| oral final exam | `2**6`                     | 20% |
 
-1. Weekly labs (worth `2**1` or `2**2` or `2**3` points)
-1. Weekly quizzes (worth `2**2` or `2**3` or `2**4` points)
-1. Weekly homeworks (worth `2**3` or `2**4` or `2**5` points)
-1. No exams!
-1. Non-graduating students will have a final project.
-
-All assignments are designed to help you get a good job.  (See [/career/README.md](/career/README.md).)
+All assignments are designed to help you get a good job:
 1. All code, no math.
 1. You will build your github portfolio.
 1. You will do cool stuff to talk about in interviews (analyze ALL tweets about covid, build an Instagram clone).
@@ -186,8 +116,15 @@ See <https://github.com/mikeizbicki/cmc-csci143/issues/577> for extra credit opp
 You lose `2**(i-1)` points on every assignment,
 where `i` is the number of days late.
 
+> **Example:**
+> Homeworks will be due on Tuesdays, so if you submit on Wednesday then `i=1` and you receive a `2**(1-1)` (i.e. `1`) point penalty.
+> If you submit on Friday, you receive a `2**(3-1)` (i.e. 4) point penalty.
+
 Do not expect partial credit for incomplete assignments.
+
 It is much better to submit a correct assignment late than an incorrect one on time.
+
+I expect that most students will be submit late assignments at some point.
 
 **Caveats:**
 
@@ -203,29 +140,60 @@ You can find the details about the caveat tasks at:
 
 ## Academic Integrity
 
-**Technology Policy:**
+**Technology Policy**
 
-1. You MAY use any AI tool without restriction.
+The purpose of this policy is to encourage you to learn how to use AI and other technology effectively.
+
+1. You MAY ONLY use AI tools that we discuss in class using APIs.
+
+    In particular, you MAY NOT use:
+    1. web interfaces (e.g. <https://chatgpt.com>, <https://claude.ai>)
+    2. subscription-based services (e.g. Claude Code, Codex, CoPilot)
+
+    We will build similarly powerful tools in class from the ground up.
 
 1. You MUST complete all programming assignments on the lambda server.
 
-1. You MUST use either Vim or Emacs for all text editing.
+1. You MUST edit all text in the command line (for example, using vim).
 
-   In particular, you MAY NOT use the GitHub text editor, VSCode, IDLE, or PyCharm for any reason.
+    In particular, you MAY NOT use the GitHub text editor, VSCode, or jupyter notebooks.
 
-1. You MAY NOT share your lambda server credentials with anyone else.
+1. You MAY NOT share any account credentials with anyone else.
 
 **Collaboration Policy**
 
-See <https://github.com/mikeizbicki/cmc-csci143/issues/592>.
+The purpose of this policy is to encourage you all to work together like professional programmers work together.
+
+1. You MAY post anything at all to github issues without restriction.
+
+    In particular, you are encouraged to post detailed questions/answers/comments with lots of code. Particularly good posts will be awarded extra credit.
+
+1. You MAY ONLY collaborate with other humans:
+
+    1. in class/lab/office hours,
+
+    1. in the QCL.
+
+    You MAY NOT collaborate with humans in any other context.
+
+1. When collaborating:
+
+    1. You MAY look at another student's code to help them or get high level guidance.
+
+    1. You MAY NOT copy another student's code.
+
+    1. You MUST be the only human to type in code for your assignments.
+
+1. You MAY NOT look at another student's code on github.
+
+    All projects are developed as open source projects, and so the code is published openly online.  The benefits of this model include: (1) you actually learn how to develop/contribute to open source projects; (2) future employers see you have github activity. Please do not abuse this privilege.
 
 ## Accommodations
 
 I've tried to design the course to be as accessible as possible for people with disabilities.
 (We'll talk a bit about how to design accessible software in class too!)
-If you need any further accommodations, please ask.
 
-I want you to succeed and I'll make every effort to ensure that you can.
+If you need any further accommodations, please ask.
 
 <!--
 # topic change
