@@ -77,11 +77,11 @@ We will encounter many instances in this class where more familiar tools like VS
 **Quiz details:**
 
 1. There will be a quiz every Wednesday.
-1. Your first quiz is next week on Wednesday 28 Jan.
+1. Your first quiz is next week on Wednesday 9 Sep.
 1. The quiz will cover:
-    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic00_redirection.pdf>
-    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic01_variables.pdf>
-    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic02_environment_variables.pdf>
+    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic00_intro.pdf>
+    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell.old/topic01_variables.pdf>
+    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell.old/topic02_environment_variables.pdf>
 1. All quizzes are open note.
     I strongly encourage you to complete all of the practice quiz problems and take notes on the practice sheets of paper.
 
