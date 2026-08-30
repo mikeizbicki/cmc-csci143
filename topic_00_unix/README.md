@@ -28,6 +28,7 @@ If you're not confident in all of this material, that's okay.
 We will spend the first 2 weeks reviewing.
 We will also see how SQL relates to python/shell/git.
 
+<!--
 **Working Environment:**
 
 All of our work in this class will be done on the lambda server.
@@ -45,9 +46,10 @@ The lambda server has:
 
 We will use docker and docker-compose to manage our own "virtual cloud infrastructure" from the lambda server.
 
-<!--
 <img src=img/map_of_cs.png width=600px>
 -->
+
+**Vim**
 
 All text editing must be done in Vim.
 We will encounter many instances in this class where more familiar tools like VSCode and Jupyter Notebooks will not work.
