@@ -125,10 +125,13 @@ Labs are always due on midnight of the Sunday of the week that they are assigned
 
 **Instructions:**
 
+TBA
+<!--
 1. First, visit the [lab-messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
 
 1. Then complete [lab-goodreads](https://github.com/mikeizbicki/lab-goodreads) and [lab-goodreads-part2](https://github.com/mikeizbicki/lab-goodreads2).
     (It's really just 1 lab split into two submodules for organization.)
+-->
 
 ## Homework
 
@@ -141,6 +144,8 @@ I will not apply a late penalty, but please be reasonable.
 
 **Instructions:**
 
+<!--
 This week's homework will teach you how to use continuous integration,
 and prepare you to submit all future assignments.
 You can find the homework at <https://github.com/mikeizbicki/continuous-integration>.
+-->
