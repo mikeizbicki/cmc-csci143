@@ -42,9 +42,13 @@ Depends entirely on the person who is talking.
         1. Instagram tech stack
         1. large language models (LLMs)
 
+**Who should take this class?**
+
 <img src=https://raw.githubusercontent.com/mikeizbicki/cmc-advising/master/courses-map.png width=100% />
 
 <br/>
+
+We will do all our work on the lambda server.
 
 <center>
 <img width='500px' src=img/big-data-map.png />
@@ -59,7 +63,7 @@ The lambda server has:
 
 <br/>
 
-<img src=https://raw.githubusercontent.com/mikeizbicki/cmc-advising/master/iceberg/icebe    rg.png width=100% />
+<img src=https://raw.githubusercontent.com/mikeizbicki/cmc-advising/master/iceberg/iceberg.png width=100% />
 
 **Out of scope:**
 
