@@ -89,18 +89,13 @@ We will encounter many instances in this class where more familiar tools like VS
 
 **Due Date:**
 
-Labs are always due at 11:59pm on the Sunday of the week that they are assigned (i.e. January 25 at 11:59pm for this lab).
+Motivated students should be able to complete them within the allocated time on Friday.
 
-*For this lab only:*
-There will be no late penalty if you miss the due date, but please be reasonable.
-I want to ensure that everyone has sufficient time to complete the lab based on their background experience.
+Labs are always due on midnight of the Sunday of the week that they are assigned (e.g. Sep 6 for this lab).
+
+*For this lab only: There will be no late penalty if you miss the due date, but please be reasonable.
 
 **Pre-lab work:**
-
-Everyone should be able to complete the following tasks before lab (regardless of how much background knowledge you already know).
-If you get stuck, however, that's okay.
-I can help you get unstuck during lab time.
-You won't be able to complete the homework, however, until you've completed all of these steps.
 
 1. Create a GitHub account if you do not already have one.
 
@@ -110,7 +105,6 @@ You won't be able to complete the homework, however, until you've completed all 
     and not through email or canvas.
 
 1. Create a [personal access token (PAT)](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for your github account, and save the PAT to a file for future use.
-    The default level of permissions is okay.
 
 1. Read and follow the instructions in [the meet and greet issue](https://github.com/mikeizbicki/cmc-csci143/issues/573).
 
@@ -121,6 +115,8 @@ You won't be able to complete the homework, however, until you've completed all 
    Complete all instructions in order to learn Vim.
    This should take 30-60 minutes.
 
+1. Complete the [github pull request tutorial](https://github.com/mikeizbicki/pullrequest-tutorial)
+
 1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/lambda-server.md) to update your lambda server account's settings.
 
 1. Follow [these instructions](https://github.com/mikeizbicki/lab-llm) to get a nice terminal interface to LLMs on the lambda server.
@@ -128,12 +124,6 @@ You won't be able to complete the homework, however, until you've completed all 
 1. (Optional) Watch a short video where the creators of UNIX Ken Thompson and Dennis Ritchie explain the UNIX philosophy <https://www.youtube.com/watch?v=JoVQTPbD6UY>
 
 **Instructions:**
-
-If you don't yet have access to the lambda server,
-let me know and we'll get that resolved.
-
-Labs will generally be posted as [git submodules](https://www.atlassian.com/git/tutorials/git-submodule) in each topic folder.
-This week there are three submodules:
 
 1. First, visit the [lab-messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
 
@@ -149,22 +139,8 @@ Homeworks are always due at 11:59pm on the Tuesday of the week after they are as
 *For this hw only:*
 I will not apply a late penalty, but please be reasonable.
 
-**Background Work:**
-
-You will not be able to complete the homework for this week unless you know how to use Vim and git.
-I recommend everyone complete the following tasks,
-even if you already feel comfortable with these tools.
-
-1. Complete the [unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md).
-
-1. Complete the [github pull request tutorial](https://github.com/mikeizbicki/pullrequest-tutorial)
-
-If you like youtube tutorials, I recommend Corey Schafer's [Git Tutorial for Beginners: Command-Line Fundamentals](https://www.youtube.com/watch?v=HVsySz-h9r4).
-Corey is a famous youtuber for programming tutorials, and you can watch his other videos too if you need more background.
-
 **Instructions:**
 
-Like labs, homeworks will be posted into a submodule each week.
 This week's homework will teach you how to use continuous integration,
 and prepare you to submit all future assignments.
 You can find the homework at <https://github.com/mikeizbicki/continuous-integration>.
