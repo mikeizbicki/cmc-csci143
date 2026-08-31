@@ -42,7 +42,7 @@ Depends entirely on the person who is talking.
         1. Instagram tech stack
         1. large language models (LLMs)
 
-**Who should take this class?**
+<hr>
 
 <img src=https://raw.githubusercontent.com/mikeizbicki/cmc-advising/master/courses-map.png width=100% />
 
