@@ -117,7 +117,7 @@ Labs are always due on midnight of the Sunday of the week that they are assigned
 
 1. Complete the [github pull request tutorial](https://github.com/mikeizbicki/pullrequest-tutorial)
 
-1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/lambda-server.md) to update your lambda server account's settings.
+1. Follow [these instructions](https://github.com/mikeizbicki/cmc-csci046/blob/2026fall/topic_00_unix/lambda-server.md) to update your lambda server account's settings.
 
 1. Follow [these instructions](https://github.com/mikeizbicki/lab-llm) to get a nice terminal interface to LLMs on the lambda server.
 
