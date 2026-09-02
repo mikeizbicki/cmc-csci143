@@ -108,7 +108,6 @@ but I will provide more specific links each week.
 | weekly labs     | `2**1` or `2**2` or `2**3` | 20% |
 | weekly projects | `2**2` or `2**3` or `2**4` | 30% |
 | weekly quizzes  | `2**2` or `2**3` or `2**4` | 30% |
-| 4 midterms      | `2**5` each                | 40% |
 | oral final exam | `2**6`                     | 20% |
 
 All assignments are designed to help you get a good job:
