@@ -8,6 +8,10 @@
 
 See <https://github.com/mikeizbicki/about-me>
 
+You should contact me through the [class github issues](https://github.com/mikeizbicki/cmc-csci143/issues).
+
+You may send questions about grades to my email at <mizbicki@cmc.edu>.
+
 ## About the Course
 
 **What is big data?**
