@@ -139,11 +139,11 @@ TBA
 
 Homeworks are always due at 11:59pm on the Tuesday of the week after they are assigned (i.e. 8 Sep at 11:59pm for this homework).
 
-*For this hw only:*
-I will not apply a late penalty, but please be reasonable.
+*For this hw only: I will not apply a late penalty, but please be reasonable.*
 
 **Instructions:**
 
+TBA
 <!--
 This week's homework will teach you how to use continuous integration,
 and prepare you to submit all future assignments.
