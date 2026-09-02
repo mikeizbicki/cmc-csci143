@@ -93,7 +93,7 @@ Motivated students should be able to complete them within the allocated time on 
 
 Labs are always due on midnight of the Sunday of the week that they are assigned (e.g. Sep 6 for this lab).
 
-*For this lab only: There will be no late penalty if you miss the due date, but please be reasonable.
+*For this lab only: There will be no late penalty if you miss the due date, but please be reasonable.*
 
 **Pre-lab work:**
 
