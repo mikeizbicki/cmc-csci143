@@ -69,6 +69,10 @@ The lambda server has:
 
 <img src=https://raw.githubusercontent.com/mikeizbicki/cmc-advising/master/iceberg/iceberg.png width=100% />
 
+## Office Hours
+
+Office hours will be from 9-11am Tuesday and Thursday each week
+
 **Out of scope:**
 
 1. concepts from CSCI133 databases
