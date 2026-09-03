@@ -12,6 +12,8 @@ You should contact me through the [class github issues](https://github.com/mikei
 
 You may send questions about grades to my email at <mizbicki@cmc.edu>.
 
+View my office hours at this link https://github.com/mikeizbicki/about-me/issues/1 
+
 ## About the Course
 
 **What is big data?**
