@@ -69,10 +69,6 @@ The lambda server has:
 
 <img src=https://raw.githubusercontent.com/mikeizbicki/cmc-advising/master/iceberg/iceberg.png width=100% />
 
-## Office Hours
-
-Office hours will be from 9-11am Tuesday and Thursday each week
-
 **Out of scope:**
 
 1. concepts from CSCI133 databases
@@ -121,6 +117,10 @@ All assignments are designed to help you get a good job:
 1. The assignments will help you with SQL technical interview questions.
 
 See <https://github.com/mikeizbicki/cmc-csci143/issues/577> for extra credit opportunities.
+
+## Office Hours
+
+Office hours will be from 9-11am Tuesday and Thursday each week
 
 **Late Work Policy:**
 
