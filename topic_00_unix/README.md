@@ -121,17 +121,16 @@ Labs are always due on midnight of the Sunday of the week that they are assigned
 
 1. Follow [these instructions](https://github.com/mikeizbicki/lab-llm) to get a nice terminal interface to LLMs on the lambda server.
 
+<!--
 1. (Optional) Watch a short video where the creators of UNIX Ken Thompson and Dennis Ritchie explain the UNIX philosophy <https://www.youtube.com/watch?v=JoVQTPbD6UY>
+-->
 
 **Instructions:**
 
-TBA
-<!--
 1. First, visit the [lab-messages](https://github.com/mikeizbicki/messages) repo and complete the instructions in the README.
 
 1. Then complete [lab-goodreads](https://github.com/mikeizbicki/lab-goodreads) and [lab-goodreads-part2](https://github.com/mikeizbicki/lab-goodreads2).
     (It's really just 1 lab split into two submodules for organization.)
--->
 
 ## Homework
 
@@ -143,9 +142,6 @@ Homeworks are always due at 11:59pm on the Tuesday of the week after they are as
 
 **Instructions:**
 
-TBA
-<!--
 This week's homework will teach you how to use continuous integration,
 and prepare you to submit all future assignments.
 You can find the homework at <https://github.com/mikeizbicki/continuous-integration>.
--->
