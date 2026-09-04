@@ -121,7 +121,7 @@ Labs are always due on midnight of the Sunday of the week that they are assigned
 
 1. Follow [these instructions](https://github.com/mikeizbicki/lab-llm) to get a nice terminal interface to LLMs on the lambda server.
 
-1. (Optional) Watch a short video where the creators of UNIX Ken Thompson and Dennis Ritchie explain the UNIX philosophy <https://www.youtube.com/watch?v=JoVQTPbD6UY>
+1. (Optional) Watch a short video where the creators of UNIX Ken Thompson and Dennis Ritchie explain the UNIX philosophy.
 
 **Instructions:**
 
