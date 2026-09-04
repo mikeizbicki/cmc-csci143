@@ -85,6 +85,9 @@ We will encounter many instances in this class where more familiar tools like VS
 1. All quizzes are open note.
     I strongly encourage you to complete all of the practice quiz problems and take notes on the practice sheets of paper.
 
+> **NOTE:**
+> This quiz material is also found in the intro classes CSCI040 and CSCI046.
+
 ## Lab
 
 **Due Date:**
@@ -96,6 +99,11 @@ Labs are always due on midnight of the Sunday of the week that they are assigned
 *For this lab only: There will be no late penalty if you miss the due date, but please be reasonable.*
 
 **Pre-lab work:**
+
+> **NOTE:**
+> This pre-lab work is also found in the intro classes CSCI040 and CSCI046.
+> If you already completed the assignments in these classes,
+> then you do not need to redo these steps.
 
 1. Create a GitHub account if you do not already have one.
 
@@ -145,3 +153,9 @@ Homeworks are always due at 11:59pm on the Tuesday of the week after they are as
 This week's homework will teach you how to use continuous integration,
 and prepare you to submit all future assignments.
 You can find the homework at <https://github.com/mikeizbicki/continuous-integration>.
+
+> **NOTE:**
+> This hw is also found in the intro classes CSCI040 and CSCI046.
+> If you already completed the assignment in these classes,
+> then you do not need to redo the steps.
+> You can just directly submit your github url for credit.
