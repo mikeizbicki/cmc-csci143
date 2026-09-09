@@ -6,6 +6,59 @@
 </a>
 </center>
 
+**Wed 9 Sep**
+
+1. assignments graded
+    1. | assignment  | total students | submitted | full credit |
+       | --- | -------------- | --------- | ----------- |
+       | prelab0 - git tutorial       | 20 | 18 | 17 |
+       | prelab0 - llm                | 20 | 18 | 18 |
+       | lab0 - goodreads - part0     | 20 | 18 | 18 |
+       | lab0 - goodreads - part1     | 20 | 17 | 17 |
+       | hw0 - continuous integration | 20 | 16 | 14 |
+    1. if you haven't submitted:
+        1. please submit; no late penalty
+        1. you are now behind
+    1. if you didn't get full credit:
+        1. you may resubmit for full credit
+    1. common problems:
+        1. Never take screenshots of text
+            1. <img src=img/bad-submission.png width=500px>
+            1. we cannot copy/paste
+            1. google cannot index
+            1. llms cannot learn from it
+            1. correct submission looks something like:
+                ```
+                $ git log --graph --oneline
+                * FFd3762 (HEAD -> master) Merge branch 'new_feature'
+                |\  
+                | * FFd8ec8 (new_feature) added newfile
+                * | FFd980d newfile2
+                |/  
+                * FFfa06a changed the README
+                *   FF4619b solved merge conflict between userinput and master branches
+                |\  
+                | * FFe2149 updated README
+                | * FF14598 added user input
+                * | FF6c46b fixed the message bug
+                |/  
+                * FF24e01 modified the README
+                * FF3cc61 added the first code
+                ```
+        1. CI badges not updated correctly
+            1. <https://github.com/asriniketh29/continuous-integration>
+
+1. <https://thethreevirtues.com/>
+1. <img src=img/god.jpg width=400px />
+
+1. Quiz Friday!
+    1. If you didn't get the message, you're not watching the repo!
+    1. Format:
+        1. 4 problems.
+        1. Fully open note.
+        1. First 10 minutes of class.
+        1. I will be in class ~20 minutes before start of quiz; everyone is welcome to start quiz early.
+
 ## Lecture Notes
 
 **Expected Background Knowledge:**
