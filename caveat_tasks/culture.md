@@ -32,7 +32,7 @@ so you should be able to finish this task in under 8 hours.
     There's also a live-action movie called *Snowden* [available on Amazon Prime](https://www.amazon.com/Snowden-Joseph-Gordon-Levitt/dp/B01LWYVHKV).
     You can get credit for watching both of these.
 
-1. *Zero Days - Security Leaks for Sale*, available on [youtube](https://www.youtube.com/watch?v=4BTTiWkdT8Q)).
+1. *Zero Days - Security Leaks for Sale*, available on [youtube](https://www.youtube.com/watch?v=4BTTiWkdT8Q).
    This documentary describes how exploits are bought and sold on an open market by companies, governments, and criminal organizations.
 
 1. *Don't Talk to the Police*, available on [youtube](https://www.youtube.com/watch?v=d-7o9xYp7eE).
