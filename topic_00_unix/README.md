@@ -21,32 +21,29 @@
         1. you are now behind
     1. if you didn't get full credit:
         1. you may resubmit for full credit
-    1. common problems:
-        1. Never take screenshots of text
-            1. <img src=img/bad-submission.png width=500px>
-            1. we cannot copy/paste
-            1. google cannot index
-            1. llms cannot learn from it
-            1. correct submission looks something like:
-                ```
-                $ git log --graph --oneline
-                * FFd3762 (HEAD -> master) Merge branch 'new_feature'
-                |\  
-                | * FFd8ec8 (new_feature) added newfile
-                * | FFd980d newfile2
-                |/  
-                * FFfa06a changed the README
-                *   FF4619b solved merge conflict between userinput and master branches
-                |\  
-                | * FFe2149 updated README
-                | * FF14598 added user input
-                * | FF6c46b fixed the message bug
-                |/  
-                * FF24e01 modified the README
-                * FF3cc61 added the first code
-                ```
-        1. CI badges not updated correctly
-            1. <https://github.com/asriniketh29/continuous-integration>
+    1. Never take screenshots of text
+        1. <img src=img/bad-submission.png width=500px>
+        1. we cannot copy/paste
+        1. google cannot index
+        1. llms cannot learn from it
+        1. correct submission looks something like:
+            ```
+            $ git log --graph --oneline
+            * FFd3762 (HEAD -> master) Merge branch 'new_feature'
+            |\  
+            | * FFd8ec8 (new_feature) added newfile
+            * | FFd980d newfile2
+            |/  
+            * FFfa06a changed the README
+            *   FF4619b solved merge conflict between userinput and master branches
+            |\  
+            | * FFe2149 updated README
+            | * FF14598 added user input
+            * | FF6c46b fixed the message bug
+            |/  
+            * FF24e01 modified the README
+            * FF3cc61 added the first code
+            ```
 
 1. <https://thethreevirtues.com/>
 1. <img src=img/god.jpg width=400px />
