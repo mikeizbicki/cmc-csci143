@@ -45,7 +45,6 @@
             * FF3cc61 added the first code
             ```
 
-1. <https://thethreevirtues.com/>
 1. <img src=img/god.jpg width=400px />
 
 1. Quiz Friday!
