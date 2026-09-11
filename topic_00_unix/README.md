@@ -55,6 +55,22 @@
         1. First 10 minutes of class.
         1. I will be in class ~20 minutes before start of quiz; everyone is welcome to start quiz early.
 
+**Fri 11 Sep:**
+
+1. No hw/lab this week :)
+
+1. Quiz next Wednesday on:
+    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell.old/topic03_for_loops.pdf>
+    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell.old/topic04_conditionals.pdf>
+    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell.old/topic06_git.pdf>
+
+1. If you don't like your grade on today's quiz,
+    quiz retake next Wednesday.
+    1. can retake this first quiz only
+    1. during quiz time next week
+    1. everyone can take a copy, and only submit if you like how you did
+    1. your retake grade will replace this week's grade
+
 ## Lecture Notes
 
 **Expected Background Knowledge:**
