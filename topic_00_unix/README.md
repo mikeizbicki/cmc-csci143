@@ -62,7 +62,7 @@
 1. Quiz next Wednesday on:
     1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell.old/topic03_for_loops.pdf>
     1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell.old/topic04_conditionals.pdf>
-    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell.old/topic06_git.pdf>
+    1. <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell.old/topic05_glob.pdf>
 
 1. If you don't like your grade on today's quiz,
     quiz retake next Wednesday.
