@@ -92,6 +92,8 @@
 
             > The Lindy effect proposes the longer a period something has survived to exist or be used in the present, the longer its remaining life expectancy.
 
+            <img src=img/lindy.webp width=500px />
+
 1. Famous bugs caused by bad shell use:
     1. (1998) Toy story: <https://thenextweb.com/news/how-pixars-toy-story-2-was-deleted-twice-once-by-technology-and-again-for-its-own-good>
     1. Modern:
@@ -103,6 +105,9 @@
     1. Common Weakness Enumeration (CWE):
         1. CWE-78: Command Injection <https://cwe.mitre.org/data/definitions/78.html>
         1. CWE-88: Argument Injection <https://cwe.mitre.org/data/definitions/88.html>
+    1. These types of errors common in AI agent output
+
+        <img src=img/claude.jpg width=300px />
 
 1. Parallel programming
     1. All of the hardest parts of an OS course compressed down into 5 minutes
