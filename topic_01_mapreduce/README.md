@@ -122,6 +122,9 @@
             1. each thread shares the same memory, so communication is easy
             1. slightly less safe because a bug in one thread will cause bad behavior in every program
             1. Python's [global interpreter lock (GIL)](https://realpython.com/python-gil/) means you cannot use threads in python for parallel programming
+
+                <img src=img/gil.jpg width=300px />
+
         1. Processes are "heavyweight"
             1. about 10MB of unavoidable overhead per process in the system kernel
                 1. technically, this number is application dependent
@@ -137,11 +140,15 @@
         1. easy to create [memory leaks](https://en.wikipedia.org/wiki/Memory_leak), [race conditions](https://en.wikipedia.org/wiki/Race_condition), and other hard-to-debug problems
         1. easy to accidentally create [fork bombs](https://en.wikipedia.org/wiki/Fork_bomb), which were the original form of [cracking](http://www.catb.org/jargon/html/C/cracker.html)
         1. code is non-deterministic (every time you run it, you get different results), resulting in lots of [heisenbugs](https://en.wikipedia.org/wiki/Heisenbug)
+
+            <img src=img/heisenbug.jpg width=400px />
+
             1. simple example: [I can't login standing up](https://www.reddit.com/r/talesfromtechsupport/comments/3v52pw/i_cant_log_in_when_i_stand_up/)
             1. complicated example: [I can't send email more than 500 miles](http://www.ibiblio.org/harris/500milemail.html)
             1. (links in the lecture notes are never required... but the "most cultured" programmers will want to read them... these two in particular)
-        1. python is not great for manipulating processes (it's very easy to create very bad bugs); bash is much better; so I always do the parallel programming parts in bash
+
         1. MapReduce paradigm simplifies parallel data analysis
+            1. trivial to do in bash with `&` and `wait`
 
 <!--
 1. Basic networking
