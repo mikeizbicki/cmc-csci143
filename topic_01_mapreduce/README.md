@@ -1,8 +1,8 @@
 # MapReduce (via shell scripting)
 
-<img src=img/LinuxAdmin.jpg width=600px />
+<img src=img/LinuxAdmin.jpg width=400px />
 
-**Announcements (Monday 2025-02-02)**:
+**Announcements (Monday 14 Sep)**:
 
 1. everything graded
     1. you have 0 as "default grade" for unsubmitted work
@@ -11,18 +11,13 @@
 
     1. still no late penalties have been applied
 
-1. lab-productivity / lab-cat:
-    1. 13 students need to (re)submit
-    1. Screenshots are evil: <https://github.com/jessicalevin18/lab-cat>
-    1. Weird formatting <https://github.com/khodge1607/lab-cat>
-
-1. quiz (shell topic 00)
+1. last week's quiz
 
     | grade | # students |
     | ----- | ---------- |
-    | 4     | 8          |
-    | 3     | 14         |
-    | <=2   | 6          | 
+    | 4     | 2          |
+    | 3     | 5          |
+    | <=2   | 13         |
 
     retake this Wednesday
 
@@ -30,73 +25,16 @@
     1. everyone may take a copy
     1. if you submit the copy, your grade on the copy will replace your existing grade
 
-1. Wednesday quiz
-    1. shell topics 01 - 03
-
-    1. new practice problems at: <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic03_for_loops.pdf>
-
-1. As a cohort, you all are behind previous iterations of this class.
-
-   Course modifications:
-    1. More time on review material.
-    1. Quiz Wednesday will cover only up to shell topic 03 (instead of 05 as originally planned)
-    1. No late penalty for last week's lab
-        (for everyone).
-
-    1. No late penalty for this week's lab
-
-        (if you email me before the deadline and explain: why it is late and why it won't happen again).
-
-**Announcements (Wednesday 2025-02-04)**:
-
-All grades updated in canvas
-
-Quiz next week shell topic 04/05
-
-- another retake option for today's quiz
-
-- review files at:
-
-    <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic04_conditionals.pdf>
-
-    <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic05_glob.pdf>
-
-- we won't discuss in class topic04 - conditionals
-
-- my favorite story in the history of computer science: <https://thenextweb.com/news/how-pixars-toy-story-2-was-deleted-twice-once-by-technology-and-again-for-its-own-good>
-
-No homework (besides the lab)
-
-- Monday we will discuss the MapReduce homework
-
-**Announcements (Monday 2026-02-09):**
-
-1. Everything graded in canvas
-
-    | grade range | number of students |
-    | --- | --- |
-    | 100 <= grade | 10 |
-    | 90 <= grade < 100 | 4 |
-    | 80 <= grade < 90 | 5 |
-    | grade < 80 | 11 |
-
-1. Quiz Wednesday
-    1. Topic04 (conditionals) + Topic05 (glob)
-    1. Optional retake (topics 01/02/03)
-    1. As always, I will be in class early and you may start early
-
-1. Twitter Coronavirus Homework:
-    
 ## Lecture Notes
 
 1. Definitions:
     1. **Terminal** the graphical program that you type in
-        1. technically, this is a **terminal emulator**
-        1. handles things like copy/paste, colorscheme, etc.
         1. runs on your computer, not the lambda server
+        1. handles things like copy/paste, colors, font size
+
     1. **Shell** the non-graphical program that actually runs the commands
-        1. it is a "thin wrapper" over the operating system "kernel"
         1. runs on the lambda server, not your computer
+        1. it is a "thin wrapper" over the operating system "kernel"
 
 1. [Types of unix shells](https://www.multicians.org/shell.html)
     1. [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson) wrote the first Unix shell, called the "Thompson Shell" (`sh` for short), in 1971
@@ -108,6 +46,7 @@ No homework (besides the lab)
         1. `.vimrc` and `.bashrc` are examples
     1. Many newer shells
         1. The Bourne shell (named after author Stephen Bourne) became the standard in UNIX in 1979
+    
         1. Open Source shells:
             1. Almquist shell (`ash`), which was written by Kenneth Almquist in 1980; BSD-licensed
             1. The Bourne-Again shell (`bash`), which was written by [Brian Fox](https://en.wikipedia.org/wiki/Brian_Fox_(programmer)) in 1989; GPL-licensed
@@ -153,6 +92,17 @@ No homework (besides the lab)
 
             > The Lindy effect proposes the longer a period something has survived to exist or be used in the present, the longer its remaining life expectancy.
 
+1. Famous bugs caused by bad shell use:
+    1. (1998) Toy story: <https://thenextweb.com/news/how-pixars-toy-story-2-was-deleted-twice-once-by-technology-and-again-for-its-own-good>
+    1. Modern:
+        1. (2026-02-21) OpenClaw CVE-2026-27209: <https://github.com/openclaw/openclaw/security/advisories/GHSA-65rx-fvh6-r4h2>
+        1. (2026-02-25) ClaudeCode command injection: <https://github.com/anthropics/claude-code/issues/28784>
+        1. (2026-06-19) Network-AI: <https://github.com/advisories/GHSA-qw6v-5fcf-5666?utm_source=chatgpt.com>
+        1. (2025-11-18) node.js: <https://github.com/advisories/GHSA-5j98-mcp5-4vw2>
+        1. (2026-03-19) vim: <https://github.com/vim/vim/security/advisories/GHSA-w5jw-f54h-x46c>
+    1. Common Weakness Enumeration (CWE):
+        1. CWE-78: Command Injection <https://cwe.mitre.org/data/definitions/78.html>
+        1. CWE-88: Argument Injection <https://cwe.mitre.org/data/definitions/88.html>
 
 1. Parallel programming
     1. All of the hardest parts of an OS course compressed down into 5 minutes
@@ -212,26 +162,7 @@ No homework (besides the lab)
 
 ## Lab
 
-**Prelab Tasks:**
-
-1. Spend at least 20 minutes reviewing how to use Vim effectively.
-    You can either:
-    
-    1. redo the `vimtutor` tutorial from last pre-lab, or
-    2. try the more interactive tutorial at <https://www.openvim.com/>.
-
-    > **Warning:**
-    > It will be tempting to skip this task.
-    > But recall that you will be using Vim throughout the semester.
-    > That's 10 hours/week times 15 weeks = 150 hours.
-    > If you actually learn how to use the tool,
-    > then the rest of the semester will be much more pleasant for you.
-
-1. If you don't feel 100% confident in the git terminal commands,
-    then redo [CSCSI046's git+unix tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md) that was assigned for last week's homework.
-
-    (It's okay if you don't feel confident in these commands at this point.
-    I expect most of the class would benefit from redoing the tutorial.)
+**Prelab:**
 
 1. Complete the following two lab assignments from CSCI046.
     Both labs have tasks you will have to submit on canvas.
@@ -243,12 +174,18 @@ No homework (besides the lab)
     > If you took CSCI046 with me, then you've already completed these labs.
     > You are still required to complete them again.
 
-**Instructions:**
+**Lab:**
 
+TBA
+
+<!--
 The lab is posted in the [lab-posix-mapreduce submodule](https://github.com/mikeizbicki/lab-posix-mapreduce).
+-->
 
 ## Homework
 
+TBA
+<!--
 The homework is posted in the [hw-twitter-mapreduce](https://github.com/mikeizbicki/twitter_coronavirus) git submodule.
 
 **Modified Due Date:**
@@ -263,3 +200,4 @@ Why?
 - Runtime on heavily loaded lambda server: 5 hours * 30 students = 150 hours = 6.25 days 
 
 There will be no extensions given for code not completing in time.
+-->
