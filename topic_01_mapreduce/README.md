@@ -71,7 +71,7 @@
 
                 But `zsh` was written by his student [Paul Falstad](https://www.falstad.com/) as an undergrad student project.
 
-    1. POSIX (= Portible Operating System Interface)
+    1. POSIX (= Portable Operating System Interface)
         1. All the shells above have slightly different behaviors
         1. POSIX defines the universal standard of minimal features that all shells must have
         1. It's best to try to write POSIX-compliant scripts to ensure portability (and speed, since you can use `dash` to run the script)
@@ -105,7 +105,7 @@
     1. Common Weakness Enumeration (CWE):
         1. CWE-78: Command Injection <https://cwe.mitre.org/data/definitions/78.html>
         1. CWE-88: Argument Injection <https://cwe.mitre.org/data/definitions/88.html>
-    1. These types of errors common in AI agent output
+    1. These types of errors are common in AI agent output
 
         <img src=img/claude.jpg width=300px />
 
@@ -128,7 +128,7 @@
         1. Processes are "heavyweight"
             1. about 10MB of unavoidable overhead per process in the system kernel
                 1. technically, this number is application dependent
-                1. 10MB is for postgres (and other "big" programs are same order of magnitude)
+                1. 10MB is for postgres (and other "big" programs are of the same order of magnitude)
             1. additionally, each child process duplicates the memory of its parent process
             1. processes can communicate only by reading/writing to files
             1. processes are the only way to do parallel programming in python
