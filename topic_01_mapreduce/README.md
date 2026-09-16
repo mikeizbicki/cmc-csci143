@@ -134,13 +134,13 @@
             1. In shell:
                 1. `&` and `|`
 
-            > **NOTE**:
-            >
-            > 1. `|` is *deterministic*---the outputs are always the same.
-            >
-            > 1. `&` is *non-deterministic*---the outputs may differ.
-            >
-            > No quiz on `&` behavior.
+            1. > **NOTE**:
+               >
+               > 1. `|` is *deterministic*---the outputs are always the same.
+               >
+               > 1. `&` is *non-deterministic*---the outputs may differ.
+               >
+               > No quiz on `&` behavior.
 
     1. Parallel programming is HARD
         1. easy to create [memory leaks](https://en.wikipedia.org/wiki/Memory_leak), [race conditions](https://en.wikipedia.org/wiki/Race_condition), and other hard-to-debug problems
