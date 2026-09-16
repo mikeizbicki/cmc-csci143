@@ -179,15 +179,15 @@
 
 **Prelab:**
 
+> **Note:**
+> If you took CSCI046 with me, then you've already completed this prelab work.
+> You are not required to complete it again.
+
 1. Complete the following two lab assignments from CSCI046.
     Both labs have tasks you will have to submit on canvas.
 
     1. [lab-pipes-twitter](https://github.com/mikeizbicki/lab-pipes-twitter)
     1. [lab-processes](https://github.com/mikeizbicki/lab-processes).
-
-    > **Note:**
-    > If you took CSCI046 with me, then you've already completed these labs.
-    > You are still required to complete them again.
 
 1. The next (short) task is designed to help you learn vim.
 
