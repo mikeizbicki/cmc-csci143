@@ -148,7 +148,10 @@
             1. (links in the lecture notes are never required... but the "most cultured" programmers will want to read them... these two in particular)
 
         1. MapReduce paradigm simplifies parallel data analysis
-            1. trivial to do in bash with `&` and `wait`
+            1. trivial to do in bash with `&` and `nohup`
+            1. cloud options expensive and require "specialized" knowledge
+
+                <img src=img/yes-no.jpg width=400px />
 
 <!--
 1. Basic networking
@@ -186,6 +189,16 @@
     > If you took CSCI046 with me, then you've already completed these labs.
     > You are still required to complete them again.
 
+1. The next (short) task is designed to help you learn vim.
+
+    <img src=img/vim.jpg width=400px />
+
+    Using the [vim cheatsheet](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf):
+
+    1. select 10 verbs and 10 motions
+    1. write by each of these commands and what they do
+    1. do your best to memorize these commands and incorporate them into your workflow
+
 **Lab:**
 
 TBA
@@ -196,20 +209,17 @@ The lab is posted in the [lab-posix-mapreduce submodule](https://github.com/mike
 
 ## Homework
 
-TBA
-<!--
-The homework is posted in the [hw-twitter-mapreduce](https://github.com/mikeizbicki/twitter_coronavirus) git submodule.
+Homework repo is: <https://github.com/mikeizbicki/twitter_coronavirus>
 
 **Modified Due Date:**
-Tuesday, 24 February.
+Tuesday, 6 October.
 
-I recommend starting early and having everything complete by 17 Feb.
+I recommend starting early and having everything complete by 29 September.
 
 Why?
 
 - Runtime on unloaded lambda server: 3-5 hours
 
-- Runtime on heavily loaded lambda server: 5 hours * 30 students = 150 hours = 6.25 days 
+- Runtime on heavily loaded lambda server: 5 hours * 20 students = 100 hours = 4 days 
 
 There will be no extensions given for code not completing in time.
--->
