@@ -147,11 +147,11 @@
             1. complicated example: [I can't send email more than 500 miles](http://www.ibiblio.org/harris/500milemail.html)
             1. (links in the lecture notes are never required... but the "most cultured" programmers will want to read them... these two in particular)
 
-        1. MapReduce paradigm simplifies parallel data analysis
-            1. trivial to do in bash with `&` and `nohup`
-            1. cloud options expensive and require "specialized" knowledge
+    1. MapReduce paradigm simplifies parallel data analysis
+        1. trivial to do in bash with `&` and `nohup`
+        1. cloud options expensive and require "specialized" knowledge
 
-                <img src=img/yes-no.jpg width=400px />
+            <img src=img/yes-no.jpg width=400px />
 
 <!--
 1. Basic networking
