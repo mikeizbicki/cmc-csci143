@@ -112,43 +112,45 @@
 1. Parallel programming
     1. All of the hardest parts of an OS course compressed down into 5 minutes
 
-    1. "Trivial" to do in POSIX-compliant shells with `&` + `nohup`
-
-        (mod the weird `fsck`ing edge cases)
-
     1. Two techniques: Threads vs Processes
         1. Threads are "lightweight"
-            1. minimal overhead
-            1. each thread shares the same memory, so communication is easy
-            1. slightly less safe because a bug in one thread will cause bad behavior in every program
+            1. How web browsers and most programming languages implement parallelism
+            1. threads share the same memory, so communication is easy
             1. Python's [global interpreter lock (GIL)](https://realpython.com/python-gil/) means you cannot use threads in python for parallel programming
 
                 <img src=img/gil.jpg width=300px />
 
+                Current work being done to remove GIL, but experimental.
+
+                See PEP703: <https://peps.python.org/pep-0703/>
+
         1. Processes are "heavyweight"
-            1. about 10MB of unavoidable overhead per process in the system kernel
-                1. technically, this number is application dependent
-                1. 10MB is for postgres (and other "big" programs are of the same order of magnitude)
-            1. additionally, each child process duplicates the memory of its parent process
             1. processes can communicate only by reading/writing to files
-            1. processes are the only way to do parallel programming in python
+            1. processes are the "only" way to do parallel programming in python
             1. processes created by "forking"
+            1. In python:
                 1. `os.fork()`
                 1. [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) built-in library
+            1. In shell:
+                1. `&` and `|`
 
-    1. Programming with threads/processes is HARD
+    1. Parallel programming is HARD
         1. easy to create [memory leaks](https://en.wikipedia.org/wiki/Memory_leak), [race conditions](https://en.wikipedia.org/wiki/Race_condition), and other hard-to-debug problems
-        1. easy to accidentally create [fork bombs](https://en.wikipedia.org/wiki/Fork_bomb), which were the original form of [cracking](http://www.catb.org/jargon/html/C/cracker.html)
+        1. easy to create [fork bombs](https://en.wikipedia.org/wiki/Fork_bomb)
+            1. original denial-of-service (DOS) attack
+            1. on lambda server:
+                1. your accounts can have 1024 processes open at once
+                1. if you use all these processes, you cannot create more
+                1. logging into server requires creating a process
+                1. if you've used up your processes, you won't be able to login
+            1. type of [cracking](http://www.catb.org/jargon/html/C/cracker.html) not [hacking](http://www.catb.org/jargon/html/H/hacker.html)
         1. code is non-deterministic (every time you run it, you get different results), resulting in lots of [heisenbugs](https://en.wikipedia.org/wiki/Heisenbug)
 
             <img src=img/heisenbug.jpg width=400px />
 
-            1. simple example: [I can't login standing up](https://www.reddit.com/r/talesfromtechsupport/comments/3v52pw/i_cant_log_in_when_i_stand_up/)
-            1. complicated example: [I can't send email more than 500 miles](http://www.ibiblio.org/harris/500milemail.html)
-            1. (links in the lecture notes are never required... but the "most cultured" programmers will want to read them... these two in particular)
-
     1. MapReduce paradigm simplifies parallel data analysis
-        1. trivial to do in bash with `&` and `nohup`
+        1. can't always do it, but when you can, easy to reason about
+        1. trivial to implement in bash with `&`
         1. cloud options expensive and require "specialized" knowledge
 
             <img src=img/yes-no.jpg width=400px />
