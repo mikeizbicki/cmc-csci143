@@ -127,7 +127,7 @@
         1. Processes are "heavyweight"
             1. processes can communicate only by reading/writing to files
             1. processes are the "only" way to do parallel programming in python
-            1. processes created by "forking"
+            1. processes created are by "forking"
             1. In python:
                 1. `os.fork()`
                 1. [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) built-in library
@@ -161,7 +161,7 @@
     1. MapReduce paradigm simplifies parallel data analysis
         1. can't always do it, but when you can, easy to reason about
         1. trivial to implement in bash with `&`
-        1. cloud options expensive and require "specialized" knowledge
+        1. cloud options are expensive and require "specialized" knowledge
 
             <img src=img/yes-no.jpg width=400px />
 
@@ -208,7 +208,7 @@
     Using the [vim cheatsheet](https://github.com/mikeizbicki/ucr-cs100/blob/class-template/textbook/cheatsheets/vim-cheatsheet.pdf):
 
     1. select 10 verbs and 10 motions
-    1. write by each of these commands and what they do
+    1. write by hand each of these commands and what they do
     1. do your best to memorize these commands and incorporate them into your workflow
 
 **Lab:**
