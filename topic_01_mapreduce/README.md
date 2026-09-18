@@ -213,11 +213,7 @@
 
 **Lab:**
 
-TBA
-
-<!--
-The lab is posted in the [lab-posix-mapreduce submodule](https://github.com/mikeizbicki/lab-posix-mapreduce).
--->
+See <https://github.com/mikeizbicki/lab-posix-mapreduce>.
 
 ## Homework
 
