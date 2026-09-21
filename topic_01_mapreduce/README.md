@@ -25,6 +25,24 @@
     1. everyone may take a copy
     1. if you submit the copy, your grade on the copy will replace your existing grade
 
+**Announcements 21 Sep:**
+
+1. Quiz Wednesday on `sed`
+    1. Notes packet: <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell.old/topic07_sed.pdf>
+    1. Expect 1-3 review problems
+
+1. Everything graded on canvas
+    1. | grade | number of students |
+       | ----- | ------------------ |
+       | grade < 80         | 3                  |
+       | 80 <= grade < 90   | 5                  |
+       | 90 <= grade < 100  | 8                  |
+       | 100 <= grade       | 4                  |
+
+    1. Current grade out of 22 points.
+
+        MapReduce homework out of 32 points.
+
 ## Lecture Notes
 
 1. Definitions:
