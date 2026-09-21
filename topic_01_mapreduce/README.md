@@ -34,7 +34,7 @@
 1. Everything graded on canvas
     1. | grade | number of students |
        | ----- | ------------------ |
-       | grade < 80         | 3                  |
+       | 70 <= grade < 80   | 3                  |
        | 80 <= grade < 90   | 5                  |
        | 90 <= grade < 100  | 8                  |
        | 100 <= grade       | 4                  |
