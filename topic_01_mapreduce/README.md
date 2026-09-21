@@ -43,6 +43,10 @@
 
         MapReduce homework out of 32 points.
 
+1. Today: live coding of parts of homework.
+
+    See [#807](https://github.com/mikeizbicki/cmc-csci143/issues/807) for useful tips.
+
 ## Lecture Notes
 
 1. Definitions:
