@@ -2,45 +2,6 @@
 
 <img src=img/containers_2x.png width=400px />
 
-**Announcements (Wed 11 Feb 2026):**
-
-- Currently 26 points total (30 with quiz)
-
-    - If you submitted something and I marked it wrong,
-        you have until Sunday midnight to resubmit for full credit.
-
-    - twitter-coronavirus worth 32 points
-
-    - expect ~256 points total in class
-
-- Quiz next week on git
-
-    - git notes at <https://github.com/mikeizbicki/quiz/blob/master/quiz_shell/topic06_git.pdf>
-
-    - for helpful review, see [the unix/git tutorial](https://github.com/mikeizbicki/cmc-csci046/blob/2023spring/topic_00_unix/git.md)
-
-        (this was a pre-hw task for the continuous-integration assignment)
-
-    - 8 points (instead of 4)
-
-    - still 4 problems (each worth 2 points)
-
-    - expect 0-2 of the problems to be review from previous packets
-
-- Next two weeks on docker
-
-    - by far, hardest part of the course
-
-    - lots of weird errors
-
-      (the purpose of all our quizzes is to help you avoid these errors in the first place!)
-
-- Remainder of course on SQL
-
-    (but we need docker to setup SQL)
-
-- (recommended) install rootless-docker before Friday
-
 ## Lecture Notes
 
 1. Overview
@@ -174,13 +135,12 @@
 
 ## Lab
 
+<!--
 **Optional Background Videos:**
 
-<!--
 1. [What is GNU+Linux](https://www.youtube.com/watch?v=kb2T8hWRu8g) by RMS
 
 1. [MapReduce - Computerphile](https://www.youtube.com/watch?v=cvhKoniK5Uo)
--->
 
 1. [Virtual Machines vs Docker Containers](https://www.youtube.com/watch?v=TvnZTi_gaNc)
 
@@ -196,7 +156,6 @@
     > Many students do not read and follow the instructions in the output of the install command, and therefore do not have working installs.
     > These instructions ask you to modify your bashrc file.
 
-    <!--
     1. Ensure that you:
         1. move the contents of the `bin` folder into `.local/bin`
         1. add the `DOCKER_HOST` environment variable to your `.bashrc` file
@@ -206,7 +165,6 @@
        $ systemctl --user start docker
        ```
        to restart the docker daemon.
-    -->
 
 **Instructions:**
 
@@ -215,6 +173,9 @@ Follow the instructions in the [lab-networking](https://github.com/mikeizbicki/l
 > **Note:**
 > This lab must be completed with a partner.
 > Recall that the [collaboration policy](https://github.com/mikeizbicki/cmc-csci143/issues/592) has restrictions on when/where you may work with partners outside of lab time.
+-->
+
+TBA
 
 ## Homework
 
