@@ -27,6 +27,10 @@
 
            <img src=img/works-on-my-machine.jpeg width=300px />
 
+    1. Lots of docker alternatives
+
+        <img src=img/side.png width=400px />
+
     1. Hard to learn
         1. Lots of different concepts that all work together
 
@@ -60,7 +64,7 @@
 
 1. Basic Commands
 
-    1. `docker pull`: download a docker image
+    1. `docker pull <image>`: download a docker image
 
         important images include:
 
@@ -69,9 +73,19 @@
         1. `alpine`: a basic install of the alpine distro (most popular distro for containers due to extremely small size)
         1. `python`: an alpine container with latest python pre-installed
 
-    1. `docker run`: creates and runs a new container
+    1. `docker image`
+        1. `docker image ls` - list images
+        1. `docker image rm` - remove image
+        1. `docker image prune` - remove all images
 
-       automatically calls `docker pull` if needed
+        images can take up a lot of disk space,
+        and so these tools can help you overcome quota problems
+
+    1. `docker run <image>`: creates and runs a new container
+
+        automatically calls `docker pull` if needed
+
+        possible arguments include:
 
         1. `-it`: use this flag whenever you are running an interactive command (such as `bash`); the `i` stands for interactive and the `t` stands for tty
 
@@ -83,7 +97,7 @@
     1. `docker ps`: lists currently running containers
         1. `-a`: list all containers (even those not running)
         1. `-q`: only print container ids
-    1. `docker stop`: stop a container started with the `-d` flag
+    1. `docker stop`: stop a container (usually used for containers started with the `-d` flag)
     1. `docker rm`: delete a stopped container that was not created with the `--rm` flag
         1. commonly called with the pattern
            ```
