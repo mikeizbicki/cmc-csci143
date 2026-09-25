@@ -189,7 +189,7 @@ Follow the instructions in the [lab-networking](https://github.com/mikeizbicki/l
 > Recall that the [collaboration policy](https://github.com/mikeizbicki/cmc-csci143/issues/592) has restrictions on when/where you may work with partners outside of lab time.
 -->
 
-TBA
+See <https://github.com/mikeizbicki/lab-networking>.
 
 ## Homework
 
