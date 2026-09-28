@@ -2,6 +2,11 @@
 
 **Announcements (Mon 28 Sep):**
 
+1. [Pokemon or bigdata?](https://pixelastic.github.io/pokemonorbigdata/)
+
+    1. shell has been with us >50 years and is only getting more popular
+    1. other technologies come and go
+
 1. no quiz this week :)
 
 1. **before Wednesday class:**
@@ -47,9 +52,9 @@
                 1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
                 1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
                 1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
-            1. Semantic Versioning (<https://semver.org>) partially fixes these problems
+            1. Semantic Versioning (<https://semver.org>)
 
-                <img src=img/semver.gif width=400px />
+                <img src=img/semver.gif width=300px />
 
                 requirements.txt example:
                 ```
@@ -87,24 +92,8 @@
 
    <a href=https://dilbert.com/strip/2017-01-02><img width=600px src=img/dt170102.gif /></a>
 
-    1. the "boring" / "old" technologies are the most useful
-        1. [choose boring technology](https://news.ycombinator.com/item?id=20323246)
+1. Some popular tech stacks
 
-        1. the shell has been with us for 50 years...
-
-            1. that's why the language has all the weird warts
-
-               but it's also only getting more popular
-
-            1. [Lindy effect](https://en.wikipedia.org/wiki/Lindy_effect): the future life expectancy of a technology is proportional to its age
-
-        1. other newer technologies come and go
-            1. [Pokemon or bigdata?](https://pixelastic.github.io/pokemonorbigdata/)
-
-1. The elements of a standard web service deployment
-    1. [12 factor webapp](https://12factor.net/)
-        1. one of the most influential guides for high scalability
-        1. written at a fairly high level, so sometimes a bit too vague for beginners
     1. [LAMP tech stack](https://en.wikipedia.org/wiki/LAMP_%28software_bundle%29)
         1. services
             1. Linux
@@ -120,6 +109,7 @@
         1. Facebook (used to) run this
             1. [2009 article and slashdot discussion](https://linux.slashdot.org/story/09/04/11/1142246/how-facebook-runs-its-lamp-stack)
             1. still use LAP, but much more complicated database system than MySQL
+
     1. WIMP tech stack
         1. services
             1. Windows
@@ -134,9 +124,10 @@
             1. [Code Red](https://en.wikipedia.org/wiki/Code_Red_(computer_worm))
             1. [Code Red II](https://en.wikipedia.org/wiki/Code_Red_II)
             1. [Nimda](https://en.wikipedia.org/wiki/Nimda)
-    1. Instagram's tech stack 
+
+    1. Instagram's tech stack
         1. We will closely follow instagram's tech stack
-        1. detailed writeup from 2011: https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad
+        1. detailed writeup from 2011: <https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad>
             1. 3 nginx ("cute" pronunciation "engine-x")
             1. 25 django
             1. 1 pg\_bouncer
@@ -149,9 +140,9 @@
                     1. manage TCP/IP state
                     1. encrypt/decrypt HTTPS requests
                 1. social
-                    1. world's #1 web server: https://news.netcraft.com/archives/category/web-server-survey/
+                    1. world's #1 web server: <https://news.netcraft.com/archives/category/web-server-survey/>
                     1. rare Russian company to beat American companies both technically and socially
-                    1. recently (2019) raided by Russian police https://news.ycombinator.com/item?id=21771144
+                    1. recently (2019) raided by Russian police <https://news.ycombinator.com/item?id=21771144>
             1. The web development framework defines the web page's "application logic"
                 1. django
                     1. this is what instagram uses
