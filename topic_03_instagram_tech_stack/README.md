@@ -1,12 +1,8 @@
 # Docker, docker-compose, the Instagram tech stack
 
-**Announcements (Mon 16 Feb):**
+**Announcements (Mon 28 Sep):**
 
-1. collaboration policy update: <https://github.com/mikeizbicki/cmc-csci143/issues/592#issuecomment-3910439538>
-
-1. `twitter_coronavirus`
-
-    I am modifying the due date to Tuesday 03 March (+1 week)
+1. no quiz this week :)
 
 1. **before Wednesday class:**
 
@@ -64,10 +60,6 @@
     1. this week's assignment is still a "copy+paste" assignment
     1. but it has a lot more sharp edges where things can go wrong
     1. expect to spend ~10x the amount of time on this assignment as last assignment
-
-**Announcements (Wed 18 Feb):**
-1. No quiz next week :)
-1. Lab this week: just work on hw (no separate assignment)
 
 ## Lecture
 
@@ -235,25 +227,6 @@
 
             <img src=img/5589031.jpg />
 
-           <!--
-           > **Note:**
-           > It's a python program.
-           > First, you need to make sure that your `PATH` is setup to allow `pip` to install programs.
-           > Run the following commands:
-           > ```
-           > $ which pip3
-           > $ pip3 install pip --upgrade
-           > $ which pip3
-           > /home/user/.local/bin/pip3
-           > ```
-           > Assuming you get output similar to the above, you can now install the program:
-           > ```
-           > $ pip3 install docker-compose
-           > $ which docker-compose
-           > /home/user/.local/bin/docker-compose
-           > ```
-           -->
-
         1. important commands
             1. `docker-compose build`: builds the container
             1. `docker-compose up`: start all the services
@@ -273,17 +246,6 @@
         1. references:
             1. docker's official docs: https://docs.docker.com/storage/volumes/
             1. good tutorial that also references docker-compose: https://devopsheaven.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html
-    1. differences between docker image and docker container
-        1. image:
-            1. defined by a docker file
-            1. blueprint for starting a container
-            1. changes to a container never affect the image
-        1. container:
-            1. defined by the `docker run IMAGE` command, where `IMAGE` is the base image
-            1. an actual running "virtual machine"
-            1. changes to the container are "locally persistent"
-                1. you can stop and restart the container and changes will stay
-                1. changes do not affect the base image, or any other containers created from the image
         1. remove stopped containers with the command
            ```
            $ docker-compose rm
@@ -322,7 +284,7 @@
 
 ## Lab
 
-Just work on hw :)
+TBA
 
 <!--
 We will use the Friday class this week to discuss the "sharp edges" in the homework assignment.
@@ -355,7 +317,7 @@ This is a slightly more complicated "hello world" than you did last week that in
     > which suggests to me that TestDriven had a stronger engineering culture,
     > and that likely contributed to their business success.
     >
-    > Nevertheless, you will find this tutorial much harder to work through than the previous,
+    > Nevertheless, you will find this tutorial harder to work through than the previous,
     > and you are still likely to encounter errors related to versions no longer working.
     > Expect to spend at least 10x the amount of time on this homework as on last week's homework.
 
