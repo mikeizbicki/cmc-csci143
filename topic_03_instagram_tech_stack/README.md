@@ -18,15 +18,15 @@
 
         <img src='img/Strip-Le-déploiement-english650-final.jpg' width=300px />
 
-        1. Why? the tutorial did not specify versions correctly, making the build non-reproducible.
+        Why? the tutorial did not specify versions correctly, making the build non-reproducible.
 
-            > **WARNING:**
-            >
-            > 1. You may not fix the program by using python3, you must stay with python2
-            >     1. AI rewrites all code from scratch for python3
-            >     1. I want to simulate the situation where a full rewrite is not possible
-            > 1. If you already submitted using python3, you received 6/8 and may resubmit for full credit
-            > 1. Future submissions using python3 will get 0/8
+        > **WARNING:**
+        >
+        > 1. You may not fix the program by using python3, you must stay with python2
+        >     1. AI rewrites all code from scratch for python3
+        >     1. I want to simulate the situation where a full rewrite is not possible
+        > 1. If you already submitted using python3, you received 6/8 and may resubmit for full credit
+        > 1. Future submissions using python3 will get 0/8
 
         Takeaway:
 
