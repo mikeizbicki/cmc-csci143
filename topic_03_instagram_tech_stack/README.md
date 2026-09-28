@@ -117,7 +117,7 @@
             1. MySQL
             1. PHP
         1. No one uses Windows anymore
-            1. [Even on Microsoft Azure, over 50% of all servers run Linux](https://www.zdnet.com/article/microsoft-developer-reveals-linux-is-now-more-used-on-azure-than-windows-server/)
+            1. (2019) [Even on Microsoft Azure, over 50% of all servers run Linux](https://www.zdnet.com/article/microsoft-developer-reveals-linux-is-now-more-used-on-azure-than-windows-server/)
             1. The "only" major website that uses Windows is https://stackoverflow.com
             1. Even [bing has dependencies on Linux](https://www.neowin.net/forum/topic/867244-bing-running-on-linux/) and [outlook.com has dependencies on a unix called FreeBSD](https://en.wikipedia.org/wiki/Outlook.com#MSN_Hotmail)
         1. Security vulnerabilities responsible for the entire internet shutting down multiple times in 2001
@@ -135,14 +135,13 @@
         1. <img width=100% src=img/webapp.png />
         1. services
             1. nginx
-                1. technically a "reverse proxy" https://www.nginx.com/resources/glossary/reverse-proxy-server/
+                1. technically a "reverse proxy" <https://www.nginx.com/resources/glossary/reverse-proxy-server/>
                     1. load balancer
                     1. manage TCP/IP state
                     1. encrypt/decrypt HTTPS requests
                 1. social
-                    1. world's #1 web server: <https://news.netcraft.com/archives/category/web-server-survey/>
+                    1. world's #1 web server: <https://w3techs.com/technologies/overview/web_server>
                     1. rare Russian company to beat American companies both technically and socially
-                    1. recently (2019) raided by Russian police <https://news.ycombinator.com/item?id=21771144>
             1. The web development framework defines the web page's "application logic"
                 1. django
                     1. this is what instagram uses
@@ -168,7 +167,6 @@
                         1. Django is both WSGI/ASGI compatible
                         1. Flask is only WSGI
                         1. FastAPI is the "spiritual successor" of flask and ASGI compatible
-                        1. We'll talk about how ASGI relates to multiprocessing in the non-seniors only portion of the class
             1. [gunicorn webserver](https://gunicorn.org/)
                 1. Converts a WSGI application into an actual web service that people can connect to
                 1. Handles multiple requests simultaneously and in parallel
@@ -185,18 +183,16 @@
                 1. Instagram also uses other databases for parts of their website (memcached, redis, solr)
                     1. We'll talk about the differences between postgresql and each of these throughout the course
                 1. sqlalchemy python library for interacting with the database from the webapp
-        1. more users => consume more resources => slower responses ; increase the numbers of each service above for faster responses
-        1. hosted on AWS => "easy" to add more services
-        1. does not use docker (it didn't exist)
-            1. docker => even easier to add more services
-            1. docker makes it easy to transfer from one hosting provider to another
-                1. ensures that you can use the cheapest provider
-                1. cloud providers can cancel your business contracts for any reason
-                    1. parler https://www.nbcnews.com/tech/tech-news/amazon-suspends-hosting-parler-its-servers-citing-violent-content-n1253648
-                    1. pirate bay https://www.vice.com/en/article/3an7pn/pirate-bay-founder-thinks-parlers-inability-to-stay-online-is-embarrassing
-                    1. sci-hub https://www.reddit.com/r/scihub/comments/fzpjjk/so_why_can_i_still_access_scihub/
-            1. without docker, it's difficult to ensure that all instances are running the same code
-            1. docker usage is seeing huge adoption right now: https://www.datadoghq.com/docker-adoption/
+    1. why use docker?
+        1. easy to scale: more users => consume more resources => slower responses ; increase the numbers of each service above for faster responses
+        1. easy to transfer service providers (e.g. AWS -> Google Cloud -> Azure -> etc)
+            1. ensures that you can use the cheapest provider
+            1. cloud providers can cancel your business contracts for any reason
+                1. parler <https://www.nbcnews.com/tech/tech-news/amazon-suspends-hosting-parler-its-servers-citing-violent-content-n1253648>
+                1. pirate bay <https://www.vice.com/en/article/3an7pn/pirate-bay-founder-thinks-parlers-inability-to-stay-online-is-embarrassing>
+                1. sci-hub <https://www.reddit.com/r/scihub/comments/fzpjjk/so_why_can_i_still_access_scihub/>
+        1. docker is "industry standard":
+            1. <https://www.datadoghq.com/docker-adoption/>
             1. major companies like netflix use docker: https://netflixtechblog.com/the-evolution-of-container-usage-at-netflix-3abfc096781b
             1. fundamental sys-admin principles you learn working with docker will transfer to whatever deployment solution your future employers use
 
