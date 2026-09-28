@@ -41,16 +41,14 @@
             1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
         1. Semantic Versioning (<https://semver.org>) partially fixes these problems
 
-            There is no general solution
-
-            Some job titles that deal with these problems:
-            1. devops: <https://www.levels.fyi/t/software-engineer/focus/devops?countryId=254&country=254>
-            1. site reliability engineer (SRE): <https://www.levels.fyi/t/software-engineer/title/site-reliability-engineer?country=254>
-            1. backend software engineer: <https://www.levels.fyi/t/software-engineer/title/backend-software-engineer?country=254>
+            <img src=img/semver.gif width=400px />
 
     1.  How HW relates to career:
 
-        SWE/DevOps constantly "shit on" data scientists for not understanding infra
+        Some job titles that deal with these problems:
+        1. devops: <https://www.levels.fyi/t/software-engineer/focus/devops?countryId=254&country=254>
+        1. site reliability engineer (SRE): <https://www.levels.fyi/t/software-engineer/title/site-reliability-engineer?country=254>
+        1. backend software engineer: <https://www.levels.fyi/t/software-engineer/title/backend-software-engineer?country=254>
 
         Data Scientists infamous for
 
@@ -61,7 +59,7 @@
         1. Help you overcome those two problems above
         1. Help you get a job
 
-1. **ASIDE:** terminal bench
+1. **IN THE NEWS:** terminal bench
     - <https://www.tbench.ai/>
     - <https://hub.harborframework.com/tasks/terminal-bench/data-anonymization>
     - <https://arxiv.org/abs/2601.11868>
