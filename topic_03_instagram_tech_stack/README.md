@@ -16,11 +16,17 @@
 
     1. problems with the tutorial:
 
-        <img src='img/Strip-Le-déploiement-english650-final.jpg' width=400px />
+        <img src='img/Strip-Le-déploiement-english650-final.jpg' width=300px />
 
-        We will cover why these problems happened in class today.
+        1. Why? the tutorial did not specify versions correctly, making the build non-reproducible.
 
-        1. If you've already submitted, and you realize today you made a mistake, you may resubmit without penalty by emailing me.
+            > **WARNING:**
+            >
+            > 1. You may not fix the program by using python3, you must stay with python2
+            >     1. AI rewrites all code from scratch for python3
+            >     1. I want to simulate the situation where a full rewrite is not possible
+            > 1. If you already submitted using python3, you received 6/8 and may resubmit for full credit
+            > 1. Future submissions using python3 will get 0/8
 
         Takeaway:
 
@@ -55,11 +61,10 @@
         1. Help you overcome those two problems above
         1. Help you get a job
 
-1. hw for this week is already posted below
-    1. you'll build an instagram clone
-    1. this week's assignment is still a "copy+paste" assignment
-    1. but it has a lot more sharp edges where things can go wrong
-    1. expect to spend ~10x the amount of time on this assignment as last assignment
+1. **ASIDE:** terminal bench
+    - <https://www.tbench.ai/>
+    - <https://hub.harborframework.com/tasks/terminal-bench/data-anonymization>
+    - <https://arxiv.org/abs/2601.11868>
 
 ## Lecture
 

@@ -205,9 +205,10 @@ The startup Runnable.com helps people deploy these webpages using docker.
 They have a tutorial on developing dockerized flask apps at: <https://runnable.com/docker/python/dockerize-your-flask-application>.
 For this homework, you will follow the tutorial and upload your completed app to github.
 
-> **WARNING:**
+> **NOTE:**
 > The tutorial uses python 2.7 instead of python3.
-> You are not allowed to upgrade to python3.
+> You are not allowed to upgrade to python3,
+> and must get the system working with python 2.7.
 
 > **Hint 1:**
 > The link above is now broken.
