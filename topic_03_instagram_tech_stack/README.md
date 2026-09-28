@@ -32,16 +32,33 @@
 
         1. getting versions right is HARD
 
-        1. the best solution we have is hard-coding the versions
+        1. there are 2 solutions:
 
-        1. but this leaves you open to security vulnerabilities:
+            1. hard coding version numbers
 
-            1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
-            1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
-            1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
-        1. Semantic Versioning (<https://semver.org>) partially fixes these problems
+                requirements.txt example:
+                ```
+                Flask==0.10.1
+                ...
+                ```
 
-            <img src=img/semver.gif width=400px />
+                **downside:** this leaves you open to security vulnerabilities:
+
+                1. [51% of docker images have critical security flaws](https://news.ycombinator.com/item?id=25454207)
+                1. [Dependency Confusion: How I hacked Apple, Microsoft, and Dozens of Other Companies](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
+                1. [Typosquatting programming language package managers](https://incolumitas.com/2016/06/08/typosquatting-package-managers/)
+            1. Semantic Versioning (<https://semver.org>) partially fixes these problems
+
+                <img src=img/semver.gif width=400px />
+
+                requirements.txt example:
+                ```
+                Flask>=0.10.1, <1.0.0
+                ```
+
+                **downside:** basically no one actually follows semver
+
+                <img src=img/breaking.png width=300px />
 
     1.  How HW relates to career:
 
