@@ -2,16 +2,13 @@
 
 <img src=img/sql-meme.png width=350px>
 
-**Announcements (Mon Feb 23)**
+**Announcements (Mon 5 Oct)**
 
-1. Due Tuesday March 3rd:
+1. Due Tuesday:
     1. twitter coronavirus
     1. flask-on-docker
-    1. (added this week) pagila-hw
 
 1. No quiz this week :)
-
-    Lab class, but no lab assignment this week :)
 
 1. Outline of the rest of the class:
     1. 3 weeks: how to make SQL correct
@@ -119,8 +116,8 @@ What you must know for the homework/quizzes
 
 1. `SELECT`
     1. sections 1,2,4 of <https://www.postgresqltutorial.com/>
-    1. aggregate functions `count`, `max`, `min`, `sum`, `avg`
-    1. never use the `BETWEEN` keyword: <https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_BETWEEN_.28especially_with_timestamps.29>
+    1. aggregate functions `count`, `max`, `min`, `sum`
+    1. (**hard**) window functions: <https://neon.com/postgresql/window-function>
 
 1. `JOIN`
     1. section 3 of <https://www.postgresqltutorial.com/>
@@ -147,13 +144,19 @@ References:
 
 ## Lab
 
+TBA
+<!--
 There will be no separate lab assignment this week.
 During lab time, I will complete several problems in class for everyone to follow along with,
 and ensure that everyone has a "sane" working environment for the homework.
 
 I recommend that you complete the setup instructions in the homework up to the step where you bring up the containers.
 I will assume in my examples in lab that you are already able to connect to the database with psql.
+-->
 
 ## Homework
 
+TBA
+<!--
 The homework is posted in the [pagila-hw](https://github.com/mikeizbicki/pagila-hw) github submodule.
+-->
