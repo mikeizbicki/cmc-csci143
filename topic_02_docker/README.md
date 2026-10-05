@@ -205,12 +205,7 @@ The startup Runnable.com helps people deploy these webpages using docker.
 They have a tutorial on developing dockerized flask apps at: <https://runnable.com/docker/python/dockerize-your-flask-application>.
 For this homework, you will follow the tutorial and upload your completed app to github.
 
-> **NOTE:**
-> The tutorial uses python 2.7 instead of python3.
-> You are not allowed to upgrade to python3,
-> and must get the system working with python 2.7.
-
-> **Hint 1:**
+> **NOTE 1:**
 > The link above is now broken.
 > The company Runnable.com has run out of business, and their website no longer works.
 > In order to view the instructions for the homework,
@@ -218,18 +213,18 @@ For this homework, you will follow the tutorial and upload your completed app to
 > [Most startups fail](https://explodingtopics.com/blog/startup-failure-stats),
 > and so it is common to use the wayback machine to reference documentation that has gone offline.
 
-> **Hint 2:**
+> **NOTE 2:**
 > These instructions were not designed for this class,
 > and you will therefore have to modify parts of the instructions in order to get them to work.
 > This is intentional in order to get you more practice adapting tutorials into different computational environments.
-> 
-> There are (at least) two main modifications you'll have to make:
-> 
+>
+> You will have to make the following two changes to get ports working correctly.
+>
 > 1. In the `docker run` command, you will have to change the port that docker exposes to a port other than 5000.
 >    (This is because you're all running this code at the same time, and you can't all use the same port.)
 >    I recommend using your user id as a port number, as this will guarantee that you don't run into conflicts with other students.
 >    Your userid is stored in the environment variable `$UID`.
-> 
+>
 > 1. In order to view your webpage from your laptop,
 >    you will have to connect to the lambda server with local port forwarding enabled.
 >    The command will look something like
@@ -238,16 +233,20 @@ For this homework, you will follow the tutorial and upload your completed app to
 >    ```
 >    where `DOCKER_PORT` is whatever port you specified.
 
-> **Hint 3:**
+> **NOTE:**
+> The tutorial
+> The purpose of this assignment is to get you practice gett
+> The tutorial uses python 2.7 instead of python3.
+> You are not allowed to upgrade to python3,
+> and must get the system working with python 2.7.
+
+> **NOTE 3:**
 > Finally, there's a handful of errors that you'll get when you build the project.
-> You'll find that fixing these errors only takes a very small change to the project files,
-> but figuring out exactly what this change is can be quite difficult.
-> You should very carefully read the contents of your error messages,
-> and perform good "sanity checks" between each step to ensure that you are progressing properly.
-> 
-> It is very common for realworld tutorials to not work exactly as written.
-> I've selected this tutorial specifically because it has these problems, and they are relatively minor.
-> It will give you good practice for when you encounter harder problems later.
+> The fundamental cause of these errors is that the creater of the project did not properly "pin" all of their version numbers,
+> and so new backwards-incompatible versions of various libraries have been released.
+> This is a very common real world problem,
+> and the main purpose of this homework is to get you some practice fixing this problem.
+> My recommended way to fix this problem is to adjust the `requirements.txt` file to include the correct version numbers.
 
 <!--
 The fundamental problem is that various libraries/packages have introduced breaking changes since the author of the tutorial wrote the tutorial.
