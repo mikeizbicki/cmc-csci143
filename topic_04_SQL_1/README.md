@@ -79,6 +79,10 @@ Relational DataBase Management Systems (RDBMSs):
             1. twitter started with Ruby on Rails, but left due to bad performance
         1. [What ORMs have taught me: Just learn SQL](https://news.ycombinator.com/item?id=24845300)
 
+    1. Fun links: porting doom to SQL
+        - 2025: <https://cedardb.com/blog/doomql/>
+        - 2026: <https://cedardb.com/blog/sqldoom/>
+
 1. There are two other categories of databases:
     1. NoSQL databases (MongoDB, CassandraDB, etc.)
         1. No standard language for accessing them
