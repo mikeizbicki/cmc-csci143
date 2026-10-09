@@ -148,7 +148,7 @@ References:
 
 ## Lab
 
-TBA
+See <https://github.com/mikeizbicki/lab-llm-context>
 
 ## Homework
 
