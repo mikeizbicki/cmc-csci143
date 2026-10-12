@@ -14,8 +14,9 @@
 
 1. About 25% of points completed
 
-    Recall that Wednesday quiz worth 8 points
+    - Recall that Wednesday quiz worth 8 points
 
+    - Expect another doubling last 1-3 quizzes when we talk about making SQL fast
 
 **Announcements (Mon 5 Oct)**
 
