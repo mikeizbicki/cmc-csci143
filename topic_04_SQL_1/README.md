@@ -2,6 +2,21 @@
 
 <img src=img/sql-meme.png width=350px>
 
+**Announcements (Mon 12 Oct)**
+
+1. Everything graded... good job everyone :)
+
+    | grade              | # students |
+    | ------------------ | ---------- |
+    | 80% <= grade < 90% | 2    |
+    | 90% <= grade < 95% | 5    |
+    | 95% <= grade       | 13   |
+
+1. About 25% of points completed
+
+    Recall that Wednesday quiz worth 8 points
+
+
 **Announcements (Mon 5 Oct)**
 
 1. Due Tuesday:
