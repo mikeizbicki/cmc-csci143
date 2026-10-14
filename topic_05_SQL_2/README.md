@@ -1,7 +1,12 @@
 # SQL II
 
-**Monday 2 Mar 2026:**
+**Wednesday 14 Oct 2026:**
 
+1. Fall Break next week =>
+    1. No quiz next week :)
+    1. pagila-2 homework due in 2 weeks (27 Oct)
+
+<!--
 1. Get a good workflow going for your assignments
 
     <img src=img/gates.jpg width=600px />
@@ -19,6 +24,7 @@
     See example quizzes at `quiz_example_1*.sql` for practice
 
 1. Handout: <https://github.com/mikeizbicki/sql_quiz/blob/master/quiz_notes_2.sql>
+-->
 
 <!--
 ## Announcements
@@ -73,6 +79,8 @@
 -->
 
 ## Lecture Notes
+
+Quiz2 material at: <https://github.com/mikeizbicki/sql_quiz/tree/quiz2/quiz2b>.
 
 What you need to know for your quiz/homework:
 
