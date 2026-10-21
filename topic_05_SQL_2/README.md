@@ -125,9 +125,6 @@ We will not cover the following topics in class (but you need to know for homewo
     1. good to know, but they're not "hard" concepts
     1. "less technical" technical interviews often ask about these topics
 
-1. window functions <https://www.postgresqltutorial.com/postgresql-window-function/>
-    1. later homework problems walk you through some basic usage
-
 <!--
 1. `CREATE TABLE`
     1. https://www.postgresqltutorial.com/postgresql-create-table/
