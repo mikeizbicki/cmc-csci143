@@ -23,7 +23,7 @@ Window functions
 1. Notes on lab:
     1. sorry about token expiring :(
     1. sandboxing
-        1. <img src=img/ai-wipes.jpg width=400px />
+        1. <img src=img/ai-wipe.jpg width=400px />
         1. <img src=img/yue.jpg width=400px />
         1. <https://www.felonybench.com/>
         1. (26 oct) <https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model>
