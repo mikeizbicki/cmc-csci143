@@ -13,29 +13,25 @@ Cube/rollup
 Window functions
 -->
 
-**Announcements: Tuesday, 09 Mar**
-
-1. Grades
-
-    | grade range       | num students |
-    | ----------------- | ------------ |
-    | 100 <= grade      | 3            |
-    | 90 <= grade < 100 | 19           |
-    | 80 <= grade < 90  | 2            |
-    | grade < 80        | 4            |
+**Announcements: Monday, 26 Oct**
 
 1. Reminder
     1. quiz this Wednesday on sql topic 2
 
-        (subqueries / outer joins)
+        (subqueries / outer joins / recursive CTEs)
 
-1. Upcoming assignments
-    1. pagila-hw3 due 24 Mar (Tuesday after spring break)
-    1. lab-consistency due Sunday 22 Mar
+1. Notes on lab:
+    1. sorry about token expiring :(
+    1. sandboxing
+        1. <https://www.felonybench.com/>
 
-1. No lab session this Friday
-
-    (I will be in my office during lab time if anyone wants to ask questions)
+        2.  | Agent       | Tools                                                                                                  | Read / write access                                                                                                                        | Internet                                                                 | Docs |
+            | ----------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ---- |
+            | Claude Code | Bash<br>Read / Write / Edit<br>Glob / Grep<br>WebFetch / WebSearch<br>Task / Todo                       | No OS sandbox by default<br>Bash sandbox (opt-in): read anywhere, write cwd + tmp<br>File tools: permission-gated                           | Yes: Bash, WebFetch, WebSearch<br>No: sandboxed Bash unless allowNetwork  | [sandboxing](https://docs.anthropic.com/en/docs/claude-code/sandboxing) |
+            | Codex       | shell<br>apply_patch<br>update_plan<br>view_image<br>web_search (opt-in)                                | read-only: read all, nothing writable<br>workspace-write: cwd + tmp writable<br>danger-full-access: unrestricted                            | No in read-only / workspace-write<br>Opt-in: network_access = true       | [sandbox docs](https://github.com/openai/codex/blob/main/docs/sandbox.md) |
+            | Gemini CLI  | run_shell_command<br>read_file / write_file / replace<br>glob / grep<br>web_fetch<br>google_web_search   | No sandbox by default (host)<br>--sandbox: Docker / Seatbelt, workspace mounted                                                            | Yes on host<br>Docker sandbox: usually inherits network                  | [config](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md) |
+            | OpenHands   | bash<br>file editor<br>browser<br>IPython                                                               | Docker container<br>/workspace bind-mounted from host                                                                                      | Yes (container network)                                                  | [docker runtime](https://docs.all-hands.dev/modules/usage/runtimes/docker) |
+            | Aider       | file edit<br>git<br>/run shell<br>URL scrape                                                            | Host process, no OS sandbox<br>Edits limited to tracked files                                                                              | Yes                                                                      | [usage](https://aider.chat/docs/usage.html) |
 
 ## Lecture Notes
 
@@ -85,12 +81,13 @@ Important quotes:
 
 ### Row Overhead
 
-1. you are responsible for being able to calculate the number of bytes used by a row of data in Postgres
+1. you are responsible for being able to calculate the number of bytes used by a row of data in postgres and sqlite3
 
-   references:
-    1. basic tutorial: <https://www.2ndquadrant.com/en/blog/on-rocks-and-sand/>
-    1. detailed tutorial: <https://rjuju.github.io/postgresql/2016/09/16/minimizing-tuple-overhead.html>
-    1. references contain sql queries that will solve all problems for you automatically
+**postgres:**
+
+1. tutorial references:
+    1. (postgres) basic tutorial: <https://www.2ndquadrant.com/en/blog/on-rocks-and-sand/>
+    1. (postgres) detailed tutorial: <https://rjuju.github.io/postgresql/2016/09/16/minimizing-tuple-overhead.html>
 
 1. postgres has more overhead per row than other dbs
 
@@ -217,6 +214,13 @@ Important quotes:
         1. the "null byte" `\x00` is not allowed in text (or basically any other variable-sized types)
 
            there's workarounds, but it's a pain: <https://www.commandprompt.com/blog/null-characters-workarounds-arent-good-enough/>
+
+**sqlite3**:
+
+TBA
+<!--
+    1. (sqlite3) <https://www.sqlite.org/fileformat2.html#record_format>
+-->
 
 ### Redundant data
 
@@ -540,13 +544,17 @@ Important quotes:
 
 ## Lab
 
+TBA
+<!--
 <https://github.com/mikeizbicki/lab-consistency>
+-->
 
 ## Homework
 
+TBA
+<!--
 <https://github.com/mikeizbicki/pagila-hw3/>
 
-<!--
 ## Lab
 
 For each table below,
