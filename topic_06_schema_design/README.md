@@ -26,13 +26,13 @@ Window functions
         1. <https://www.felonybench.com/>
         1. (26 oct) <https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model>
 
-| Agent | Tools | Read / write access | Internet |
+| Agent | Tools | Read / write access | Internet in sandbox? |
 | --- | --- | --- | --- |
-| Claude Code | <ul><li>Bash</li><li>Read / Write / Edit</li><li>Glob / Grep</li><li>WebFetch / WebSearch</li><li>Task / Todo</li></ul> | [no sandbox by default](https://docs.anthropic.com/en/docs/claude-code/sandboxing) | <ul><li>Yes: Bash, WebFetch, WebSearch</li><li>No: sandboxed Bash unless `allowNetwork`</li></ul> |
-| Gemini CLI | <ul><li>run_shell_command</li><li>read_file / write_file / replace</li><li>glob / grep</li><li>web_fetch</li><li>google_web_search</li></ul> | [no sandbox by default](https://geminicli.com/docs/cli/sandbox/) | <ul><li>Yes on host</li><li>Docker sandbox: usually inherits network</li></ul> | 
-| Codex | <ul><li>shell</li><li>apply_patch</li><li>update_plan</li><li>view_image</li><li>web_search (opt-in)</li></ul> | [docs](https://learn.chatgpt.com/docs/sandboxing) | <ul><li>No in `read-only` / `workspace-write`</li><li>Opt-in: `network_access = true`</li></ul> |
-| Aider | <ul><li>file edit</li><li>git</li><li>`/run` shell</li><li>URL scrape</li></ul> | no sandbox, cannot be enabled | <ul><li>Yes</li></ul> |
-| OpenHands | <ul><li>bash</li><li>file editor</li><li>browser</li><li>IPython</li></ul> | [sandbox via docker](https://docs.all-hands.dev/modules/usage/runtimes/docker)| <ul><li>Yes</li></ul> |
+| Claude Code | <ul><li>Bash</li><li>Read / Write / Edit</li><li>Glob / Grep</li><li>WebFetch / WebSearch</li><li>Task / Todo</li></ul> | [no sandbox by default](https://docs.anthropic.com/en/docs/claude-code/sandboxing) | yes (can disable) |
+| Gemini CLI | <ul><li>run_shell_command</li><li>read_file / write_file / replace</li><li>glob / grep</li><li>web_fetch</li><li>google_web_search</li></ul> | [no sandbox by default](https://geminicli.com/docs/cli/sandbox/) | yes |
+| Codex | <ul><li>shell</li><li>apply_patch</li><li>update_plan</li><li>view_image</li><li>web_search (opt-in)</li></ul> | [docs](https://learn.chatgpt.com/docs/sandboxing) | yes (can disable) |
+| Aider | <ul><li>file edit</li><li>git</li><li>`/run` shell</li><li>URL scrape</li></ul> | no sandbox, cannot be enabled | --- |
+| OpenHands | <ul><li>bash</li><li>file editor</li><li>browser</li><li>IPython</li></ul> | [sandbox via docker](https://docs.all-hands.dev/modules/usage/runtimes/docker)| yes |
 
 1. Material for next week's quiz at: <https://github.com/mikeizbicki/sql_quiz/tree/quiz3>
 
