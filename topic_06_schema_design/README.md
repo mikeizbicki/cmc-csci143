@@ -32,7 +32,7 @@ Window functions
 | --- | --- | --- | --- |
 | Claude Code | <ul><li>Bash / BashOutput / KillShell</li><li>Read / Write / Edit / NotebookEdit</li><li>Glob / Grep</li><li>WebFetch / WebSearch</li><li>Task (subagents) / TodoWrite</li><li>Skill / SlashCommand</li><li>ExitPlanMode / AskUserQuestion</li></ul> | [no sandbox by default](https://docs.anthropic.com/en/docs/claude-code/sandboxing) | yes (can disable) |
 | Gemini CLI | <ul><li>run_shell_command</li><li>read_file / write_file / replace</li><li>read_many_files / list_directory</li><li>glob / search_file_content</li><li>web_fetch / google_web_search</li><li>save_memory / write_todos</li></ul> | [no sandbox by default](https://geminicli.com/docs/cli/sandbox/) | yes |
-| Codex | <ul><li>shell / unified_exec</li><li>apply_patch</li><li>update_plan</li><li>view_image</li><li>web_search (opt-in)</li></ul> | [docs](https://learn.chatgpt.com/docs/sandboxing) | yes (can disable) |
+| Codex | <ul><li>shell / unified_exec</li><li>apply_patch</li><li>update_plan</li><li>view_image</li><li>web_search (opt-in)</li></ul> | [yes](https://learn.chatgpt.com/docs/sandboxing) | yes (can disable) |
 | Aider | <ul><li>file edit (whole / diff / udiff formats)</li><li>git commit / diff / undo</li><li>`/run`, `/test`, `/lint` shell</li><li>`/web` URL scrape</li><li>`/add`, `/read-only`, `/paste` context</li><li>`/voice` input</li></ul> | no sandbox, cannot be enabled | --- |
 | OpenHands | <ul><li>execute_bash</li><li>str_replace_editor file editor</li><li>execute_ipython_cell</li><li>browse_url + browser interaction</li><li>task tracker / think / finish</li></ul> | [sandbox via docker](https://docs.all-hands.dev/modules/usage/runtimes/docker) | yes |
 
