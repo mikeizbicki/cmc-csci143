@@ -26,7 +26,7 @@ Window functions
         1. <https://www.felonybench.com/>
         1. (26 oct) <https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model>
 
-| Agent | Tools | Runs in sandbox? | Internet in sandbox? |
+| Agent | Tools | Runs in sandbox? | Internet available? |
 | --- | --- | --- | --- |
 | Claude Code | <ul><li>Bash / BashOutput / KillShell</li><li>Read / Write / Edit / NotebookEdit</li><li>Glob / Grep</li><li>WebFetch / WebSearch</li><li>Task (subagents) / TodoWrite</li><li>Skill / SlashCommand</li><li>ExitPlanMode / AskUserQuestion</li></ul> | [no sandbox by default](https://docs.anthropic.com/en/docs/claude-code/sandboxing) | yes (can disable) |
 | Gemini CLI | <ul><li>run_shell_command</li><li>read_file / write_file / replace</li><li>read_many_files / list_directory</li><li>glob / search_file_content</li><li>web_fetch / google_web_search</li><li>save_memory / write_todos</li></ul> | [no sandbox by default](https://geminicli.com/docs/cli/sandbox/) | yes |
