@@ -26,13 +26,13 @@ Window functions
         1. <https://www.felonybench.com/>
         1. (26 oct) <https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model>
 
-| Agent | Tools | Read / write access | Internet | Docs |
+| Agent | Tools | Read / write access | Internet |
 | --- | --- | --- | --- | --- |
-| Claude Code | <ul><li>Bash</li><li>Read / Write / Edit</li><li>Glob / Grep</li><li>WebFetch / WebSearch</li><li>Task / Todo</li></ul> | <ul><li>No OS sandbox by default</li><li>Bash sandbox (opt-in): read anywhere, write cwd + tmp</li><li>File tools: permission-gated</li></ul> | <ul><li>Yes: Bash, WebFetch, WebSearch</li><li>No: sandboxed Bash unless `allowNetwork`</li></ul> | [sandboxing](https://docs.anthropic.com/en/docs/claude-code/sandboxing) |
-| Codex | <ul><li>shell</li><li>apply_patch</li><li>update_plan</li><li>view_image</li><li>web_search (opt-in)</li></ul> | <ul><li>`read-only`: read all, nothing writable</li><li>`workspace-write`: cwd + tmp writable</li><li>`danger-full-access`: unrestricted</li></ul> | <ul><li>No in `read-only` / `workspace-write`</li><li>Opt-in: `network_access = true`</li></ul> | [sandbox](https://learn.chatgpt.com/docs/sandboxing) |
-| Gemini CLI | <ul><li>run_shell_command</li><li>read_file / write_file / replace</li><li>glob / grep</li><li>web_fetch</li><li>google_web_search</li></ul> | <ul><li>No sandbox by default (host)</li><li>`--sandbox`: Docker / Seatbelt, workspace mounted</li></ul> | <ul><li>Yes on host</li><li>Docker sandbox: usually inherits network</li></ul> | [config](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md) |
-| Aider | <ul><li>file edit</li><li>git</li><li>`/run` shell</li><li>URL scrape</li></ul> | <ul><li>Host process, no OS sandbox</li><li>Edits limited to tracked files</li></ul> | <ul><li>Yes</li></ul> | [usage](https://aider.chat/docs/usage.html) |
-| OpenHands | <ul><li>bash</li><li>file editor</li><li>browser</li><li>IPython</li></ul> | <ul><li>Docker container</li><li>`/workspace` bind-mounted from host</li></ul> | <ul><li>Yes (container network)</li></ul> | [runtime](https://docs.all-hands.dev/modules/usage/runtimes/docker) |
+| Claude Code | <ul><li>Bash</li><li>Read / Write / Edit</li><li>Glob / Grep</li><li>WebFetch / WebSearch</li><li>Task / Todo</li></ul> | [no sandbox by default](https://docs.anthropic.com/en/docs/claude-code/sandboxing) | <ul><li>Yes: Bash, WebFetch, WebSearch</li><li>No: sandboxed Bash unless `allowNetwork`</li></ul> |
+| Gemini CLI | <ul><li>run_shell_command</li><li>read_file / write_file / replace</li><li>glob / grep</li><li>web_fetch</li><li>google_web_search</li></ul> | [no sandbox by default](https://geminicli.com/docs/cli/sandbox/) | <ul><li>Yes on host</li><li>Docker sandbox: usually inherits network</li></ul> | 
+| Codex | <ul><li>shell</li><li>apply_patch</li><li>update_plan</li><li>view_image</li><li>web_search (opt-in)</li></ul> | [docs](https://learn.chatgpt.com/docs/sandboxing) | <ul><li>No in `read-only` / `workspace-write`</li><li>Opt-in: `network_access = true`</li></ul> |
+| Aider | <ul><li>file edit</li><li>git</li><li>`/run` shell</li><li>URL scrape</li></ul> | no sandbox, cannot be enabled | <ul><li>Yes</li></ul> |
+| OpenHands | <ul><li>bash</li><li>file editor</li><li>browser</li><li>IPython</li></ul> | [sandbox via docker](https://docs.all-hands.dev/modules/usage/runtimes/docker)| <ul><li>Yes</li></ul> |
 
 1. Material for next week's quiz at: <https://github.com/mikeizbicki/sql_quiz/tree/quiz3>
 
