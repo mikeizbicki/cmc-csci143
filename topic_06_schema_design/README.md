@@ -24,6 +24,7 @@ Window functions
     1. sorry about token expiring :(
     1. sandboxing
         1. <https://www.felonybench.com/>
+        1. (26 oct) <https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model>
 
 | Agent | Tools | Read / write access | Internet | Docs |
 | --- | --- | --- | --- | --- |
@@ -32,6 +33,8 @@ Window functions
 | Gemini CLI | <ul><li>run_shell_command</li><li>read_file / write_file / replace</li><li>glob / grep</li><li>web_fetch</li><li>google_web_search</li></ul> | <ul><li>No sandbox by default (host)</li><li>`--sandbox`: Docker / Seatbelt, workspace mounted</li></ul> | <ul><li>Yes on host</li><li>Docker sandbox: usually inherits network</li></ul> | [config](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md) |
 | Aider | <ul><li>file edit</li><li>git</li><li>`/run` shell</li><li>URL scrape</li></ul> | <ul><li>Host process, no OS sandbox</li><li>Edits limited to tracked files</li></ul> | <ul><li>Yes</li></ul> | [usage](https://aider.chat/docs/usage.html) |
 | OpenHands | <ul><li>bash</li><li>file editor</li><li>browser</li><li>IPython</li></ul> | <ul><li>Docker container</li><li>`/workspace` bind-mounted from host</li></ul> | <ul><li>Yes (container network)</li></ul> | [runtime](https://docs.all-hands.dev/modules/usage/runtimes/docker) |
+
+1. Material for next week's quiz at: <https://github.com/mikeizbicki/sql_quiz>
 
 ## Lecture Notes
 

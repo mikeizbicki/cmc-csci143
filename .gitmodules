@@ -90,3 +90,6 @@
 [submodule "topic_01_mapreduce/lab2-productivity"]
 	path = topic_00_unix/notes/lab2-productivity
 	url = https://github.com/mikeizbicki/lab-productivity
+[submodule "topic_06_schema_design/sql_quiz"]
+	path = topic_06_schema_design/sql_quiz
+	url = http://github.com/mikeizbicki/sql_quiz
