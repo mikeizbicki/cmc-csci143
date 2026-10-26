@@ -34,7 +34,7 @@ Window functions
 | Aider | <ul><li>file edit</li><li>git</li><li>`/run` shell</li><li>URL scrape</li></ul> | <ul><li>Host process, no OS sandbox</li><li>Edits limited to tracked files</li></ul> | <ul><li>Yes</li></ul> | [usage](https://aider.chat/docs/usage.html) |
 | OpenHands | <ul><li>bash</li><li>file editor</li><li>browser</li><li>IPython</li></ul> | <ul><li>Docker container</li><li>`/workspace` bind-mounted from host</li></ul> | <ul><li>Yes (container network)</li></ul> | [runtime](https://docs.all-hands.dev/modules/usage/runtimes/docker) |
 
-1. Material for next week's quiz at: <https://github.com/mikeizbicki/sql_quiz>
+1. Material for next week's quiz at: <https://github.com/mikeizbicki/sql_quiz/tree/quiz3>
 
 ## Lecture Notes
 
