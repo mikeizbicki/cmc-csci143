@@ -39,7 +39,7 @@ Window functions
 1. Material for next week's quiz at: <https://github.com/mikeizbicki/sql_quiz/tree/quiz3>
 
 **Announcements Wed 28 Oct:**
-1. Math Teach today, 3:15-4:30pm at the red benches outside Adams
+1. Math Tea today, 3:15-4:30pm at the red benches outside Adams
 1. Ath dinner with Zachary Horvitz, who will be talking about “The Age of a Billion Answers: Promise and Peril in AI’s Rare Outputs” on Thursday October 29 at 6:30pm.  <https://www.cmc.edu/athenaeum/events/20261029>
 1. About AI:
     - AI spend per employee: <https://ramp.com/data/ai-index#spend-per-employee#overall>
