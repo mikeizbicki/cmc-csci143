@@ -38,6 +38,9 @@ Window functions
 
 1. Material for next week's quiz at: <https://github.com/mikeizbicki/sql_quiz/tree/quiz3>
 
+**Announcements Wed 28 Oct:**
+- AI spend per employee: <https://ramp.com/data/ai-index#spend-per-employee#overall>
+
 ## Lecture Notes
 
 Goals:
@@ -222,10 +225,28 @@ Important quotes:
 
 **sqlite3**:
 
-TBA
-<!--
-    1. (sqlite3) <https://www.sqlite.org/fileformat2.html#record_format>
--->
+To compute the disk space used by each row, first:
+
+1. compute the *affinity* of each column: <https://www.sqlite.org/datatype3.html#type_affinity>
+
+2. compute the size using the [record format](https://www.sqlite.org/fileformat2.html#record_format) docs
+
+    Record = header + body.
+    - Header:
+        - varint header size (if varint < 127, varint = 1 byte)
+        - one serial-type varint per column that denotes length
+            - value depends on column affinity and value
+    - Body:
+        - concatenated values
+        - NULL and 0/1 consume 0 body bytes but still 1 header byte
+
+    > **NOTE:**
+    > There is never padding in sqlite3.
+    > So there is no "column tetris".
+
+Other notes:
+1. Large records spill to overflow pages; no compression.
+1. `INTEGER PRIMARY KEY` aliases rowid, so no duplicate storage.
 
 ### Redundant data
 
@@ -487,7 +508,7 @@ TBA
 
             <!--1. anti-pattern: category-film are given a many-many table structure, but they actually have a 1-1 relationship-->
         1. disadvantages of the denormalized representation:
-            1. arrays not a sql standard feature
+            1. arrays part of SQL standard but not commonly implemented
                 1. arrays not supported in MySQL/MSSQL, are supported in Oracle
                 1. many people believe you should never use arrays for this reason
             1. can only have a single column as the many
@@ -495,7 +516,7 @@ TBA
                 1. no easy way to denormalize film-actor
             1. confusing to work with
                 1. performance *footguns* that can lead to $O(n)$ runtime instead of $O(1)$
-                1. see: https://heap.io/blog/engineering/dont-iterate-over-a-postgres-array-with-a-loop
+                1. see: <https://heap.io/blog/engineering/dont-iterate-over-a-postgres-array-with-a-loop>
         1. advantages of the denormalized representation:
             1. disk usage of the denormalized representation is significantly less:
                ```
