@@ -574,14 +574,15 @@ Other notes:
 
 ## Lab
 
-TBA
-<!--
 <https://github.com/mikeizbicki/lab-consistency>
--->
 
 ## Homework
 
-See <https://github.com/mikeizbicki/pagila-hw3/>
+You must first complete this lab: <https://github.com/mikeizbicki/lab-ralph>.
+
+The lab ends with an optional walk through to complete the pagaila-hw3 assignment: <https://github.com/mikeizbicki/pagila-hw3/>
+
+You are welcome to complete the assignment either manually or fully AI or anywhere in between.
 
 <!--
 ## Lab
