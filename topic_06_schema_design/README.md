@@ -45,6 +45,17 @@ Window functions
     - AI spend per employee: <https://ramp.com/data/ai-index#spend-per-employee#overall>
     - AI jobs impact: <https://ramp.com/data/ai-jobs-impact>
 
+**Announcements Mon 2 Nov:**
+1. Fun links:
+    1. security/bugs:
+        1. <https://en.wikipedia.org/wiki/Black_October_(information_security)>
+        1. <https://news.ycombinator.com/item?id=50312408>
+        1. <https://www.anthropic.com/research/discovering-vulnerabilities-with-claude>
+        1. <https://chalmovsky.com/posts/wtf-ubuntu>
+    1. tracking AI use:
+        1. <https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11>
+        1. <https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/>
+
 ## Lecture Notes
 
 Goals:
