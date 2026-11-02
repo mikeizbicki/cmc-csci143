@@ -55,6 +55,7 @@ Window functions
     1. tracking AI use:
         1. <https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11>
         1. <https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/>
+        1. <https://x.com/jsnnsa/status/2115623382721126826>
 
 ## Lecture Notes
 
