@@ -242,7 +242,9 @@ Important quotes:
 
 To compute the disk space used by each row, first:
 
-1. compute the *affinity* of each column: <https://www.sqlite.org/datatype3.html#type_affinity>
+1. compute the *affinity* of each column in the CREATE TABLE command: <https://www.sqlite.org/datatype3.html#type_affinity>
+
+1. compute the *storage class* of each column in the INSERT command: <https://www.sqlite.org/datatype3.html#storage_classes_and_datatypes>
 
 2. compute the size using the [record format](https://www.sqlite.org/fileformat2.html#record_format) docs
 
