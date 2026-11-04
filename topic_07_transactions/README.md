@@ -4,6 +4,7 @@
 
 Grades updated in canvas.
 
+<!--
 For this week:
 1. Quiz Wednesday (row overhead)
     1. 4 points
@@ -40,6 +41,7 @@ Outline of end of semester:
     - You will have an additional project
         - live demo during finals week
         - may be demoed over zoom
+-->
 
 ## Lecture Notes
 
@@ -109,6 +111,7 @@ Outline of end of semester:
 
 **Quiz Details:**
 
+<!--
 1. Because this topic is so hard (and important),
     there will be no homework this week.
     You should spend all of your time preparing for the quiz, which will be worth 16 points.
@@ -116,6 +119,7 @@ Outline of end of semester:
 1. The quiz will be next week Wednesday (1 Apr).
 
 1. See the files `quiz_notes.pdf` and `quiz_example.pdf`.
+-->
 
 1. We won't cover everything in class, so you'll need to reference the postgres documentation.
 
