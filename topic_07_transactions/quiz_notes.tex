@@ -76,6 +76,11 @@ For each problem, you must perform all of the following tasks correctly in order
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Basic Transactions}
 
+\begin{note}
+SQL transactions are started by the BEGIN command and terminate with either COMMIT (indicating success) or ABORT / ROLLBACK (indicating failure).
+Transactions are atomic (either everything works or everything fails) and they are isolated (effects of transactions are not visible until COMMIT).
+\end{note}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
 \begin{tcolorbox}
@@ -210,7 +215,13 @@ SELECT count(*) FROM t;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \filbreak
-\section{Isolation Levels}
+\subsection{Isolation Levels}
+
+\begin{note}
+A transaction will never effect concurrent processes until COMMIT.
+But isolation levels determine the "state" of the database within a transaction.
+\end{note}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -419,6 +430,12 @@ SELECT count(*) FROM t;
 %\newpage
 \section{Explicit Locks}
 
+\begin{note}
+Locks are used to manage concurrency and ensure that multiple processes do not perform incompatible actions at the same time.
+Processes can \emph{block} when they try to acquire a lock on a table that is already locked.
+A blocked process waits for the previous process to unblock before proceeding.
+\end{note}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
 \begin{tcolorbox}
@@ -580,6 +597,13 @@ COMMIT;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Deadlocks}
+
+\begin{note}
+    If two processes are each waiting on each other, this is a \emph{deadlock}.
+    When postgres detects a deadlock,
+    it will automatically terminate one of the processes.
+    The choice of which process is non-deterministic.
+\end{note}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -796,6 +820,12 @@ COMMIT;
 \filbreak
 \section{Implicit Locks I}
 
+\begin{note}
+    All SQL commands acquire an \emph{implicit} lock.
+    In order to determine whether the command will block,
+    we must understand whether the corresponding explicit lock would block.
+\end{note}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
 \begin{tcolorbox}
@@ -929,7 +959,12 @@ INSERT INTO t VALUES (1);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newpage
-\section{Implicit Locks II: More interesting commands}
+\subsection{More interesting commands}
+
+\begin{note}
+    This section contains many new commands that we have not yet seen in class.
+    You are still responsible for being able to determine whether the command will block or not.
+\end{note}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -958,38 +993,38 @@ CREATE INDEX ON t(a);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nextproblem
-\begin{note}
-If you work through the procedure to check if the problem below blocks, you will see that the problem does not block.
-But if you run the problem, it will look like it blocks.
-Technically, the problem does not block anywhere,
-the command just runs for a long time.
-
-This is admittedly very confusing and not something I intended for you all to be exposed to yet.
-You can feel free to ignore this problem.
-\end{note}
-\begin{tcolorbox}
-\begin{tabular}{p{3.25in}p{3in}}
-\hspace{-0.2in}Session 1
-\begin{lstlisting}
-CREATE TABLE t ( a INT );
-BEGIN;
-LOCK TABLE t IN ROW EXCLUSIVE MODE;
-  
-COMMIT;
-\end{lstlisting}
-    &
-\hspace{-0.2in}Session 2
-\begin{lstlisting}
-
-
-
-CREATE INDEX CONCURRENTLY ON t(a);
-\end{lstlisting}
-\end{tabular}
-\vspace{-0.2in}
-\end{tcolorbox}
-\vspace{0.25in}
+%\nextproblem
+%\begin{note}
+%If you work through the procedure to check if the problem below blocks, you will see that the problem does not block.
+%But if you run the problem, it will look like it blocks.
+%Technically, the problem does not block anywhere,
+%the command just runs for a long time.
+%
+%This is admittedly very confusing and not something I intended for you all to be exposed to yet.
+%You can feel free to ignore this problem.
+%\end{note}
+%\begin{tcolorbox}
+%\begin{tabular}{p{3.25in}p{3in}}
+%\hspace{-0.2in}Session 1
+%\begin{lstlisting}
+%CREATE TABLE t ( a INT );
+%BEGIN;
+%LOCK TABLE t IN ROW EXCLUSIVE MODE;
+ % 
+%COMMIT;
+%\end{lstlisting}
+    %&
+%\hspace{-0.2in}Session 2
+%\begin{lstlisting}
+%
+%
+%
+%CREATE INDEX CONCURRENTLY ON t(a);
+%\end{lstlisting}
+%\end{tabular}
+%\vspace{-0.2in}
+%\end{tcolorbox}
+%\vspace{0.25in}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1139,7 +1174,13 @@ COMMIT;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\newpage
-\section{Implicit Locks III: Row Level Locks}
+\section{Row Level Locks}
+
+\begin{note}
+    Most commands that affect individual rows acquire locks only on those rows.
+    This will allow many processes to run INSERT commands, for example, without blocking each other.
+    Understanding how these row level locks interoperate is important for efficient code to parallel insert into a database.
+\end{note}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -1601,8 +1642,12 @@ SELECT count(*) FROM t;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \filbreak
-\section{Implicit Locks IV: Unique constraints}
+\section{Unique constraints}
 
+\begin{note}
+A non-NULL insert/update into a UNIQUE column takes an exclusive row-level lock on the index entry.
+NULLs never conflict.
+\end{note}
 %\textbf{NOTE:}
 %Insertion non-\lstinline{NULL} values into a \lstinline{UNIQUE} column acquires an \lstinline{EXCLUSIVE} lock on the transaction id.
 %\vspace{0.15in}
@@ -1819,7 +1864,7 @@ COMMIT;
 CREATE TABLE t(a INT UNIQUE);
 CREATE TABLE u(
     b INT REFERENCES t(a)
-    DEFFERABLE INITIALLY DEFERRED
+    DEFERRABLE INITIALLY DEFERRED
     );
 BEGIN;
 
@@ -1857,7 +1902,7 @@ COMMIT;
 CREATE TABLE t(a INT UNIQUE);
 CREATE TABLE u(
     b INT REFERENCES t(a)
-    DEFFERABLE INITIALLY DEFERRED
+    DEFERRABLE INITIALLY DEFERRED
     );
 BEGIN;
 
@@ -1895,7 +1940,7 @@ COMMIT;
 \begin{lstlisting}
 CREATE TABLE t(
     a INT UNIQUE
-    DEFFERABLE INITIALLY DEFERRED
+    DEFERRABLE INITIALLY DEFERRED
     );
 CREATE TABLE u(b INT REFERENCES t(a));
 BEGIN;
@@ -1933,7 +1978,7 @@ COMMIT;
 \begin{lstlisting}
 CREATE TABLE t(
     a INT UNIQUE
-    DEFFERABLE INITIALLY DEFERRED
+    DEFERRABLE INITIALLY DEFERRED
     );
 CREATE TABLE u(b INT REFERENCES t(a));
 BEGIN;
@@ -2007,7 +2052,12 @@ SELECT count(*) FROM t;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \filbreak
-\section{Isolation Levels II: Row Level}
+\section{Interaction between Isolation Levels and Row Level locks}
+\begin{note}
+    Postgres always evaluates WHERE clauses twice: once before acquiring a lock and once after the lock is acquired (the other session releases the lock and this session acquires it).
+    This can cause us to miss entries.
+    Under REPEATABLE READ, if the row changed since the snapshot, it raises a serialization failure.
+\end{note}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
@@ -2686,12 +2736,15 @@ COMMIT;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Deferring Constraints}
 
-\noindent
-\textbf{Note:}
-For each problem, you should consider what would happen both with and without the 
+\begin{note}
+    By default, postgres will check constraints at the time that data is inserted.
+    Adding the DEFERRABLE INITIALLY DEFERRED line to the constraint causes the constraint to be checked at time of COMMIT.
+    Sometimes this is necessary for correctness, and sometimes it is necessary for speed.
+\end{note}
 
-\noindent
-\lstinline{DEFERRABLE INITIALLY DEFERRED} line.
+\begin{note}
+For each problem, you should consider what would happen both with and without the DEFERRABLE INITIALLY DEFERRED line.
+\end{note}
 
 \vspace{0.2in}
 
@@ -2883,6 +2936,12 @@ COMMIT;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Everything at Once}
 
+\begin{note}
+    The problems below test the interaction of all the previous knowledge.
+    These problems are harder because there are no "hints" about what types of effects you should be looking for.
+    Realworld problems are significantly more complicated than these problems.
+\end{note}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
 \begin{tcolorbox}
@@ -2901,7 +2960,7 @@ INSERT INTO u VALUES (2);
 
 
 LOCK TABLE t IN EXCLUSIVE MODE;
-SELECT count(*) FORM t;
+SELECT count(*) FROM t;
 
 
 INSERT INTO t VALUES (NULL);

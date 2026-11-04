@@ -81,7 +81,7 @@ Outline of end of semester:
                 - expert can steer the LLM away from pitfalls
             1. Very bad at concurrency in the hands of non-experts.
                 - vibe coders don't know what they don't know
-                - LLMs often require >1 million lines of context to avoiding concurrency traps
+                - LLMs often require >1 million lines of context to avoid concurrency traps
 
 1. There are many tools to manage concurrency
 
@@ -184,7 +184,7 @@ Outline of end of semester:
 
     1. Atomicity: In a transaction involving two or more discrete pieces of information, either all of the pieces are committed or none are.
 
-    1. Consistency: A transaction either creates a new and valid state of data, or, if any failure occurs, returns all data to its state before the transaction was started.
+    1. Consistency: A transaction never violates data constraints.
 
     1. Isolation: A transaction in process and not yet committed must remain isolated from any other transaction.
 
@@ -226,11 +226,11 @@ Outline of end of semester:
 
 1. Wrap all of your SQL scripts in a transaction.
 
-    1. Postgres is the only database that allows DDL commands in transactions, not just DQL
+    1. Postgres is one of the few databases that allows DDL commands in transactions
 
         DDL: Data Definition Language (e.g. `CREATE TABLE`, `DROP TABLE`, `ALTER TABLE`)
 
-        DQL: Data Query Language (e.g. `SELECT`, `INSERT`, `DELETE`, `UPDATE`)
+        DML: Data Query Language (e.g. `SELECT`, `INSERT`, `DELETE`, `UPDATE`)
 
 1. Wrap all of your `DELETE` calls within a transaction, especially in psql.
 
