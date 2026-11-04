@@ -1,10 +1,10 @@
 # Transactions and Locks
 
+<!--
 **Announcements (Mon 23 Mar)**
 
 Grades updated in canvas.
 
-<!--
 For this week:
 1. Quiz Wednesday (row overhead)
     1. 4 points
@@ -41,11 +41,11 @@ Outline of end of semester:
     - You will have an additional project
         - live demo during finals week
         - may be demoed over zoom
--->
 
 ## Lecture Notes
+-->
 
-<img src=img/concurrency-why-did-it-have-to-be-concurrency.jpg width=400px>
+<img src=img/concurrency-why-did-it-have-to-be-concurrency.jpg width=300px>
 
 1. Concurrency is when multiple programs use the database at the same time.
 
