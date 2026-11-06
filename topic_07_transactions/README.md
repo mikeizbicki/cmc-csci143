@@ -254,7 +254,7 @@ Outline of end of semester:
 
 ## Lab
 
-None :)
+See <https://github.com/mikeizbicki/lab-transactions/>
 
 ## Homework
 
