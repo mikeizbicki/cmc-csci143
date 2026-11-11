@@ -2,14 +2,6 @@
 
 <img src=img/python-sql.png width=400px />
 
-**Announcements (30 Mar 2026)**
-
-Quiz this Wednesday
-
-- only on Sections 1-9 (up to, and including, Isolation Levels II: Row Level)
-- 4 problems, 2 points each
-- rest of problems on quiz next week
-
 ## Lecture Notes
 
 1. Working with denormalized JSON data in postgres
@@ -236,3 +228,11 @@ Quiz this Wednesday
    Stories:
    1. Junior dev given API keys and deletes the database: <https://www.reddit.com/r/cscareerquestions/comments/6ez8ag/accidentally_destroyed_production_database_on/>
 -->
+
+## Lab
+
+TBA
+
+## Homework
+
+See <https://github.com/mikeizbicki/twitter_postgres>
