@@ -2045,6 +2045,13 @@ SELECT count(*) FROM t;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Foreign Keys}
+\begin{note}
+An FK \lstinline{u(b) REFERENCES t(a)} couples the two tables via implicit row-level locks:
+\begin{itemize}
+    \item \lstinline{INSERT}/\lstinline{UPDATE} of a child row takes \lstinline{KEY SHARE} on the referenced parent row.
+    \item \lstinline{DELETE}/\lstinline{UPDATE} of a parent key takes \lstinline{KEY SHARE} on every referencing child row.
+\end{itemize}
+\end{note}
 
 
 
