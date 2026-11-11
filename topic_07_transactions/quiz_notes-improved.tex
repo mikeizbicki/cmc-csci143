@@ -1,0 +1,2871 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor    = blue  %Colour of citations
+}
+
+\usepackage{courier}
+\usepackage{listings}
+\lstset{numbers=left}
+\lstset{basicstyle=\ttfamily}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{note}{Note}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\trans}[1]{{#1}^{T}}
+\newcommand{\loss}{\ell}
+\newcommand{\w}{\mathbf w}
+\newcommand{\mle}[1]{\hat{#1}_{\textit{mle}}}
+\newcommand{\map}[1]{\hat{#1}_{\textit{map}}}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\x}{\mathbf x}
+\newcommand{\y}{\mathbf y}
+\newcommand{\ltwo}[1]{\lVert {#1} \rVert}
+
+\newcounter{ProblemCounter}
+\newcommand{\nextproblem}{\filbreak\stepcounter{ProblemCounter} \noindent\textbf{Problem \theProblemCounter}:}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+{
+\Large
+    Quiz Practice Problems (Transactions and Locks)
+}
+
+    \vspace{0.1in}
+\end{center}
+
+\noindent
+\textbf{Instructions:}
+For each problem, you must perform all of the following tasks correctly in order to get credit.
+\begin{enumerate}
+\item Circle all SQL commands that block.
+\item Write an X through all commands that error.
+\item If a command causes a deadlock, write \lstinline{DEADLOCK} and stop the problem.
+\item Write the output of each \lstinline{SELECT} statement.
+\end{enumerate}
+%\begin{note}
+    You will be allowed to use a computer and access the internet, but you will not be allowed to connect to postgres and run postgres commands.
+%\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Basic Transactions}
+
+\begin{note}
+SQL transactions are started by the BEGIN command and terminate with either COMMIT (indicating success) or ABORT / ROLLBACK (indicating failure).
+Transactions are atomic (either everything works or everything fails) and they are isolated (effects of transactions are not visible until COMMIT).
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+INSERT INTO t VALUES (5);
+INSERT INTO t VALUES (6);
+
+INSERT INTO t VALUES (2);
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+SELECT count(*) FROM t;
+
+
+SELECT count(*) FROM t;
+
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+BEGIN;
+INSERT INTO t VALUES (5);
+INSERT INTO t VALUES (6);
+
+INSERT INTO t VALUES (2);
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+SELECT count(*) FROM t;
+
+
+
+SELECT count(*) FROM t;
+
+
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+BEGIN;
+INSERT INTO t VALUES (5);
+INSERT INTO t VALUES (6);
+
+INSERT INTO t VALUES (2);
+ROLLBACK;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+SELECT count(*) FROM t;
+
+
+
+SELECT count(*) FROM t;
+
+
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+BEGIN;
+INSERT INTO t VALUES (5);
+INSERT INTO t VALUES (6);
+
+INSERT INTO t VALUES (2);
+ABORT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+SELECT count(*) FROM t;
+
+
+
+SELECT count(*) FROM t;
+
+
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\filbreak
+\subsection{Isolation Levels}
+
+\begin{note}
+A transaction will never effect concurrent processes until COMMIT.
+But isolation levels determine the "state" of the database within a transaction.
+\end{note}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+
+BEGIN;
+INSERT INTO t VALUES (5);
+INSERT INTO t VALUES (6);
+
+INSERT INTO t VALUES (2);
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+BEGIN;
+SELECT count(*) FROM t;
+
+
+
+SELECT count(*) FROM t;
+
+
+SELECT count(*) FROM t;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+
+
+BEGIN;
+INSERT INTO t VALUES (5);
+INSERT INTO t VALUES (6);
+
+INSERT INTO t VALUES (2);
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+SELECT count(*) FROM t;
+
+
+
+SELECT count(*) FROM t;
+
+
+SELECT count(*) FROM t;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+
+BEGIN;
+INSERT INTO t VALUES (5);
+INSERT INTO t VALUES (6);
+
+INSERT INTO t VALUES (2);
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+BEGIN ISOLATION LEVEL
+READ COMMITTED;
+
+
+
+SELECT count(*) FROM t;
+
+
+SELECT count(*) FROM t;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{note}
+    From here on out, you should understand all of the examples as if any transaction was in any isolation level.
+\end{note}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+
+BEGIN;
+INSERT INTO t VALUES (5);
+INSERT INTO t VALUES (6);
+INSERT INTO t VALUES (2);
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+
+
+
+
+
+SELECT count(*) FROM t;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+INSERT INTO t VALUES (5);
+SELECT count(*) FROM t;
+INSERT INTO t VALUES (6);
+SELECT count(*) FROM t;
+INSERT INTO t VALUES (2);
+SELECT count(*) FROM t;
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+SELECT count(*) FROM t;
+
+
+
+
+
+
+
+
+
+SELECT count(*) FROM t;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+\section{Explicit Locks}
+
+\begin{note}
+Locks are used to manage concurrency and ensure that multiple processes do not perform incompatible actions at the same time.
+Processes can \emph{block} when they try to acquire a lock on a table that is already locked.
+A blocked process waits for the previous process to unblock before proceeding.
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN EXCLUSIVE MODE;
+  
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+LOCK TABLE t IN SHARE MODE;
+
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN SHARE MODE;
+  
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+LOCK TABLE t IN EXCLUSIVE MODE;
+
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN SHARE MODE;
+  
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+LOCK TABLE t IN ROW SHARE MODE;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN EXCLUSIVE MODE;
+COMMIT;
+
+
+
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+LOCK TABLE t IN EXCLUSIVE MODE;
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN ROW EXCLUSIVE MODE;
+  
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+LOCK TABLE t IN ROW SHARE MODE;
+COMMIT;
+
+
+
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Deadlocks}
+
+\begin{note}
+    If two processes are each waiting on each other, this is a \emph{deadlock}.
+    When postgres detects a deadlock,
+    it will automatically terminate one of the processes.
+    The choice of which process is non-deterministic.
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+BEGIN;
+LOCK TABLE t IN EXCLUSIVE MODE;
+  
+
+LOCK TABLE u IN EXCLUSIVE MODE;
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u ( a INT );
+
+
+BEGIN;
+LOCK TABLE u IN EXCLUSIVE MODE;
+
+LOCK TABLE t IN EXCLUSIVE MODE;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+BEGIN;
+LOCK TABLE t IN SHARE MODE;
+  
+
+LOCK TABLE u IN SHARE MODE;
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u ( a INT );
+
+
+BEGIN;
+LOCK TABLE u IN SHARE MODE;
+
+LOCK TABLE t IN SHARE MODE;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+BEGIN;
+LOCK TABLE t IN SHARE MODE;
+  
+
+LOCK TABLE u IN ROW EXCLUSIVE MODE;
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u ( a INT );
+
+
+BEGIN;
+LOCK TABLE u IN EXCLUSIVE MODE;
+
+LOCK TABLE t IN ROW SHARE MODE;
+
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+BEGIN;
+LOCK TABLE t IN SHARE MODE;
+LOCK TABLE u IN ROW EXCLUSIVE MODE;
+COMMIT;
+
+
+
+
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u ( a INT );
+
+
+
+
+BEGIN;
+LOCK TABLE u IN EXCLUSIVE MODE;
+LOCK TABLE t IN ROW SHARE MODE;
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+BEGIN;
+LOCK TABLE t IN SHARE MODE;
+LOCK TABLE u IN ROW EXCLUSIVE MODE;
+
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u ( a INT );
+
+
+
+BEGIN;
+LOCK TABLE u IN EXCLUSIVE MODE;
+LOCK TABLE t IN ROW SHARE MODE;
+
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+
+BEGIN;
+
+LOCK TABLE t IN ACCESS SHARE MODE;
+
+
+LOCK TABLE u IN ROW EXCLUSIVE MODE;
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u ( a INT );
+
+BEGIN;
+
+LOCK TABLE u IN EXCLUSIVE MODE;
+LOCK TABLE t IN SHARE MODE;
+
+
+COMMIT;
+
+
+\end{lstlisting}
+\end{tabular}
+\end{tcolorbox}
+\vspace{-0.2in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\filbreak
+\section{Implicit Locks I}
+
+\begin{note}
+    All SQL commands acquire an \emph{implicit} lock.
+    In order to determine whether the command will block,
+    we must understand whether the corresponding explicit lock would block.
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN ACCESS EXCLUSIVE MODE;
+  
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+INSERT INTO t VALUES (5);
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN ACCESS EXCLUSIVE MODE;
+  
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN SHARE MODE;
+  
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+INSERT INTO t VALUES (1);
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN SHARE MODE;
+  
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN ROW SHARE MODE;
+  
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+INSERT INTO t VALUES (1);
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+\subsection{More interesting commands}
+
+\begin{note}
+    This section contains many new commands that we have not yet seen in class.
+    You are still responsible for being able to determine whether the command will block or not.
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN ROW EXCLUSIVE MODE;
+  
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+CREATE INDEX ON t(a);
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\nextproblem
+%\begin{note}
+%If you work through the procedure to check if the problem below blocks, you will see that the problem does not block.
+%But if you run the problem, it will look like it blocks.
+%Technically, the problem does not block anywhere,
+%the command just runs for a long time.
+%
+%This is admittedly very confusing and not something I intended for you all to be exposed to yet.
+%You can feel free to ignore this problem.
+%\end{note}
+%\begin{tcolorbox}
+%\begin{tabular}{p{3.25in}p{3in}}
+%\hspace{-0.2in}Session 1
+%\begin{lstlisting}
+%CREATE TABLE t ( a INT );
+%BEGIN;
+%LOCK TABLE t IN ROW EXCLUSIVE MODE;
+ % 
+%COMMIT;
+%\end{lstlisting}
+    %&
+%\hspace{-0.2in}Session 2
+%\begin{lstlisting}
+%
+%
+%
+%CREATE INDEX CONCURRENTLY ON t(a);
+%\end{lstlisting}
+%\end{tabular}
+%\vspace{-0.2in}
+%\end{tcolorbox}
+%\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\filbreak
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN SHARE MODE;
+  
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+VACUUM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN ROW SHARE MODE;
+  
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+VACUUM FULL t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+
+\filbreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN ROW EXCLUSIVE MODE;
+  
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+ANALYZE t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+LOCK TABLE t IN ROW EXCLUSIVE MODE;
+  
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+CLUSTER t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+BEGIN;
+INSERT INTO t VALUES (5);
+  
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+INSERT INTO t VALUES (6);
+
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+\section{Row Level Locks}
+
+\begin{note}
+    Most commands that affect individual rows acquire locks only on those rows.
+    This will allow many processes to run INSERT commands, for example, without blocking each other.
+    Understanding how these row level locks interoperate is important for efficient code to parallel insert into a database.
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO t VALUES (3);
+
+BEGIN;
+UPDATE t SET a=6 WHERE a=1;
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+
+UPDATE t SET a=7 WHERE a=1;
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO t VALUES (3);
+
+BEGIN;
+UPDATE t SET a=6 WHERE a=1;
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+
+DELETE FROM t WHERE a=2;
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO t VALUES (3);
+
+BEGIN;
+UPDATE t SET a=6 WHERE a=1;
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+
+DELETE FROM t WHERE a=1;
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO t VALUES (3);
+
+BEGIN;
+UPDATE t SET a=6 WHERE a=1;
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+
+DELETE FROM t;
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO t VALUES (3);
+
+BEGIN;
+DELETE FROM t WHERE a=3;
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+
+UPDATE t SET a=5;
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO t VALUES (3);
+
+BEGIN;
+DELETE FROM t WHERE a=4;
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+
+UPDATE t SET a=5;
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO t VALUES (3);
+
+BEGIN;
+UPDATE t SET a=6 WHERE a=1;
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+
+UPDATE t SET a=7 WHERE a=2;
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO t VALUES (3);
+
+BEGIN;
+SELECT * FROM t WHERE a=2 FOR UPDATE;
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+
+UPDATE t SET a=7 WHERE a=2;
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO t VALUES (3);
+
+BEGIN;
+SELECT * FROM t WHERE a=2 FOR UPDATE;
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+
+UPDATE t SET a=7 WHERE a=3;
+COMMIT;
+
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO t VALUES (3);
+
+BEGIN;
+SELECT * FROM t FOR UPDATE;
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+
+UPDATE t SET a=7 WHERE a=3;
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%
+
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+BEGIN;
+DELETE FROM t WHERE a=9;
+
+
+
+INSERT INTO t VALUES (9);
+DELETE FROM t;
+
+ABORT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+UPDATE t SET a=11 WHERE a=9;
+DELETE FROM t;
+
+
+INSERT INTO t VALUES (8);
+
+INSERT INTO t VALUES (9);
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\filbreak
+\section{Unique constraints}
+
+\begin{note}
+A non-NULL insert/update into a UNIQUE column takes an exclusive row-level lock on the index entry.
+NULLs never conflict.
+\end{note}
+%\textbf{NOTE:}
+%Insertion non-\lstinline{NULL} values into a \lstinline{UNIQUE} column acquires an \lstinline{EXCLUSIVE} lock on the transaction id.
+%\vspace{0.15in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT UNIQUE );
+BEGIN;
+INSERT INTO t VALUES (5);
+  
+
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+INSERT INTO t VALUES (6);
+INSERT INTO t VALUES (5);
+
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT UNIQUE );
+BEGIN;
+INSERT INTO t VALUES (NULL);
+  
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+INSERT INTO t VALUES (NULL);
+
+COMMIT;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%
+
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT  UNIQUE );
+BEGIN;
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+
+INSERT INTO t VALUES (8);
+
+
+
+ABORT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+INSERT INTO t VALUES (8);
+
+INSERT INTO t VALUES (9);
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\filbreak
+\section{Interaction between Isolation Levels and Row Level locks}
+\begin{note}
+    Postgres always evaluates WHERE clauses twice: once before acquiring a lock and once after the lock is acquired (the other session releases the lock and this session acquires it).
+    This can cause us to miss entries.
+    Under REPEATABLE READ, if the row changed since the snapshot, it raises a serialization failure.
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+BEGIN;
+
+UPDATE t SET a = a+1;
+
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+BEGIN;
+
+UPDATE t SET a = a+1;
+
+
+ABORT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+BEGIN;
+
+
+UPDATE t SET a = a+1;
+
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+
+DELETE FROM t WHERE a=10;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+BEGIN;
+
+
+UPDATE t SET a = a+1;
+
+
+ABORT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+UPDATE t SET a = a+1;
+
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+
+UPDATE t SET a = a+1;
+
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+SELECT count(*) FROM  t;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+
+
+UPDATE t SET a = a+1;
+
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN ISOLATION LEVEL
+READ COMMITTED;
+SELECT count(*) FROM  t;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+
+
+UPDATE t SET a = a+1;
+
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN ISOLATION LEVEL
+READ UNCOMMITTED;
+SELECT count(*) FROM  t;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
+
+
+
+UPDATE t SET a = a+1;
+
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+SELECT count(*) FROM  t;
+
+DELETE FROM t WHERE a=10;
+COMMIT;
+SELECT count(*) FROM t;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Foreign Keys}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+BEGIN;
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+
+INSERT INTO u VALUES (9);
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+
+INSERT INTO t VALUES (9);
+
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+BEGIN;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+INSERT INTO u VALUES (9);
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=9;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+INSERT INTO u VALUES (9);
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=8;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+INSERT INTO u VALUES (9);
+
+ABORT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=9;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+INSERT INTO u VALUES (9);
+
+ABORT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+
+DELETE FROM t WHERE a=8;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+
+INSERT INTO u VALUES (9);
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+DELETE FROM t WHERE a=9;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (9);
+BEGIN;
+
+
+INSERT INTO u VALUES (9);
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+DELETE FROM t WHERE a=8;
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+BEGIN;
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(b INT REFERENCES t(a));
+BEGIN;
+
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Deferring Constraints}
+
+\begin{note}
+    By default, postgres will check constraints at the time that data is inserted.
+    Adding the DEFERRABLE INITIALLY DEFERRED line to the constraint causes the constraint to be checked at time of COMMIT.
+    Sometimes this is necessary for correctness, and sometimes it is necessary for speed.
+\end{note}
+
+\begin{note}
+For each problem, you should consider what would happen both with and without the DEFERRABLE INITIALLY DEFERRED line.
+\end{note}
+
+\vspace{0.2in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (
+    a INT UNIQUE
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+INSERT INTO t VALUES (8);
+INSERT INTO t VALUES (8);
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT UNIQUE);
+CREATE TABLE u (
+    b INT REFERENCES t(a)
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+
+INSERT INTO t VALUES (8);
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN;
+INSERT INTO u VALUES (8);
+
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT UNIQUE);
+CREATE TABLE u (
+    b INT REFERENCES t(a)
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+
+INSERT INTO t VALUES (8);
+ABORT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN;
+INSERT INTO u VALUES (8);
+
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(
+    b INT REFERENCES t(a)
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(a INT UNIQUE);
+CREATE TABLE u(
+    b INT REFERENCES t(a)
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(
+    a INT UNIQUE
+    DEFERRABLE INITIALLY DEFERRED
+    );
+CREATE TABLE u(b INT REFERENCES t(a));
+BEGIN;
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t(
+    a INT UNIQUE
+    DEFERRABLE INITIALLY DEFERRED
+    );
+CREATE TABLE u(b INT REFERENCES t(a));
+BEGIN;
+
+
+INSERT INTO t VALUES (9);
+
+COMMIT;
+  
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+
+SELECT count(*) FROM u;
+
+INSERT INTO u VALUES (9);
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT UNIQUE);
+CREATE TABLE u (
+    b INT REFERENCES t(a)
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+
+LOCK TABLE t IN EXCLUSIVE MODE;
+
+INSERT INTO t VALUES (8);
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN;
+INSERT INTO u VALUES (8);
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT UNIQUE);
+CREATE TABLE u (
+    b INT REFERENCES t(a)
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN;
+
+
+LOCK TABLE t IN EXCLUSIVE MODE;
+
+COMMIT;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+
+
+
+
+
+BEGIN;
+INSERT INTO u VALUES (8);
+
+COMMIT;
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Everything at Once}
+
+\begin{note}
+    The problems below test the interaction of all the previous knowledge.
+    These problems are harder because there are no "hints" about what types of effects you should be looking for.
+    Realworld problems are significantly more complicated than these problems.
+\end{note}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT PRIMARY KEY);
+
+
+
+BEGIN;
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO u VALUES (2);
+
+
+
+LOCK TABLE t IN EXCLUSIVE MODE;
+SELECT count(*) FROM t;
+
+
+INSERT INTO t VALUES (NULL);
+COMMIT;
+
+
+
+SELECT count(*) FROM u;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u (
+    b INT REFERENCES t(a)
+    );
+
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+SELECT count(*) FROM u;
+
+
+INSERT INTO u VALUES (1);
+SELECT count(*) FROM u;
+
+
+INSERT INTO u VALUES (NULL);
+COMMIT;
+SELECT count(*) FROM t;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nextproblem
+\begin{tcolorbox}
+\begin{tabular}{p{3.25in}p{3in}}
+\hspace{-0.2in}Session 1
+\begin{lstlisting}
+CREATE TABLE t (a INT PRIMARY KEY);
+
+BEGIN;
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO u VALUES (2);
+
+
+
+LOCK TABLE u IN ROW EXCLUSIVE MODE;
+SELECT count(*) FROM t;
+
+
+INSERT INTO t VALUES (3);
+COMMIT;
+
+
+
+SELECT count(*) FROM t;
+\end{lstlisting}
+    &
+\hspace{-0.2in}Session 2
+\begin{lstlisting}
+
+CREATE TABLE u (b INT NOT NULL);
+
+
+
+
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+INSERT INTO t VALUES (2);
+
+
+INSERT INTO u VALUES (1);
+SELECT count(*) FROM u;
+
+
+UPDATE u SET b=5;
+COMMIT;
+SELECT count(*) FROM t;
+
+\end{lstlisting}
+\end{tabular}
+\vspace{-0.2in}
+\end{tcolorbox}
+\vspace{0.25in}
+
+\end{document}
