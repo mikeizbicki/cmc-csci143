@@ -1,5 +1,17 @@
 # MVCC Implementation
 
+**Announcements: Mon 16 Nov**
+
+1. Tim Peters has died
+    1. <https://news.ycombinator.com/item?id=50450488>
+    1. <https://discuss.python.org/t/in-memoriam-tim-peters-1952-2026/110028>
+    1. <https://github.com/python/cpython/blob/2fc68e180ffdb31886938203e89a75b220a58cec/Objects/listsort.txt>
+    1. <https://chrismcdonough.substack.com/p/the-shameful-defenestration-of-tim>
+
+1. Quiz on locks/transactions this Wednesday.
+
+## Notes
+
 MVCC = MultiVersion Concurrency Control
 
 1. It is the technique postgres uses internally for implementing Atomic and Isolated transactions.
@@ -10,44 +22,20 @@ MVCC = MultiVersion Concurrency Control
 
     <img src=img/update.jpeg width=400px >
 
-1. You will not be directly quizzed on this material.
-
-    > **Reminder:**
-    > Quiz on locks/transactions this Wednesday.
-    >
-    > I've added a new example problems practice sheet at <https://github.com/mikeizbicki/cmc-csci143/blob/2026spring/topic_07_transactions/quiz_notes2.pdf>.
-    >
-    > There are no new concepts here, but lots of practice problems that combine material in new weird ways.
-
-## Lecture Notes
-
 **Reference:**
 
 1. The Internals of Postgres (for database administrators and system developers) <http://www.interdb.jp/pg>.
 
-1. We will cover chapters 1, 2, 5.1-5.3, 5.10, 6.1, 6.2, 6.5, 6.6
+1. You are responsible for: chapters 1, 2, 5.1-5.3, 5.10, 6.1, 6.2, 6.5, 6.6
 
+<!--
     > **NOTE:**
     > In the past, I've also required Sections 5.4-5.7 and 6.3, 6.4.
     > For students who want to work with databases professionally in the future,
     > I strongly recommend you read these sections.
-
-<!--
-> I will not test you on them, however, because the knowledge is *illegible* (i.e. hard to test).
 -->
 
-<!--
-1. The `questions.pdf` file contains quiz practice problems related to the reading.
-
-    This covers the implementation details of MVCC.
-    These details will help you understand:
-    
-    1. why locks work the way they do
-    1. the "table overhead" (we previously talked about "row overhead" only)
-    1. background for understanding how to make SQL `SELECT` queries fast
--->
-
-**Important Highlights From the Reading:**
+**Important Highlights from references:**
 
 1. Every transaction has a transaction id (`xid`).
    Run the following command to get it:
@@ -152,3 +140,11 @@ MVCC = MultiVersion Concurrency Control
    If the transaction is aborted,
    these numbers will remain unused,
    and future inserts will continue as if the transaction occurred.
+
+## Lab
+
+TBA
+
+## Homework
+
+See <https://github.com/mikeizbicki/twitter_postgres_parallel>
