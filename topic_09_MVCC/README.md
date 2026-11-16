@@ -26,14 +26,11 @@ MVCC = MultiVersion Concurrency Control
 
 1. The Internals of Postgres (for database administrators and system developers) <http://www.interdb.jp/pg>.
 
-1. You are responsible for: chapters 1, 2, 5.1-5.3, 5.10, 6.1, 6.2, 6.5, 6.6
+1. You are responsible for: chapters 1, 2, 5, 6, 7
 
-<!--
-    > **NOTE:**
-    > In the past, I've also required Sections 5.4-5.7 and 6.3, 6.4.
-    > For students who want to work with databases professionally in the future,
-    > I strongly recommend you read these sections.
--->
+1. For final exam:
+    1. If you can reproduce all the pictures we cover in class, that will be 50% on the exam
+    1. To get beyond 50%, you need to be able to "integrate" this knowledge and explain to me how different pictures relate to each other based on various real world scenarios
 
 **Important Highlights from references:**
 
