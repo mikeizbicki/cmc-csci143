@@ -91,6 +91,7 @@ INSERT INTO u VALUES (1);
 LOCK TABLE t IN SHARE MODE;
 SELECT count(*) FROM u;
 INSERT INTO u VALUES (2);
+
 COMMIT;
 SELECT count(*) FROM t;
 \end{lstlisting}
@@ -102,16 +103,11 @@ SELECT count(*) FROM t;
 
 
 
-
-
-
-
-
-
 BEGIN ISOLATION LEVEL
 REPEATABLE READ;
 SELECT count(*) FROM u;
 INSERT INTO t VALUES (2);
+
 INSERT INTO u VALUES (2);
 COMMIT;
 SELECT count(*) FROM u;
@@ -146,6 +142,7 @@ ABORT;
 
 BEGIN;
 INSERT INTO t VALUES (3);
+
 
 INSERT INTO t VALUES (1);
 COMMIT;
@@ -182,7 +179,6 @@ COMMIT;
 
 
 BEGIN;
-
 UPDATE t SET a=10 WHERE a=9;
 
 COMMIT;
@@ -219,9 +215,8 @@ ABORT;
 
 
 BEGIN;
+
 INSERT INTO u VALUES (8);
-
-
 COMMIT;
 \end{lstlisting}
 \end{tabular}
