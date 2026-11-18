@@ -76,44 +76,33 @@ For each problem, you must perform all of the following tasks correctly in order
     \item You may not connect to a running postgres database.
 \end{enumerate}
 
-\vspace{1in}
+\vspace{0.5in} 
 
 \nextproblem
 \begin{tcolorbox}
 \begin{tabular}{p{3.25in}p{3in}}
 \hspace{-0.2in}Session 1
 \begin{lstlisting}
-CREATE TABLE t (a INT PRIMARY KEY);
-CREATE TABLE u (b INT UNIQUE);
-BEGIN;
-INSERT INTO t VALUES (1);
-INSERT INTO u VALUES (1);
-LOCK TABLE t IN SHARE MODE;
-SELECT count(*) FROM u;
-INSERT INTO u VALUES (2);
+CREATE TABLE t ( a INT );
 
-COMMIT;
-SELECT count(*) FROM t;
+VACUUM t;
+  
+
+VACUUM FULL u;
+
 \end{lstlisting}
     &
 \hspace{-0.2in}Session 2
 \begin{lstlisting}
 
+CREATE TABLE u ( a INT );
 
+VACUUM FULL u;
+VACUUM t;
 
-
-
-BEGIN ISOLATION LEVEL
-REPEATABLE READ;
-SELECT count(*) FROM u;
-INSERT INTO t VALUES (2);
-
-INSERT INTO u VALUES (2);
-COMMIT;
 SELECT count(*) FROM u;
 \end{lstlisting}
 \end{tabular}
-\vspace{-0.2in}
 \end{tcolorbox}
 \vspace{0.25in}
 
@@ -123,14 +112,15 @@ SELECT count(*) FROM u;
 \begin{tabular}{p{3.25in}p{3in}}
 \hspace{-0.2in}Session 1
 \begin{lstlisting}
-CREATE TABLE t ( a INT UNIQUE );
-BEGIN;
-INSERT INTO t VALUES (1);
-INSERT INTO t VALUES (2);
-INSERT INTO t VALUES (3);
+CREATE TABLE t ( a INT );
+INSERT INTO t VALUES (9);
+INSERT INTO t VALUES (10);
 
 
-ABORT;
+
+UPDATE t SET a = a+1;
+
+
   
 \end{lstlisting}
     &
@@ -139,12 +129,11 @@ ABORT;
 
 
 
+BEGIN ISOLATION LEVEL
+READ UNCOMMITTED;
+SELECT count(*) FROM  t;
 
-BEGIN;
-INSERT INTO t VALUES (3);
-
-
-INSERT INTO t VALUES (1);
+DELETE FROM t WHERE a=10;
 COMMIT;
 SELECT count(*) FROM t;
 \end{lstlisting}
@@ -153,19 +142,23 @@ SELECT count(*) FROM t;
 \end{tcolorbox}
 \vspace{0.25in}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \nextproblem
 \begin{tcolorbox}
 \begin{tabular}{p{3.25in}p{3in}}
 \hspace{-0.2in}Session 1
 \begin{lstlisting}
-CREATE TABLE t(a INT UNIQUE);
-CREATE TABLE u(b INT REFERENCES t(a));
-INSERT INTO t VALUES (8);
-INSERT INTO t VALUES (9);
-BEGIN;
+CREATE TABLE t (
+    a INT PRIMARY KEY
+    DEFERRABLE INITIALLY DEFERRED
+    );
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+INSERT INTO t VALUES (5);
+  
 
-INSERT INTO u VALUES (9);
+INSERT INTO t VALUES (6);
+SELECT count(*) FROM t;
+
 
 COMMIT;
 \end{lstlisting}
@@ -178,46 +171,69 @@ COMMIT;
 
 
 
-BEGIN;
-UPDATE t SET a=10 WHERE a=9;
 
-COMMIT;
+BEGIN;
+INSERT INTO t VALUES (6);
+
+
+INSERT INTO t VALUES (5);
+ABORT;
+
 \end{lstlisting}
 \end{tabular}
 \vspace{-0.2in}
 \end{tcolorbox}
 \vspace{0.25in}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\nextproblem
 \begin{tcolorbox}
 \begin{tabular}{p{3.25in}p{3in}}
 \hspace{-0.2in}Session 1
 \begin{lstlisting}
-CREATE TABLE t (a INT UNIQUE);
-CREATE TABLE u (
-    b INT REFERENCES t(a)
-    DEFERRABLE INITIALLY DEFERRED
-    );
-BEGIN;
+CREATE TABLE t (a INT PRIMARY KEY);
 
-INSERT INTO t VALUES (8);
-ABORT;
+BEGIN;
+INSERT INTO t VALUES (1);
+INSERT INTO t VALUES (2);
+INSERT INTO u VALUES (2);
+
+
+
+LOCK TABLE u IN ROW EXCLUSIVE MODE;
+SELECT count(*) FROM t;
+
+
+INSERT INTO t VALUES (3);
+COMMIT;
+
+
+
+SELECT count(*) FROM t;
 \end{lstlisting}
     &
 \hspace{-0.2in}Session 2
 \begin{lstlisting}
 
+CREATE TABLE u (b INT NOT NULL);
 
 
 
 
+BEGIN ISOLATION LEVEL
+REPEATABLE READ;
+INSERT INTO t VALUES (2);
 
 
-BEGIN;
+INSERT INTO u VALUES (1);
+SELECT count(*) FROM u;
 
-INSERT INTO u VALUES (8);
+
+UPDATE u SET b=5;
 COMMIT;
+SELECT count(*) FROM t;
+
 \end{lstlisting}
 \end{tabular}
 \vspace{-0.2in}
