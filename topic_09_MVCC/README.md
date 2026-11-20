@@ -140,7 +140,7 @@ MVCC = MultiVersion Concurrency Control
 
 ## Lab
 
-TBA
+See <https://github.com/mikeizbicki/lab-diskusage/>
 
 ## Homework
 
